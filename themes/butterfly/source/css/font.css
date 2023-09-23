@@ -1,0 +1,61 @@
+p {
+  font-size: 16px !important;
+}
+ol {
+  font-size: 16px !important;
+}
+.post-title {
+  font-size: 20px;
+}
+h1 {
+  font-weight: bolder !important;
+}
+h1 {
+  font-size: 30px !important;
+}
+h2 {
+  font-size: 25px !important;
+}
+h3 {
+  font-size: 23px !important;
+}
+h4 {
+  font-size: 21px !important;
+}
+h5 {
+  font-size: 20px !important;
+}
+h6 {
+  font-size: 19px !important;
+}
+
+[data-theme='light'] h1 {
+  background: linear-gradient(to right, #365262 0%, #1c6a54 50%, #254050 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+[data-theme='dark'] h1 {
+  background: linear-gradient(to right, #ffa9c4 0%, #7fe6e1 50%, #e68daa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.article-title {
+  font-weight: bolder !important;
+}
+#site-title {
+  color: #a3ebe7 !important;
+}
+.page-number {
+  color: #beeeec !important; 
+}
+/*评论字体颜色*/
+@media (prefers-color-scheme: dark){
+  .v[data-class="v"] .vinput, .v[data-class="v"] .veditor, .v[data-class="v"] p, .v[data-class="v"] pre code, .v[data-class="v"] .status-bar {
+    color: #5b7a8c !important;
+  }
+}
+#aside-content .card-info .author-info__name {
+  font-weight: 600 !important;
+}

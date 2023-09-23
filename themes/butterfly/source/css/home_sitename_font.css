@@ -1,0 +1,43 @@
+p {
+  font-size: 16px !important;
+}
+ol {
+  font-size: 16px !important;
+}
+.post-title {
+  font-size: 20px;
+}
+h1 {
+  font-weight: bolder !important;
+}
+h1 {
+  font-size: 30px !important;
+}
+h2 {
+  font-size: 25px !important;
+}
+h3 {
+  font-size: 23px !important;
+}
+h4 {
+  font-size: 21px !important;
+}
+h5 {
+  font-size: 20px !important;
+}
+h6 {
+  font-size: 19px !important;
+}
+[data-theme='dark'] .page-number {
+  color: #a3ebe7 !important;
+}
+[data-theme='light'] .page-number {
+  color: #191e1b !important;
+}
+.article-title {
+  font-weight: bolder !important;
+}
+#site-title {
+  color: #a3ebe7 !important;
+  font-size: 35px !important;
+}

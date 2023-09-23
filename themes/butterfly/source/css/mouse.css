@@ -1,0 +1,54 @@
+body {
+    cursor:url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/noramal_bl.cur),
+          default;
+  }
+  a,
+  img {
+    cursor:url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur),
+          default; 
+  }
+  button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+  button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .toggle-button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .toggle-button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .copy-button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .copy-button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .copy-button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .copy-button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .expand:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .expand:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #nav .site-page:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #nav .site-page:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #pagination .page-number.current:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #pagination .page-number:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
