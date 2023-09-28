@@ -269,7 +269,7 @@ aside:
       link: https://tinyletter.com/genkaim114
   card_announcement:
     enable: true
-    content: ps:视频播放需要魔法  移动端性能优化没有樱花特效 
+    content: csp已落榜，先更新些应用层面的（单休懒得搞算法），学算法得等高考后了捏
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
