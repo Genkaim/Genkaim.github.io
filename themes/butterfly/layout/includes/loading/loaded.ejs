@@ -1,0 +1,35 @@
+<% if (theme.preloader.enable) { %>
+    <script>
+        document.body.style.overflow = 'hidden';
+    </script>
+    <section class='loader'>
+        <div class='loader-center'>
+            <div class='chars'>
+              <span class='char brace'>{</span>
+              <span class='dots'>
+                <span class='char dot _dot-1'>.</span>
+                <span class='char dot _dot-2'>.</span>
+                <span class='char dot _dot-3'>.</span>
+              </span>
+              <span class='char brace'>}</span>
+            </div>
+        </div>
+      </section>
+      
+    <script>
+        var endLoading = function () {
+            document.body.style.overflow = 'auto';
+            var loader = document.querySelector('section.loader');
+            loader.classList.add('loading');
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 1000);
+        }
+        setTimeout(function() {
+                window.addEventListener('load',endLoading);
+        }, 500);
+    </script>
+    <style>
+    </style>
+    <% } %>
+    

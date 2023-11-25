@@ -1,0 +1,12 @@
+#footer-wrap
+  if theme.footer.owner.enable
+    - var now = new Date()
+    - var nowYear = now.getFullYear()
+    if theme.footer.owner.since && theme.footer.owner.since != nowYear
+      .copyright!= `&copy;2023 - ${nowYear} By ${config.author}`
+    else
+      .copyright!= `&copy;${nowYear} By ${config.author}`
+  if theme.footer.custom_text
+    .footer_custom_text!=`${theme.footer.custom_text}`
+  img(src="https://pic.bibiu.cc/2023/08/16/64dbe1fc830a8.png", alt="img", class="moe-icon")
+  a(href="https://icp.gov.moe/?keyword=20239004", target="_blank") 萌ICP备20239004号
