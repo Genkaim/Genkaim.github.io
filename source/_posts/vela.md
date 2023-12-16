@@ -1,5 +1,5 @@
 ---
-title: vela基础介绍
+title: velaOS快应用快速入门
 tags: Coding
 abbrlink: 3f1ce327
 date: 2023-12-1 10:40:00
