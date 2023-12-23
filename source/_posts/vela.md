@@ -4,6 +4,7 @@ tags: Coding
 abbrlink: 3f1ce327
 date: 2023-12-1 10:40:00
 cover: https://raw.gitmirror.com/genkaim/blog_img/main/data/202311041820746.jpg
+description: welcome to mt blog|velaOS快应用快速入门-通过例子帮助初学者快速入门|genkaimの博客
 ---
 
 ![cover](https://raw.gitmirror.com/genkaim/blog_img/main/data/202311041820746.jpg)
