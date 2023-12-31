@@ -1,12 +1,13 @@
 beautify()
   headStyle(fontsize)
-    padding-left: unit(fontsize + 8, 'px')
+    padding-left: unit(fontsize + 12, 'px')
 
     &:before
-      font-size: unit(fontsize - 2, 'px')
+      margin-left: unit((-(fontsize + 6)), 'px')
+      font-size: unit(fontsize, 'px')
 
     &:hover
-      padding-left: unit(fontsize + 12, 'px')
+      padding-left: unit(fontsize + 18, 'px')
 
   h1,
   h2,
@@ -21,7 +22,6 @@ beautify()
       top: calc(50% - 7px)
       color: $title-prefix-icon-color
       content: $title-prefix-icon
-      left: 0
       line-height: 1
       transition: all .2s ease-out
       @extend .fontawesomeIcon
@@ -65,22 +65,16 @@ beautify()
 
   ul > li
     list-style-type: circle
-  
-  hr
-    @extend .custom-hr
 
 #article-container
   word-wrap: break-word
   overflow-wrap: break-word
 
-  if hexo-config('text_align_justify')
-    text-align: justify
-
   a
     color: $theme-link-color
 
     &:hover
-      text-decoration: underline
+      color: rgb(215, 215, 215)
 
   img
     display: block
@@ -94,41 +88,31 @@ beautify()
   iframe
     margin: 0 0 20px
 
-  kbd
-    margin: 0 3px
-    padding: 3px 5px
-    border: 1px solid #b4b4b4
-    border-radius: 3px
-    background-color: #f8f8f8
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .25), 0 2px 1px 0 rgba(255, 255, 255, .6) inset
-    color: #34495e
-    white-space: nowrap
-    font-weight: 600
-    font-size: .9em
-    font-family: Monaco, 'Ubuntu Mono', monospace
-    line-height: 1em
+  if hexo-config('anchor')
+    a.headerlink
+      &:after
+        @extend .fontawesomeIcon
+        float: right
+        color: var(--headline-presudo)
+        content: '\f0c1'
+        font-size: .95em
+        opacity: 0
+        transition: all .3s
 
-  if hexo-config('anchor.click_to_scroll')
+      &:hover
+        &:after
+          color: var(--pseudo-hover)
+
     h1,
     h2,
     h3,
     h4,
     h5,
     h6
-      width: fit-content
-
-      a:not(.headerlink)
-        position relative
-        z-index 10
-
-      a.headerlink
-        position: absolute
-        top: 0
-        right: 0
-        left 0
-        bottom: 0
-        width 100%
-        height: 100%
+      &:hover
+        a.headerlink
+          &:after
+            opacity: 1
 
   ol,
   ul
@@ -142,12 +126,6 @@ beautify()
     p
       margin: 0 0 8px
 
-  > :last-child
-    margin-bottom: 0 !important
-
-  hr
-    margin: 20px 0
-
   if hexo-config('beautify.enable')
     if hexo-config('beautify.field') == 'site'
       beautify()
@@ -155,13 +133,11 @@ beautify()
       &.post-content
         beautify()
 
+  > :last-child
+    margin-bottom: 0 !important
+
 #post
   .tag_share
-    &:after
-      display: block
-      clear: both
-      content: ''
-
     .post-meta
       &__tag-list
         display: inline-block
@@ -184,7 +160,7 @@ beautify()
     .post_share
       display: inline-block
       float: right
-      margin: 8px 0 0
+      margin: 8px 0
       width: fit-content
 
       .social-share
@@ -203,36 +179,39 @@ beautify()
     padding: 10px 16px
     border: 1px solid var(--light-grey)
     transition: box-shadow .3s ease-in-out
-
+    overflow: hidden
+    border-radius: 12px!important
+    background: linear-gradient(45deg, #f6d8f5, #c2f1f0, #f0debf);
+    box-shadow: none !important
     &:before
-      @extend .fontawesomeIcon
-      position: absolute
-      top: 2px
-      right: 12px
-      color: $theme-color
-      content: '\f1f9'
-      font-size: 1.3em
+      position absolute
+      right -26px
+      top -120px
+      content '\f25e'
+      font-size 200px
+      font-family 'Font Awesome 5 Brands'
+      opacity .2
 
     &:hover
-      box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
+      box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5) !important
 
     .post-copyright
       &-meta
         color: $light-blue
         font-weight: bold
 
-        i
-          margin-right: 3px
-
       &-info
         padding-left: 6px
 
         a
-          text-decoration: underline
+          text-decoration: none
           word-break: break-word
 
           &:hover
             text-decoration: none
+
+  .post-copyright-cc-info
+    color: $theme-color;
 
   .post-outdate-notice
     position: relative
@@ -257,3 +236,28 @@ beautify()
 
   .ads-wrap
     margin: 40px 0
+.post-copyright-m-info
+  .post-copyright-a,
+  .post-copyright-c,
+  .post-copyright-u
+    display inline-block
+    width fit-content
+    padding 2px 5px
+[data-theme="dark"]
+  #post
+    .post-copyright
+      background #07080a
+      text-shadow #bfbeb8 0 0 2px
+      border 1px solid rgb(19 18 18 / 35%)
+      box-shadow 0 0 5px var(--theme-color)
+      animation flashlight 1s linear infinite alternate
+  .post-copyright-info
+    color #e0e0e4
+
+#post
+  .post-copyright__title
+    font-size 22px
+  .post-copyright__notice
+    font-size 15px
+  .post-copyright
+    box-shadow 2px 2px 5px
