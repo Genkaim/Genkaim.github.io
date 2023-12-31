@@ -202,6 +202,7 @@
 /*标题部分*/
 #post-info {
     position: relative;
+    padding-right: 40px;
     top: -28px;
 }
   /*移动端信息*/
@@ -215,7 +216,6 @@
     left: 20px;
     top: 10px;
     border-bottom: none !important;
-    width: 750px;
 }
   /*标题信息*/
 .meta-firstline {
