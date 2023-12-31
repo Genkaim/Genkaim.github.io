@@ -436,16 +436,15 @@ addtoany:
 
 # Comments System
 # --------------------------------------
-
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  use: waline # Valine,Disqus
+  use: Waline # Valine,Disqus
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
-  lazyload: true
-  count: true # Display comment count in post's top_img
+  lazyload: false
+  count: false # Display comment count in post's top_img
   card_post_count: false # Display comment count in Home Page
 
 # disqus
@@ -479,31 +478,19 @@ gitalk:
 
 # valine
 # https://valine.js.org
-#valine:
-#  appId: 6wvGN2Lf7erbk1QOPzmJFRA7-gzGzoHsz # leancloud application app id
-#  appKey: nueWTTH4kKI5IMDMw2EnXv21 # leancloud application app key
-#  avatar: monsterid # gravatar style https://valine.js.org/#/avatar
-#  serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
-#  bg: # valine background
-#  visitor: true
-#  option:
-#dark
 valine:
-  appId: 
-  appKey: 
+  appId: # leancloud application app id
+  appKey: # leancloud application app key
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
   bg: # valine background
   visitor: false
   option:
 
-
-
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  enable: true
-  serverURL: https://blog-c-eight.vercel.app/ # Waline server address url
+  serverURL: https://waline.genkaim.top/ # Waline server address url
   bg: # waline background
   pageview: false
   option:
@@ -1066,8 +1053,8 @@ CDN:
     # disqusjs:
     # disqusjs_css:
     # twikoo:
-    # waline_js:
-    # waline_css:
+    #waline_js: '\js\@waline\client\dist\waline.js'
+    #waline_css: '\js\@waline\client\dist\waline.css'
     # giscus:
     # sharejs:
     # sharejs_css:

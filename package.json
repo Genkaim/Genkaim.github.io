@@ -9,12 +9,13 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "6.3.0"
+    "version": "7.0.0"
   },
   "dependencies": {
+    "@waline/client": "^3.0.0-alpha.9",
     "animate.css": "^4.1.1",
     "aplayer": "^1.10.1",
-    "hexo": "^6.3.0",
+    "hexo": "^7.0.0",
     "hexo-abbrlink": "^2.2.1",
     "hexo-butterfly-categories-card": "^1.0.0",
     "hexo-butterfly-swiper": "^1.0.12",
@@ -42,7 +43,7 @@
     "hexo-server": "^3.0.0",
     "hexo-tag-aplayer": "^3.0.4",
     "hexo-tag-dplayer": "^0.3.3",
-    "hexo-theme-butterfly": "^4.9.0",
+    "hexo-theme-butterfly": "^4.12.0",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-wordcount": "^6.0.1",
     "live2d-widget-model-miku": "^1.0.5",

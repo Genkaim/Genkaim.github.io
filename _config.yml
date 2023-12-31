@@ -95,34 +95,6 @@ categoryBar:
   custom_css: https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css
 
 
-magnet:
-  enable: true
-  priority: 1
-  enable_page: /
-  type: tags
-  devide: 2
-  display:
-    - name: 教程
-      display_name: 教程
-      icon: 🥲
-    - name: Coding
-      display_name: 学习记录
-      icon: 😋
-    - name: AI
-      display_name: AI（应用）
-      icon: 🤡
-  color_setting:
-    text_color: black
-    text_hover_color: white
-    background_color: "#f2f2f2"
-    background_hover_color: "#b3b3b3"
-  layout:
-    type: id
-    name: recent-posts
-    index: 0
-  temple_html: '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet">${temple_html_item}</div></div>'
-  plus_style: ""
-
 # hexo-butterfly-swiper
 # see https://akilar.top/posts/8e1264d1/
 swiper:
