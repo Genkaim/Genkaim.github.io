@@ -107,6 +107,9 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
       else
         filter: brightness(.8)
 
+    #aside-content .aside-list > .aside-list-item:not(:last-child)
+      border-bottom: 1px dashed alpha(#FFFFFF, .1)
+
     // Gitalk
     #gitalk-container
       filter: brightness(.8)

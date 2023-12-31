@@ -1,18 +1,17 @@
-
 [data-theme='light'] #popup {
     background-color: #e1e1e1;
-    border: 1.5px solid #6f6f6f;
+    box-shadow: 0 0 10px rgb(114, 113, 113);
   }
 [data-theme='dark'] #popup {
     background: #2a2a2a ;
-    border: 1.5px solid #b1b1b1;
+    box-shadow: 0 0 10px rgb(29, 29, 29);
   }  
+
 #popup {
     position: fixed;
     right: 1vh;
     top: 2vh;
     width: 350px; 
-    padding-right: 15px;
     height: 125px; 
     border: 8px ;
     z-index: 1000000;
@@ -21,7 +20,7 @@
   }
 #popup h1 {
     font-size: 20px !important;
-    margin-left: 20px;
+    margin-left: 15px;
     margin-top: 10px;
     margin-bottom: 0px;
   }
@@ -29,29 +28,23 @@
     position: absolute;
     width: 250px;
     font-size: 15px !important;
-    margin-left: 20px;
+    margin-left: 15px;
     margin-top: 0px ;
   }
   
 #close {
     position: absolute;
     width: 50px; 
-    height: 100px; 
-    margin-left: 285.5px; 
-    margin-top: 11.5px; 
+    height: 110px; 
+    margin-left: 292.5px; 
+    margin-top: 7.5px; 
     border: none; 
     color: black; 
-    border-radius: 11px;
+    border-radius: 8px;
     z-index: 1000001;
     background-color: #b3b3b3; 
     transition: background 0.3s ease-in-out;
-    border: 3px solid #b5b5b500;
   }
-  [data-theme='light'] #close:hover {  
-    border: 3px solid #3b3b3b;
-    background: #a8a8a8;
-}
-[data-theme='dark'] #close:hover {  
-  border: 3px solid #808080;
-  background: #a8a8a8;
+  #close:hover {
+    background: #c9c9c9;
 }
