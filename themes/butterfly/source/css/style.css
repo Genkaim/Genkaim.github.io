@@ -243,11 +243,11 @@
 /*post img*/
 a img {
     display: block;
-    border-radius: 8px;
+    border-radius: 20px;
   }
 [data-theme="dark"] a img {
     display: block;
-    border-radius: 8px;
+    border-radius: 20px;
   }
 #article-container {
     border-radius: 8px;
@@ -316,9 +316,23 @@ a img {
 }
 /*aplayer*/
 /*代码*/
-.highlight {
-  border-radius: 8px;
+[data-theme='light'] .highlight {
+  box-shadow: none !important;
+  border: 2px solid #b3b3b3;
+  box-shadow: none!important;
 }
+[data-theme='dark'] .highlight {
+  box-shadow: none !important;
+  border: 2px solid #b3b3b3;
+  box-shadow: none!important;
+}
+[data-theme='light'] .highlight:hover {
+  border: 2px solid #cccccc;
+}
+[data-theme='dark'] .highlight:hover {
+  border: 2px solid #636363;
+}
+
 [data-theme='light'] #rightside {
   background: rgba(255, 255, 255, 0.692);
 }
@@ -336,7 +350,8 @@ a img {
   padding-bottom: 10px;
   border-radius: 15px;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(70%)
+  transform: translateX(70%);
+  transition-delay: 0s;
 }
 #triangles-show {
   position: absolute;
@@ -348,9 +363,11 @@ a img {
   transform: translateY(-50%);
 }
 
-
+#article-container figure.highlight {
+  border-radius: 14px !important;
+}
 #rightside:hover {
-  transform: translateY(0)
+  transform: translateY(0);
 }
 #go-up, #translateLink, #darkmode, #mobile-toc-button {
   border-radius: 10px !important;
@@ -519,14 +536,31 @@ blockquote {
   bottom: 20px;
   color: white;
 }
+[data-theme='light'] .toggle {
+  box-shadow: none !important;
+  border: 2px solid #b3b3b3;
+  box-shadow: none!important;
+}
+[data-theme='dark'] .toggle {
+  box-shadow: none !important;
+  border: 2px solid #b3b3b3;
+  box-shadow: none!important;
+}
+[data-theme='light'] .toggle:hover {
+  border: 2px solid #dbdbdb;
+}
+[data-theme='dark'] .toggle:hover {
+  border: 2px solid #636363;
+}
+
 /*外挂标签*/
 [data-theme='light'] .toggle {
-  border-radius: 8px !important;
+  border-radius: 14px !important;
   box-shadow: 0 0 5px 3px rgb(213, 213, 213);
   background: #f6f8fa !important;
 }
 [data-theme='dark'] .toggle {
-  border-radius: 8px !important;
+  border-radius: 14px !important;
   background: #171717 !important;
 }
 [data-theme='light'] .toggle-button {
