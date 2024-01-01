@@ -1371,3 +1371,51 @@ img {
 .card-archives {
   display: none!important;
 }
+[data-theme="light"] #category-bar {
+  background: #f1e6e6;
+  border-radius: 10px !important;
+  border: 1.5px solid #575757;
+}
+[data-theme="dark"] #category-bar {
+  background: #191e1b;
+  border-radius: 10px !important;
+  border: 1.5px solid #b3b3b3;
+}
+.category-bar-item a {
+  border: 1.5px solid #45454500 !important;
+  transition: background 0.3s ease, color 0.3s ease, border 0s ease !important;
+}
+[data-theme="light"].category-bar-item a {
+  color: rgb(67, 67, 67) !important;
+}
+[data-theme="dark"].category-bar-item a {
+  color: rgb(230, 230, 230) !important;
+}
+@media screen and (max-width: 570px){
+  #category-bar {
+    width: 100%!important;
+  }
+}
+@media screen and (max-width: 1060px){
+  @media screen and (min-width: 571px){
+  #category-bar {
+    width: 97%!important;
+  }
+}
+}
+#category-bar {
+  height: 45px !important;
+}
+[data-theme="light"] .category-bar-item:hover a {
+  background: #a1a1a12c !important;
+  color: rgb(67, 67, 67) !important;
+  border: 1.5px solid #454545 !important;
+}
+[data-theme="dark"] .category-bar-item:hover a {
+  background: #a1a1a12c !important;
+  color: rgb(223, 223, 223) !important;
+  border: 1.5px solid #e2e2e2 !important;
+}
+.post-outdate-notice {
+  border-radius: 10px !important;
+}

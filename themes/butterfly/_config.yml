@@ -13,6 +13,8 @@ wowjs:
     - class: recent-post-item #必填项，需要添加动画的元素的class 
       style: animate__fadeInUp
       iteration: 1 
+    - id: category-bar
+      style: animate__fadeInUp
     - class: card-history
       style: animate__fadeInUp
     - class: card-widget
