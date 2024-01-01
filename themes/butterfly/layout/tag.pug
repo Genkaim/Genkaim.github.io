@@ -9,6 +9,10 @@ block content
   else
     include ./includes/mixins/article-sort.pug
     #tag
+      .category-in-bar
+        .category-in-bar-tips
+          i.fa-fw.fas.fa-tags
+        include includes/tagBar.pug
       .article-sort-title= _p('page.tag') + ' - ' + page.tag
       +articleSort(page.posts)
       include includes/pagination.pug

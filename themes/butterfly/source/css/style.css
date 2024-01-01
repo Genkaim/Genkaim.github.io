@@ -243,11 +243,15 @@
 /*post img*/
 a img {
     display: block;
-    border-radius: 20px;
+    border-radius: 8px;
+  }
+  a img[alt="cover"] {
+    display: block;
+    border-radius: 20px !important;
   }
 [data-theme="dark"] a img {
     display: block;
-    border-radius: 20px;
+    border-radius: 8px;
   }
 #article-container {
     border-radius: 8px;
@@ -529,6 +533,8 @@ blockquote {
 }
 #aside-content #card-toc .toc-content .toc-link.active {
   background: #b3b3b3 !important;
+  border-radius: 10px!important;
+  margin-left: 4px;
 }
 
 #button-body { 
@@ -660,7 +666,7 @@ blockquote {
 }
 #article-container .flink .flink-list > .flink-list-item:hover {
   border: 3px solid #b5b5b5;
-  background: #9f9f9f17;
+  background: #a1a1a12c;
 }
 
 #nav .site-page:not(.child)::after {
@@ -948,7 +954,7 @@ translate:-50%;
   background:#6f6f6f !important;
 }
 .article-sort-item:hover {
-  background: #9f9f9f17;
+  background: #a1a1a12c;
   border: 3px solid #b5b5b5;
 }
 .article-sort-item-img {
@@ -1223,23 +1229,26 @@ img {
 [data-theme="light"] .local-search-hit-item:hover {
   border: 3px solid #b5b5b5;
   color: black!important;
-  background: #9f9f9f17;
+  background: #a1a1a12c;
 }
 [data-theme="dark"] .local-search-hit-item:hover {
   border: 3px solid #b5b5b5;
   color: rgb(222, 222, 222)!important;
-  background: #9f9f9f17;
+  background: #a1a1a12c;
 }
 .aside-list-item {
   transition: background 0.3s ease, transform 0.3s ease;
   border-radius: 14px !important;
   margin-bottom: 0px;
   border: 3px solid #80808000;
-  padding: 10px !important;
+  padding-right: 10px !important;
+  padding-left: 5px !important;
+  padding-bottom: 5px!important;
+  padding-top: 5px!important;
 }
 
 .aside-list-item:hover {
-  background: #9f9f9f17;
+  background: #a1a1a12c;
   border: 3px solid #808080;
 }
 
@@ -1252,11 +1261,11 @@ img {
   border: 3px solid #b5b5b500;
 }
 [data-theme="light"] .webinfo-item:hover {
-  background: #9f9f9f17;
+  background: #a1a1a12c;
   border: 3px solid #383838;
 }
 [data-theme="dark"] .webinfo-item:hover {
-  background: #9f9f9f17;
+  background: #a1a1a12c;
   border: 3px solid #b5b5b5;
 }
 
@@ -1264,16 +1273,21 @@ img {
   background:rgb(135, 135, 135);
 }
 .toc-item {
+  border: 3px solid #59282800;
   transition: background 0.3s ease;
-  border-radius: 8px !important;
+  border-radius: 14px !important;
   padding-right: 5px;
 }
-
+.toc-link .active {
+  border-radius: 14px !important;
+}
 [data-theme="light"] .toc-item:hover {
-  background:rgb(214, 214, 214);
+  background: #a1a1a12c;
+  border: 3px solid #808080;
 }
 [data-theme="dark"] .toc-item:hover {
-  background:rgb(91, 91, 91);
+  background: #a1a1a12c;
+  border: 3px solid #c9c9c9;
 }
 [data-theme="light"] .aside-list-group .aside-list-item {
   background: #f1e6e6;
@@ -1354,3 +1368,6 @@ img {
   border: 3px solid #383838;
 }
 */
+.card-archives {
+  display: none!important;
+}

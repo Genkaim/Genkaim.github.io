@@ -984,6 +984,7 @@ inject:
      - <link rel="stylesheet" href="/css/style.css">
      - <link rel="stylesheet" href="/css/textWindow.css">
      - <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+     - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.css">
      - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/mainColor/heoMainColor.css">
      - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/mainColor/heoMainColor.css">
      - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/404/404.css">
@@ -1008,7 +1009,10 @@ inject:
      - <script src="/js/funnytitle.js"></script>
      - <script src="/js/chat-widget.js" type="text/javascript" id="64475e1b-42a3-492d-8a4b-1287a5a87c7d"></script>
      - <script src="/js/weather.js"></script>  # 天气插件
+     - <script src="/js/tagbar.js"></script>  
      - <script src="/js/better_weather.js"></script>  # 天气插件官方js
+     - <script async src="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.js"></script>
+
 # CDN
 # Don't modify the following settings unless you know how they work
 # 非必要請不要修改
