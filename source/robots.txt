@@ -1,5 +1,4 @@
 # hexo robots.txt
 User-agent: *
-Disallow:/img/
-Disallow: 
-Sitemap: https://0x-7461.github.io/sitemap.xml
+Disallow:/resource/
+Sitemap: https://genkaim.github.io/sitemap.xml
