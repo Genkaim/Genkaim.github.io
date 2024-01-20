@@ -989,7 +989,6 @@ inject:
      - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.css">
      - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/mainColor/heoMainColor.css">
      - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/mainColor/heoMainColor.css">
-     - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/404/404.css">
     # - <link rel="stylesheet" href="/css/wd.css">
   bottom:
 #     - <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.5.0/dist/av-min.js"></script>
