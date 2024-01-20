@@ -20,10 +20,13 @@
   height: 100%;
 }
 section.loader .loader-center {
+  -webkit-user-select: none;  /* Chrome, Safari, Opera */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Standard syntax */
   width:300px;
   height:100px;
   line-height:100px;
-  
   margin:0 auto;
   text-align:center;
   font-size:38px;
@@ -44,6 +47,10 @@ section.loader .loader-center .chars .dots .char {
 .dots .dot {
   position:relative;
   top:0; left:0; 
+
+}
+.brace {
+  font-weight: bold;
 }
 
 .dot._dot-1 {

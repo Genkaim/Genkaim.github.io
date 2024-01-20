@@ -13,8 +13,6 @@ wowjs:
     - class: recent-post-item #必填项，需要添加动画的元素的class 
       style: animate__fadeInUp
       iteration: 1 
-    - id: category-bar
-      style: animate__fadeInUp
     - class: card-history
       style: animate__fadeInUp
     - class: card-widget
@@ -22,6 +20,8 @@ wowjs:
     - id: recent-posts
       style: animate__fadeInUp
     - id: page-number
+      style: animate__fadeInUp
+    - id: category-bar
       style: animate__fadeInUp
 
 nav:
@@ -770,7 +770,7 @@ beautify:
 font:
   global-font-size: 
   code-font-size:
-  font-family: 
+  font-family: MiSans
   code-font-family: 
 
 # Font settings for the site title and site subtitle
@@ -979,7 +979,7 @@ inject:
   #   - <link rel="stylesheet" href="/zan/zan.css">
   #   访问量修正
      - <meta name="referrer" content="no-referrer-when-downgrade" />
-     - <link rel="stylesheet" href="/css/style_gear.css" > 
+     - <link rel="stylesheet" href="/css/LoaderStyle.css" > 
     # - <link rel="stylesheet" href="/css/mouse.css">
      - "<style>#article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before { -webkit-animation: avatar_turn_around 1s linear infinite; -moz-animation: avatar_turn_around 1s linear infinite; -o-animation: avatar_turn_around 1s linear infinite; -ms-animation: avatar_turn_around 1s linear infinite; animation: avatar_turn_around 1s linear infinite; }</style>"
      - <link rel="stylesheet" href="/css/transpancy.css">

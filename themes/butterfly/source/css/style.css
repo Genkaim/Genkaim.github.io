@@ -504,7 +504,6 @@ a img {
 }
 .post-meta-date {
   position: relative;
-  right: -1.5px;
 }
 /*dplayer*/
 .dplayer, .hexo-tag-dplayer-mark, .dplayer-paused, .dplayer-setting-box, .dplayer-setting-box-open {
@@ -1417,4 +1416,10 @@ img {
 }
 .post-outdate-notice {
   border-radius: 10px !important;
+}
+
+@font-face {
+  font-family: 'MiSans';
+  font-display: swap;
+  src: url('https://raw.gitmirror.com/genkaim/blog_img/main/data/202401201604298.woff2') format("truetype");  
 }

@@ -2,7 +2,7 @@
 title: 反馈
 tags: other
 abbrlink: 66c39965
-date: 1999-10-05 20:23:06
+date: 1999-05-02 20:23:06
 cover: https://raw.gitmirror.com/genkaim/blog_img/main/data/202311041820746.jpg
 ---
 

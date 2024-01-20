@@ -2,7 +2,7 @@
 title: Welcome
 tags: other
 abbrlink: f876582f
-date: 1001-06-22 15:02:46
+date: 2077-06-22 15:02:46
 swiper_index: 1000
 cover: https://raw.gitmirror.com/genkaim/blog_pic/main/data/202307041405070.png
 description: welcome to mt blog|图片加载慢就忍一下罢，图床一个个的都要备案，我一个未成年怎么备案啊|genkaimの博客
@@ -48,6 +48,8 @@ description: welcome to mt blog|图片加载慢就忍一下罢，图床一个个
 主题：[**butterfly**](https://butterfly.js.org/)
 
 ->[Github](https://github.com/jerryc127/hexo-theme-butterfly)
+
+字体：[**MiSans Global**](https://hyperos.mi.com/font/zh/)
 
 框架：[**HEXO**](https://hexo.io/)
 
