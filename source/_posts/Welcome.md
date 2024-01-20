@@ -48,6 +48,6 @@ description: welcome to mt blog|图片加载慢就忍一下罢，图床一个个
 
 字体：[**MiSans Global**](https://hyperos.mi.com/font/zh/)
 
-框架：[**HEXO**](https://hexo.io/)https://github.com/hexojs/hexo)
+框架：[**HEXO**](https://hexo.io/)
 
 ~~魔改~~小改：我
