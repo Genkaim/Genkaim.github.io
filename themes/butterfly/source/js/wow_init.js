@@ -13,3 +13,11 @@ wow = new WOW({
     // 在页面上检查新的 wow.js元素。
   })
   wow.init();
+
+// 找到id为'category-bar'的元素
+var element = document.getElementById('category-bar');
+
+// 为该元素添加类，例如'new-class'
+element.classList.add('recent-post-item');
+element.classList.add('wow');
+element.classList.add('animate__fadeInUp');
