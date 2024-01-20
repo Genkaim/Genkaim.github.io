@@ -41,22 +41,13 @@ description: welcome to mt blog|图片加载慢就忍一下罢，图床一个个
 
 最近才发现安知鱼大佬有个很好看的主题，但是我又舍不得这个自己花了一些时间改的butterfly。。。
 /_ \
-那就只好都用了（）
 
 ## 😊Thanks
 
 主题：[**butterfly**](https://butterfly.js.org/)
 
-->[Github](https://github.com/jerryc127/hexo-theme-butterfly)
-
 字体：[**MiSans Global**](https://hyperos.mi.com/font/zh/)
 
-框架：[**HEXO**](https://hexo.io/)
-
-->[Github](https://github.com/hexojs/hexo)
+框架：[**HEXO**](https://hexo.io/)https://github.com/hexojs/hexo)
 
 ~~魔改~~小改：我
-
-![12312](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306240856174.jpg)
-
-~~😋如果你闲得无聊可以探索这个地址``./img/<奇怪的数字>.png``~~
