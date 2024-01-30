@@ -464,9 +464,6 @@ a img {
 .reward-button:hover {
   background: #c9c9c9;
 }
-[data-theme='dark'].post-reward .reward-button {
-  background: #6d6d6d !important;
-}
 /*新版主页卡片*/
 [data-theme='light'] .article-content {
   color: #556160 !important; 

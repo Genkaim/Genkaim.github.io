@@ -1,7 +1,8 @@
 .post-reward
-  .reward-button
-    i.fas.fa-qrcode
-    = ' ' + _p('donate')
+  a(href='https://afdian.net/a/genkaim')
+    .reward-button
+      i.fas.fa-qrcode
+      = ' ' + _p('donate')
   .reward-main
     ul.reward-all
       each item in theme.reward.QR_code
