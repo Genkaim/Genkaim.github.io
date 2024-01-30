@@ -4988,15 +4988,12 @@ h1.page-title + .tag-cloud-list {
 .post-reward .reward-button {
   display: inline-block;
   padding: 4px 24px;
-  background: var(--btn-bg);
+  background: #808080;
   color: var(--btn-color);
   cursor: pointer;
 }
 .post-reward:hover .reward-button {
   background: var(--btn-hover-color);
-}
-.post-reward:hover > .reward-main {
-  display: block;
 }
 .post-reward .reward-main {
   position: absolute;
