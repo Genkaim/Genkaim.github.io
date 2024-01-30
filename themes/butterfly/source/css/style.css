@@ -971,7 +971,7 @@ translate:-50%;
   border-radius: 30px !important;
   margin-left: 3px !important;
   color: #4c4948 !important;
-  border: 3px solid #b3b3b300;
+  border: 2px solid #b3b3b300;
   transition: background 0.3s;  
 }
 [data-theme='light'] .site-page {
@@ -981,7 +981,7 @@ translate:-50%;
   color: white !important;
 }
 .menus_item:hover {
-  border: 3px solid #b3b3b3;
+  border: 2px solid #b3b3b3;
   background: #9c9c9c15 !important;
 }
 #nav #search-button {
@@ -1238,7 +1238,7 @@ img {
   transition: background 0.3s ease, transform 0.3s ease;
   border-radius: 14px !important;
   margin-bottom: 0px;
-  border: 3px solid #80808000;
+  border: 2px solid #80808000;
   padding-right: 10px !important;
   padding-left: 8px !important;
   padding-bottom: 6.5px!important;
@@ -1247,7 +1247,7 @@ img {
 
 .aside-list-item:hover {
   background: #a1a1a12c;
-  border: 3px solid #808080;
+  border: 2px solid #808080;
 }
 
 .webinfo-item {
@@ -1275,16 +1275,16 @@ img {
   transition: background 0.3s ease;
 }
 .toc-link {
-  border: 3px solid #59282800;
+  border: 2px solid #59282800;
   border-radius: 11px !important;
 }
 [data-theme="light"] .toc-link:hover {
   background: #a1a1a12c;
-  border: 3px solid #808080;
+  border: 2px solid #808080;
 }
 [data-theme="dark"] .toc-link:hover {
   background: #a1a1a12c;
-  border: 3px solid #c9c9c9;
+  border: 2px solid #c9c9c9;
 }
 [data-theme="light"] .aside-list-group .aside-list-item {
   background: #f1e6e6;
@@ -1421,4 +1421,7 @@ img {
   font-family: 'MiSans';
   font-display: swap;
   src: url('https://raw.gitmirror.com/genkaim/blog_img/main/data/202401201604298.woff2') format("truetype");  
+}
+table th, table td{
+  border: 1px solid grey;
 }
