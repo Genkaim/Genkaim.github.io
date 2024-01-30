@@ -978,7 +978,7 @@ inject:
   head:
   #   - <link rel="stylesheet" href="/zan/zan.css">
   #   访问量修正
-     - <link rel="preload" href="/css/style.css">
+     - <link rel="stylesheet" href="/css/style.css">
      - <meta name="referrer" content="no-referrer-when-downgrade" />
      - <link rel="stylesheet" href="/css/LoaderStyle.css" > 
     # - <link rel="stylesheet" href="/css/mouse.css">
