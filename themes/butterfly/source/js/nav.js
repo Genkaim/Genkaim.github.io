@@ -59,3 +59,9 @@ function tonav() {
     document.title.split("Genkaim的博客")[0];
   document.getElementById("page-name").removeAttribute("href"); // 添加这行代码来移除超链接
 }
+var _element = document.getElementById("nav");
+var _width = _element.offsetWidth;
+var window_width = window.innerWidth;
+
+var left_margin = (window_width - _width) / 2;
+_element.style.marginLeft = left_margin + "px";

@@ -270,8 +270,10 @@ a img {
 }
 /*页面头部*/
 #nav {
-  border-bottom-right-radius: 11px;
-  border-bottom-left-radius: 11px;
+  backdrop-filter: blur(5px);
+  margin: 1%;
+  border-radius: 11px;
+  width: 98%;
 }
 [data-theme='dark'] #post-info {
     background-color: rgba(47, 48, 45, 0.5);
@@ -336,7 +338,9 @@ a img {
 [data-theme='dark'] .highlight:hover {
   border: 2px solid #636363;
 }
-
+#rightside {
+  backdrop-filter: blur(5px);
+}
 [data-theme='light'] #rightside {
   background: rgba(255, 255, 255, 0.692);
 }
@@ -1168,9 +1172,7 @@ img {
 .menus_item_child li:not(#sidebar-menus li) {
   border-radius: 30px !important;
 }
-#page-header.nav-fixed #nav a:hover, #page-header.nav-fixed #nav #toggle-menu:hover {
-  color: #ffffff ;
-}
+
 #page-name:hover {
   color: rgb(94, 94, 94) !important;
 }

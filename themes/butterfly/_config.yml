@@ -978,12 +978,12 @@ inject:
   head:
   #   - <link rel="stylesheet" href="/zan/zan.css">
   #   访问量修正
+     - <link rel="preload" href="/css/style.css">
      - <meta name="referrer" content="no-referrer-when-downgrade" />
      - <link rel="stylesheet" href="/css/LoaderStyle.css" > 
     # - <link rel="stylesheet" href="/css/mouse.css">
      - "<style>#article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before { -webkit-animation: avatar_turn_around 1s linear infinite; -moz-animation: avatar_turn_around 1s linear infinite; -o-animation: avatar_turn_around 1s linear infinite; -ms-animation: avatar_turn_around 1s linear infinite; animation: avatar_turn_around 1s linear infinite; }</style>"
      - <link rel="stylesheet" href="/css/transpancy.css">
-     - <link rel="stylesheet" href="/css/style.css">
      - <link rel="stylesheet" href="/css/textWindow.css">
      - <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
      - <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.css">
