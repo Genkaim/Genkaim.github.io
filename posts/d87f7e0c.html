@@ -1,0 +1,556 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>RSS+Tinyletter+Zapier实现博客更新邮件推送 | Genkaimの博客</title><meta name="author" content="Genkaim"><meta name="copyright" content="Genkaim"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="吐槽我查了很多网上的教程，包括mailChimp，mailsender还有 | Genkaimの博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSS+Tinyletter+Zapier实现博客更新邮件推送">
+<meta property="og:url" content="https://www.genkaim.top/posts/d87f7e0c">
+<meta property="og:site_name" content="Genkaimの博客">
+<meta property="og:description" content="吐槽我查了很多网上的教程，包括mailChimp，mailsender还有 | Genkaimの博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/202308240952291.png">
+<meta property="article:published_time" content="2023-08-23T16:12:44.000Z">
+<meta property="article:modified_time" content="2023-09-16T14:59:44.955Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/202308240952291.png"><link rel="shortcut icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png?x-oss-process=image/resize,m_lfit,h_170,w_225"><link rel="canonical" href="https://www.genkaim.top/posts/d87f7e0c"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="msvalidate.01" content="242F62A0387BC763105E3BC9824DAA98"/><meta name="msvalidate.01" content="486BB61588C660A319F2B5BA0324342F"/><meta name="baidu-site-verification" content="codeva-TSKFEwylBy"/><meta name="google-site-verification" content="tmU7D-pYZIQUFlLstiUAqZQ6RdnHh57sqLeLlhHVYes"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6371821b7d78ebbe095cabde1c34a0c4";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":1,"position":"top","messagePrev":"这篇文章距上次更新已有","messageNext":"天,请谨慎检查内容是否适用"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":null},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#1f1f1f","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RSS+Tinyletter+Zapier实现博客更新邮件推送',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-16 22:59:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="preload" href="/css/style.css"><meta name="referrer" content="no-referrer-when-downgrade" /><link rel="stylesheet" href="/css/LoaderStyle.css" ><style>#article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before { -webkit-animation: avatar_turn_around 1s linear infinite; -moz-animation: avatar_turn_around 1s linear infinite; -o-animation: avatar_turn_around 1s linear infinite; -ms-animation: avatar_turn_around 1s linear infinite; animation: avatar_turn_around 1s linear infinite; }</style><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/css/textWindow.css"><link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/mainColor/heoMainColor.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/mainColor/heoMainColor.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Genkaimの博客" type="application/atom+xml">
+</head><body>
+    <script>
+        document.body.style.overflow = 'hidden';
+    </script>
+    <section class='loader'>
+        <div class='loader-center'>
+            <div class='chars'>
+              <span class='char brace'>{</span>
+              <span class='dots'>
+                <span class='char dot _dot-1'>.</span>
+                <span class='char dot _dot-2'>.</span>
+                <span class='char dot _dot-3'>.</span>
+              </span>
+              <span class='char brace'>}</span>
+            </div>
+        </div>
+      </section>
+      
+    <script>
+        var endLoading = function () {
+            document.body.style.overflow = 'auto';
+            var loader = document.querySelector('section.loader');
+            loader.classList.add('loading');
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 1000);
+        }
+        setTimeout(function() {
+                window.addEventListener('load',endLoading);
+        }, 500);
+    </script>
+    <style>
+    </style>
+    
+    <div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png?x-oss-process=image/resize,m_lfit,h_170,w_225" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://genkaim.xlog.app"><i class="fa-fw fas fa-paperclip"></i><span> 分站</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://travel.moe/go.html?travel=on"><i class="fa-fw fas fa-paper-plane"></i><span> 异次元之旅</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://bento.me/genkaim"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><link rel="stylesheet" href="/css/font.css"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Genkaimの博客"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png?x-oss-process=image/resize,m_lfit,h_170,w_225"/><span class="site-name">Genkaimの博客</span></a></span><div id="he-plugin-simple"></div><div id="menus"></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://genkaim.xlog.app"><i class="fa-fw fas fa-paperclip"></i><span> 分站</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://travel.moe/go.html?travel=on"><i class="fa-fw fas fa-paper-plane"></i><span> 异次元之旅</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://bento.me/genkaim"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()" rel="external nofollow noreferrer">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">RSS+Tinyletter+Zapier实现博客更新邮件推送</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-23T16:12:44.000Z" title="发表于 2023-08-24 00:12:44">2023-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-16T14:59:44.955Z" title="更新于 2023-09-16 22:59:44">2023-09-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RSS+Tinyletter+Zapier实现博客更新邮件推送"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/202308240952291.png" alt="cover" /></p>
+<details class="toggle" ><summary class="toggle-button" style="">Update Log</summary><div class="toggle-content"><div class="timeline purple"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2023</p>
+</div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>09-16</p>
+</div></div><div class='timeline-item-content'><p>更新提醒</p>
+</div></div></div>
+</div></details>
+<p><s>rss很方便，但有人不会用（？</s></p>
+<p>为了提供更多元的订阅方式(？</p>
+<p><strong>提醒：Tinyletter会无理由封禁用户账户，我的账号已经被封了两次了，不建议使用。最近我会迁移邮件服务提供商并更新博客。在此之前，博客更新不会有邮件提醒（不过依然可以填写邮箱，我会迁移数据到新的服务商）</strong></p>
+<h2 id="吐槽"><a class="markdownIt-Anchor" href="#吐槽"></a> 吐槽</h2>
+<p>我查了很多网上的教程，包括mailChimp，mailsender还有power automate等等，但都不行，有各种各样的原因。。。不过最后还是找到了</p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<ol>
+<li>在Zapier使用Rss作为触发器，给Tinyletter发送邮件。</li>
+<li>Tinyletter分发邮件给填写过表单的访客。</li>
+</ol>
+<p>思路来自于 <strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://backendology.com/2018/08/31/hugo-newsletter/">Newsletter for Hugo Blog</a></strong> 在此基础上增加了一些细节并翻译成中文。</p>
+<a href="%E8%8E%B7%E5%8F%96%E7%BD%91%E7%AB%99%E7%9A%84Favicon%E5%9B%BE%E6%A0%87%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E4%BD%A0%E7%9A%84%E7%BD%91%E9%A1%B5%E4%B8%8A,owen0o0,https://github.com/owen0o0/getFavicon" title="" target=""></a>
+<h2 id="tinyletter"><a class="markdownIt-Anchor" href="#tinyletter"></a> Tinyletter</h2>
+<p>-&gt; <strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://app.tinyletter.com/">Tinyletter官网</a></strong></p>
+<p>注册过程不再赘述。</p>
+<ol>
+<li>进入个人档案</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824094043823.png" alt="image-20230824094043823" /></p>
+<ol start="2">
+<li>填写表单，Newsletter暂时不用管，随便填一些，填完记得保存。 <strong>如果出现跳转，那是有必填项目没填</strong>  <small>（它这提示我当时不知道为什么就是没看到，卡了好久。。。 </small></li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>把这里打马赛克的地方复制下来，下一阶段要用</strong><br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>红色框出的网址是访客填邮箱用的，记得添加到博客，下一步会对其美化</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095925176.png" alt="image-20230824095925176" /></p>
+<ol start="3">
+<li>个性化表单界面(views指不同情况下，报错、邮件格式错误…的界面)<br />
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095940578.png" alt="image-20230824095940578" /></li>
+</ol>
+<p>Tinyletter部分完成了。<br />
+<strong>注意，每次博客文章更新，你会在Draft一栏看到Zapier发送的邮件，你需要手动发送给订阅者（不过是一键的）</strong></p>
+<h2 id="zapier"><a class="markdownIt-Anchor" href="#zapier"></a> Zapier</h2>
+<p>-&gt; <strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://zapier.com/">zapier官网</a></strong></p>
+<p>注册过程不再赘述。</p>
+<ol>
+<li>进入仪表盘，新建zap</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092054322.png" alt="image-20230824092054322" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092212178.png" alt="image-20230824092212178" /></p>
+<ol start="2">
+<li>设置触发器，按下图的红框依次操作</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092603376.png" alt="image-20230824092603376" /></p>
+<p><strong>即当RSS更新时触发发送电子邮件</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092641233.png" alt="image-20230824092641233" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092705303.png" alt="image-20230824092705303" /></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092830760.png" alt="image-20230824092830760" height=50% width=50% />
+<ol start="3">
+<li>设置动作，按下图红框依次操作</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093013819.png" alt="image-20230824093013819" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093103530.png" alt="image-20230824093103530" /></p>
+<p>下图的1、2、3依次填入：</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>To</strong> :刚才获取的tinyletter的邮件地址</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>Subject</strong> : 填你喜欢的名字</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>Body</strong> : 填入发件内容，可以参考我附在末尾的html代码</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093142158.png" alt="image-20230824093142158" /></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093647329.png" alt="image-20230824093647329" /></p>
+<p><strong>最后在仪表盘看到这种效果就行了</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093800196.png" alt="image-20230824093800196" /></p>
+<p>附html代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;circle-cover&quot;</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;circle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;main-img&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.luogu.com.cn/upload/image_hosting/0xd4prt2.png&quot;</span>&gt;</span>	</span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>本站更新了<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">P</span>&gt;</span>发送时间<span class="tag">&lt;/<span class="name">P</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;time&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>/*这里的标题和链接都要改成自己的（插入的数据）*/</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;post&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span>标题<span class="tag">&lt;<span class="name">br</span>&gt;</span>&#123;&#123;205114825__title&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123;205114825__link&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;link&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.gitmirror.com/genkaim/blog_img/main/data/line_s.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.post</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-left</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="number">#d5d5d5</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.post</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">25px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.title</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-decoration</span>: none; <span class="comment">/* 去掉下划线 */</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">color</span>: white;</span></span><br><span class="line"><span class="language-css">		</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-id">#time</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, <span class="number">#365262</span> <span class="number">0%</span>, <span class="number">#1c6a54</span> <span class="number">50%</span>, <span class="number">#254050</span> <span class="number">100%</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-text-fill-<span class="attribute">color</span>: transparent;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-id">#time</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-tag">h1</span> &#123;<span class="comment">/*这里可以改成自己喜欢的渐变色*/</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, <span class="number">#365262</span> <span class="number">0%</span>, <span class="number">#1c6a54</span> <span class="number">50%</span>, <span class="number">#254050</span> <span class="number">100%</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-text-fill-<span class="attribute">color</span>: transparent;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-tag">p</span> &#123;<span class="comment">/*这里可以改成自己喜欢的渐变色*/</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, <span class="number">#365262</span> <span class="number">0%</span>, <span class="number">#1c6a54</span> <span class="number">50%</span>, <span class="number">#254050</span> <span class="number">100%</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-text-fill-<span class="attribute">color</span>: transparent;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.main-img</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">overflow</span>:hidden;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">pointer-events</span>:none;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: -<span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: block; </span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin</span>: auto;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.main</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">padding</span>:<span class="number">40px</span> <span class="number">0px</span> <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin</span>:<span class="number">0px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-color</span>: <span class="number">#f1e6e6</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">350px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.footer</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">350px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-left</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">top</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-size</span>: <span class="number">10px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.link</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-size</span>: <span class="number">15px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="number">#b3b3b3</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin</span>: <span class="number">40px</span> auto; <span class="comment">/* 设置左右外边距为 auto */</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">padding</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">color</span>: white;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">150px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: block; <span class="comment">/* 设置元素为块级元素 */</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">line-height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.circle</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: auto;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">box-shadow</span>: inset <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="built_in">rgb</span>(<span class="number">22</span>, <span class="number">22</span>, <span class="number">22</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">https://cdn.luogu.com.cn/upload/image_hosting/py13qt58.png</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-size</span>: <span class="number">95%</span> <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title function_">fetch</span>(<span class="string">&#x27;http://quan.suning.com/getSysTime.do&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span></span><br><span class="line"><span class="language-javascript">  .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 获取时间</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> timeString = data.<span class="property">sysTime2</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 将时间显示在页面上</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;time&#x27;</span>).<span class="property">textContent</span> = timeString;</span></span><br><span class="line"><span class="language-javascript">  &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>RSS+Tinyletter+Zapier实现博客更新邮件推送</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://www.genkaim.top/posts/d87f7e0c">https://www.genkaim.top/posts/d87f7e0c</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Genkaim</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2023-08-24</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2023-09-16</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener external nofollow noreferrer" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener external nofollow noreferrer" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a></div><div class="post_share"><div class="social-share" data-image="https://raw.gitmirror.com/genkaim/blog_img/main/data/202308240952291.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wc.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wc.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/79caf488" title="独立宣言"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">独立宣言</div></div></a></div><div class="next-post pull-right"><a href="/posts/5c0d8670" title="Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100926980.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/5c0d8670" title="Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100926980.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-20</div><div class="title">Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式</div></div></a></div><div><a href="/posts/6b13026f" title="在xLog托管博客"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/2021021012571650539.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-20</div><div class="title">在xLog托管博客</div></div></a></div><div><a href="/posts/72dcbf6a" title="博客接入搜索引擎、百度统计"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/202309230802993.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-23</div><div class="title">博客接入搜索引擎、百度统计</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png?x-oss-process=image/resize,m_lfit,h_170,w_225" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Genkaim</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/genkaim" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:cxh2066172407@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://ys.mihoyo.com" rel="external nofollow noreferrer" target="_blank" title="gift for you"><i class="fas fa-gift" style="color: #ff9465;"></i></a><a class="social-icon" href="https://genkaim.github.io/atom.xml" rel="external nofollow noreferrer" target="_blank" title="RSS"><i class="fas fa-rss" style="color: #b3b3b3;"></i></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"><i class="fas fa-plus-square"></i><span>邮件订阅更新</span></a><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">csp已落榜，先更新些应用层面的（单休懒得搞算法），学算法得等高考后了捏</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%90%E6%A7%BD"><span class="toc-number">1.</span> <span class="toc-text"> 吐槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tinyletter"><span class="toc-number">3.</span> <span class="toc-text"> Tinyletter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zapier"><span class="toc-number">4.</span> <span class="toc-text"> Zapier</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/f876582f" title="Welcome"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202307041405070.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Welcome"/></a><div class="content"><a class="title" href="/posts/f876582f" title="Welcome">Welcome</a><time datetime="2077-06-22T07:02:46.000Z" title="发表于 2077-06-22 15:02:46">2077-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3f1ce327" title="velaOS快应用快速入门"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/202311041820746.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="velaOS快应用快速入门"/></a><div class="content"><a class="title" href="/posts/3f1ce327" title="velaOS快应用快速入门">velaOS快应用快速入门</a><time datetime="2023-12-01T02:40:00.000Z" title="发表于 2023-12-01 10:40:00">2023-12-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/79caf488" title="独立宣言">独立宣言</a><time datetime="2023-09-16T14:29:51.000Z" title="发表于 2023-09-16 22:29:51">2023-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d87f7e0c" title="RSS+Tinyletter+Zapier实现博客更新邮件推送"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/202308240952291.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RSS+Tinyletter+Zapier实现博客更新邮件推送"/></a><div class="content"><a class="title" href="/posts/d87f7e0c" title="RSS+Tinyletter+Zapier实现博客更新邮件推送">RSS+Tinyletter+Zapier实现博客更新邮件推送</a><time datetime="2023-08-23T16:12:44.000Z" title="发表于 2023-08-24 00:12:44">2023-08-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5c0d8670" title="Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100926980.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式"/></a><div class="content"><a class="title" href="/posts/5c0d8670" title="Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式">Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式</a><time datetime="2023-08-20T10:12:30.000Z" title="发表于 2023-08-20 18:12:30">2023-08-20</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Genkaim</div><a href="https://icp.gov.moe/?keyword=20239004" rel="external nofollow noreferrer" target="_blank">萌ICP备20239004号</a></div></footer></div><div id="rightside"><div id="triangles-show"></div><div id="rightside-config-hide"></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();" rel="external nofollow noreferrer"><i class="fa-solid fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();" rel="external nofollow noreferrer"><i class="fa-solid fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();" rel="external nofollow noreferrer"><i class="fa-solid fa-arrow-rotate-right"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();" rel="external nofollow noreferrer"><i class="fa-solid fa-arrow-up"> </i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();" rel="external nofollow noreferrer"><i class="fa-solid fa-clone"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:rmf.searchWithBing();" rel="external nofollow noreferrer"><i class="fa-solid fa-search"></i><span>用 Bing 搜索</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();" rel="external nofollow noreferrer"><i class="fa-solid fa-moon"></i><span>模式切换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();" rel="external nofollow noreferrer"><i class="fa-solid fa-earth-asia"></i><span>阅读模式</span></a><a class="rightMenu-item" href="javascript:rmf.op();" rel="external nofollow noreferrer" onclick="alert('现在我开不了了喵~麻烦按下F12吧');"><i class="fa-solid fa-microchip"></i><span>开发者工具</span></a></div></div><div id="rightmenu-mask" onclick="RemoveRightMenu()"></div><div id="cursor-dot"></div><div id="cursor-circle"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const initWaline = () => {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://waline.genkaim.top/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+
+    const destroyWaline = () => {
+      waline.destroy()
+    }
+
+    btf.addGlobalFn('pjax', destroyWaline, 'destroyWaline')
+
+  }
+
+  const loadWaline = async () => {
+    if (typeof Waline === 'object') initWaline()
+    else {
+      await getCSS('https://www.genkaim.top/waline.css')
+      await getScript('https://www.genkaim.top/waline.js')
+      initWaline()
+    }
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script async data-pjax src="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/rightmenu/rightmenu.js"></script><div class="aplayer no-destroy" data-id="8534737563" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-lrctype="-1"></div><script src="/js/sakura.js"></script><script src="/js/nav.js"></script><script src="/js/card_author.js"></script><script src="/js/add_site.js"></script><script src="/js/better_sakura.js"></script><script src="/js/rightmenu.js"></script><script src="/js/textWindow.js"></script><script src="/js/pjax_ani.js"></script><script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script><script src="/js/funnytitle.js"></script><script src="/js/chat-widget.js" type="text/javascript" id="64475e1b-42a3-492d-8a4b-1287a5a87c7d"></script><script src="/js/weather.js"></script><script src="/js/tagbar.js"></script><script src="/js/better_weather.js"></script><script async src="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="pjax-reload"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-history');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer="defer" src="https://cdn.jsdelivr.net/gh/graingert/wow@1.3.0/dist/wow.min.js"></script><script defer="defer" src="/js/wow_init.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/f876582f.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202307041405070.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2077-06-22</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/f876582f.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">Welcome</a><div class="blog-slider__text">welcome to mt blog|图片加载慢就忍一下罢，图床一个个的都要备案，我一个未成年怎么备案啊|genkaimの博客</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/f876582f.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/d87f7e0c.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/202308240952291.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-08-24</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/d87f7e0c.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">RSS+Tinyletter+Zapier实现博客更新邮件推送</a><div class="blog-slider__text">吐槽我查了很多网上的教程，包括mailChimp，mailsender还有 | Genkaimの博客</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/d87f7e0c.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/90748940.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100919024.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-07-16</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/90748940.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">LCA|最近公共祖先 详解 </a><div class="blog-slider__text">LCA|最近公共祖先 详解|genkaimの博客|和它的全称一样，lca（$Lowest Common Ancestor$）目的的就是任意两个点最近的公共祖先在哪</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/90748940.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/6b13026f.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://raw.gitmirror.com/genkaim/blog_img/main/data/2021021012571650539.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-08-20</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/6b13026f.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">在xLog托管博客</a><div class="blog-slider__text">在xLog托管你的博客|教程|genkaimの博客</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/6b13026f.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/954ceb85.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://i.pinimg.com/originals/3d/d6/c5/3dd6c57a2974cd0706930dd41a419c81.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-08-14</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/954ceb85.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">十大排序算法之归并排序、快速排序、堆排序</a><div class="blog-slider__text">归并排序归并排序 $(Merge-sort)$ 是利用归并想实现的排序方法，该算法采用经典的分治 | Genkaimの博客</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/954ceb85.html&quot;);" href="javascript:void(0);" rel="external nofollow noreferrer" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-history');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__fadeInUp');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end -->
+      <div id="sakana" style="position:fixed;right:0;bottom:10px;"></div>
+      <script async onload='initSakanaWidget({"character":"takina","enable":true,"enable_mobile":false,"size":220,"autoFit":false,"bottom":"10px","controls":false,"stroke":{"color":"#b4b4b4","width":7},"threshold":1,"rotate":0,"customCharacters":[{"base":"chisato","name":"LH","image":"https://0x-7461.github.io/img/study.png","y":5}]})' src="https://cdn.jsdelivr.net/npm/sakana-widget@2.3.0/lib/sakana.min.js"></script>
+      <script>
+      function log(msg) {
+        console.log("[hexo-sakana] " + msg);
+      }
+
+      function initSakanaWidget(config) {
+        if (
+          !config.enable_mobile &&
+          window.navigator.userAgent.match(
+            /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+          )
+        ) {
+          log(
+            '检测为移动端，且配置中未开启在移动端启用组件，hexo-sakana 已禁用'
+          );
+          return;
+        }
+        for (character of config.customCharacters) {
+          if (!["takina", "chisato"].includes(character.base)) {
+            log(`无效基础角色 ${character.base}，取消注册`);
+            continue;
+          }
+          if (character.name === "") {
+            log("名称为空，取消注册");
+            continue;
+          }
+          const originCharacter = SakanaWidget.getCharacter(character.base);
+          originCharacter.initialState = {
+            ...originCharacter.initialState,
+            ...character,
+          };
+          originCharacter.image = !character.image ? originCharacter.image : character.image
+          SakanaWidget.registerCharacter(character.name, originCharacter);
+          log(`注册自定义角色：${character.name}`)
+        }
+        new SakanaWidget({
+          character: config.character,
+          size: config.size,
+          autoFit: config.autoFit,
+          controls: config.controls,
+          stroke: config.stroke,
+          threshold: config.threshold,
+          rotate: config.rotate,
+        }).mount("#sakana");
+      }
+  </script>
+    </body></html>
