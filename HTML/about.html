@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preload" href="https://raw.gitmirror.com/genkaim/blog_img/main/data/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
+    <meta charset="utf-8">
+    <title>About Me</title>
+    <script>
+        function show_star1() {
+            document.querySelector('#stars .main').classList.add('show_star1');
+        }
+        function show_line() {
+            var delay = 500; // 每行之间的延迟时间（以毫秒为单位）
+            var paragraphs = document.querySelectorAll('p');
+            for (var i = 0; i < paragraphs.length; i++) {
+            (function(index) {
+                setTimeout(function() {
+                    paragraphs[index].classList.add('slide-down');
+                    }, delay * index);
+                })(i);
+            }
+        }
+        function show_h2() {
+            var delay = 500; // 每行之间的延迟时间（以毫秒为单位）
+            var paragraphs = document.querySelectorAll('h2');
+            for (var i = 0; i < paragraphs.length; i++) {
+            (function(index) {
+                setTimeout(function() {
+                    paragraphs[index].classList.add('slide-down');
+                    }, delay * index);
+                })(i);
+            }
+        }
+        function show_stats() {
+            document.querySelector('.stats-img').classList.add('slide-down-img');
+        }
+        function show_icons() {
+            document.querySelector('.icon').classList.add('slide-down-img');
+        }
+        function show_footer_icons() {
+            document.querySelector('.footer-icons').classList.add('slide-down-img');
+        }
+        function show_img() {
+            setTimeout(function() {
+                show_stats();
+                setTimeout(function() {
+                    show_icons()
+                    setTimeout(function() {
+                        show_footer_icons()
+                        }, 400);
+                     }, 400);
+            }, 1700);
+        }
+        let numStars;
+        function create_stars() {
+            const smallStar = document.querySelector('.small-star');
+            const screenWidth = window.innerWidth;
+            numStars = screenWidth/5;
+            for (let i = 0; i < numStars; i++) {
+                const span = document.createElement('span');
+                smallStar.appendChild(span);
+            }
+
+            const min = 1;
+            const max = 100;
+            const mins = 0.5;
+            const maxs = 3.5;
+            const interval = 1;
+            const factor = 1 / interval;
+            const stars = document.querySelectorAll('.small-star span');
+            stars.forEach(star => {
+                const x = Math.round((Math.random() * (max - min) + min) * factor) / factor;
+                const y =  Math.round((Math.random() * (max - min) + min) * factor) / factor;
+                const size = Math.random() * (maxs - mins) + mins;
+                star.style.left = x + 'vw';
+                star.style.top = y + 'vw';
+                star.style.height = size + 'px';
+                star.style.width = size + 'px';
+            });
+            const _stars = document.querySelectorAll('.small-star span');
+                _stars.forEach((star, index) => {
+                setTimeout(() => {
+                    star.classList.add('move-stars');
+                }, index * 10); // 每个元素之间的延迟时间（以毫秒为单位）
+            });
+        }
+        function randomOpacity() {
+            const min = 0.1;
+            const max = 1;
+            const stars = document.querySelectorAll('.small-star span');
+            const numberOfStarsToChange = numStars/2; // 每次更改透明度的元素数量
+            for (let i = 0; i < numberOfStarsToChange; i++) {
+                const randomIndex = Math.floor(Math.random() * stars.length);
+                const star = stars[randomIndex];
+                const opacity = Math.random() * (max - min) + min;
+                star.style.opacity = opacity;
+            }
+        }
+        function randomMain(){
+            const min2 = 0.3;
+            const max2 = 1;
+            const maxs = 50;
+            const mins = 10;
+            var _stars = document.querySelector('#stars .main');
+            var opacity = Math.random() * (max2 - min2) + min2;
+            var size = Math.random() * (maxs - mins) + mins;
+            _stars.style.boxShadow = '0 0 ' + size +  'vw rgba(122, 122, 122, ' + opacity + ')';
+        }
+        function activeSmallStars() {
+            //大小点透明度预处理
+            const style = document.createElement('style');
+            setTimeout(function() {
+                const _stars = document.querySelectorAll('span');
+                var __stars = document.querySelector('#stars .main');
+                __stars.style.opacity = 1;
+                __stars.style.boxShadow = '0 0 20vw rgba(122, 122, 122, 1)';
+                document.querySelector('#stars .main').classList.remove('show_star1');
+                _stars.forEach(function(_star) {
+                        _star.classList.remove('move-stars');
+                });
+
+                const stars = document.querySelectorAll('.small-star span');
+                stars.forEach(star => {
+                    star.style.opacity = 0.5;
+                });
+            }, 9000);
+            setTimeout(function() {
+                const _stars = document.querySelectorAll('span');
+                _stars.forEach(function(_star) {
+                        _star.classList.add('active-star');
+                });
+                const min = 0.1;
+                const max = 1;
+                const stars = document.querySelectorAll('.small-star span');
+                stars.forEach(star => {
+                    const opacity = Math.random() * (max - min) + min;
+                    star.style.opacity = opacity;
+                });
+                setInterval(randomOpacity, 750);
+                setInterval(randomMain, 3050);
+            }, 9100);
+            setTimeout(function() {
+                const planets = document.querySelectorAll('.planet');
+                planets.forEach((planet, index) => {
+                    setTimeout(() => {
+                        planet.classList.add('show-planet');
+                    }, index * 100); // 每个元素之间的延迟时间（以毫秒为单位）
+                });
+            }, 3000);
+
+             // 每隔一定时间（以毫秒为单位）执行一次函数
+
+        }
+        function activeImage() {
+            document.querySelector('.stats-img').classList.remove('slide-down-img');
+            document.querySelector('.icon').classList.remove('slide-down-img');
+            document.querySelector('.footer-icons').classList.remove('slide-down-img');
+            const imgs = document.querySelectorAll('.stats-img');
+        }
+        window.onload = function() {
+            //提示开魔法
+            const tips = document.querySelectorAll('h5');
+            tips.forEach(function(tip) {
+                setTimeout(function() {
+                    tip.classList.remove('slide-down-quick');
+                    tip.classList.add('disapear-down');
+                    setTimeout(function() {
+                        tip.style.display = 'none';
+                    }, 400);
+                }, 500);
+            });
+            
+            show_img();
+            create_stars();
+            show_star1();
+            setTimeout(function() {
+                show_h2();
+            }, 1500);
+            setTimeout(function() {
+                show_line();
+            }, 3000);
+            activeSmallStars()
+            activeImage();
+            setTimeout(function() {
+                activeInner();
+            }, 3000);
+        }
+
+    </script>
+
+    <style>
+        /* CSS */
+        .active-star {
+            transition: opacity 0.7s ease-in-out ;
+        }
+        #stars .main {
+            transition: box-shadow 3s;
+        }
+
+        body {
+            background-color: black;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+/Edge */
+            user-select: none; /* Standard */
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;;
+            font-family: 'Mona Sans';
+        }
+        @font-face {
+            font-family: 'Mona Sans';
+            src: url('https://raw.gitmirror.com/genkaim/blog_img/main/data/Mona-Sans.woff2') format('woff2 supports variations'),
+                url('https://raw.gitmirror.com/genkaim/blog_img/main/data/Mona-Sans.woff2') format('woff2-variations');
+            font-weight: 200 900;
+            font-stretch: 75% 125%;
+        }
+        html {
+            font-family: 'Mona Sans';
+        }
+        a {
+        text-decoration: none;
+        }
+        h1 {
+            position: relative;
+            color: white;
+            font-size: 100px;
+            font-weight: bolder;
+            margin-left: 0.1px;
+            margin-top: 0.1vw;
+            margin-bottom: 0px;
+            padding: 0.01px;
+            text-shadow: 0px 0px 15px rgb(103, 102, 102);
+            z-index: 10000;
+            display: inline-block;
+            opacity: 0;
+        }
+        h1#line1-f{
+            margin-top: 5vw !important;
+            margin-left: 7vw !important;
+        }
+        h1#line2-f{
+            margin-left: 7vw !important;
+        }
+        h2 {
+            position: relative;
+            color: white;
+            font-size: 40px;
+            margin-left: 7vw;
+            z-index: 10000;
+            opacity: 0;
+            margin-bottom: 25px;
+            margin-top: 30px;
+        }
+        p {
+            position: relative;
+            color: white;
+            font-size: 25px;
+            margin-left: 7vw;
+            margin-top: 3vw;
+            opacity: 0;
+            text-shadow: 0px 0px 15px rgb(49, 49, 49);
+            font-family:'Segoe UI';
+        }
+        h6 {
+            position: absolute;
+            color: white;
+            font-size: 10px;
+            margin-left: 60vw;
+            margin-bottom: 0px;
+            opacity: 1;
+            text-shadow: 0px 0px 15px rgb(49, 49, 49);
+            
+        }
+        h5 {
+            position: fixed;
+            color: white;
+            font-size: 30px;
+            margin-left: 7vw;
+            margin-top: 35px;
+            margin-bottom: 0.01vw;
+            opacity: 0;
+            text-shadow: 0px 0px 15px rgb(49, 49, 49);
+        }
+        #stars .main {
+            z-index: 1;
+            position: fixed;
+            right: -30vw;
+            top: -40vw;
+            opacity: 0;
+            background-color: white;
+            width: 80vw;
+            height: 70vw;
+            border-radius: 50%;
+        }
+        .small-star span{
+            opacity: 0;
+            position: fixed;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .stats-img {
+            opacity: 0;
+            margin-left: 7vw;
+            height: 140px;
+            z-index: 10000;
+        }
+        .icon {
+            opacity: 0;
+            z-index: 10000;
+        }
+        .footer-icons {
+            margin-left: 2vw;
+            position: relative;
+        }
+        .cpp {
+            opacity: 1;
+            margin-top: 20px;
+            margin-left: 7vw;
+            height: 60px;
+            z-index: 10000;
+        }
+        .css, .ps, .pr, .py, .git, .js {
+            opacity: 1;
+            margin-top: 20px;
+            margin-left: 2vw;
+            height: 60px;
+            z-index: 10000;
+        }
+
+        #stars .orbit {
+            position: fixed;
+            right: 2vw;
+            bottom: 10vw;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            transform-origin: center;
+            animation: spin 10s linear infinite;
+        }
+        #stars .orbit:nth-of-type(2) {
+            width: 250px;
+            height: 250px;
+            animation-duration: 8s;
+        }
+        #stars .orbit:nth-of-type(3) {
+            width: 300px;
+            height: 300px;
+            animation-duration: 6s;
+        }
+        #stars .planet {
+            opacity: 0;
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            right: 10px;
+            background-color: transparent;
+            background-image: url(https://raw.gitmirror.com/genkaim/blog_img/main/data/genshin.png);
+            background-size: 50px 50px;
+
+        }
+        .disapear-down {
+            animation: disapear-down 0.4s ease-in-out forwards;
+        }
+        .show-planet {
+            animation: show-planet 2s ease-in-out forwards;
+        }
+        .move-stars {
+            animation: move-stars 6s ease-out forwards;
+        }
+        .show_star1 {
+            animation: show_star1 3s forwards;
+        }
+        p.slide-down {
+            animation: slide-down 1.5s ease-in-out forwards;
+        }
+        .slide-down {
+            animation: slide-down 2s ease-in-out forwards;
+        }
+        .slide-down-quick {
+            animation: slide-down-quick 0.5s ease-in-out forwards;
+        }
+        .slide-down-img {
+            animation: slide-down-img 3s ease-in-out forwards;
+        }
+        .slide-up {
+            animation: slide-up 2s ease-in-out forwards;
+        }
+        h1:nth-of-type(1) {
+            animation-delay: 0ms;
+        }
+        h1:nth-of-type(2) {
+            animation-delay: 300ms;
+        }
+        h1:nth-of-type(3) {
+            animation-delay: 600ms;
+        }
+        h1:nth-of-type(4) {
+            animation-delay: 900ms;
+        }
+        h1:nth-of-type(5) {
+            animation-delay: 1200ms;
+        }
+        h1:nth-of-type(6) {
+            animation-delay: 300ms;
+        }
+        h1:nth-of-type(7) {
+            animation-delay: 600ms;
+        }
+        @keyframes disapear-down {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0);
+            }     
+            100% {
+                opacity: 0;
+                transform: translate(0, 30%);
+            }
+        }
+        @keyframes show_star1 {
+            0% {
+                opacity: 0;
+                transform: translate(60vw, -55vw);
+            }   
+            70% {
+                opacity: 0.2;
+                box-shadow: 0 0 20vw rgb(27, 27, 27);
+            } 
+            70% {
+                box-shadow: 0 0 20vw rgb(35, 35, 35);
+            }     
+            100% {
+                opacity: 1;
+                transform: translate(0, 0);
+                box-shadow: 0 0 20vw rgb(122, 122, 122);
+            }
+        }
+        @keyframes blink {
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes move-stars {
+            0% {
+                opacity: 0;
+                transform: translate(100vw, -100vw);
+            }
+            30% {
+                transform: translate(10vw, -10vw);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translate(0, 0);
+                opacity: 0.5;
+            }
+        }
+        @keyframes slide-down {
+            0% {
+                opacity: 0;
+                transform: translateY(-40%);
+            }
+            75% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);   
+            }
+        }
+        
+        @keyframes slide-down-quick {
+            0% {
+                opacity: 0;
+                transform: translateY(-20%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);   
+            }
+        }
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(40%);
+            }
+            75% {
+                opacity: 0.3;
+            }
+            100%  {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slide-down-img {
+            0% {
+                opacity: 0;
+                transform: translateY(-20%);
+            }
+            70% {
+                opacity: 0.1;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);   
+            }
+        }
+        @keyframes show-planet {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .link {
+            transition: transform 0.5s;
+        }
+        .link:hover {
+            transform: translateY(-10px);
+        }
+        p.link {
+            transition: color 0.5s ;
+        }
+        p.link:hover {
+            color: rgb(122, 122, 122);
+        }
+
+        /* CSS */
+        .starfield {
+            position: relative;
+            width: 60px;
+            margin-left: 7vw;
+            margin-top: 7vw;
+        }
+        .footer-icons{
+            width: 90px;
+        }
+    </style>
+</head>
+
+<body class="about-me">
+    
+        <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+        <div class="line1">
+            <h1 class="slide-down" id="line1-f">A</h1><h1 class="slide-up">b</h1>
+            <h1 class="slide-down">o</h1><h1 class="slide-up">u</h1>
+            <h1 class="slide-down">t</h1>
+        </div>
+        <br>
+        <div class="line2">
+            <h1 class="slide-up" id="line2-f">M</h1><h1 class="slide-down">e</h1>
+        </div>
+        <h5 class="slide-down-quick"><br>Loading...<br><br>Tips:加载需要魔法</h5>
+        <h2>Stats</h2>
+        <img class="stats-img" src="https://camo.githubusercontent.com/300ed9be0d15c5f86a2feff039bc8125f4da1626c854ab8299e5cff76b6027cf/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170693f757365726e616d653d47656e6b61696d2673686f775f69636f6e733d74727565267468656d653d746f6b796f6e69676874">
+        <h2>Skill Set(Studying)</h2>
+        <div id="stars">
+            <div class="main"></div>  
+            <div class="bottom">
+                <div class="orbit">
+                    <div class="planet"></div>
+                </div>
+                <div class="orbit">
+                    <div class="planet"></div>
+                </div>
+                <div class="orbit">
+                    <div class="planet"></div>
+                </div>     
+            </div>     
+        </div>
+        <div class="small-star"></div>    
+        <div class="icon">
+            <a href="https://isocpp.org/"><img class="cpp link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/cpp.png"></a>
+            <a href="https://www.python.org/"><img class="py link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/py.png"></a>
+            <a href="https://developer.mozilla.org/zh-CN/docs/learn/JavaScript"><img class="js link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/javascript.png"></a>
+            <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS"><img class="css link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/css.png"></a>
+            <a href="https://git-scm.com/"><img class="git link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/git.png"></a>
+            <a href="https://www.adobe.com/cn/products/photoshop.html"><img class="ps link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/ps.png"></a>
+            <a href="https://www.adobe.com/cn/products/premiere.html"><img class="pr link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/pr.png"></a>
+        </div>
+        <h2>Blog</h2>
+        <a href="https://genkaim.github.io"><p class="link">->Genkaim的博客</p></a>
+        <p>这是什么？暑假作业，补一下。</p>
+        <p>这是什么？暑假作业，补一下。</p>
+        <p>这是什么？暑假作业，补一下。</p>
+        <img class="starfield" hidth="100px" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/star.png">
+        <a href="https://github.com/genkaim"><img class="icon footer-icons link" src="https://raw.gitmirror.com/genkaim/blog_img/main/data/github-link.png"></a>
+        <h6>这么点玩意我写了两天()</h6>
+</body>
+
+</html>

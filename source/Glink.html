@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      // 获取URL参数的函数
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+
+      var Type = getParameterByName("type");
+      // 根据参数跳转
+      if (Type === "reward") {
+        window.location.href = "https://afdian.net/a/genkaim";
+      } else if (Type === "home") {
+        window.location.href = "http://genkaim.top";
+      } else {
+        document.body.innerHTML = "<a>错误: 参数错误<br>Error: Parameter error</a>";
+      }
+    </script>
+  </body>
+</html>

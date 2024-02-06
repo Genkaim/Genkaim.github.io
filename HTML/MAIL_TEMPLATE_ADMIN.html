@@ -1,0 +1,54 @@
+<div class="background-img"></div>
+<div class="main">
+    <div style="padding:40px 0px 20px;margin:0px;background-color: #f1e6e6;width: 350px; height: 780px;border-radius: 8px;">
+        <div class="circle"></div>
+        <style type="text/css">@media screen and (max-width:600px){.afterimg,.beforeimg{display:none!important}}</style>
+        <div style="border-radius: 10px 10px 10px 10px;font-size:14px;color: #6a95b5;width: 530px;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;margin:50px auto;max-width:100%;background: none;">
+            <div class="image-container" style="text-align: center;">
+                <img src="https://cdn.luogu.com.cn/upload/image_hosting/0xd4prt2.png" style="width:100%;overflow:hidden;pointer-events:none;margin-top: -120px;border-radius: 8px;width: 300px;display: block; margin: auto;margin-top: 5px;">
+            </div>			
+            <div style="width:100%;background:#f8d1ce;color:#6a95b5;background: none;height: 66px;display: flex;justify-content: center;flex-direction: column;">
+            <p style="font-size:16px;font-weight: bold;text-align:center;word-break:break-all;margin:0;">
+            您在<a style="text-decoration:none;color: #6a95b5;" href="{{site.url}}"target="_blank">{{site.name}}</a>上的文章有了新的评论</p>
+            </div>
+            <div class="formmain" style="background:none;width:100%;max-width:800px;margin:auto auto;overflow:hidden;margin-bottom: -155px;">
+                <div style="margin:40px auto;width:90%;"><p><strong>{{self.nick}}</strong> 回复说：</p>
+                <div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:15px;color:#6a95b5;">{{self.comment | safe}}</div>
+                <p style="text-align:center;position: relative;z-index: 99;">点击<a style="text-decoration:none;color:#6a95b5" href="{{site.postUrl}}" target="_blank">查看回复的完整內容</a></p>
+                <img src="https://npm.elemecdn.com/hexo-butterfly-envelope/lib/line.png" style="width:100%;margin:25px auto 5px auto;display:block;pointer-events:none">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+	.circle {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        margin-top: 0px;
+        margin-left: 160px;
+		box-shadow: inset 0 0 10px rgb(22, 22, 22);
+		background-image: url(https://cdn.luogu.com.cn/upload/image_hosting/py13qt58.png);
+		background-size: 90% 100%;
+	}
+    .main {
+        margin-top: 20px;
+        margin-left: 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .background-img {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://cdn.luogu.com.cn/upload/image_hosting/0xd4prt2.png);
+        background-size: contain;
+    }
+</style>
