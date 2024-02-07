@@ -49,7 +49,7 @@ section.loader {
 /*退出，组件再loaded.ejs*/
 .loader {
   opacity: 1;
-  transition: opacity 1.5s ease-in-out
+  transition: opacity 1.5s ease-in-out, backdrop-filter 0.8s ease-in-out
 }
 .dots {
   opacity: 1;
@@ -58,6 +58,7 @@ section.loader {
 
 .loader.loaded {
   opacity: 0;
+  backdrop-filter: blur(0px);
 }
 
 .dots.loaded {
