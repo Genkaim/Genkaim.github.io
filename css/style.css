@@ -1425,3 +1425,10 @@ img {
 table th, table td{
   border: 1px solid grey;
 }
+
+[data-theme="light"] #click-show-text span {
+  color: #30302f !important;
+}
+[data-theme="dark"] #click-show-text span {
+  color: #d9d9d9 !important;
+}
