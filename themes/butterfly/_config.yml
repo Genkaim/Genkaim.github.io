@@ -740,16 +740,35 @@ fireworks:
 
 # Mouse click effects: Heart symbol (鼠標點擊效果: 愛心)
 click_heart:
-  enable: true
-  mobile: true
+  enable: false
+  mobile: false
 
 # Mouse click effects: words (鼠標點擊效果: 文字)
 ClickShowText:
   enable: false
   text:
-    # - I
-    # - LOVE
-    # - YOU
+     - I Really Want to Stay at Your House
+     - I couldn't wait for you to come and clear the cupboards
+     - But now you're gone and leaving nothing but a sign
+     - Another evening I'll be sitting reading in between your lines
+     - Because I miss you all the time
+     - So get away
+     - Another way to feel what you didn't want yourself to know
+     - And let yourself go
+     - You know you didn't lose your self-control
+     - There's no end of the rainbow
+     - Turn away
+     - Another way to be where you didn't want yourself to go
+     - And let yourself go
+     - Is that a compromise
+     - So what do you wanna do what's your point of view
+     - There's a party screw it do you wanna go
+     - A handshake with you what's your point of view
+     - I'm on top of you I don't wanna go
+     - Cause I really wanna stay at your house
+     - In the palace it all works out
+     - But you know how much you broke me apart
+     - I'm done with you I'm ignoring you
   fontSize: 15px
   random: false
   mobile: false
