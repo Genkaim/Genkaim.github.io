@@ -175,85 +175,39 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Genkaimの博客" type="application/atom+xml">
 </head><body>
-<script>
-  document.body.style.overflow = "hidden";
-</script>
-<section class="loader">
-  <!--
-  <div class="loader-center">
-    <div class="chars">
-      <span class="char brace">{</span>
-      <span class="dots">
-        <span class="char dot _dot-1">.</span>
-        <span class="char dot _dot-2">.</span>
-        <span class="char dot _dot-3">.</span>
-      </span>
-      <span class="char brace">}</span>
-    </div>
-  </div>-->
-  <div class="loading">
-    <i class="dots">
-      <span></span>
+    <script>
+        document.body.style.overflow = 'hidden';
+    </script>
+    <section class='loader'>
+        <div class='loader-center'>
+          <div class='chars'>
+            <span class='char brace'>{</span>
+            <span class='dots'>
+              <span class='char dot _dot-1'>.</span>
+              <span class='char dot _dot-2'>.</span>
+              <span class='char dot _dot-3'>.</span>
+            </span>
+            <span class='char brace'>}</span>
+          </div>
+        </div>
+      </section>
+      
 
-      <span></span>
-
-      <span></span>
-
-      <span></span>
-
-      <span></span>
-
-      <span></span>
-    </i>
-  </div>
-</section>
-
-<script>
-  var endLoading = function () {
-    document.body.style.overflow = "auto";
-    var loader = document.querySelector("section.loader");
-    var dots = document.querySelector(".loading .dots");
-    dots.classList.add("loaded");
-    setTimeout(function () {
-      loader.classList.add("loaded");
-    }, 1300);
-    setTimeout(function () {
-      loader.style.display = "none";
-      dots.style.display = "none";
-    }, 3500);
-  };
-  function end_loading() {
-    document.body.style.overflow = "auto";
-    var loader = document.querySelector("section.loader");
-    var dots = document.querySelector(".loading .dots");
-    dots.classList.add("loaded");
-    setTimeout(function () {
-      loader.classList.add("loaded");
-    }, 0);
-    setTimeout(function () {
-      loader.style.display = "none";
-      dots.style.display = "none";
-    }, 1500);
-  }
-  function check() {
-    setTimeout(function () {
-      if(document.readyState === "complete") { // 如果页面加载完
-        end_loading();
-      }
-      else {
-        check();
-      }
-    }, 5500);
-  }
-
-  check(); // 开始检查
-  /*
-  setTimeout(function () {
-    window.addEventListener("load", endLoading);
-  }, 1500);*/
-</script>
-<style></style>
-
+      <script>
+        var endLoading = function () {
+            document.body.style.overflow = 'auto';
+            var loader = document.querySelector('section.loader');
+            loader.classList.add('loading');
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 1000);
+        }
+        setTimeout(function() {
+                window.addEventListener('load',endLoading);
+        }, 500);
+    </script>
+    
+    
 <div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png?x-oss-process=image/resize,m_lfit,h_170,w_225" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://genkaim.xlog.app"><i class="fa-fw fas fa-paperclip"></i><span> 分站</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://travel.moe/go.html?travel=on"><i class="fa-fw fas fa-paper-plane"></i><span> 异次元之旅</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://bento.me/genkaim"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><link rel="stylesheet" href="/css/font.css"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Genkaimの博客"><img class="site-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png?x-oss-process=image/resize,m_lfit,h_170,w_225"/><span class="site-name">Genkaimの博客</span></a></span><div id="he-plugin-simple"></div><div id="menus"></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://genkaim.xlog.app"><i class="fa-fw fas fa-paperclip"></i><span> 分站</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://travel.moe/go.html?travel=on"><i class="fa-fw fas fa-paper-plane"></i><span> 异次元之旅</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener external nofollow noreferrer" href="https://bento.me/genkaim"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><center id="name-container"><a id="page-name" href="javascript:scrollToTop()" rel="external nofollow noreferrer">PAGE_NAME</a></center><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">独立宣言</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-16T14:29:51.000Z" title="发表于 2023-09-16 22:29:51">2023-09-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-28T10:21:38.000Z" title="更新于 2023-09-28 18:21:38">2023-09-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">144</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="独立宣言"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>全体目光向我看齐，我宣布个事，我是个傻逼。<br />
 你说的对但是csp-s是一款由ccf开发的后面忘了<br />
 什么，你怎么知道我选择爆了7道题？<br />

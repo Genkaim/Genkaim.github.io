@@ -270,7 +270,6 @@ a img {
 }
 /*页面头部*/
 #nav {
-  backdrop-filter: blur(5px);
   margin: 1%;
   border-radius: 11px;
   width: 98%;
@@ -337,9 +336,6 @@ a img {
 }
 [data-theme='dark'] .highlight:hover {
   border: 2px solid #636363;
-}
-#rightside {
-  backdrop-filter: blur(5px);
 }
 [data-theme='light'] #rightside {
   background: rgba(255, 255, 255, 0.692);
