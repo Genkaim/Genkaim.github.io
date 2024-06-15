@@ -1,6 +1,8 @@
+<!--
 ---
 layout: false
 ---
+-->
 <!DOCTYPE html>
     <body>
         <meta charset="UTF-8">
@@ -79,14 +81,13 @@ layout: false
                 }
                 .tip-view .tip-text {
                     position:relative;
-                color: #fe9437;
-                flex: 1 1;
-                font-family: AlibabaPuHuiTi-Medium;
-                font-size:25px;
-                line-height: 30px;
-                text-align: justify;
-                margin-right: 50px;
-                top:-10px;
+                    color: #fe9437;
+                    flex: 1 1;
+                    font-family: AlibabaPuHuiTi-Medium;
+                    font-size:25px;
+                    text-align: justify;
+                    margin-right: 50px;
+                    top:-18px;
                 }
                 .tip-view {
                 display: flex;
@@ -95,6 +96,11 @@ layout: false
                 color:red;
                 font-weight: bold;
                 font-size: 30px;
+            }@media only screen and (max-width: 800px) {
+                /* 在屏幕宽度最大为768px的设备上应用的样式 */
+                #view, .tip-view .tip-text, .warning{
+                    font-size:40px !important;
+                }
             }
             </style>
         </body>
