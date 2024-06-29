@@ -271,7 +271,7 @@ a img {
 /*页面头部*/
 #nav {
   margin: 1%;
-  border-radius: 11px;
+  border-radius: 20px;
   width: 98%;
 }
 [data-theme='dark'] #post-info {
@@ -421,7 +421,7 @@ a img {
 }
 /*copyright*/
 .post-copyright {
-  border-radius: 8px;
+  border-radius: 25px !important;
   border: 1px solid #b3b3b3;
 }
 [data-theme='light'] .post-copyright {
@@ -1161,6 +1161,10 @@ img {
 }
 #nav .menus_items .menus_item .menus_item_child {
   border-radius: 30px !important;
+}
+.menus_items {
+  margin-left: auto;
+  margin-right: auto;
 }
 .menus_item_child li:not(#sidebar-menus li) {
   border-radius: 30px !important;
