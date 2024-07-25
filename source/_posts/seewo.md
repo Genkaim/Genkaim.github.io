@@ -3,7 +3,10 @@ title: 快速破解seewo冰点还原
 tags: 教程
 abbrlink: 9d27b799
 date: 2024-07-25 12:20:22
+cover: https://raw.gitmirror.com/Genkaim/blog_img/main/data/202407251432348.webp
 ---
+
+## ![cover](https://raw.gitmirror.com/Genkaim/blog_img/main/data/202407251432348.webp)
 
 ## 写在最前
 
