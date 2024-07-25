@@ -12,7 +12,7 @@ date: 2024-07-25 12:20:22
 据说seewo管家新版本这个方法不适用，不过嘛，学校一般不太会更新软件，试试，万一成功了呢。~~反正我在浙江某末流985附属中学成功了~~
 
 所需的文件：
-1.[**希沃管家1.1.9 **](https://www.123pan.com/s/Zk0Kjv-5kRx.html)
+1.[**希沃管家1.1.9 **](https://www.123pan.com/s/Zk0Kjv-5kRx.html) 如果不想登录的话可以在[这里](https://www.iefans.net/soft/v1119124.html)下载
 2.[**MD5对照表 **](https://wwp.lanzoum.com/iU7uB0cc5i6j )密码:96os 
 
 > 对照表来自 https://www.bilibili.com/video/BV1424y1R74A
