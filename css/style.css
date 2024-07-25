@@ -1432,3 +1432,18 @@ table th, table td{
 [data-theme="dark"] #click-show-text span {
   color: #d9d9d9 !important;
 }
+@media (min-width: 1304px) {
+  .menus_items{
+    flex: 1 1 auto;
+    justify-content: center;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 10%;
+  }
+  @media (min-width: 1640px) {
+    .menus_items{
+      padding-left: 8% !important;
+    }
+  }
+}
