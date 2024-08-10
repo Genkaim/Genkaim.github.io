@@ -1,0 +1,106 @@
+---
+layout: false
+---
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HEY</title>
+        <style>
+            .ele1 {
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                margin-bottom: 60px;
+                margin-top: 130px;
+            }
+            .main{
+                position:   relative;
+                background-color: rgb(236, 236, 236);
+                width:400px;
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                height: auto; /* 根据内容自动调整高度 */
+                padding: 30px;
+                border-radius: 30px;
+                margin-bottom: 20px; /* 添加底部边距以分隔两个 div */
+            }
+            .tit {
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                height: auto; /* 根据内容自动调整高度 */
+                font-size: 35px;
+                font-weight: bolder;
+            }
+            .tit2 {
+                background: linear-gradient(to right, #365262 0%, #1c6a54 50%, #254050 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            body {
+                display: flex;
+                flex-direction: column; /* 改为列方向 */
+                align-items: center;     /* 保持垂直居中 */
+                height: 100vh;           /* 设置为视口高度 */
+                transform: scale(1.2);
+            }
+            .pic {
+                width: 200px;
+                border-radius: 20px;
+                position: relative;
+                left:-95px;
+            }
+            .button {
+                position: absolute;
+                text-decoration: none; /* 去除下划线 */
+                background-color: grey;
+                font-weight: bold;
+                right: 70px;
+                border-radius: 14px;
+                padding: 13px;
+                font-size: 13px;
+                color:white;
+            }
+            .button:hover {
+                background-color: #9e9e9e;
+            }
+            .button:active {
+                transform: scale(0.9);
+            }
+            .pic2 {
+                width: 50px;
+            }
+            .main text{
+                margin-left: 10px;
+                font-weight: bolder;
+                position: relative;
+                left:-87px;
+            }
+            .nom {
+                transition: all 0.3s;
+            }
+            .nom:hover {
+                transform: scale(1.02);
+            }
+            .nom:click {
+                transform: scale(0.9);
+            }
+        </style>
+    </head>
+    <BODY>
+        <div class="ele1 nom">
+            <text class="tit nom"><div class="tit2">买杯奶茶吧</div>😊🖐️</text>
+        </div>
+        <div class="main nom">
+            <img class="pic nom" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="alipay">
+            <a href="https://qr.alipay.com/fkx12752q0juovve86brm10" class="button nom">点击跳转</a>
+        </div>
+        <div class="main nom">
+            <img class="pic pic2 nom" src="https://static.afdiancdn.com/static/img/logo/logo.png" alt="alipay">
+            <text class="nom">爱发电</text>
+            <a href="https://afdian.com/a/genkaim" class="button nom">点击跳转</a>
+        </div>
+    </BODY>
+</html>

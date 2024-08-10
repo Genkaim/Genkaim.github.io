@@ -4,12 +4,13 @@ function isMobileDevice() {
     navigator.userAgent.indexOf("IEMobile") !== -1
   );
 }
+
 let rmf = {};
 rmf.showRightMenu = function (isTrue, x = 0, y = 0) {
   let $rightMenu = $("#rightMenu");
   $rightMenu.css("top", x + "px").css("left", y + "px");
 
-  if (isTrue) {
+  if (isTrue && !isMobileDevice()) {
     $rightMenu.show();
   } else {
     $rightMenu.hide();

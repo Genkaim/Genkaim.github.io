@@ -58,4 +58,8 @@ close.onclick = function() {
      hide();
   };
 
-  
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('type');
+if (myParam == "read_mode"){
+  document.body.classList.toggle('read-mode');
+}
