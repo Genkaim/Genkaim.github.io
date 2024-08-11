@@ -8,17 +8,17 @@ layout: false
         <style>
             .ele1 {
                 display: flex; 
-            justify-content: left !important; 
+                justify-content: left !important; 
                 align-items: left !important; 
-                margin-bottom: 20px;
-                margin-top: 80px;
+                margin-bottom: 30px;
+                margin-top: 100px;
                 position: relative;
-                left:-85px;
+                left:-45px;
             }
             .main{
                 position:   relative;
                 background-color: rgb(236, 236, 236);
-                width:400px;
+                width:320px;
                 display: flex; 
                 justify-content: center; 
                 align-items: center; 
@@ -59,8 +59,8 @@ layout: false
                 position: absolute;
                 text-decoration: none; /* 去除下划线 */
                 background-color: grey;
-                font-weight: bold;
-                right: 70px;
+                font-weight: bolder;
+                right: 25px;
                 border-radius: 14px;
                 padding: 13px;
                 font-size: 13px;
@@ -90,6 +90,44 @@ layout: false
             .nom:click {
                 transform: scale(0.9);
             }
+            .link {
+                color: #2175FF;
+                cursor: pointer;
+                font-weight: 400;
+                text-decoration: none;
+            }
+
+            .link--arrowed {
+                display: inline-block;
+                height: 2rem;
+                line-height: 2rem;
+                
+                .arrow-icon {
+                    position: relative;
+                    top: -1px;
+                    -webkit-transition: -webkit-transform 0.3s ease;
+                    transition: -webkit-transform 0.3s ease;
+                    transition: transform 0.3s ease;
+                    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+                    vertical-align: middle;
+                }
+                
+                .arrow-icon--circle {
+                    transition: stroke-dashoffset .3s ease;
+                    stroke-dasharray: 95;
+                    stroke-dashoffset: 95;
+                }
+                
+                &:hover {
+                    .arrow-icon {
+                        transform: translate3d(5px, 0, 0);
+                    }
+                    
+                    .arrow-icon--circle {
+                        stroke-dashoffset: 0;
+                    }
+                }
+            }
         </style>
     </head>
     <BODY>
@@ -98,22 +136,22 @@ layout: false
         </div>
         <div class="main nom" style="height:300px;">
             <img class="pic nom" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="alipay">
-            <a href="https://qr.alipay.com/fkx12752q0juovve86brm10" class="button nom">点击跳转</a>
+            <a href="https://qr.alipay.com/fkx12752q0juovve86brm10" class="button nom">➜</a>
         </div>
         <div class="main nom">
             <img class="pic pic2 nom" src="https://static.afdiancdn.com/static/img/logo/logo.png" alt="alipay">
-            <text class="nom">爱发电</text>
-            <a href="https://afdian.com/a/genkaim" class="button nom">点击跳转</a>
+            <text class="nom" style="margin-left:40px;">爱发电</text>
+            <a href="https://afdian.com/a/genkaim" class="button nom">➜</a>
         </div>
         <div class="main nom">
             <img class="pic pic2 nom" style="border-radius: 20px;" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.W7VOMWxevBog9hEuX1TFOgAAAA?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="alipay">
-            <text class="nom" style="margin-left:40px;">bilibili充电</text>
-            <a href="https://space.bilibili.com/479871643" class="button nom">点击跳转</a>
+            <text class="nom" style="margin-left:70px;">bilibili充电</text>
+            <a href="https://space.bilibili.com/479871643" class="button nom">➜</a>
         </div>
         <div class="main nom">
             <img class="pic pic2 nom" src="https://ipfs.crossbell.io/ipfs/bafkreigxdnr5lvtjxqin5upquomrti2s77hlgtjy5zaeu43uhpny75rbga?img-quality=75&img-format=auto&img-onerror=redirect&img-width=384" alt="alipay">
-            <text class="nom" style="margin-left:30px;">🍭$MIRA</text>
-            <a href="https://xlog.genkaim.top/" class="button nom">点击跳转</a>
+            <text class="nom" style="margin-left:50px;">🍭$MIRA</text>
+            <a href="https://xlog.genkaim.top/" class="button nom">➜</a>
         </div>
     </BODY>
 </html>
