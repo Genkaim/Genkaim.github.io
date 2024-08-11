@@ -227,6 +227,13 @@
 
   
   <url>
+    <loc>https://www.genkaim.top/tags/Coding/</loc>
+    <lastmod>2024-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.genkaim.top/tags/other/</loc>
     <lastmod>2024-08-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -235,13 +242,6 @@
   
   <url>
     <loc>https://www.genkaim.top/tags/AI/</loc>
-    <lastmod>2024-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/tags/Coding/</loc>
     <lastmod>2024-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
