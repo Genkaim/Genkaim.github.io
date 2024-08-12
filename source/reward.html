@@ -1,7 +1,7 @@
 ---
 layout: false
 ---
-<html>
+<!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <title>HEY</title>
@@ -136,6 +136,16 @@ layout: false
             }
                 
         </style>
+            <script>
+                // 检测是否为移动设备
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                const element = document.getElementById('warn');
+    
+                // 如果是移动设备，则添加类 "is-mobile"
+                if (isMobile) {
+                    alert('使用电脑浏览以获取更好的体验');
+                }
+            </script>
     </head>
     <BODY>
         <div class="ele1 nom">
@@ -162,14 +172,4 @@ layout: false
         </div>
         <text id="warn"><br></text>
     </BODY>
-    <script>
-            // 检测是否为移动设备
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const element = document.getElementById('warn');
-
-            // 如果是移动设备，则添加类 "is-mobile"
-            if (isMobile) {
-                alert('使用电脑浏览以获取更好的体验');
-            }
-        </script>
 </html>
