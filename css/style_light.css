@@ -1,0 +1,129 @@
+.header .header__left .logo__text,
+.navbar__menus {
+  color: black;
+  font-weight: bold;
+}
+.header .header__right .navbar__menus .navbar-menu {
+  color: black !important;
+}
+#btn-search a {
+  color: black !important;
+}
+.header .header__right .navbar__menus .navbar-menu {
+  transition: all 0.3s ease;
+}
+.cover .cover__logo h1 {
+  font-weight: bold;
+}
+.post-entry__content h2 {
+  font-weight: bold !important;
+}
+.main .post-title h1 {
+  background: linear-gradient(
+    to right,
+    #365262 0%,
+    #1c6a54 50%,
+    #254050 100%
+  ) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: bold;
+}
+.post-title {
+  padding: 10%;
+}
+.content-card {
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0), 1px 1px 15px 0 rgba(0, 0, 0, 0);
+}
+.content-card {
+  border-radius: 40px;
+}
+.post__content p img {
+  border-radius: 30px;
+}
+a {
+  text-decoration: none !important; /* 去掉下划线 */
+  color: rgba(0, 0, 0, 0.349) !important; /* 设置链接颜色 */
+  transition: color 0.5s ease;
+  font-weight: bold;
+}
+a:hover {
+    color: rgba(0, 0, 0, 0.244) !important; /* 设置链接颜色 */
+}/*
+.highlight {
+  background-color: white;
+  border: 2px solid black !important;
+}*/
+.footer .button {
+  transition: all 0.3s ease;
+  background-color: white !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0) !important;
+}
+.footer .button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.101) !important;
+}
+.navbar__menus .button,.header .button {
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  border-radius: 20px !important;
+  padding: 10px;
+}
+.navbar__menus .button:hover {
+  background-color: white !important;
+  transform: translateY(-3px);
+  /*box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,0.15) !important;
+*/
+}
+.header .header__right .navbar__menus .navbar-menu {
+    padding: 15px 20px 15px 20px !important;
+}
+.header .button:hover {
+  background-color: white !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.012) !important;
+    
+}
+.post-entry:hover {
+    transform: translateY(-3px) !important; 
+    box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.06) !important;
+  }
+.header {
+  margin-top: 10px !important;
+}
+.nav {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    margin-left:auto !important;
+    background-color: white !important;
+    border-radius: 30px;
+    padding: 30px;
+    padding-bottom: 40px;
+    transition: all 0.3s ease;
+}
+.nav:hover {
+    background-color: white !important;  
+    transform: translateY(-2px) !important; 
+    box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.04) !important;
+      
+  }
+.nav .nav__prev {
+    flex: 40% 1 !important;
+}
+.footer {
+    font-size: 1.0em !important;
+}
+@font-face {
+  font-family: 'MiSans';
+  font-display: swap;
+  src: url('https://raw.gitmirror.com/genkaim/blog_img/main/data/202401201604298.woff2') format("woff2");
+}
+
+body {
+  font-family: 'MiSans' !important;
+}
+#dropdown-menus{
+    border-radius: 30px;
+}
