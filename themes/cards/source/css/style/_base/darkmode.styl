@@ -1,0 +1,81 @@
+@media (prefers-color-scheme: dark)
+    :root
+        --color-mode 'dark'
+
+        &:not([data-user-color-scheme])
+            --main-color $color_dark
+            --bg-color $color_background_dark
+            --bg-content-color $color_card_dark
+            --bg-menu #363636
+            --bg-tag-color $color_tags_block_dark
+            --bg-codeblock #000
+            --bg-code $color_codeblock_dark
+            --body-color $color_font_dark
+            --title-color $color_title_dark
+            --border-color $color_border_dark
+
+            blockquote
+                border-left .25em solid rgba(255,255,255,0.5)
+                color rgba(255,255,255,0.5)
+
+            .post__license
+                background-color rgba(255,255,255,0.2)
+
+            .post__content
+                img
+                    opacity 0.8
+                    -webkit-filter brightness(0.8) contrast(1.2)
+                    filter brightness(.8) contrast(1.2)
+
+                    &:hover
+                        opacity 1
+                        -webkit-filter none
+                        filter none
+
+            .sliding-fold
+            details
+                background #333333
+
+            table
+                tr:not(.code):not(.gutter):nth-child(2n)
+                    background-color #272727
+
+[data-user-color-scheme="dark"]
+    --color-mode 'dark'
+    
+    --main-color $color_dark
+    --bg-color $color_background_dark
+    --bg-content-color $color_card_dark
+    --bg-menu #363636
+    --bg-tag-color $color_tags_block_dark
+    --bg-codeblock #000
+    --bg-code $color_codeblock_dark
+    --body-color $color_font_dark
+    --title-color $color_title_dark
+    --border-color $color_border_dark
+
+    blockquote
+        border-left .25em solid rgba(255,255,255,0.5)
+        color rgba(255,255,255,0.5)
+
+    .post__license
+        background-color rgba(255,255,255,0.2)
+
+    .post__content
+        img
+            opacity 0.8
+            -webkit-filter brightness(0.8) contrast(1.2)
+            filter brightness(.8) contrast(1.2)
+
+            &:hover
+                opacity 1
+                -webkit-filter none
+                filter none
+
+    .sliding-fold
+    details
+        background #333333
+
+    table
+        tr:not(.code):not(.gutter):nth-child(2n)
+            background-color #272727

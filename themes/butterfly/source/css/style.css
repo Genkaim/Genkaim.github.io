@@ -1450,3 +1450,10 @@ table th, table td{
 #rightmenu-mask, #rightMenu {
   display:none;
 }
+#site-title, #site-subtitle {
+  text-align: left !important;
+  margin-left: 10% !important;
+}
+#site-title {
+  font-size: 40px !important;
+}

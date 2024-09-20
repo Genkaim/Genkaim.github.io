@@ -10,15 +10,15 @@ description: 吐槽我查了很多网上的教程，包括mailChimp，mailsender
 
 ![cover](https://raw.gitmirror.com/genkaim/blog_img/main/data/202308240952291.png)
 
-{% hideToggle Update Log %}
+ hideToggle Update Log 
 
-{% timeline 2023,purple %}
+ timeline 2023,purple 
 <!-- timeline 09-16 -->
 更新提醒
 <!-- endtimeline -->
-{% endtimeline %}
+ endtimeline 
 
-{% endhideToggle %}
+ endhideToggle 
 
 
 
@@ -39,7 +39,7 @@ description: 吐槽我查了很多网上的教程，包括mailChimp，mailsender
 
 思路来自于 **[Newsletter for Hugo Blog](https://backendology.com/2018/08/31/hugo-newsletter/)** 在此基础上增加了一些细节并翻译成中文。
 
-{% link 获取网站的Favicon图标并显示在你的网页上,owen0o0,https://github.com/owen0o0/getFavicon %}
+ link 获取网站的Favicon图标并显示在你的网页上,owen0o0,https://github.com/owen0o0/getFavicon 
 
 
 ## Tinyletter

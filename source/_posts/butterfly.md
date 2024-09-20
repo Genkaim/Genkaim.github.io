@@ -9,18 +9,18 @@ cover: https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100926980.png
 
 ![cover](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100926980.png)
 
-{% hideToggle Update Log %}
+ hideToggle Update Log 
 
-{% timeline 2023,purple %}
+ timeline 2023,purple 
 <!-- timeline 08-23 -->
 更新了樱花特效添加到指定页面的实现方式
 <!-- endtimeline -->
 
 <!-- timeline 08-21 -->
 更新更改链接鼠标悬停样式的修改
-<!-- endtimeline -->{% endtimeline %}
+<!-- endtimeline --> endtimeline 
 
-{% endhideToggle %}
+ endhideToggle 
 
 内容较多，建议看侧边栏的目录。
 
@@ -650,7 +650,7 @@ if (window.location.pathname === '/') {
      - <script src="/js/sakura.js"></script>
 ```
 
-{% hideToggle 旧版实现 %}
+ hideToggle 旧版实现 
 
 如果你仅仅想在特定界面引入樱花特效，可以修改`~\themes\butterfly\layout\includes\header\index.pug` 文件，在你想添加的页面引入文件。
 
@@ -686,7 +686,7 @@ document.addEventListener('pjax:complete', function () {
 });
 ```
 
-{% endhideToggle %}
+ endhideToggle 
 
 如果你仅仅想在特定界面引入樱花特效，可以在 `sakura.js` 代码大约51行的位置进行如下修改（对pjax同样有效）
 
