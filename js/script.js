@@ -66,6 +66,8 @@ function unlockScroll() {
   root.style.borderRight = '';
 }
 document.addEventListener("DOMContentLoaded", () => {
+  const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#";
+  if (!isHomePage) return;
   window.addEventListener("wheel", (event) => {
     const header = document.querySelector(".header");
     const windowHeight = window.innerHeight;
