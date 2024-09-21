@@ -2,6 +2,7 @@
 <% if (page.cover !== false) { %>
     <div class="cover">
         <div class="cover__logo">
+            <image class="cover_img" src="https://cdn.luogu.com.cn/upload/image_hosting/45dcuaax.png"></image>
             <% if (theme.cover.avatar) { %>
                 <img no-lazy alt="author Image" class="cover__avatar" src="<%= url_for(theme.cover.avatar) %>">
             <% } else if (theme.cover.sitename) { %>

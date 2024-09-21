@@ -12,9 +12,11 @@
     "version": "7.3.0"
   },
   "dependencies": {
+    "@better-scroll/core": "^2.5.1",
     "@waline/client": "^3.0.0-alpha.9",
     "animate.css": "^4.1.1",
     "aplayer": "^1.10.1",
+    "gsap": "^3.12.5",
     "hexo": "^7.0.0",
     "hexo-abbrlink": "^2.2.1",
     "hexo-deployer-git": "^4.0.0",
@@ -41,6 +43,7 @@
     "hexo-tag-dplayer": "^0.3.3",
     "hexo-theme-butterfly": "^4.12.0",
     "hexo-theme-landscape": "^1.0.0",
-    "hexo-wordcount": "^6.0.1"
+    "hexo-wordcount": "^6.0.1",
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }

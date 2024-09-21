@@ -34,8 +34,12 @@ head:
   # 自定义 head
   custom_head: 
     - '<link rel="stylesheet" type="text/css" href="/css/style_light.css"> '
-    # - ''
-    # - ''
+    - '<link rel="stylesheet" type="text/css" href="/css/loader.css"> '
+    - '<script src="/js/script.js"></script>'
+    - '<script src="/js/loader.js"></script>'
+    - '<script src="https://unpkg.com/@better-scroll/core@latest/dist/core.min.js"></script>'
+    - '<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>'
+
 
 
 
@@ -53,12 +57,12 @@ navbar:
   menu: 
     - name: 首页
       url: /
-    - name: 标签
-      url: /tags/
-    - name: 归档
-      url: /archives/
-    - name: 友链
-      url: /friends/
+#    - name: 标签
+#      url: /tags/
+#    - name: 归档
+#      url: /archives/
+#    - name: 友链
+#      url: /friends/
 
   # 导航栏永远显示在屏幕顶端
   # 仅当屏幕宽度不小于 1080 px 时生效
@@ -74,7 +78,7 @@ cover:
   avatar: 
   
   # sitename/avatar 下方的一句话介绍
-  description: (～￣▽￣)～
+  description: 
 
 
 
