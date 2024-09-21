@@ -222,4 +222,12 @@ svg {
   justify-content: right !important;
   margin-right: 50px !important;
 }
-  */
+ 
+  .toc {
+    background-color: white;
+    border-radius: 30px;
+    padding: 20px;
+    margin-left: 30px;
+    width: calc((100vw - 776px) / 2 - 12.6px);
+    height: calc(100vh - 60px * 2 - 20px);
+  } */
