@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const button = document.querySelector("#b2t");
   window.addEventListener("wheel", (event) => {
-    if (window.scrollY > window.innerHeight) {
+    if (window.scrollY > 100) {
       button.style.opacity = "1";
     } else {
       button.style.opacity = "0";

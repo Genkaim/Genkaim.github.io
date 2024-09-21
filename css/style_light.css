@@ -172,19 +172,7 @@ body {
 svg {
   max-height: 800px;
 }
-.cover_img {
-  width: 50%;
-  transition: all 0.3s ease;
-  border-radius: 40px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0); /* 调整阴影模糊度和透明度 */
-}
-.cover_img:hover {
-  transform: translateY(-4px) !important; 
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
-}
+
 
 .post-cover {
   width: 50%;
@@ -199,6 +187,7 @@ svg {
   transform: translateY(-4px) !important; 
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
 }
+
 .cover_cover {
   background-color: #f4f4f400;
   width: 100%;
@@ -206,3 +195,31 @@ svg {
   position:absolute;
   transition: all 1s ease;
 }
+.cover_img {
+  width: 40%;
+  transition: all 0.3s ease;
+  border-radius: 40px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0); /* 调整阴影模糊度和透明度 */
+}
+.cover_img:hover {
+  transform: translateY(-4px) !important; 
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
+}
+.cover_show{
+  height: 100%;
+  width: 0%;
+  display: flex;       
+  align-items: center; 
+  justify-content: left;
+}
+/*
+.cover__logo {
+  display: flex !important;       
+  align-items: center; 
+  justify-content: right !important;
+  margin-right: 50px !important;
+}
+  */
