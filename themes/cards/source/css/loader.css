@@ -10,6 +10,7 @@
   background-color: #f4f4f4;
   width: 100%;
   height: 100%;
+  z-index: 100000;
   transition: all 2s ease;
   animation: blurTransition 1.3s forwards ease;
   backdrop-filter: blur(10px);
