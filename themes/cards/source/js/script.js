@@ -66,6 +66,7 @@ function unlockScroll() {
   root.style.borderRight = '';
 }
 document.addEventListener("DOMContentLoaded", () => {
+  const currentUrl = window.location.href;
   const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#";
   if (!isHomePage) return;
   window.addEventListener("wheel", (event) => {
