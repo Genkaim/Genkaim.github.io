@@ -99,9 +99,10 @@ a:hover {
   }
 .header {
   margin-top: 0px !important;
+  backdrop-filter: blur(20px);
   position: fixed;
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #f4f4f46f;
   height: 90px !important;
 }
 
