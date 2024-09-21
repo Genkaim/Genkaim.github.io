@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
+  <head>
     <meta charset="utf-8">
 
     
@@ -64,6 +64,16 @@
     
         <link rel="stylesheet" type="text/css" href="/css/style_light.css">  
     
+        <link rel="stylesheet" type="text/css" href="/css/loader.css">  
+    
+        <script src="/js/script.js"></script> 
+    
+        <script src="/js/loader.js"></script> 
+    
+        <script src="https://unpkg.com/@better-scroll/core@latest/dist/core.min.js"></script> 
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script> 
+    
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -72,9 +82,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
 </head>
 
-    <body>
-        <div id="app" tabindex="-1">
-            <header class="header">
+  <body>
+    <div id="app" tabindex="-1">
+      <header class="header">
     <div class="header__left">
         <a href="/" class="button">
             <span class="logo__text">Genkaim的博客</span>
@@ -85,12 +95,6 @@
             <div class="navbar__menus">
                 
                     <a href="/" class="navbar-menu button">首页</a>
-                
-                    <a href="/tags/" class="navbar-menu button">标签</a>
-                
-                    <a href="/archives/" class="navbar-menu button">归档</a>
-                
-                    <a href="/friends/" class="navbar-menu button">友链</a>
                 
             </div>
         
@@ -106,19 +110,15 @@
                 
                     <a href="/" class="dropdown-menu button">首页</a>
                 
-                    <a href="/tags/" class="dropdown-menu button">标签</a>
-                
-                    <a href="/archives/" class="dropdown-menu button">归档</a>
-                
-                    <a href="/friends/" class="dropdown-menu button">友链</a>
-                
             </div>
         
     </div>
+    <div id="loader">
+        <!-- This is a recreation of the SVG animation that can be found on Wokine.com -->
+      </div>
 </header>
 
-
-            <main class="main">
+ <main class="main">
     
 
 <div class="post-title">
@@ -158,8 +158,7 @@
 
 
 </main>
-
-            <footer class="footer">
+ <footer class="footer">
      
     <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
@@ -182,11 +181,11 @@
         </p>
     
     
-    <p><a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
+    <p class="p_footer"><a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
 </footer>
 
-        </div>
-        
+    </div>
+    
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
     <script>
         window.lazyLoadOptions = {
@@ -229,7 +228,7 @@
 
 
 
-    <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+  <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
                 var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
                 console.log('已挂载history_calendar')

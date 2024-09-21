@@ -1,7 +1,11 @@
 .header .header__left .logo__text,
 .navbar__menus {
-  color: black;
+  color: black !important;
   font-weight: bold;
+}
+.navbar__menus {
+  position:relative;
+  right: 10px;
 }
 .header .header__right .navbar__menus .navbar-menu {
   color: black !important;
@@ -14,6 +18,7 @@
 }
 .cover .cover__logo h1 {
   font-weight: bold;
+  margin-top: 35px !important;
 }
 .post-entry__content h2 {
   font-weight: bold !important;
@@ -50,11 +55,13 @@ a {
 }
 a:hover {
     color: rgba(0, 0, 0, 0.244) !important; /* 设置链接颜色 */
-}/*
+}
 .highlight {
-  background-color: white;
-  border: 2px solid black !important;
-}*/
+  border-radius: 30px;
+}
+.post-entry__content > .highlight, .post__content > .highligh {
+  border-radius: 30px;
+}
 .footer .button {
   transition: all 0.3s ease;
   background-color: white !important;
@@ -91,8 +98,13 @@ a:hover {
     box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.06) !important;
   }
 .header {
-  margin-top: 10px !important;
+  margin-top: 0px !important;
+  position: fixed;
+  width: 100%;
+  background-color: #f4f4f4;
+  height: 90px !important;
 }
+
 .nav {
     display: flex;
     justify-content: center; /* 水平居中 */
@@ -126,4 +138,50 @@ body {
 }
 #dropdown-menus{
     border-radius: 30px;
+    margin-top: 20px;
 }
+.cover {
+  height: 100px ;
+  display: flex;       
+  align-items: center; 
+  margin: 0px !important;
+  margin-bottom: 50px;
+}
+#b2t{
+  opacity: 0;
+}
+.main{
+  background-color: #f4f4f4;
+  top: 0px;
+  position: relative !important;
+  transition: top 0.78s ease;
+}
+.footer {
+  position: relative !important;
+}
+@media screen and (max-width: 650px) {
+  .content-card {
+    padding: 50px;
+  }
+  .cover_img {
+    width: 70% !important;
+    border-radius: 30px !important;
+  }
+}
+svg {
+  max-height: 800px;
+}
+.cover_img {
+  width: 50%;
+  transition: all 0.3s ease;
+  border-radius: 40px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0); /* 调整阴影模糊度和透明度 */
+}
+.cover_img:hover {
+  transform: translateY(-4px) !important; 
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
+}
+

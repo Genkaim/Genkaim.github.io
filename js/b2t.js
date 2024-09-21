@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     goTopButton.addEventListener('click', function () {
+        goTopButton.style.opacity='0';
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
