@@ -152,10 +152,10 @@ body {
   opacity: 0;
 }
 .main{
-  background-color: #f4f4f4;
+  background-color: #f4f4f400;
   top: 0px;
   position: relative !important;
-  transition: top 0.78s ease;
+  transition: all 0.78s ease;
 }
 .footer {
   position: relative !important;
@@ -186,3 +186,23 @@ svg {
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
 }
 
+.post-cover {
+  width: 50%;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0); /* 调整阴影模糊度和透明度 */
+}
+.post-cover:hover {
+  transform: translateY(-4px) !important; 
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
+}
+.cover_cover {
+  background-color: #f4f4f400;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  transition: all 1s ease;
+}

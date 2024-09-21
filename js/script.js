@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const targetPosition = windowHeight - headerHeight;
   const footer = document.querySelector(".footer");
   const app = document.querySelector("body");
+  const cover_cover  = document.querySelector(".cover_cover");
   // 监听滚轮事件
   window.addEventListener("wheel", (event) => {
     const scrollTop = window.scrollY;
@@ -34,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scrollTop === 0) {
       main.style.top = `${0}px`;
       footer.style.top = `${0}px`;
+      cover_cover.style.backgroundColor = "transparent";
+      cover_cover.style.backdropFilter = "blur(0px)";
       window.scrollTo({
         top: 0,
         behavior: "auto",
@@ -42,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 判断是否从顶部开始滚动
     if (lastScrollTop === 0 && scrollTop > 0) {
       main.style.top = `-${targetPosition}px`;
+      cover_cover.style.backgroundColor = "#f4f4f4";
+      cover_cover.style.backdropFilter = "blur(20px)";
       footer.style.top = `-${targetPosition}px`;
       app.style.height = `${app.offsetHeight}px`;
       window.scrollTo({
