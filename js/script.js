@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
       footer.style.top = `${0}px`;
       cover_cover.style.backgroundColor = "transparent";
       cover_cover.style.backdropFilter = "blur(0px)";
-      cover_cover.style.display = "none";
       window.scrollTo({
         top: 0,
         behavior: "auto",
