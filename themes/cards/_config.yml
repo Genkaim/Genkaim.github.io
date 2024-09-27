@@ -37,11 +37,7 @@ head:
     - '<link rel="stylesheet" type="text/css" href="/css/loader.css"> '
     - '<script src="/js/script.js"></script>'
     - '<script src="/js/loader.js"></script>'
-    - '<script src="https://unpkg.com/@better-scroll/core@latest/dist/core.min.js"></script>'
-    - '<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>'
-
-
-
+    - '<script src="/js/copy-tex.js"></script>'
 
 # ---------------------------------------------------------------
 # 导航栏/封面配置
@@ -59,8 +55,8 @@ navbar:
       url: /
 #    - name: 标签
 #      url: /tags/
-#    - name: 归档
-#      url: /archives/
+    - name: 归档
+      url: /archives/
 #    - name: 友链
 #      url: /friends/
 
@@ -158,7 +154,7 @@ meta:
 
   # 文章缩略图
   thumbnail: 
-    enable: false
+    enable: true
     relative: 
     default:   # 默认缩略图，当页面 `thumbnail` 字段为空时 fallback 至此参数
 
@@ -169,7 +165,7 @@ meta:
 
   # 文章自动摘要
   auto_excerpt: 
-    enable: false
+    enable: true
     length: 150
 
   # 文章目录
@@ -179,7 +175,7 @@ meta:
 
   # 文章版权声明
   copyright: 
-    enable: false
+    enable: true
     
     # 在作者声明和永久链接之后，可以多行，支持 markdown
     custom_text:

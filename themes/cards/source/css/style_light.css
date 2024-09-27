@@ -66,11 +66,21 @@ a:hover {
   transition: all 0.3s ease;
   background-color: white !important;
   border-radius: 20px !important;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
+}
+.footer .btn-toc {
+  transition: all 0.3s ease;
+  background: white !important;
+  border-radius: 20px !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0) !important;
 }
-.footer .button:hover {
-  transform: translateY(-1px);
+.footer .btn-toc:hover {
+  transform: translateY(0px);
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.101) !important;
+}
+.footer .button:hover {
+  transform: translateY(0px);
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.201) !important;
 }
 .navbar__menus .button,.header .button {
   margin-left: 10px;
@@ -80,7 +90,7 @@ a:hover {
 }
 .navbar__menus .button:hover {
   background-color: white !important;
-  transform: translateY(-3px);
+  transform: translateY(0px)!important;
   /*box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,0.15) !important;
 */
 }
@@ -89,7 +99,7 @@ a:hover {
 }
 .header .button:hover {
   background-color: white !important;
-  transform: translateY(-1px);
+  transform: translateY(0px);
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.012) !important;
     
 }
@@ -108,8 +118,7 @@ a:hover {
 
 .nav {
     display: flex;
-    justify-content: center; /* 水平居中 */
-    margin-left:auto !important;
+    justify-content: left; /* 水平居中 */
     background-color: white !important;
     border-radius: 30px;
     padding: 30px;
@@ -218,16 +227,118 @@ svg {
 /*
 .cover__logo {
   display: flex !important;       
-  align-items: center; 
-  justify-content: right !important;
+  align-items: center;             
+  justify-content: flex-end;      
   margin-right: 50px !important;
+  height: 100%;
 }
- 
-  .toc {
-    background-color: white;
-    border-radius: 30px;
-    padding: 20px;
-    margin-left: 30px;
-    width: calc((100vw - 776px) / 2 - 12.6px);
-    height: calc(100vh - 60px * 2 - 20px);
-  } */
+ */
+.toc {
+  padding-top: 30px;
+}
+.toc-item {
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 2px;
+}
+.toc-item a {
+  padding: 10.5px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  margin:10px;
+}
+.toc-item a:hover {
+  background-color: white;
+}
+.toc-child {
+  margin-top: 10px;
+}
+.highlight {
+  background-color: white !important;
+}/*
+.katex {
+  background-color: #f4f4f496;
+  padding: 12px;
+  margin: 5px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+}*/
+img {
+  border-radius: 50px;
+}
+#toc-menus {
+  box-shadow: 0.6rem 0.6rem 0.6rem rgba(48, 55, 66, 0.079); /* 调整阴影模糊度和透明度 */
+  border-radius: 50px !important;
+}
+.post__license {
+  border-left: none;
+  border-radius: 20px;
+  padding: 20px;
+}
+.katex,
+.katex-display {
+    user-select: all;
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    -ms-user-select: all;
+}
+.reward__button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+.reward__button:hover{
+  background-color: rgb(55, 55, 55);
+}
+button {
+  border: none; /* 取消描边 */
+  outline: none; /* 取消焦点时的描边 */
+  background-color: transparent; /* 取消背景颜色 */
+  cursor: pointer; /* 设置鼠标指针为手形 */
+  padding: 8px 16px; /* 添加内边距以保持按钮的视觉效果 */
+  font-size: 16px; /* 设置字体大小 */
+  color: #333; /* 设置字体颜色 */
+}
+.archives-item::before {
+  background: transparent !important;
+}
+.archives-icon {
+  display: none;
+  background: transparent !important;
+}
+.archives-icon::before {
+  display: none;
+  border-radius: 6px!important;
+  width: 2rem !important;
+  height: 2rem !important;
+  border: none !important;
+  background-color: transparent;
+}
+.archives .archives-item:hover .archives-icon::before{
+  background: transparent !important;
+}
+.archives-content a .archives-title {
+  transition: all 0.3s ease;
+  padding: 20px !important;
+  border-radius: 20px;
+}
+
+.archives-content a .archives-title:hover {
+  background-color: white;
+}
+.archives-year {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 20px;
+  border-radius: 20px;
+}
+.cover__link {
+  padding: 10px;
+  background-color: grey;
+  border-radius: 20px;
+  margin-left: 0px;
+}

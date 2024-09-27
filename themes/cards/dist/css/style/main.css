@@ -1233,7 +1233,7 @@ overflows table td {
   bottom: 4.8rem;
   border-radius: 5px;
   color: var(--title-color);
-  background: var(--bg-menu);
+  background: white;
   -webkit-box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,0.15);
   box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,0.15);
 }
