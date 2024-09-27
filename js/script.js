@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const postContent = document.querySelector('.post__content');
+
+  if (postContent) {
+      const children = postContent.children;
+
+      for (let i = 0; i < children.length; i++) {
+          const child = children[i];
+          if (child.classList.contains('katex-block')) {
+              child.style.background = '#f4f4f496';
+              child.style.borderRadius = '10px';
+              child.style.padding =  '1px';
+          }
+      }
+  }
+});
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
   const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#" ;
@@ -17,19 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
 let lastScrollTop = 0; // 记录上一次滚动的位置
 
 document.addEventListener("DOMContentLoaded", () => {
-  const main = document.querySelector(".main");
-  const currentUrl = window.location.href;
-  const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#";
-  if (!isHomePage) return;
-  const header = document.querySelector(".header");
-  const windowHeight = window.innerHeight;
-  const headerHeight = header.offsetHeight; // 使用 offsetHeight 获取元素的实际高度
-  const targetPosition = windowHeight - headerHeight;
-  const footer = document.querySelector(".footer");
-  const app = document.querySelector("body");
-  const cover_cover  = document.querySelector(".cover_cover");
   // 监听滚轮事件
   window.addEventListener("wheel", (event) => {
+    const main = document.querySelector(".main");
+    const currentUrl = window.location.href;
+    const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#";
+    if (!isHomePage) return;
+    const header = document.querySelector(".header");
+    const windowHeight = window.innerHeight;
+    const headerHeight = header.offsetHeight; // 使用 offsetHeight 获取元素的实际高度
+    const targetPosition = windowHeight - headerHeight;
+    const footer = document.querySelector(".footer");
+    const app = document.querySelector("body");
+    const cover_cover  = document.querySelector(".cover_cover");
     const scrollTop = window.scrollY;
     // 判断是否滚动到顶部
     if (scrollTop === 0) {
@@ -37,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       footer.style.top = `${0}px`;
       cover_cover.style.backgroundColor = "transparent";
       cover_cover.style.backdropFilter = "blur(0px)";
+      cover_cover.style.display = "none";
       window.scrollTo({
         top: 0,
         behavior: "auto",
@@ -48,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cover_cover.style.backgroundColor = "#f4f4f4";
       cover_cover.style.backdropFilter = "blur(20px)";
       footer.style.top = `-${targetPosition}px`;
+      cover_cover.style.display = "flex";
       app.style.height = `${app.offsetHeight}px`;
       window.scrollTo({
         top: 0,
@@ -109,3 +130,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //defined animation timeline options
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUrl = window.location.href;
+  const isArchivesPage = currentUrl === window.location.origin + "/archives" ||  currentUrl === window.location.origin + "/archives/" ;
+  const cover = document.querySelector(".cover");
+  const footer = document.querySelector(".footer");
+  if (!isArchivesPage)return;
+  cover.style.display="none";
+  const main = document.querySelector(".main");
+  main.style.top = "100px";
+  footer.style.top = "100px";
+});

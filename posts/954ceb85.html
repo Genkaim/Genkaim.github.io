@@ -72,9 +72,7 @@
     
         <script src="/js/loader.js"></script> 
     
-        <script src="https://unpkg.com/@better-scroll/core@latest/dist/core.min.js"></script> 
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script> 
+        <script src="/js/copy-tex.js"></script> 
     
 
 <!-- hexo injector head_end start -->
@@ -98,6 +96,8 @@
                 
                     <a href="/" class="navbar-menu button">首页</a>
                 
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
             </div>
         
         
@@ -111,6 +111,8 @@
             <div class="dropdown-menus" id="dropdown-menus">
                 
                     <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
                 
             </div>
         
@@ -221,7 +223,21 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e4</span><span class="number">+5</span>;</span><br><span class="line"><span class="type">int</span> m, a[N]</span><br><span class="line"><span class="comment">//堆排序</span></span><br><span class="line"><span class="comment">//堆部分</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">adjust</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> parent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">int</span> child = parent * <span class="number">2</span>;<span class="comment">//先判断儿子</span></span><br><span class="line">  <span class="comment">// 保证判断的范围不超过i</span></span><br><span class="line">  <span class="keyword">if</span>(child + <span class="number">1</span> &lt;= i &amp;&amp; a[child] &lt; a[child + <span class="number">1</span>])&#123;</span><br><span class="line">    child++;<span class="comment">//选择两个儿子中较大的那个往上传递（维护大顶堆）</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(a[child] &gt; a[parent])&#123;</span><br><span class="line">    <span class="built_in">swap</span>(a[child], a[parent]);<span class="comment">//如果儿子比较大，就往上交换</span></span><br><span class="line">    <span class="keyword">if</span>(child &lt;= i / <span class="number">2</span>)&#123;<span class="comment">//不超过i的父节点</span></span><br><span class="line">      <span class="built_in">adjust</span>(i, child);<span class="comment">//如果当前节点更新，那么当前节点的子节点也需要更新</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//主体排序部分</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">heapSort</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i = n; i &gt; <span class="number">1</span>; i--)&#123;<span class="comment">//从右侧往左侧维护，注意不能从左往右，因为不能保证其子节点已经被维护过</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = i / <span class="number">2</span>; j &gt;= <span class="number">1</span>; j--)&#123;	<span class="comment">//从i节点的父节点开始维护</span></span><br><span class="line">      <span class="built_in">adjust</span>(i, j);	<span class="comment">//以j号节点往根节点调整，传递的i辅助判断是否越界</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">swap</span>(a[<span class="number">1</span>], a[i]);<span class="comment">//此时树根是下标[1, i]范围内最大的数，和当前位置交换（参考选择排序）</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">heapSort</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
-     
+    
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>Genkaim
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/954ceb85">https://www.genkaim.top/posts/954ceb85</a>
+        </p>
+        
+        <button class="reward__button button" onclick="window.location.href='https://www.genkaim.top/Glink.html?type=reward'">打赏</button>
+    </div>
+ 
     <div class="post-footer__meta"><p>更新于 2023-09-09</p></div> 
     <div class="post-entry__tags"><a href="/tags/Coding/" class="post-tags__link button"># Coding</a></div> 
 </article>
