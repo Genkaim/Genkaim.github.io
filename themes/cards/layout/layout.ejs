@@ -2,13 +2,8 @@
 <html lang="<%= config.language%>">
   <%- partial('_partial/head/index') %>
   <body>
-    <div id="app" tabindex="-1">
-      <%- partial('_partial/source/cover') %> <%- body %> <%-
-      partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
-    </div>
-    <%- partial('_partial/scripts/index') %>
     <div id="loader">
-      <div class="loader_show_cover"></div>
+
       <div class="loader_show">
 
       <!-- This is a recreation of the SVG animation that can be found on Wokine.com -->
@@ -168,7 +163,16 @@
         </svg>
 
       </div>
-
     </div>
+    <div class="loader_show_cover"></div>
+    </div>
+
+    <div id="app" tabindex="-1">
+      <%- partial('_partial/source/cover') %> <%- body %> <%-
+      partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
+    </div>
+    <%- partial('_partial/scripts/index') %>
+    
+
   </body>
 </html>
