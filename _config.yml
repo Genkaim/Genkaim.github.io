@@ -51,7 +51,7 @@ backup:
   theme: cards
   message: genkaim_backup
   repository:
-    github: git@github.com:Genkaim/Genkaim.github.io.git,backup
+    github: git@github.com:Genkaim/Genkaim.github.io.git,backup_new
 
 aplayer:
   meting: true
