@@ -165,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const div = document.createElement("div");
       div.classList.add("highlight_header"); // 添加类名以便后续样式
       const show = document.createElement("text");
-      classes[0][0] = classes[0][0].toUpperCase()
       show.textContent = classes[0];
       show.classList.add("highlight_language"); // 添加类名以便后续样式
       div.appendChild(show);

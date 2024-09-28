@@ -5,6 +5,7 @@
   left: 40px;
   font-weight: bold;
   font-size: 30px;
+  z-index: 10000000;
 }
 .loader_show_1 {
   position: relative;
@@ -52,9 +53,9 @@
   }
 }
 .loader_show_cover {
-  z-index: 100000;
   position: absolute;
   width: 100%;
+  z-index: 100000000;
   height: 100%;
   background-color: #f4f4f4;
   animation: blurTransition 1s forwards ease;
@@ -69,6 +70,7 @@
   width: 200px;
   height: 200px;
   position: absolute;
+  z-index: 10000000;
   left: 0px;
   bottom: 50px;
   display: flex;

@@ -9,5 +9,5 @@ document.addEventListener("DOMContentLoaded", function () {
       const blur_cover = document.querySelector("#loader");
       blur_cover.style.display = "none";
     }, 1000);
-  }, 700);
+  }, 500);
 });
