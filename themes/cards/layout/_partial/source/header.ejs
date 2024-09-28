@@ -10,6 +10,7 @@
                 <% theme.navbar.menu.forEach((item) => { %>
                     <a href="<%= url_for(item.url) %>" class="navbar-menu button"><%= item.name %></a>
                 <% }); %>
+                <a class="submit" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
             </div>
         <% } %>
         
@@ -23,6 +24,7 @@
                 <% theme.navbar.menu.forEach((item) => { %>
                     <a href="<%= url_for(item.url) %>" class="dropdown-menu button"><%= item.name %></a>
                 <% }); %>
+                <a href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;">订阅</a>
             </div>
         <% } %>
     </div>

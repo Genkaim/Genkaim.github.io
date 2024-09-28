@@ -22,7 +22,7 @@ head:
   
   # 社交分享链接
   opengraph: 
-    enable: false
+    enable: true
     type: 
     twitter_card: summary_large_image
     twitter_id: 
@@ -38,6 +38,7 @@ head:
     - '<script src="/js/script.js"></script>'
     - '<script src="/js/loader.js"></script>'
     - '<script src="/js/copy-tex.js"></script>'
+    - '<link rel="stylesheet" href="/css/waline.css"/>'
 
 # ---------------------------------------------------------------
 # 导航栏/封面配置
@@ -57,6 +58,8 @@ navbar:
 #      url: /tags/
     - name: 归档
       url: /archives/
+    - name: 开往
+      url: https://www.travellings.cn/go.html
 #    - name: 友链
 #      url: /friends/
 
