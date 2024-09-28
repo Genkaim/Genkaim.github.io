@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
   const isHomePage =
     currentUrl === window.location.origin + "/" ||
-    currentUrl === window.location.origin + "/#";
+    currentUrl === window.location.origin + "/#" ||
+    currentUrl.includes("/page");
   const cover = document.querySelector(".cover");
   const header = document.querySelector(".header");
   if (!isHomePage) return;
@@ -42,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentUrl = window.location.href;
     const isHomePage =
       currentUrl === window.location.origin + "/" ||
-      currentUrl === window.location.origin + "/#";
+      currentUrl === window.location.origin + "/#" ||
+      currentUrl.includes("/page");
     if (!isHomePage) return;
     const header = document.querySelector(".header");
     const windowHeight = window.innerHeight;
@@ -96,7 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
   const isHomePage =
     currentUrl === window.location.origin + "/" ||
-    currentUrl === window.location.origin + "/#";
+    currentUrl === window.location.origin + "/#" ||
+    currentUrl.includes("/page");
   if (!isHomePage) return;
   window.addEventListener("wheel", (event) => {
     const header = document.querySelector(".header");
@@ -156,11 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const classes = Array.from(highlight.classList).filter(
       (cls) => cls !== "highlight"
     );
-
     // 查找 .highlight 下的第一个 table 元素
     const table = highlight.querySelector("table");
 
     if (table) {
+      if(table.offsetHeight > 500){
+        table.style.height = '500px';
+      }
       // 创建 div
       const div = document.createElement("div");
       div.classList.add("highlight_header"); // 添加类名以便后续样式
@@ -195,7 +200,21 @@ document.addEventListener("DOMContentLoaded", () => {
           });
       });
       // 将 div 插入到 table 元素的最上方
-      table.insertBefore(div, table.firstChild);
+      highlight.insertBefore(div, highlight.firstChild);
     }
   });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUrl = window.location.href;
+  const isHomePage =
+    currentUrl === window.location.origin + "/" ||
+    currentUrl === window.location.origin + "/#";
+  if (!isHomePage) return;
+  const content_card = document.querySelector(".post-list");
+  if (content_card) {
+    const firstChild = content_card.firstElementChild;
+    if (firstChild) {
+      firstChild.style.backgroundImage = "linear-gradient(to top,  white 30%,  #a8ede965 100%)";
+    }
+  }
 });

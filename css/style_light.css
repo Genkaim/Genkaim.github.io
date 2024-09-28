@@ -62,6 +62,9 @@ a:hover {
 .post-entry__content > .highlight, .post__content > .highligh {
   border-radius: 30px;
 }
+.footer {
+  transition: all 0.78s ease;
+}
 .footer .button {
   transition: all 0.3s ease;
   background-color: white !important;
@@ -264,14 +267,7 @@ svg {
 .highlight {
   background-color: white !important;
 }
-.highlight table {
-  background-color: #f4f4f496;
-  padding: 30px;
-  padding-top: 0px;
-  padding-right: 0px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-}
+
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -398,7 +394,16 @@ button {
   background-color: #000000a1;
 }
 .katex-display > .katex {
-  white-space: pre-wrap !important;
+  white-space: pre-wrap !important ;
+}
+.highlight table {
+  background-color: #f4f4f496;
+  padding: 30px;
+  padding-top: 20px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 .highlight_copy_button {
   top:0px;
@@ -419,7 +424,10 @@ button {
   background-color: #000000a1;
 }
 .highlight_header {
-
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding-left: 20px;
+  background-color: #f4f4f4;
   display: flex;
   justify-content: space-between;
   align-items: center;
