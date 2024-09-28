@@ -40,6 +40,16 @@
 
 
     <!-- OpenGraph -->
+ 
+    <meta property="og:type" content="website">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="https://www.genkaim.top/categories/">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-01T02:53:08.000Z">
+<meta property="article:author" content="Genkaim">
+<meta name="twitter:card" content="summary_large_image">
 
 
     
@@ -72,6 +82,8 @@
     
         <script src="/js/copy-tex.js"></script> 
     
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -96,6 +108,9 @@
                 
                     <a href="/archives/" class="navbar-menu button">归档</a>
                 
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
             </div>
         
         
@@ -112,6 +127,9 @@
                 
                     <a href="/archives/" class="dropdown-menu button">归档</a>
                 
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;">订阅</a>
             </div>
         
     </div>
@@ -121,49 +139,61 @@
     
 
 <div class="post-title">
-    <h1 class="post-title__text">
-        分类
-    </h1>
-    
-    
-    <div class="post-title__meta">
-        <a href="/archives/2018/01/" class="post-meta__date button">2018-01-05</a>
-        
+  <h1 class="post-title__text">分类</h1>
+  
+
+  <div class="post-title__meta">
+    <a
+  href="/archives/2018/01/"
+  class="post-meta__date button"
+  >发布于 2018-01-05|
+  更新于 2024-01-01
+</a>
  
-        
+ 
     
     
 
 
  
 
- 
-    </div>
+
+  </div>
 </div>
 
 
-    <aside class="post-side">
-        <div class="post-side__toc">
-            
-        </div>
-    </aside>
-    <a class="btn-toc button" id="btn-toc" tabindex="0">
-        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
-        </svg>
-    </a>
-    <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">文章目录</div>
-        
-    </div>
-
-
-<article class="post post__with-toc content-card">
-    <div class="post__header"></div>
-    <div class="post__content">
-        
-    </div>
+<aside class="post-side">
+  <div class="post-side__toc">
     
+  </div>
+</aside>
+<a class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</a>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  
+</div>
+
+
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"></div>
+  
     <div class="post__license">
         <p>
             <strong>本文作者：</strong>Genkaim
@@ -177,18 +207,22 @@
         
         <button class="reward__button button" onclick="window.location.href='https://www.genkaim.top/Glink.html?type=reward'">打赏</button>
     </div>
- 
-    <div class="post-footer__meta"><p>更新于 2024-01-01</p></div> 
-    <div class="post-entry__tags"></div> 
+ <div class="post-entry__tags"></div>
+
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
 </article>
 
 
 
-
-
-
 </main>
- <footer class="footer">
+  <footer class="footer">
      
     <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
@@ -259,6 +293,167 @@
 
 
     <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+
+      <!-- This is a recreation of the SVG animation that can be found on Wokine.com -->
+
+      <div class="hello-parent">
+        <svg class="hello-word" width="365" height="365" viewBox="0 0 365 365">
+          <g id="H-letter">
+            <line
+              class="H-left-stroke"
+              x1="17"
+              y1="0"
+              x2="17"
+              y2="124"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="H-mid-stroke"
+              x1="33"
+              y1="62"
+              x2="68"
+              y2="62"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="H-right-stroke"
+              x1="84"
+              y1="0"
+              x2="84"
+              y2="124"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="E-letter">
+            <line
+              class="E-left-stroke"
+              x1="138"
+              y1="0"
+              x2="138"
+              y2="124"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="E-top-stroke"
+              x1="154"
+              y1="17"
+              x2="201"
+              y2="17"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="E-mid-stroke"
+              x1="154"
+              y1="62"
+              x2="196"
+              y2="62"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="E-bottom-stroke"
+              x1="154"
+              y1="107"
+              x2="201"
+              y2="107"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="L-one-letter">
+            <line
+              class="L-one-long-stroke"
+              x1="17"
+              y1="153"
+              x2="17"
+              y2="277"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="L-one-short-stroke"
+              x1="33"
+              y1="260"
+              x2="77"
+              y2="260"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="L-two-letter">
+            <line
+              class="L-two-long-stroke"
+              x1="104"
+              y1="153"
+              x2="104"
+              y2="277"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="L-two-short-stroke"
+              x1="120"
+              y1="260"
+              x2="164"
+              y2="260"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="O-letter">
+            <circle
+              class="O-stroke"
+              cx="231"
+              cy="215"
+              r="48"
+              stroke="#000"
+              fill="none"
+              stroke-width="31"
+            />
+          </g>
+
+          <g id="red-dot">
+            <!-- Initially I tried creating a circle but it was harder to manipulate it how I wanted to in CSS so I resorted to using a line trick to make it look like a circle ....
+        
+        <circle class="red-dot" cx="325" cy="260" r="20" fill="#FF5851" stroke="none" />
+    
+        -->
+
+            <line
+              x1="325"
+              y1="260"
+              x2="325"
+              y2="260"
+              stroke="#a7a7a7"
+              class="red-dot"
+            />
+          </g>
+        </svg>
+
+      </div>
+
     </div>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];

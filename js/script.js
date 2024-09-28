@@ -1,28 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const postContent = document.querySelector('.post__content');
+document.addEventListener("DOMContentLoaded", () => {
+  const postContent = document.querySelector(".post__content");
 
   if (postContent) {
-      const children = postContent.children;
+    const children = postContent.children;
 
-      for (let i = 0; i < children.length; i++) {
-          const child = children[i];
-          if (child.classList.contains('katex-block')) {
-              child.style.background = '#f4f4f496';
-              child.style.borderRadius = '10px';
-              child.style.padding =  '1px';
-          }
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+      if (child.classList.contains("katex-block")) {
+        child.style.background = "#f4f4f496";
+        child.style.borderRadius = "10px";
+        child.style.padding = "1px";
       }
+    }
   }
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
-  const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#" ;
+  const isHomePage =
+    currentUrl === window.location.origin + "/" ||
+    currentUrl === window.location.origin + "/#";
   const cover = document.querySelector(".cover");
   const header = document.querySelector(".header");
-  if (!isHomePage)return;
+  if (!isHomePage) return;
   const _cover_height = header.style.height;
   if (cover) {
     function adjustCoverHeight() {
@@ -40,7 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("wheel", (event) => {
     const main = document.querySelector(".main");
     const currentUrl = window.location.href;
-    const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#";
+    const isHomePage =
+      currentUrl === window.location.origin + "/" ||
+      currentUrl === window.location.origin + "/#";
     if (!isHomePage) return;
     const header = document.querySelector(".header");
     const windowHeight = window.innerHeight;
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetPosition = windowHeight - headerHeight;
     const footer = document.querySelector(".footer");
     const app = document.querySelector("body");
-    const cover_cover  = document.querySelector(".cover_cover");
+    const cover_cover = document.querySelector(".cover_cover");
     const scrollTop = window.scrollY;
     // 判断是否滚动到顶部
     if (scrollTop === 0) {
@@ -67,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
       cover_cover.style.backgroundColor = "#f4f4f4";
       cover_cover.style.backdropFilter = "blur(20px)";
       footer.style.top = `-${targetPosition}px`;
-      cover_cover.style.display = "flex";
       app.style.height = `${app.offsetHeight}px`;
       window.scrollTo({
         top: 0,
@@ -78,21 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 function lockScroll() {
-  let widthBar = 17, root = document.documentElement;
-  if (typeof window.innerWidth == 'number') {
-      widthBar = window.innerWidth - root.clientWidth;
+  let widthBar = 17,
+    root = document.documentElement;
+  if (typeof window.innerWidth == "number") {
+    widthBar = window.innerWidth - root.clientWidth;
   }
-  root.style.overflow = 'hidden';
-  root.style.borderRight = widthBar + 'px solid transparent';
+  root.style.overflow = "hidden";
+  root.style.borderRight = widthBar + "px solid transparent";
 }
 function unlockScroll() {
   let root = document.documentElement;
-  root.style.overflow = '';
-  root.style.borderRight = '';
+  root.style.overflow = "";
+  root.style.borderRight = "";
 }
 document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
-  const isHomePage = currentUrl === window.location.origin + "/" ||  currentUrl === window.location.origin + "/#";
+  const isHomePage =
+    currentUrl === window.location.origin + "/" ||
+    currentUrl === window.location.origin + "/#";
   if (!isHomePage) return;
   window.addEventListener("wheel", (event) => {
     const header = document.querySelector(".header");
@@ -101,8 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const targetPosition = windowHeight - headerHeight;
     const scrollTop = window.scrollY;
     const doc_height = document.body.offsetHeight;
-    const temp = doc_height - targetPosition*2
-    if(scrollTop > temp) {
+    const temp = doc_height - targetPosition * 2;
+    if (scrollTop > temp) {
       window.scrollTo({
         top: temp,
         behavior: "smooth",
@@ -129,15 +133,70 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //defined animation timeline options
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
-  const isArchivesPage = currentUrl === window.location.origin + "/archives" ||  currentUrl === window.location.origin + "/archives/" ;
+  const isArchivesPage =
+    currentUrl === window.location.origin + "/archives" ||
+    currentUrl === window.location.origin + "/archives/";
   const cover = document.querySelector(".cover");
   const footer = document.querySelector(".footer");
-  if (!isArchivesPage)return;
-  cover.style.display="none";
+  if (!isArchivesPage) return;
+  cover.style.display = "none";
   const main = document.querySelector(".main");
   main.style.top = "100px";
-  footer.style.top = "100px";
+  footer.style.top = "80px";
+});
+document.addEventListener("DOMContentLoaded", () => {
+  // 获取所有 .highlight 元素
+  const highlights = document.querySelectorAll(".highlight");
+
+  // 遍历每个 .highlight 元素
+  highlights.forEach((highlight) => {
+    // 获取 .highlight 元素的所有类名
+    const classes = Array.from(highlight.classList).filter(
+      (cls) => cls !== "highlight"
+    );
+
+    // 查找 .highlight 下的第一个 table 元素
+    const table = highlight.querySelector("table");
+
+    if (table) {
+      // 创建 div
+      const div = document.createElement("div");
+      div.classList.add("highlight_header"); // 添加类名以便后续样式
+      const show = document.createElement("text");
+      classes[0][0] = classes[0][0].toUpperCase()
+      show.textContent = classes[0];
+      show.classList.add("highlight_language"); // 添加类名以便后续样式
+      div.appendChild(show);
+      // 创建按钮
+      const button = document.createElement("button");
+      button.textContent = "复制";
+      button.classList.add("highlight_copy_button"); // 添加类名以便后续样式
+      div.appendChild(button);
+
+      // 获取代码内容
+      const codeContent = table.querySelector(".code").innerText;
+
+      // 为按钮添加点击事件监听器
+      button.addEventListener("click", () => {
+        navigator.clipboard
+          .writeText(codeContent)
+          .then(() => {
+            button.textContent = "✔";
+            setTimeout(() => {
+              button.textContent = "复制";
+            }, 2000);
+          })
+          .catch((err) => {
+            button.textContent = "Error";
+            setTimeout(() => {
+              button.textContent = "复制";
+            }, 2000);
+          });
+      });
+      // 将 div 插入到 table 元素的最上方
+      table.insertBefore(div, table.firstChild);
+    }
+  });
 });

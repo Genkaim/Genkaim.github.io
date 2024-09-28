@@ -42,6 +42,30 @@
 
 
     <!-- OpenGraph -->
+ 
+    <meta name="description" content="在你的博客里接入AI机器人，并且读取你的文章|genkaimの博客|这次借助的是chat thing 网站，免费版支持gpt-3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在博客里接入AI机器人(Chatgpt)，并且读取博客文章">
+<meta property="og:url" content="https://www.genkaim.top/posts/add30ed0">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:description" content="在你的博客里接入AI机器人，并且读取你的文章|genkaimの博客|这次借助的是chat thing 网站，免费版支持gpt-3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092059559.jpg">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/image-20230809203623323.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092140893.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092043992.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100858296.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100859979.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100901485.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092045929.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092105044.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092053443.png">
+<meta property="article:published_time" content="2023-08-09T12:29:03.000Z">
+<meta property="article:modified_time" content="2023-09-09T09:18:42.000Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092059559.jpg">
 
 
     
@@ -74,6 +98,8 @@
     
         <script src="/js/copy-tex.js"></script> 
     
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -98,6 +124,9 @@
                 
                     <a href="/archives/" class="navbar-menu button">归档</a>
                 
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
             </div>
         
         
@@ -114,6 +143,9 @@
                 
                     <a href="/archives/" class="dropdown-menu button">归档</a>
                 
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;">订阅</a>
             </div>
         
     </div>
@@ -123,47 +155,60 @@
     
 
 <div class="post-title">
-    <h1 class="post-title__text">
-        在博客里接入AI机器人(Chatgpt)，并且读取博客文章
-    </h1>
-    
-    
-    <div class="post-title__meta">
-        <a href="/archives/2023/08/" class="post-meta__date button">2023-08-09</a>
-        
+  <h1 class="post-title__text">在博客里接入AI机器人(Chatgpt)，并且读取博客文章</h1>
+  
+
+  <div class="post-title__meta">
+    <a
+  href="/archives/2023/08/"
+  class="post-meta__date button"
+  >发布于 2023-08-09|
+  更新于 2023-09-09
+</a>
  
-        
+ 
     
     
 
 
  
 
- 
-    </div>
+
+  </div>
 </div>
 
 
-    <aside class="post-side">
-        <div class="post-side__toc">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-text"> 起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BAnew-bot"><span class="toc-text"> 😆创建机器人New bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-data-source-%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="toc-text"> 🫤设置 Data source 数据来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%8D%9A%E5%AE%A2-embed-bot"><span class="toc-text"> 🥰嵌入博客 Embed Bot</span></a></li></ol>
-        </div>
-    </aside>
-    <a class="btn-toc button" id="btn-toc" tabindex="0">
-        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
-        </svg>
-    </a>
-    <div class="toc-menus" id="toc-menus">
-        <div class="toc-title">文章目录</div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-text"> 起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BAnew-bot"><span class="toc-text"> 😆创建机器人New bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-data-source-%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="toc-text"> 🫤设置 Data source 数据来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%8D%9A%E5%AE%A2-embed-bot"><span class="toc-text"> 🥰嵌入博客 Embed Bot</span></a></li></ol>
-    </div>
+<aside class="post-side">
+  <div class="post-side__toc">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-text"> 起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BAnew-bot"><span class="toc-text"> 😆创建机器人New bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-data-source-%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="toc-text"> 🫤设置 Data source 数据来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%8D%9A%E5%AE%A2-embed-bot"><span class="toc-text"> 🥰嵌入博客 Embed Bot</span></a></li></ol>
+  </div>
+</aside>
+<a class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</a>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-text"> 起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BAnew-bot"><span class="toc-text"> 😆创建机器人New bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-data-source-%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="toc-text"> 🫤设置 Data source 数据来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%8D%9A%E5%AE%A2-embed-bot"><span class="toc-text"> 🥰嵌入博客 Embed Bot</span></a></li></ol>
+</div>
 
 
-<article class="post post__with-toc content-card">
-    <div class="post__header"></div>
-    <div class="post__content">
-        <p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092059559.jpg" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092059559.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="cover" /></p>
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"><p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092059559.jpg" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092059559.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="cover" /></p>
 <h2 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h2>
 <p>我看到<a target="_blank" rel="noopener external nofollow noreferrer" href="https://endercat.eu.org">endercat</a>的这篇<a target="_blank" rel="noopener external nofollow noreferrer" href="https://endercat.ir/zai-bo-ke-shang-qian-ru-ke-yi-du-qu-wen-zhang-de-ChatGPT">文章</a>，起了往博客添加机器人的想法，但是期望是以悬浮窗的形式，就到处寻找，终于！！！找到了<br />
 <s>实际上是我太菜不会加悬浮窗（）</s></p>
@@ -204,9 +249,8 @@
 <img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092053443.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092053443.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230809205358309" width="80%" height="80%" />
 <p>这样就完成啦🥳</p>
 <p>如有错误/改进，欢迎指正🥲</p>
-
-    </div>
-    
+</div>
+  
     <div class="post__license">
         <p>
             <strong>本文作者：</strong>Genkaim
@@ -220,51 +264,70 @@
         
         <button class="reward__button button" onclick="window.location.href='https://www.genkaim.top/Glink.html?type=reward'">打赏</button>
     </div>
- 
-    <div class="post-footer__meta"><p>更新于 2023-09-09</p></div> 
-    <div class="post-entry__tags"><a href="/tags/AI/" class="post-tags__link button"># AI</a></div> 
+ <div class="post-entry__tags"><a href="/tags/AI/" class="post-tags__link button"># AI</a></div>
+
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
 </article>
 
 
-    <div class="nav">
-        <div class="nav__prev">
-            
-                <a href="/posts/954ceb85" class="nav__link">
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
-                    </div>
-                    <div>
-                        <div class="nav__label">
-                            上一篇
-                        </div>
-                        <div class="nav__title">
-                            十大排序算法之归并排序、快速排序、堆排序
-                        </div>
-                    </div>
-                </a>
-            
-        </div>
-        <div class="nav__next">
-            
-                <a href="/posts/72dcbf6a" class="nav__link">
-                    <div>
-                        <div class="nav__label">
-                            下一篇
-                        </div>
-                        <div class="nav__title">
-                            博客接入搜索引擎、百度统计
-                        </div>
-                    </div>
-                    <div>
-                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
-                    </div>
-                </a>
-            
-        </div>
-    </div>
+<div class="nav">
+  <div class="nav__prev">
+    
+    <a href="/posts/954ceb85" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">十大排序算法之归并排序、快速排序、堆排序</div>
+      </div>
 
+    </a>
 
-
+    
+  </div>
+  <div class="nav__next">
+    
+    <a href="/posts/72dcbf6a" class="nav__link">
+      <div>
+        <div class="nav__label">下一篇</div>
+        <div class="nav__title">博客接入搜索引擎、百度统计</div>
+      </div>
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+            fill="#808080"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    
+  </div>
+</div>
 
 
 </main>
@@ -339,6 +402,167 @@
 
 
     <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+
+      <!-- This is a recreation of the SVG animation that can be found on Wokine.com -->
+
+      <div class="hello-parent">
+        <svg class="hello-word" width="365" height="365" viewBox="0 0 365 365">
+          <g id="H-letter">
+            <line
+              class="H-left-stroke"
+              x1="17"
+              y1="0"
+              x2="17"
+              y2="124"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="H-mid-stroke"
+              x1="33"
+              y1="62"
+              x2="68"
+              y2="62"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="H-right-stroke"
+              x1="84"
+              y1="0"
+              x2="84"
+              y2="124"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="E-letter">
+            <line
+              class="E-left-stroke"
+              x1="138"
+              y1="0"
+              x2="138"
+              y2="124"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="E-top-stroke"
+              x1="154"
+              y1="17"
+              x2="201"
+              y2="17"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="E-mid-stroke"
+              x1="154"
+              y1="62"
+              x2="196"
+              y2="62"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="E-bottom-stroke"
+              x1="154"
+              y1="107"
+              x2="201"
+              y2="107"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="L-one-letter">
+            <line
+              class="L-one-long-stroke"
+              x1="17"
+              y1="153"
+              x2="17"
+              y2="277"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="L-one-short-stroke"
+              x1="33"
+              y1="260"
+              x2="77"
+              y2="260"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="L-two-letter">
+            <line
+              class="L-two-long-stroke"
+              x1="104"
+              y1="153"
+              x2="104"
+              y2="277"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+            <line
+              class="L-two-short-stroke"
+              x1="120"
+              y1="260"
+              x2="164"
+              y2="260"
+              stroke="#000"
+              fill="none"
+              stroke-width="34"
+            />
+          </g>
+
+          <g id="O-letter">
+            <circle
+              class="O-stroke"
+              cx="231"
+              cy="215"
+              r="48"
+              stroke="#000"
+              fill="none"
+              stroke-width="31"
+            />
+          </g>
+
+          <g id="red-dot">
+            <!-- Initially I tried creating a circle but it was harder to manipulate it how I wanted to in CSS so I resorted to using a line trick to make it look like a circle ....
+        
+        <circle class="red-dot" cx="325" cy="260" r="20" fill="#FF5851" stroke="none" />
+    
+        -->
+
+            <line
+              x1="325"
+              y1="260"
+              x2="325"
+              y2="260"
+              stroke="#a7a7a7"
+              class="red-dot"
+            />
+          </g>
+        </svg>
+
+      </div>
+
     </div>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
