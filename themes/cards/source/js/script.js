@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 let lastScrollTop = 0; // 记录上一次滚动的位置
-
+let temp_cnt = 0;
 document.addEventListener("DOMContentLoaded", () => {
   // 监听滚轮事件
   window.addEventListener("wheel", (event) => {
@@ -56,22 +56,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollTop = window.scrollY;
     // 判断是否滚动到顶部
     if (scrollTop === 0) {
+      if(temp_cnt == 0) {
+        setTimeout(() => {
+          temp_cnt = 0;
+        }, 500);
+        temp_cnt++;
+        return;
+      }
+      else {
+        temp_cnt++;
+        if(temp_cnt < 2) return
+      }
       main.style.top = `${0}px`;
       footer.style.top = `${0}px`;
       cover_cover.style.backgroundColor = "transparent";
-      cover_cover.style.backdropFilter = "blur(0px)";
+      cover_cover.style.backdropFilter = "blur(0px)"
+      setTimeout(() => {
+        if(footer.style.top === "0px"){
+          cover_cover.style.display = "none";
+        }
+      }, 1000);
       window.scrollTo({
         top: 0,
         behavior: "auto",
       });
+      temp_cnt = 0;
     }
     // 判断是否从顶部开始滚动
     if (lastScrollTop === 0 && scrollTop > 0) {
-      main.style.top = `-${targetPosition}px`;
-      cover_cover.style.backgroundColor = "#f4f4f4";
-      cover_cover.style.backdropFilter = "blur(20px)";
-      footer.style.top = `-${targetPosition}px`;
-      app.style.height = `${app.offsetHeight}px`;
+      cover_cover.style.display = "flex";
+      setTimeout(() => {
+        main.style.top = `-${targetPosition}px`;
+        cover_cover.style.backgroundColor = "#f4f4f4";
+        cover_cover.style.backdropFilter = "blur(20px)";
+        footer.style.top = `-${targetPosition}px`;
+        app.style.height = `${app.offsetHeight}px`;
+      }, 10);
       window.scrollTo({
         top: 0,
         behavior: "auto",
