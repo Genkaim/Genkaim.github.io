@@ -189,6 +189,9 @@ body {
     width: 70% !important;
     border-radius: 30px !important;
   }
+  .cover_show{
+    padding-right: 0px  !important;
+  }
 }
 svg {
   max-height: 800px;
@@ -437,14 +440,7 @@ button {
 .wl-badge {
   color: black !important;
 }
-.cover__logo {
-  display: flex !important;
-  align-items: center;
-  justify-content: center; /* 这里保持 flex-end */
-  margin-right: 10px !important;
-  height: 100% !important;
-  flex-direction: column;
-}
+
 .left_show {
   font-weight: bold;
   width: 100%;
@@ -469,6 +465,7 @@ button {
   align-items: center;
   justify-content: flex-end;
   transform: translateY(-10px);
+  padding-right: 30px;
 }
 .cover__link {
   padding: 10px;
