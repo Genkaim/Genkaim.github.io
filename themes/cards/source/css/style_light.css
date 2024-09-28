@@ -169,9 +169,17 @@ body {
 .footer {
   position: relative !important;
 }
-@media screen and (max-width: 650px) {
+.post__content {
+  position: relative;
+  top:20px;
+}
+@media screen and (max-width: 764px) {
   .content-card {
     padding: 50px;
+  }
+  .post__content{
+    position: relative;
+    top:0px;
   }
   .cover_img {
     width: 70% !important;
