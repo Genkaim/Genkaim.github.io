@@ -175,11 +175,11 @@ body {
 }
 @media screen and (max-width: 764px) {
   .content-card {
-    padding: 50px;
+    padding: 30px;
   }
   .post__content{
     position: relative;
-    top:0px;
+    top:13px;
   }
   .cover_img {
     width: 70% !important;
