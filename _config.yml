@@ -48,7 +48,7 @@ feed:
 
 backup:
   type: git
-  theme: butterfly
+  theme: cards
   message: genkaim_backup
   repository:
     github: git@github.com:Genkaim/Genkaim.github.io.git,backup
