@@ -52,10 +52,10 @@ navbar:
   
   # 右侧站内导航链接
   menu: 
-    - name: 首页
-      url: /
 #    - name: 标签
 #      url: /tags/
+    - name: Vela App
+      url: /vela/
     - name: 归档
       url: /archives/
     - name: 开往
