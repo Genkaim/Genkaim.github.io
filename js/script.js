@@ -168,6 +168,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector(".main");
   main.style.top = "100px";
   footer.style.top = "80px";
+      // 获取父元素
+      var navbarMenus = document.querySelector(".navbar__menus");
+
+      // 查找所有的a标签
+      var links = navbarMenus.querySelectorAll("a");
+  
+      // 对每个a标签执行操作
+      links.forEach(function (link) {
+        // 获取当前a标签的href属性值
+        var href = link.getAttribute("href");
+        if(href == "/archives/"){
+          link.style.backgroundColor = "white";
+        }
+  
+        // 你可以在这里添加更多的操作，比如根据href做不同的事情
+      });
 });
 document.addEventListener("DOMContentLoaded", () => {
   // 获取所有 .highlight 元素
