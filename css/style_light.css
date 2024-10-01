@@ -486,10 +486,10 @@ button {
   }
   .cover {
     margin-left: 0px !important;
-    padding: 50px;
+    padding: 20px;
   }
   .cover_text {
-    padding-right: 30px !important;
+    padding-right: 10px !important;
   }
 }
 .cover__link {
