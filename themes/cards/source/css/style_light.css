@@ -464,6 +464,10 @@ button {
   transform: translateY(-4px) !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
 }
+.cover_text {
+  padding-right: 30%;
+  padding-left: 10px;
+}
 @media screen and (max-width: 764px) {
   .content-card {
     padding: 30px;
@@ -482,6 +486,9 @@ button {
   .cover {
     margin-left: 0px !important;
     padding: 50px;
+  }
+  .cover_text {
+    padding-right: 30px;
   }
 }
 .cover__link {
@@ -503,10 +510,7 @@ button {
   object-fit: contain;
   margin-left:20px;
 }
-.cover_text {
-  padding-right: 30%;
-  padding-left: 10px;
-}
+
 .tixing {
   width:100%;
   text-align: center;
