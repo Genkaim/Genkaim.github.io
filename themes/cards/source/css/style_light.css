@@ -479,6 +479,7 @@ button {
   .cover_img {
     width: 70% !important;
     border-radius: 30px !important;
+    display:none !important;
   }
   .cover_show{
     padding-right: 0px  !important;
