@@ -54,8 +54,8 @@ navbar:
   menu: 
 #    - name: 标签
 #      url: /tags/
-    - name: Vela App
-      url: /vela/
+#    - name: Vela App
+#      url: /vela/
     - name: 归档
       url: /archives/
     - name: 开往
