@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (content_card) {
     const firstChild = content_card.firstElementChild;
     if (firstChild) {
-      firstChild.style.display = 'none'
+      //firstChild.style.display = 'none'
       firstChild.style.backgroundImage = "linear-gradient(to top,  white 30%,  #a8ede965 100%)";
     }
   }
