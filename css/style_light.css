@@ -301,7 +301,7 @@ img {
 }
 .reward__button {
   width: 100%;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.401);
   color: white;
   font-weight: 700;
   padding: 15px;
@@ -310,7 +310,7 @@ img {
   transition: all 0.3s ease;
 }
 .reward__button:hover {
-  background-color: rgb(55, 55, 55);
+  background-color: rgba(55, 55, 55, 0.093);
 }
 button {
   border: none; /* 取消描边 */
@@ -480,7 +480,14 @@ button {
   padding: 60px;
 }
 .cover__logo:hover {
-  background-color: #c1c1c133;
+  background-color: #c1c1c114;
+  transform: scale(1.01);
+}
+.home_content {
+  transition: all 0.3s ease;
+}
+.home_content:hover {
+  transform: scale(1.01);
 }
 .cover_img {
   width: 35%;

@@ -1,4 +1,4 @@
-
+/*
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       const blur_cover = document.querySelector("#loader");
@@ -11,4 +11,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 1000);
     }, 1100);
   });
-  
+*/
