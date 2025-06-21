@@ -1,0 +1,36 @@
+if theme.preloader.enable
+  #loader-box
+    article.author
+      | By
+      a(href='http://www.stramaxon.com', target='_blank') Deepak Kamat
+      a(href='https://twitter.com/xxxdepy') @xxxdepy
+
+    .affiliate-container
+      a.wp-overlay-link(href='https://wordpress.com/alp/?aff=17623&cid=1874995', target='_blank')
+      .wp-icon-circle
+        span WP
+
+      .the-text
+        span Get your website built on WordPress.com today!
+
+    section
+
+    a(style='opacity: 0.5;position: fixed; bottom: 0; left: 20px; right: 20px;display: block; margin: 20px auto; width: 200px;', href='https://www.buymeacoffee.com/WVxP4ZL3C', target='_blank')
+      img(src='https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png', alt='Buy Me A Coffee', style='height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(0,0, 0, 0.5) !important;')
+
+    script.
+      var endLoading = function () {
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader-box').remove();
+      }
+      window.addEventListener('load',endLoading);
+
+section.loader
+  .loader-center
+    .chars
+      span.char.brace {
+      span.dots
+        span.char.dot._dot-1 .
+        span.char.dot._dot-2 .
+        span.char.dot._dot-3 .
+      span.char.brace }

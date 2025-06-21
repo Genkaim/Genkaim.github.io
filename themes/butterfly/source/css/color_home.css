@@ -1,0 +1,7 @@
+.layout > div:first-child:not(.recent-posts),
+#recent-posts > .recent-post-item,
+#aside-content .card-widget,
+.layout > .recent-posts .pagination > *:not(.space) {
+  /* 窗口组件 */
+  background-image: linear-gradient(to right, rgba(16, 16, 15, 1) 60%, rgba(6, 6, 5, 1));
+}

@@ -1,0 +1,135 @@
+---
+title: vela
+date: 2024-09-30 19:06:09
+---
+
+<div class="page_main">
+  <text
+    style="
+      font-size: 50px;
+      color: black;
+      font-weight: bolder;
+      margin-left: 30px;
+    "
+    >Vela App</text
+  >
+  <div class="list">
+    <div class="section">
+      <text class="name">电子木鱼(还没写完)</text>
+    </div>
+  </div>
+</div>
+<style>
+  .page_main {
+    width: 100%;
+    height: 1000px;
+  }
+  .list {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 100%;
+  }
+  .section {
+    padding: 30px;
+    background-color: #f4f4f49c;
+    border-radius: 20px;
+    width: 400px;
+  }
+  .name {
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+  }
+  .main_card {
+    position: relative;
+    background-color: white;
+    border-top-left-radius: 60px; /* 左上角 */
+    border-bottom-right-radius: 0px; /* 右下角 */
+    border-top-right-radius: 60px; /* 右上角 */
+    border-bottom-left-radius: 0;
+    margin-top: 92px;
+    width: 90%;
+    padding: 50px;
+    height: 100%;
+  }
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  #waline {
+    background-color: #f8f8f880 !important;
+    border-radius: 20px; /* 右上角 */
+    padding: 40px;
+  }
+  @media screen and (max-width: 764px) {
+    #waline {
+    padding: 20px !important;
+  }  .main_card {
+    padding: 30px !important;
+
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".post__license").style.display = "none";
+    document.querySelector(".post-title").style.display = "none";
+    document.querySelector(".toc-menus").style.display = "none";
+    document.querySelector("#btn-toc").style.display = "none";
+    // 获取父元素
+    var navbarMenus = document.querySelector(".navbar__menus");
+
+    // 查找所有的a标签
+    var links = navbarMenus.querySelectorAll("a");
+
+    // 对每个a标签执行操作
+    links.forEach(function (link) {
+      // 获取当前a标签的href属性值
+      var href = link.getAttribute("href");
+      if(href == "/vela/"){
+        link.style.backgroundColor = "white";
+      }
+
+      // 你可以在这里添加更多的操作，比如根据href做不同的事情
+    });
+    const card = document.querySelector(".content-card");
+    // 选择原有的 footer 元素
+    const originalFooter = document.querySelector(".footer");
+
+    // 创建新的 footer 元素
+    const newFooter = document.createElement("footer");
+    newFooter.classList.add("footer"); // 给新的 footer 添加相同的类
+
+    // 将原有 footer 的内容复制到新的 footer 中
+    newFooter.innerHTML = originalFooter.innerHTML;
+
+    // 删除原有的 footer 元素
+    originalFooter.remove();
+
+    // 将新的 footer 插入到 card 的底部
+    card.appendChild(newFooter);
+    // 移除所有旧类
+    card.className = "";
+    let temp = 0;
+    if(document.body.clientWidth > 764) {
+      temp = Math.min(document.body.clientWidth - 92*2, 1000)
+      card.style.width = `${temp}px`;
+    }
+    // 添加新类
+    card.classList.add("main_card");
+
+    const waline = document.querySelector("#waline");
+    waline.style.backgroundColor = "#f8f8f8";
+    document.querySelector(".logo__text").textContent = "Genkaim · Page";
+  });
+</script>

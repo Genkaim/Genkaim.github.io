@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="<%= config.language%>">
+  <%- partial('_partial/head/index') %>
+  <body>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
+
+    <div id="app" tabindex="-1">
+      <%- partial('_partial/source/cover') %> <%- body %> <%-
+      partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
+    </div>
+    <%- partial('_partial/scripts/index') %>
+  </body>
+</html>

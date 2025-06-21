@@ -1,0 +1,44 @@
+<% if (theme.comments.use === 'disqusjs') { %>
+<script>
+    function loadComment() {
+        let e, i;
+        (e = document.createElement("script")).src = '<%- theme.vendors.disqusjs.js || "https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/disqusjs.es2015.umd.min.js" %>',
+        document.body.appendChild(e);
+        e.onload = () => {
+            const disqusjs = new DisqusJS({
+                shortname: "<%- theme.comments.disqusjs.shortname %>",
+                siteName: "<%- config.title %>",
+                api: "<%- theme.comments.disqusjs.api %>",
+                apikey: "<%- theme.comments.disqusjs.apikey %>",
+                admin: "<%- theme.comments.disqusjs.admin %>",
+                adminLabel: "<%- theme.comments.disqusjs.adminLabel %>",
+                identifier: "<%- page.path %>",
+                url: "<%- page.permalink %>",
+                nesting: "<%- theme.comments.disqusjs.nesting %>"
+            });
+            disqusjs.render(document.getElementById('disqusjs'));
+        };
+        (i = document.createElement("link")).rel = "stylesheet",
+        i.href = '<%- theme.vendors.disqusjs.css || "https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.min.css" %>',
+        document.head.appendChild(i);
+    }
+
+    var runningOnBrowser = typeof window !== "undefined";
+    var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+    var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+    setTimeout(function () {
+        if (!isBot && supportsIntersectionObserver) {
+            var comment_observer = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting) {
+                    loadComment();
+                    comment_observer.disconnect();
+                }
+            }, { threshold: [0] });
+            comment_observer.observe(document.getElementById('comment'));
+        } else {
+            loadComment();
+        }
+    }, 1);
+</script>
+<% } %>

@@ -1,0 +1,19 @@
+[data-theme='dark'] .layout > div:first-child:not(.recent-posts),
+[data-theme='dark'] #recent-posts > .recent-post-item,
+[data-theme='dark'] #aside-content .card-widget,
+[data-theme='dark'] .layout > .recent-posts .pagination > *:not(.space) {
+  /* 窗口组件 */
+  background-image: none ;/*linear-gradient(to bottom, #191e1b 0%, #130f12 100%);*/
+  background: #191e1b ;
+  border-radius: 20px !important;
+}
+[data-theme='light'] .layout > div:first-child:not(.recent-posts),
+[data-theme='light'] #recent-posts > .recent-post-item,
+[data-theme='light'] #aside-content .card-widget,
+[data-theme='light'] .layout > .recent-posts .pagination > *:not(.space) {
+  /* 窗口组件 */
+  background-image: none ; /*linear-gradient(to top, #a8edea 0%, #fed6e3 100%);*/
+  background: #f1e6e6 ;
+  border-radius: 23px !important;
+}
+
