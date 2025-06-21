@@ -17,12 +17,9 @@
 
 }
 .header:hover {
-  transform: scale(1.02) translateY(10px);
   background-color: #c1c1c133;
-  border-radius: 30px;
-  margin-left: 1.5%;
-  margin-right: 1.5%;
-  width: 97% !important;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
 }
 #btn-search a {
   color: black !important;
@@ -78,22 +75,24 @@ a:hover {
   transition: all 0.78s ease;
 }
 .footer .button {
+    bottom: 4.8rem !important;
   transition: all 0.3s ease;
   background-color: white !important;
   border-radius: 20px !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
 }
-.footer .btn-toc {
+.btn-toc {
+  bottom: 1.2rem !important;
   transition: all 0.3s ease;
   background: white !important;
   border-radius: 20px !important;
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0) !important;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important
 }
-.footer .btn-toc:hover {
-  transform: translateY(0px);
+.btn-toc:hover {
+  transform: scale(1.05) translateY(-5px) translateX(-5px);
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.101) !important;
 }
-.footer .button:hover {
+.button:hover {
   transform: translateY(0px);
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.201) !important;
 }
@@ -103,6 +102,7 @@ a:hover {
   transition: all 0.3s ease;
   border-radius: 20px !important;
   padding: 10px;
+
 }
 .navbar__menus .button:hover {
   background-color: white !important;
