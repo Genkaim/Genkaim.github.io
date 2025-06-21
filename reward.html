@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HEY</title>
+        <style>
+            .ele1 {
+                display: flex; 
+                justify-content: left !important; 
+                align-items: left !important; 
+                margin-bottom: 30px;
+                margin-top: 160px;
+                position: relative;
+                left:-45px;
+            }
+            .main{
+                position:   relative;
+                background-color: rgb(236, 236, 236);
+                width:320px;
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                height: auto; /* 根据内容自动调整高度 */
+                padding: 30px;
+                border-radius: 30px;
+                margin-bottom: 20px; /* 添加底部边距以分隔两个 div */
+            }
+            .tit {
+                display: flex; 
+                justify-content: left !important; 
+                align-items: left !important; 
+                height: auto; /* 根据内容自动调整高度 */
+                font-size: 35px;
+                font-weight: bolder;
+            }
+            .tit2 {
+                background: linear-gradient(to right, #365262 0%, #1c6a54 50%, #254050 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            body {
+                display: flex;
+                flex-direction: column; /* 改为列方向 */
+                align-items: center;     /* 保持垂直居中 */
+                height: 100vh;           /* 设置为视口高度 */
+                transform: scale(1.4);
+                margin-top: 100px;
+            }
+            .pic {
+                width: 200px;
+                border-radius: 20px;
+                position: absolute;
+                left:32px;
+            }
+            .button {
+                position: absolute;
+                text-decoration: none; /* 去除下划线 */
+                background-color: grey;
+                font-weight: bolder;
+                right: 25px;
+                border-radius: 14px;
+                padding: 13px;
+                font-size: 13px;
+                color:white;
+            }
+            .button:hover {
+                background-color: #9e9e9e;
+            }
+            .button:active {
+                transform: scale(0.9);
+            }
+            .pic2 {
+                width: 50px;
+            }
+            .main text{
+                margin-left: 10px;
+                font-weight: bolder;
+                position: relative;
+                left:-87px;
+            }
+            .nom {
+                transition: all 0.3s;
+            }
+            .nom:hover {
+                transform: scale(1.02);
+            }
+            .nom:click {
+                transform: scale(0.9);
+            }
+            .link {
+                color: #2175FF;
+                cursor: pointer;
+                font-weight: 400;
+                text-decoration: none;
+            }
+
+            .link--arrowed {
+                display: inline-block;
+                height: 2rem;
+                line-height: 2rem;
+                
+                .arrow-icon {
+                    position: relative;
+                    top: -1px;
+                    -webkit-transition: -webkit-transform 0.3s ease;
+                    transition: -webkit-transform 0.3s ease;
+                    transition: transform 0.3s ease;
+                    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+                    vertical-align: middle;
+                }
+                
+                .arrow-icon--circle {
+                    transition: stroke-dashoffset .3s ease;
+                    stroke-dasharray: 95;
+                    stroke-dashoffset: 95;
+                }
+                
+                &:hover {
+                    .arrow-icon {
+                        transform: translate3d(5px, 0, 0);
+                    }
+                    
+                    .arrow-icon--circle {
+                        stroke-dashoffset: 0;
+                    }
+                }
+            }
+            #warn {
+                position: fixed;
+                bottom:400px;
+                color:transparent;
+                font-size: 50px;
+            }
+                
+        </style>
+            <script>
+                // 检测是否为移动设备
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                const element = document.getElementById('warn');
+    
+                // 如果是移动设备，则添加类 "is-mobile"
+                if (isMobile) {
+                    alert('使用电脑浏览以获取更好的体验');
+                }
+            </script>
+    </head>
+    <BODY>
+        <div class="ele1 nom">
+            <text class="tit nom"><div class="tit2">买杯奶茶吧</div>😊🖐️</text>
+        </div>
+        <div class="main nom" style="height:300px;">
+            <img class="pic nom" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="alipay">
+            <a href="https://qr.alipay.com/fkx12752q0juovve86brm10" class="button nom">➜</a>
+        </div>
+        <div class="main nom">
+            <img class="pic pic2 nom" src="https://static.afdiancdn.com/static/img/logo/logo.png" class="lazy" data-srcset="https://static.afdiancdn.com/static/img/logo/logo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="alipay">
+            <text class="nom" style="margin-left:40px;">爱发电</text>
+            <a href="https://afdian.com/a/genkaim" class="button nom">➜</a>
+        </div>
+        <div class="main nom">
+            <img class="pic pic2 nom" style="border-radius: 20px;" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.W7VOMWxevBog9hEuX1TFOgAAAA?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="lazy" data-srcset="https://tse1-mm.cn.bing.net/th/id/OIP-C.W7VOMWxevBog9hEuX1TFOgAAAA?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="alipay">
+            <text class="nom" style="margin-left:70px;">bilibili充电</text>
+            <a href="https://space.bilibili.com/479871643" class="button nom">➜</a>
+        </div>
+        <div class="main nom">
+            <img class="pic pic2 nom" src="https://ipfs.crossbell.io/ipfs/bafkreigxdnr5lvtjxqin5upquomrti2s77hlgtjy5zaeu43uhpny75rbga?img-quality=75&img-format=auto&img-onerror=redirect&img-width=384" class="lazy" data-srcset="https://ipfs.crossbell.io/ipfs/bafkreigxdnr5lvtjxqin5upquomrti2s77hlgtjy5zaeu43uhpny75rbga?img-quality=75&img-format=auto&img-onerror=redirect&img-width=384" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="alipay">
+            <text class="nom" style="margin-left:50px;">🍭$MIRA</text>
+            <a href="https://xlog.genkaim.top/" class="button nom">➜</a>
+        </div>
+        <text id="warn"><br></text>
+    </BODY>
+</html>
