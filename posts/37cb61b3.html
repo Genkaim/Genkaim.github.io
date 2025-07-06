@@ -295,8 +295,8 @@
 </div>
   
     <div class="post__license">
-        <p>
-            <strong>本文作者：</strong>Genkaim
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> Genkaim
         </p>
         <p>
             <strong>
@@ -305,7 +305,32 @@
             <a href="https://www.genkaim.top/posts/37cb61b3">https://www.genkaim.top/posts/37cb61b3</a>
         </p>
         
-        <button class="reward__button button" onclick="window.location.href='https://www.genkaim.top/Glink.html?type=reward'">打赏</button>
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
     </div>
  <div class="post-entry__tags"><a href="/tags/%E5%85%B6%E4%BB%96/" class="post-tags__link button"># 其他</a></div>
 
