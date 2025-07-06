@@ -18,8 +18,6 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
 }
 .header:hover {
   background-color: #c1c1c133;
-  padding-left: 33px;
-  padding-right: 33px;
 }
 #btn-search a {
   color: black !important;
