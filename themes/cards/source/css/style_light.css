@@ -12,14 +12,14 @@
   color: black !important;
 }
 .header {
-
+border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-left */
   transition: all 0.3s ease;
 
 }
 .header:hover {
   background-color: #c1c1c133;
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+  padding-left: 4.2%;
+  padding-right: 4.2%;
 }
 #btn-search a {
   color: black !important;
@@ -299,18 +299,97 @@ img {
   -webkit-user-select: all;
   -ms-user-select: all;
 }
-.reward__button {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.401);
-  color: white;
-  font-weight: 700;
-  padding: 15px;
+.post_reward {
+  width:100%;
+  height: 50px;
+  background-color: #d9d9d9;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold ;
+  color: black;
+  display: flex;            /* 启用Flexbox布局 */
+  justify-content: center;  /* 水平居中 */
+  align-items: center;      /* 垂直居中 */
+}
+.post_reward:hover {
+  background-color: #ededed;
+  transform: scale(1.01);
+}
+.post_reward .reward-container {
+  display: none;
+  height: 200px;
+  border-radius: 10px;
+}
+.post_reward.active .reward-container {
+  display: flex;
+  animation: fadeIn 0.5s ease forwards;
+}
+.post_reward.active {
+  background-color: transparent;
+  height: 230px;
+  color:transparent;
+  border-radius: 30px;
+}
+.post_reward.active p {
+  display: none;
+}
+.reward-top, .reward-bottom {
+  background-color: #303030;
+  height:100px;
+  margin-bottom: 10px;
   border-radius: 20px;
-  margin-top: 10px;
+  width:50px;
+}
+.reward-container {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.reward-left,
+.reward-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reward-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.reward-bottom {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200%;
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  width:100px;
+  background-color: #e2e2e296;
+  margin-bottom: 10px;
   transition: all 0.3s ease;
 }
-.reward__button:hover {
-  background-color: rgba(55, 55, 55, 0.093);
+.reward-bottom:hover {
+  background-color: #e2e2e2;
+  transform: scale(1.05);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 button {
   border: none; /* 取消描边 */
