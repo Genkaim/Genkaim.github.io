@@ -563,9 +563,6 @@ button {
 .home_content {
   transition: all 0.3s ease;
 }
-.home_content:hover {
-  transform: scale(1.01);
-}
 .cover_img {
   width: 35%;
   transition: all 0.3s ease;
@@ -576,7 +573,6 @@ button {
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0); /* 调整阴影模糊度和透明度 */
 }
 .cover_img:hover {
-  transform: scale(1.02) !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
 }
 .cover_text {
