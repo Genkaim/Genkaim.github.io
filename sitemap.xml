@@ -119,6 +119,15 @@
   </url>
   
   <url>
+    <loc>https://www.genkaim.top/link.json</loc>
+    
+    <lastmod>2025-01-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.genkaim.top/reward</loc>
     
     <lastmod>2025-01-11</lastmod>
@@ -129,24 +138,6 @@
   
   <url>
     <loc>https://www.genkaim.top/test</loc>
-    
-    <lastmod>2025-01-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/link.json</loc>
-    
-    <lastmod>2025-01-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-01-11</lastmod>
     
@@ -173,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/</loc>
+    <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-01-11</lastmod>
     
@@ -199,6 +190,15 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://www.genkaim.top/tags/</loc>
+    
+    <lastmod>2025-01-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>https://www.genkaim.top/</loc>
@@ -209,13 +209,6 @@
 
   
   <url>
-    <loc>https://www.genkaim.top/tags/AI/</loc>
-    <lastmod>2025-07-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.genkaim.top/tags/%E5%8F%91%E7%99%AB/</loc>
     <lastmod>2025-07-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -224,6 +217,13 @@
   
   <url>
     <loc>https://www.genkaim.top/tags/Coding/</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/tags/AI/</loc>
     <lastmod>2025-07-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
