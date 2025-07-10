@@ -128,15 +128,6 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/reward</loc>
-    
-    <lastmod>2025-01-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.genkaim.top/test</loc>
     
     <lastmod>2025-01-11</lastmod>
@@ -146,7 +137,16 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/categories/</loc>
+    <loc>https://www.genkaim.top/reward</loc>
+    
+    <lastmod>2025-01-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-01-11</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/about/</loc>
+    <loc>https://www.genkaim.top/categories/</loc>
     
     <lastmod>2025-01-11</lastmod>
     
