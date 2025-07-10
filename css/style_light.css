@@ -310,7 +310,7 @@ img {
   align-items: center;      /* 垂直居中 */
 }
 .post_reward:hover {
-  background-color: #ededed;
+  background-color: #cfcfcf;
   transform: scale(1.01);
 }
 .post_reward .reward-container {
