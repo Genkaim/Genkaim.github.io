@@ -70,7 +70,7 @@ a:hover {
   border-radius: 30px;
 }
 .footer {
-  transition: all 0.78s ease;
+  transition: all 0.58s ease;
 }
 .footer .button {
     bottom: 4.8rem !important;
@@ -181,7 +181,7 @@ body {
   background-color: #f4f4f400;
   top: 0px;
   position: relative !important;
-  transition: all 0.78s ease;
+  transition: all 0.58s ease;
 }
 .footer {
   position: relative !important;
