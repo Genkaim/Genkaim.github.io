@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+    <body>
+        <meta charset="UTF-8">
+        <img id="bg" src="bg.png" class="lazy" data-srcset="bg.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==">
+        <div id="view">
+            <text id="text">
+            <div style="font-weight:bold"><big>平台规定<br></big></div>
+
+            为积极响应《中华人民共和国刑法》、《中华人民共和国未成年人保护法》相关规定，保障未成年人的合法权益，提供安心、良好的网络购物环境，平台采取包括不仅限于以下保护措施：
+            <br>
+            <br>
+            <div class="tip-view"><div class="tip-index">1</div><p class="tip-text">针对部分不适宜未成年人浏览及购买的信息不做展示。</p></div>
+            <div class="tip-view"><div class="tip-index">2</div><p class="tip-text">开通未成年人举报专区，用户可通过“举报中心-禁限售举报”，在“侵害未成年人”一栏中举证相关违规事实，平台会依据相关规定进行审核及处置。</p></div>
+            
+            对于未成年人保护的问题，离不开全社会的共同参与和努力。平台将保持“零容忍”态度，并进一步加大对违法违规行为的处置处罚力度。我们也呼吁广大家长注重保护儿童隐私保护，与平台一道共同为未成年人营造文明、健康、向上的网络环境，积极响应国家“清朗”专项行动。
+                </text>        <div class="warning">
+            <text>为贯彻绿网计划，平台将会通过相关实名信息通知监护人，请勿再次浏览不健康商品.</text>
+        </div>
+        </div>
+
+        <style>
+            body {
+                background: #e5e5e5;
+            }
+            body {
+                --fbc-blue-60: #0060df;
+                --fbc-blue-70: #003eaa;
+                --fbc-gray-20: #ededf0;
+                --fbc-light-gray: #F0F0F4;
+                --fbc-white: #ffffff;
+                --fbc-transition: all .15s cubic-bezier(.07,.95,0,1);
+                --fbc-borders: 1px solid #ededf0;
+                --fbc-primary-text: #15141A;
+                --fbc-secondary-text: #5B5B66;
+                --fbc-font-size: 13px;
+                }
+            #bg {
+                position:relative;
+                top:-30px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            .show {
+                position:relative;
+                top:-30px;
+                width: 80%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            #view {
+                font-size:25px;
+                position:relative;
+                top:-80px;
+                background-color: rgb(255, 255, 255);
+                border-radius: 20px;
+                margin: 5px;
+                padding: 40px;
+                padding-left:50px;
+                padding-right:50px;
+            }
+            .tip-view .tip-index {
+                background-color: #fe9f37;
+                border-radius: 1.86667vw;
+                color: #fff;
+                font-family: AlibabaPuHuiTi-Medium;
+                font-size:25px;
+                height: 3.73333vw;
+                line-height: 3.73333vw;
+                margin: .8vw 1.86667vw 0 0;
+                min-width: 3.73333vw;
+                text-align: center;
+                width: 3.73333vw;
+                }
+                .tip-view .tip-text {
+                    position:relative;
+                    color: #fe9437;
+                    flex: 1 1;
+                    font-family: AlibabaPuHuiTi-Medium;
+                    font-size:25px;
+                    text-align: justify;
+                    margin-right: 50px;
+                    top:-18px;
+                }
+                .tip-view {
+                display: flex;
+                }
+            .warning {
+                color:red;
+                font-weight: bold;
+                font-size: 30px;
+            }@media only screen and (max-width: 800px) {
+                /* 在屏幕宽度最大为768px的设备上应用的样式 */
+                #view, .tip-view .tip-text, .warning{
+                    font-size:40px !important;
+                }
+            }
+            </style>
+        </body>
+</html>

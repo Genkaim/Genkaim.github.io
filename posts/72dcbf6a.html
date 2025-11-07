@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>博客接入搜索引擎、百度统计 | Genkaim的博客</title>
+
+
+    <meta name="keywords" content="教程">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="如何让博客接入搜索引擎、百度统计？ |Genkaim的博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客接入搜索引擎、百度统计">
+<meta property="og:url" content="https://www.genkaim.top/posts/72dcbf6a">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:description" content="如何让博客接入搜索引擎、百度统计？ |Genkaim的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459568.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459861.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500037.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500572.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500857.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221454530.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455655.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455125.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455877.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456464.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456211.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456991.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456386.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221457615.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459471.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221458583.png">
+<meta property="article:published_time" content="2023-07-22T23:54:26.000Z">
+<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459568.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/style_light.css">  
+    
+        <link rel="stylesheet" type="text/css" href="/css/loader.css">  
+    
+        <script src="/js/script.js"></script> 
+    
+        <script src="/js/loader.js"></script> 
+    
+        <script src="/js/copy-tex.js"></script> 
+    
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
+        <link href="/css/material_icon.css" rel="stylesheet"> 
+    
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
+</head>
+
+  <body>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
+
+    <div id="app" tabindex="-1">
+      <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Genkaim的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;"><i style="color: red" class="material-icons">face</i></a>
+            </div>
+        
+    </div>
+</header>
+ 
+ <main class="main">
+    
+
+<div class="post-title">
+  <h1 class="post-title__text">博客接入搜索引擎、百度统计</h1>
+  
+
+  <div class="post-title__meta">
+    <a
+  href="/archives/2023/07/"
+  class="post-meta__date"
+  >发布于 2023-07-23|
+  更新于 2025-07-24
+</a>
+ 
+ 
+    
+    
+
+
+ 
+
+
+  </div>
+</div>
+
+
+<aside class="post-side">
+  <div class="post-side__toc">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1gridea"><span class="toc-text"> 😉接入百度统计(Gridea)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95"><span class="toc-text"> 搜索引擎索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8bing-webmaster-tools%E5%8A%A0%E5%85%A5%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99"><span class="toc-text"> 😶在Bing Webmaster Tools加入自己的网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE"><span class="toc-text"> 😃创建网站地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE"><span class="toc-text"> 😊上传网站地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E8%A2%AB%E6%8A%93%E5%8F%96"><span class="toc-text"> 🤔查看是否被抓取</span></a></li></ol></li></ol>
+  </div>
+</aside>
+<a class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</a>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1gridea"><span class="toc-text"> 😉接入百度统计(Gridea)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95"><span class="toc-text"> 搜索引擎索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8bing-webmaster-tools%E5%8A%A0%E5%85%A5%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99"><span class="toc-text"> 😶在Bing Webmaster Tools加入自己的网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE"><span class="toc-text"> 😃创建网站地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE"><span class="toc-text"> 😊上传网站地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E8%A2%AB%E6%8A%93%E5%8F%96"><span class="toc-text"> 🤔查看是否被抓取</span></a></li></ol></li></ol>
+</div>
+
+
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"><h2 id="接入百度统计gridea"><a class="markdownIt-Anchor" href="#接入百度统计gridea"></a> 😉接入百度统计(Gridea)</h2>
+<p>按图示操作</p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459568.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459568.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_17-02-50" /></p>
+<p>如果你的theme直接支持百度统计，那么只需要把图中圈出的部分复制进对应位置并保存就行了</p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459861.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459861.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-54-20" /></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500037.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500037.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-53-04" /></p>
+<p>如果theme不支持百度统计，那么还需要在前文提到的<code>head.ejs</code>加入百度提供的代码：</p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500572.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500572.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-59-01" /></p>
+<p>验证后出现图示就成功了🥳🥳🥳</p>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500857.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221500857.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_17-22-57" height="40%" width="40%" />
+<h2 id="搜索引擎索引"><a class="markdownIt-Anchor" href="#搜索引擎索引"></a> 搜索引擎索引</h2>
+<h3 id="在bing-webmaster-tools加入自己的网站"><a class="markdownIt-Anchor" href="#在bing-webmaster-tools加入自己的网站"></a> 😶在Bing Webmaster Tools加入自己的网站</h3>
+<p>进入网站：👉 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.bing.com/webmasters/">https://www.bing.com/webmasters/</a></p>
+<p>你会看到如下页面：</p>
+<p>键入自己的网址，通常是<code>https://&lt;你的用户名&gt;.github.io/</code></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221454530.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221454530.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="1" /></p>
+<p>然后复制箭头所指的位置的<meta>标记，将它复制到站点原文件夹下的</p>
+<p><code>./themes/&lt;当前选择的主题&gt;/templates/includes(或者_blocks)/head.ejs</code>文件内（如图）</p>
+<p><small>只要在一坨&lt;meta…&gt;之间换行并复制就行了</small></p>
+<p>最好顺便把这条也一并复制进去，利于让bing抓取。</p>
+<p>//标记网站适用的语言</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&#x27;content-language&#x27;</span> <span class="attr">content</span>=<span class="string">&#x27;zh_cn&#x27;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455655.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455655.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-10-21" /></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455125.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455125.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="微信图片_20230617161808" /></p>
+<p><strong>同步</strong>后确认，就验证成功啦</p>
+<h3 id="创建网站地图"><a class="markdownIt-Anchor" href="#创建网站地图"></a> 😃创建网站地图</h3>
+<p>一个网站有很多网页，我们不可能一个个的去申请抓取，这太烦了<s>悲</s></p>
+<p>但是gridea本身并不支持生成网站地图，需要借助一个网页来完成：</p>
+<p>👉<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.xml-sitemaps.com/">https://www.xml-sitemaps.com/</a></p>
+<p>输入网址后按图操作</p>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455877.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221455877.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-26-15" style="zoom:33%;" />
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456464.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456464.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-26-40" style="zoom:33%;" />
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456211.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456211.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-27-02" style="zoom: 33%;" />
+<p>接下来，将下载好的.xml文件放在 <code>./static</code>  下</p>
+<h3 id="上传网站地图"><a class="markdownIt-Anchor" href="#上传网站地图"></a> 😊上传网站地图</h3>
+<p>回到 👉<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.bing.com/webmasters/">https://www.bing.com/webmasters/</a></p>
+<p>在左侧侧边栏选择网站地图，并上传.xml文件</p>
+<p>地址是<code>https://*&lt;你的用户名&gt;*.github.io/sitemap.xml</code></p>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456991.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456991.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-30-53" height="40%" width="40%"/>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456386.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221456386.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-32-04" height="40%" width="40%" />
+<p>等待bing处理即可，如果你的网站符合要求就会被抓取（可能会有延时）</p>
+<h3 id="查看是否被抓取"><a class="markdownIt-Anchor" href="#查看是否被抓取"></a> 🤔查看是否被抓取</h3>
+<p>同样在侧边栏选择url检查，键入需要查询的地址就可以看到抓取状态</p>
+<p>如果出现下图的状态，那么恭喜你，一次就成功了<s>虽然不太可能</s></p>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221457615.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221457615.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230622145730437" style="zoom: 33%;" />
+<p>但如果出现下图的状态，需要点击实时url进一步查询</p>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459471.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221459471.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="微信图片_20230617164208" style="zoom: 25%;" />
+<p>在这个页面可以看到网站的SEO问题，点击问题后</p>
+<p>大致如图</p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221458583.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202306221458583.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="Snipaste_2023-06-17_16-47-56" /></p>
+<p>大部分问题代码在前文提到的<code>head.ejs</code>可以解决，按照说明添加/删除代码即可</p>
+<p>如果仅仅是SEO<strong>提醒</strong>，那么不用太在意，并不会影响抓取（比如图像的alt属性）</p>
+<p>完成这些后只需要等待就行了🤗</p>
+<p>附：SEO问题严重程度</p>
+<blockquote>
+<p>错误：这些是我们在您的网站上发现的最关键的问题。您应优先解决这些问题，因为它们可能会影响您网站的可索引性。</p>
+<p>警告：这些是中等严重性的问题，可能会影响您的SEO健康。</p>
+<p>注意：这些是严重性最低的问题或建议，可以在解决所有错误和警告后进行调查。</p>
+</blockquote>
+</div>
+  
+    <div class="post__license">
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> Genkaim
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/72dcbf6a">https://www.genkaim.top/posts/72dcbf6a</a>
+        </p>
+        
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
+    </div>
+ <div class="post-entry__tags"><a href="/tags/%E6%95%99%E7%A8%8B/" class="post-tags__link button"># 教程</a></div>
+
+   
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
+</article>
+
+
+<div class="nav">
+  <div class="nav__prev">
+    
+    <a href="/posts/add30ed0" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">在博客里接入AI机器人(Chatgpt)，并且读取博客文章</div>
+      </div>
+
+    </a>
+
+    
+  </div>
+  <div class="nav__next">
+    
+    <a href="/posts/90748940" class="nav__link">
+      <div>
+        <div class="nav__label">下一篇</div>
+        <div class="nav__title">LCA|最近公共祖先 详解 </div>
+      </div>
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+            fill="#808080"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+
+</main>
+ <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2023 - 2025 <a href="/">Genkaim</a>
+        </p>
+    
+    
+    <p class="p_footer">萌ICP备20239004号    <a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
+</footer>
+
+    </div>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+  <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body>
+</html>

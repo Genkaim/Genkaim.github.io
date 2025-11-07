@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>在博客里接入AI机器人(Chatgpt)，并且读取博客文章 | Genkaim的博客</title>
+
+
+    <meta name="keywords" content="AI">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="在你的博客里接入AI机器人，并且读取你的文章|genkaimの博客|这次借助的是chat thing 网站，免费版支持gpt-3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在博客里接入AI机器人(Chatgpt)，并且读取博客文章">
+<meta property="og:url" content="https://www.genkaim.top/posts/add30ed0">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:description" content="在你的博客里接入AI机器人，并且读取你的文章|genkaimの博客|这次借助的是chat thing 网站，免费版支持gpt-3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/image-20230809203623323.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092140893.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092043992.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100858296.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100859979.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100901485.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092045929.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092105044.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092053443.png">
+<meta property="article:published_time" content="2023-08-09T12:29:03.000Z">
+<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/image-20230809203623323.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/style_light.css">  
+    
+        <link rel="stylesheet" type="text/css" href="/css/loader.css">  
+    
+        <script src="/js/script.js"></script> 
+    
+        <script src="/js/loader.js"></script> 
+    
+        <script src="/js/copy-tex.js"></script> 
+    
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
+        <link href="/css/material_icon.css" rel="stylesheet"> 
+    
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
+</head>
+
+  <body>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
+
+    <div id="app" tabindex="-1">
+      <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Genkaim的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;"><i style="color: red" class="material-icons">face</i></a>
+            </div>
+        
+    </div>
+</header>
+ 
+ <main class="main">
+    
+
+<div class="post-title">
+  <h1 class="post-title__text">在博客里接入AI机器人(Chatgpt)，并且读取博客文章</h1>
+  
+
+  <div class="post-title__meta">
+    <a
+  href="/archives/2023/08/"
+  class="post-meta__date"
+  >发布于 2023-08-09|
+  更新于 2025-07-24
+</a>
+ 
+ 
+    
+    
+
+
+ 
+
+
+  </div>
+</div>
+
+
+<aside class="post-side">
+  <div class="post-side__toc">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-text"> 起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BAnew-bot"><span class="toc-text"> 😆创建机器人New bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-data-source-%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="toc-text"> 🫤设置 Data source 数据来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%8D%9A%E5%AE%A2-embed-bot"><span class="toc-text"> 🥰嵌入博客 Embed Bot</span></a></li></ol>
+  </div>
+</aside>
+<a class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</a>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%9B%A0"><span class="toc-text"> 起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%BA%E5%99%A8%E4%BA%BAnew-bot"><span class="toc-text"> 😆创建机器人New bot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-data-source-%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="toc-text"> 🫤设置 Data source 数据来源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%8D%9A%E5%AE%A2-embed-bot"><span class="toc-text"> 🥰嵌入博客 Embed Bot</span></a></li></ol>
+</div>
+
+
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"><h2 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h2>
+<p>我看到<a target="_blank" rel="noopener external nofollow noreferrer" href="https://endercat.eu.org">endercat</a>的这篇<a target="_blank" rel="noopener external nofollow noreferrer" href="https://endercat.ir/zai-bo-ke-shang-qian-ru-ke-yi-du-qu-wen-zhang-de-ChatGPT">文章</a>，起了往博客添加机器人的想法，但是期望是以悬浮窗的形式，就到处寻找，终于！！！找到了<br />
+<s>实际上是我太菜不会加悬浮窗（）</s></p>
+<h2 id="创建机器人new-bot"><a class="markdownIt-Anchor" href="#创建机器人new-bot"></a> 😆创建机器人New bot</h2>
+<p>这次借助的是<a target="_blank" rel="noopener external nofollow noreferrer" href="https://chatthing.ai/">Chat Thing</a> 网站，免费版支持gpt-3</p>
+<ol>
+<li>进入后注册登录，然后会看到仪表盘。</li>
+<li>创建机器人，注意免费版只能创建一个机器人。</li>
+<li>设置机器人的基础信息，注意催眠的地方在<strong>Advanced settings</strong>中最下面</li>
+</ol>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/image-20230809203623323.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/image-20230809203623323.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230809203623323" /></p>
+<h2 id="设置-data-source-数据来源"><a class="markdownIt-Anchor" href="#设置-data-source-数据来源"></a> 🫤设置 Data source 数据来源</h2>
+<p><strong>注意免费版只能有一个数据来源</strong>，但一般也够了</p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092140893.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092140893.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230809214044613" /></p>
+<p>有很多中不同方式，这里介绍两种方式：</p>
+<ol>
+<li>Website：（因为可以用sitemap）如图，输入网址即可</li>
+</ol>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092043992.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092043992.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230809204349728" width="50%" height="50%" />
+<ol start="2">
+<li>
+<p>RSS订阅：点击你的xlog主页的RSS按钮，复制新打开网页的网址到下图位置即可即可</p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100858296.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100858296.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230810085810825" /></p>
+</li>
+</ol>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100859979.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100859979.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230810085956865" /></p>
+<p><big><strong>注意要保存并同步数据源</strong></big></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100901485.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100901485.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230810090147307" /></p>
+<p>这样，数据源也设置好啦</p>
+<h2 id="嵌入博客-embed-bot"><a class="markdownIt-Anchor" href="#嵌入博客-embed-bot"></a> 🥰嵌入博客 Embed Bot</h2>
+<p>点开Embed Bot，参考下图翻译，选择你想要的方式插入就好了</p>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092045929.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092045929.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230809204552761" width="50%" height="50%">
+<p>如果是插入文章/页面，那么很简单，直接在对应<code>.md</code>插入你看到的代码就好了。</p>
+<p>如果想要全局小组件，直接在bottom引入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://chatthing.ai/chat-widget.js&quot; type=&quot;text/javascript&quot; id=&quot;&lt;替换为你在小组件代码中看到的id(保留引号)&gt;&quot; async defer&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>效果分别如图</p>
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092105044.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092105044.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230809210531921" width="30%" height="30%" />
+<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092053443.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092053443.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230809205358309" width="80%" height="80%" />
+<p>这样就完成啦🥳</p>
+<p>如有错误/改进，欢迎指正🥲</p>
+</div>
+  
+    <div class="post__license">
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> Genkaim
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/add30ed0">https://www.genkaim.top/posts/add30ed0</a>
+        </p>
+        
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
+    </div>
+ <div class="post-entry__tags"><a href="/tags/AI/" class="post-tags__link button"># AI</a></div>
+
+   
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
+</article>
+
+
+<div class="nav">
+  <div class="nav__prev">
+    
+    <a href="/posts/954ceb85" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">十大排序算法之归并排序、快速排序、堆排序</div>
+      </div>
+
+    </a>
+
+    
+  </div>
+  <div class="nav__next">
+    
+    <a href="/posts/72dcbf6a" class="nav__link">
+      <div>
+        <div class="nav__label">下一篇</div>
+        <div class="nav__title">博客接入搜索引擎、百度统计</div>
+      </div>
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+            fill="#808080"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+
+</main>
+ <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2023 - 2025 <a href="/">Genkaim</a>
+        </p>
+    
+    
+    <p class="p_footer">萌ICP备20239004号    <a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
+</footer>
+
+    </div>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+  <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body>
+</html>

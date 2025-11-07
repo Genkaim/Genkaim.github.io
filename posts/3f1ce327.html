@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>velaOS快应用快速入门 | Genkaim的博客</title>
+
+
+    <meta name="keywords" content="Coding">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="welcome to mt blog|velaOS快应用快速入门-通过例子帮助初学者快速入门|genkaimの博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="velaOS快应用快速入门">
+<meta property="og:url" content="https://www.genkaim.top/posts/3f1ce327">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:description" content="welcome to mt blog|velaOS快应用快速入门-通过例子帮助初学者快速入门|genkaimの博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://iot.mi.com/vela/quickapp/zh/content/images/life.png">
+<meta property="og:image" content="https://www.bandbbs.cn/attachments/22569/">
+<meta property="article:published_time" content="2023-12-01T02:40:00.000Z">
+<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="Coding">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://iot.mi.com/vela/quickapp/zh/content/images/life.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/style_light.css">  
+    
+        <link rel="stylesheet" type="text/css" href="/css/loader.css">  
+    
+        <script src="/js/script.js"></script> 
+    
+        <script src="/js/loader.js"></script> 
+    
+        <script src="/js/copy-tex.js"></script> 
+    
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
+        <link href="/css/material_icon.css" rel="stylesheet"> 
+    
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
+</head>
+
+  <body>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
+
+    <div id="app" tabindex="-1">
+      <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Genkaim的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;"><i style="color: red" class="material-icons">face</i></a>
+            </div>
+        
+    </div>
+</header>
+ 
+ <main class="main">
+    
+
+<div class="post-title">
+  <h1 class="post-title__text">velaOS快应用快速入门</h1>
+  
+
+  <div class="post-title__meta">
+    <a
+  href="/archives/2023/12/"
+  class="post-meta__date"
+  >发布于 2023-12-01|
+  更新于 2025-07-24
+</a>
+ 
+ 
+    
+    
+
+
+ 
+
+
+  </div>
+</div>
+
+
+<aside class="post-side">
+  <div class="post-side__toc">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text"> 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text"> 项目结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text"> 生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ux%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86"><span class="toc-text"> ux文件的基本认识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B%E7%94%B5%E5%AD%90%E6%9C%A8%E9%B1%BC%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-text"> 简单示例：电子木鱼基本功能实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="toc-text"> 基本功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80"><span class="toc-text"> 页面布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-text"> 脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css"><span class="toc-text"> css</span></a></li></ol></li></ol>
+  </div>
+</aside>
+<a class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</a>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text"> 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text"> 项目结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text"> 生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ux%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%86"><span class="toc-text"> ux文件的基本认识</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B%E7%94%B5%E5%AD%90%E6%9C%A8%E9%B1%BC%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-text"> 简单示例：电子木鱼基本功能实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="toc-text"> 基本功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80"><span class="toc-text"> 页面布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-text"> 脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css"><span class="toc-text"> css</span></a></li></ol></li></ol>
+</div>
+
+
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"><p>最近摸索了一下小米vela快应用的编写，写个教程顺便做个归纳 <s>蹭个hyperOS的热度。</s></p>
+<p>本文章使用初学者 <s>毕竟我也是。</s></p>
+<h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
+<p>在介绍之前，需要了解一个vela app基本的架构。</p>
+<h3 id="项目结构"><a class="markdownIt-Anchor" href="#项目结构"></a> <a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/framework/project-structure.html">项目结构</a></h3>
+<p>基本架构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">├── manifest.json</span><br><span class="line">├── app.ux</span><br><span class="line">├── pages</span><br><span class="line">│   ├── index</span><br><span class="line">|   |   ├── index.ux</span><br><span class="line">|   |   ├── index.css</span><br><span class="line">|   |   └── index.js</span><br><span class="line">│   └── detail</span><br><span class="line">|       ├── detail.ux</span><br><span class="line">|       ├── detail.css</span><br><span class="line">|       └── detail.js</span><br><span class="line">├── i18n</span><br><span class="line">|   ├── defaults.json</span><br><span class="line">|   ├── zh-CN.json</span><br><span class="line">|   └── en-US.json</span><br><span class="line">└── common</span><br><span class="line">    ├── style.css</span><br><span class="line">    ├── utils.js</span><br><span class="line">    └── logo.png</span><br></pre></td></tr></table></figure>
+<p>其中，</p>
+<ol>
+<li>
+<p><code>manifest.json</code>记录app的基本信息</p>
+<p>例如以下属性依次是：</p>
+<p><strong>package</strong>: 包名，自己命名。</p>
+<p><strong>name</strong>: app名称，会在手表上显示。</p>
+<p><strong>versionName</strong>: 版本名称，自己命名。</p>
+<p><strong>minPlatformVersion</strong>: 最低api版本。</p>
+<p><strong>icon</strong>: 图标文件路径</p>
+<p>hideToggle 资源和文件访问规则</p>
+<p><strong><big> 资源和文件访问规则 </big></strong></p>
+<p>应用资源路径分为绝对路径和相对路径，以&quot;/“开头的路径表示绝对路径，比如 /common/a.png，不以”/&quot;开头的路径是相对路径，比如 a.png 和 …/common/a.png 等。</p>
+<p>应用资源文件分为代码文件和资源文件，代码文件是指 .js/.css/.ux 等包含代码的文件，其他文件则是资源文件，这类文件一般只当作数据来使用，比如图片、视频等。</p>
+<ol>
+<li>在代码文件中，导入其他代码文件时，使用相对路径，比如：…/common/component.ux；</li>
+<li>在代码文件中，引用资源文件(如：图片、视频等)时，一般情况下使用相对路径，比如： ./abc.png；</li>
+<li>当代码文件需要被导入时，如果导入文件与被导入文件在同一个目录，被导入文件引用资源文件时可以使用相对路径，但如果不在同一目录，必须使用绝对路径，因为被导入文件编译时会被复制到导入文件中，编译后目录会发生变化。比如 a.css 文件被 b.ux 导入，如果 a.css 与 b.ux 在同一个目录，a.css  引用资源文件时可以写相对路径：abc.png，如果不在同一个目录，必须写绝对路径：/common/abc.png，再比如当 a.ux 文件被  b.ux 文件导入时，如果 a.ux 与 b.ux 在同一个目录，a.ux  引用资源文件时可以写相对路径：a.png，如果不在同一个目录，a.ux 引用资源必须写绝对路径：/common/abc.png；</li>
+<li>在 CSS 中，与前端开发一致，使用 url(PATH)的方式访问资源文件，如：url(/common/abc.png)。</li>
+</ol>
+<p>endhideToggle</p>
+<p><strong>features</strong>： 调用的接口声明，有些敏感接口只有声明才可使用。</p>
+<p><strong>designWidth</strong>： 设计稿的尺寸，具体看<a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/framework/style/page-style-and-layout.html">页面样式与布局</a>。</p>
+<p><strong>router</strong>: app中每个页面的定义。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;package&quot;: &quot;com.genkaim.muyu&quot;,</span><br><span class="line">  &quot;name&quot;: &quot;电子木鱼&quot;,</span><br><span class="line">  &quot;versionName&quot;: &quot;1.1.0&quot;,</span><br><span class="line">  &quot;versionCode&quot;: 4,</span><br><span class="line">  &quot;minPlatformVersion&quot;: 1000,</span><br><span class="line">  &quot;icon&quot;: &quot;/common/logo.png&quot;,</span><br><span class="line">  &quot;deviceTypeList&quot;: [</span><br><span class="line">    &quot;watch&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;features&quot;: [</span><br><span class="line">    &#123; &quot;name&quot;: &quot;system.storage&quot; &#125;,</span><br><span class="line">    &#123; &quot;name&quot;: &quot;system.file&quot; &#125;,</span><br><span class="line">    &#123; &quot;name&quot;: &quot;system.prompt&quot; &#125;,</span><br><span class="line">    &#123; &quot;name&quot;: &quot;system.vibrator&quot; &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;config&quot;: &#123;</span><br><span class="line">    &quot;logLevel&quot;: &quot;log&quot;,</span><br><span class="line">    &quot;designWidth&quot;: 600 </span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;router&quot;: &#123;</span><br><span class="line">    &quot;entry&quot;: &quot;pages/index&quot;,</span><br><span class="line">    &quot;pages&quot;: &#123;</span><br><span class="line">      &quot;pages/index&quot;: &#123;</span><br><span class="line">        &quot;component&quot;: &quot;index&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;pages/settings&quot;: &#123;</span><br><span class="line">        &quot;component&quot;: &quot;settings&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;pages/confirm&quot;: &#123;</span><br><span class="line">        &quot;component&quot;: &quot;confirm&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;pages/about&quot;: &#123;</span><br><span class="line">        &quot;component&quot;: &quot;about&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>app.ux</code>为app基本的js语法例如生命周期中，app的onCreate、onDestroy在这调用</p>
+<p>在下面的代码中，会在app打开时和退出时分别 log “onCreate”和&quot;onDestroy&quot;。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">      <span class="attr">a</span>: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">onCreate</span>(<span class="params"></span>) &#123; </span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;onCreate&quot;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">onDestroy</span>(<span class="params"></span>) &#123;</span><br><span class="line">   	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;onDestroy&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>pages</code>下每个文件夹为当前页面的资源文件，包含<code>.ux</code>等等。</p>
+</li>
+<li>
+<p><code>i18n</code>语言文件。</p>
+</li>
+<li>
+<p><code>common</code>存放公用资源文件，比如logo。</p>
+</li>
+</ol>
+<h3 id="生命周期"><a class="markdownIt-Anchor" href="#生命周期"></a> <a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/framework/script/lifecycle.html?h=%E5%91%A8%E6%9C%9F">生命周期</a></h3>
+<p>这里借用一下官方的图。</p>
+<p>简单来说，<strong>app生命周期</strong>就是当打开app时，一次进行下面步骤，页面onShow前，先经历onInit和onReady两个阶段（这在export default中是具体的两个函数）。</p>
+<p>当app退出时，为onDestroy。</p>
+<img src="https://iot.mi.com/vela/quickapp/zh/content/images/life.png" class="lazy" data-srcset="https://iot.mi.com/vela/quickapp/zh/content/images/life.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="生命周期" style="width: 400px" />
+<h3 id="ux文件的基本认识"><a class="markdownIt-Anchor" href="#ux文件的基本认识"></a> <code>ux</code>文件的基本认识</h3>
+<p>下面是一个简单的<code>.ux</code>文件的内容:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;page&quot;&gt;</span><br><span class="line">    &lt;text class=&quot;title&quot;&gt;确定要清除所有功德吗&lt;/text&gt;</span><br><span class="line">    &lt;input class=&quot;yes&quot; type=&quot;button&quot; value=&quot;确认&quot; onclick=&quot;clearData&quot; /&gt;</span><br><span class="line">    &lt;input class=&quot;no&quot; type=&quot;button&quot; value=&quot;取消&quot; onclick=&quot;goBack&quot; /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import prompt from &#x27;@system.prompt&#x27;</span><br><span class="line">  export default &#123;</span><br><span class="line">    goBack(event) &#123;</span><br><span class="line">      router.back()</span><br><span class="line">    &#125;,</span><br><span class="line">    clearData(event) &#123;</span><br><span class="line">      router.back()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.yes, .no &#123;</span><br><span class="line">  width: 500px;</span><br><span class="line">  height: 150px;</span><br><span class="line">  color: white;</span><br><span class="line">  font-size: 40px;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">.page &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  background-color: black;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center; /* 水平居中 */</span><br><span class="line">  align-items: center; /* 垂直居中 */</span><br><span class="line">&#125;</span><br><span class="line">.back &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  left: 0px;</span><br><span class="line">  top: 10px;</span><br><span class="line">  background-color: black;</span><br><span class="line">  color: white;</span><br><span class="line">  font-size: 80px;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  background-image: url(&#x27;/common/icon-back.png&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">.yes &#123;</span><br><span class="line">  margin-top: 50px;</span><br><span class="line">  background-color: rgb(44, 44, 44);</span><br><span class="line">&#125;</span><br><span class="line">.no &#123;</span><br><span class="line">  margin-top: 30px;</span><br><span class="line">&#125;</span><br><span class="line">.title &#123;</span><br><span class="line">  color: white;</span><br><span class="line">  font-size: 50px;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  top: 5px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/framework/template/basic.html?h=templATE">template标签</a>：</strong> 类似于HTML的语言，vela提供多种<a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/components/intro.html">组件</a>。例如这里出现两种不同的组件：</li>
+</ol>
+<p>​	text和input，分别会被渲染为文本块和按钮。</p>
+<p>​	<strong>其中：</strong></p>
+<p>​		1.1 class为自己定义的类名type为组件类型，这里为按钮。</p>
+<p>​		1.2 button标签的value值为按钮上显示的文字。</p>
+<p>​		1.3 onclick为<a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/components/general/events.html?h=%E4%BA%8B%E4%BB%B6">事件</a>绑定，意思为满足”点按“这一条件时，会调用指定函数，函数在export default		定义。</p>
+<blockquote>
+<p>为什么要在template下再包一层div呢？</p>
+<p>因为template下只允许存在一个根节点，必须先创建一个节点，内部再放并列节点。</p>
+</blockquote>
+<ol start="2">
+<li><strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/framework/script/basic.html?h=scri">script脚本</a>：</strong> 支持 ES5 / ES6 语法，这里的export default中，引用了一个模块来实现<a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/features/basic/router.html?h=router">返回</a>的功能。</li>
+<li>**<a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/framework/style/page-style-and-layout.html?h=style">style层叠样式表</a>：**用选择器选择并设置属性即可。</li>
+</ol>
+<h2 id="简单示例电子木鱼基本功能实现"><a class="markdownIt-Anchor" href="#简单示例电子木鱼基本功能实现"></a> 简单示例：电子木鱼基本功能实现</h2>
+<h3 id="基本功能"><a class="markdownIt-Anchor" href="#基本功能"></a> 基本功能：</h3>
+<ol>
+<li>
+<p>页面元素：电子木鱼（图片），显示功德数值功能，”功德+1“动画。</p>
+</li>
+<li>
+<p>实现点按木鱼计数功能。</p>
+</li>
+</ol>
+<img src="https://www.bandbbs.cn/attachments/22569/" class="lazy" data-srcset="https://www.bandbbs.cn/attachments/22569/" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="muyu" style="width: 200px" />
+<p>页面资源：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Genkaim/vela-apps/blob/main/wooden%20fish/src/pages/index/muyu.png">单击下载</a></p>
+<h3 id="页面布局"><a class="markdownIt-Anchor" href="#页面布局"></a> 页面布局</h3>
+<ol>
+<li>放置木鱼图片可以用img组件或者css实现，这里使用的前者。</li>
+</ol>
+<p>​	因为需要实现点按反馈的功能，所以需要绑定onclick事件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img class=&quot;muyu&quot; src=&quot;muyu.png&quot; onclick=&quot;rpPlusPlus()&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>计数功能可以通过text组件显示，这里注意，动态的数据（变量）可以通过大括号的方式显示，例如下面的代码可以实现显示功德计数（变量在下文）。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;text class=&quot;cnt&quot; &gt;功德 &#123;&#123;localCnt&#125;&#125;&lt;/text&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>而动画的实现则是通过text组件+<a target="_blank" rel="noopener external nofollow noreferrer" href="https://iot.mi.com/vela/quickapp/zh/content/framework/template/if.html?h=if">if条件渲染</a>+绑定动画（下文）实现的。</li>
+</ol>
+<blockquote>
+<p>if条件渲染指if内表达式的值为true时，会渲染当前元素。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;text if=&quot;&#123;&#123;plus&#125;&#125;&quot; class=&quot;showPlus&quot;&gt;功德+1&lt;/text&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="脚本"><a class="markdownIt-Anchor" href="#脚本"></a> 脚本</h3>
+<ol>
+<li>数据处理：</li>
+</ol>
+<p>​	在上文中，需要几个变量：localCnt(int) 用于计数功德，plus(bool) 用于指示消息的显示。</p>
+<p>​	定义变量需要这么写：</p>
+<p>​	其中，</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td>Object</td>
+<td>页面级组件的数据模型，影响传入数据的覆盖机制：public 内定义的属性允许被传入的数据覆盖，如果外部传入数据的某个属性未被声明，在 public 中不会新增这个属性</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>Object</td>
+<td>页面级组件的数据模型，影响传入数据的覆盖机制：protected 内定义的属性，允许被应用内部页面请求传递的数据覆盖，不允许被应用外部请求传递的数据覆盖</td>
+</tr>
+<tr>
+<td>private</td>
+<td>Object</td>
+<td>页面级组件的数据模型，影响传入数据的覆盖机制：private 内定义的属性不允许被覆盖</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  public: &#123;</span><br><span class="line">    localCnt: 0,</span><br><span class="line">    plus: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在上文中，需要定义rpPlusPlus函数，实现功德+1</li>
+</ol>
+<p>​	其中：</p>
+<p>​	通过this.Name访问当前页面数据对象。</p>
+<p>​	并设置plus为true，在400ms后设置为false，即让其显示400ms，因为它绑定了动画（下文），看	起来的效果就是文字向上移动然后消失。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rpPlusPlus(event) &#123;</span><br><span class="line">    this.plus = true;</span><br><span class="line">    this.localCnt++;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        this.plus = false;</span><br><span class="line">    &#125;, 400);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="css"><a class="markdownIt-Anchor" href="#css"></a> css</h3>
+<ol>
+<li>绑定动画：</li>
+</ol>
+<p>​	上文已经定义了class为showPlus，所以通过<code>.showPlus</code>选择元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.showPlus &#123;</span><br><span class="line">   position: absolute;/*定位*/</span><br><span class="line">   right: 70px;</span><br><span class="line">   top: 210px;</span><br><span class="line">   color: white;/*字体颜色*/</span><br><span class="line">   font-weight: bold;/*字体粗细*/</span><br><span class="line">   animation-name: moveUp;/*字体绑定动画*/</span><br><span class="line">   animation-delay: 0s;/*动画延迟时间*/</span><br><span class="line">   animation-duration: 200ms;/*动画持续时间*/</span><br><span class="line">   animation-iteration-count: 1;/*动画持续次数*/</span><br><span class="line"> &#125;</span><br><span class="line"> @keyframes moveUp &#123;/*定义动画*/</span><br><span class="line">   0% &#123;</span><br><span class="line">     transform: translateY(0);</span><br><span class="line">   &#125;</span><br><span class="line">   99% &#123;</span><br><span class="line">     transform: translateY(-40px);</span><br><span class="line">   &#125;</span><br><span class="line">   100% &#123;</span><br><span class="line">     visibility: hidden;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>cnt、page和muyu元素：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">.muyu &#123;</span><br><span class="line">   position: absolute;/*定位*/</span><br><span class="line">   height: 350px;</span><br><span class="line">   top: 250px;</span><br><span class="line">   background-color: transparent;/*背景颜色*/</span><br><span class="line">   width: 450px;/*大小*/</span><br><span class="line"> &#125;</span><br><span class="line"> .cnt &#123;</span><br><span class="line">   position: absolute;</span><br><span class="line">   bottom: 100px;/*定位*/</span><br><span class="line">   font-size: 70px;/*字体大小*/</span><br><span class="line">   color: white;/*字体颜色*/</span><br><span class="line"> &#125;</span><br><span class="line">  .page &#123;</span><br><span class="line">   background-color: black;/*背景颜色*/</span><br><span class="line">   display: flex;</span><br><span class="line">   flex-direction: column;</span><br><span class="line">   justify-content: center; /* 水平居中 */</span><br><span class="line">   align-items: center; /* 垂直居中 */</span><br><span class="line">   height: 100%; /* 确保容器占满整个视窗 */</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>完整代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;page&quot;&gt;</span><br><span class="line">    &lt;img class=&quot;muyu&quot; src=&quot;muyu.png&quot; onclick=&quot;rpPlusPlus()&quot; /&gt;</span><br><span class="line">    &lt;text if=&quot;&#123;&#123;plus&#125;&#125;&quot; class=&quot;showPlus&quot;&gt;功德+1&lt;/text&gt;</span><br><span class="line">    &lt;text class=&quot;cnt&quot; &gt;功德 &#123;&#123;localCnt&#125;&#125;&lt;/text&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    public: &#123;</span><br><span class="line">      localCnt: 0,</span><br><span class="line">      plus: false</span><br><span class="line">    &#125;,</span><br><span class="line">  rpPlusPlus(event) &#123;</span><br><span class="line">      this.plus = true;</span><br><span class="line">      this.localCnt++;</span><br><span class="line">      setTimeout(() =&gt; &#123;</span><br><span class="line">          this.plus = false;</span><br><span class="line">      &#125;, 400);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">   .page &#123;</span><br><span class="line">    background-color: black;/*背景颜色*/</span><br><span class="line">    display: flex;</span><br><span class="line">    flex-direction: column;</span><br><span class="line">    justify-content: center; /* 水平居中 */</span><br><span class="line">    align-items: center; /* 垂直居中 */</span><br><span class="line">    height: 100%; /* 确保容器占满整个视窗 */</span><br><span class="line">  &#125;</span><br><span class="line"> .showPlus &#123;</span><br><span class="line">    position: absolute;/*定位*/</span><br><span class="line">    right: 70px;</span><br><span class="line">    top: 210px;</span><br><span class="line">    color: white;/*字体颜色*/</span><br><span class="line">    font-weight: bold;/*字体粗细*/</span><br><span class="line">    animation-name: moveUp;/*字体绑定动画*/</span><br><span class="line">    animation-delay: 0s;/*动画延迟时间*/</span><br><span class="line">    animation-duration: 200ms;/*动画持续时间*/</span><br><span class="line">    animation-iteration-count: 1;/*动画持续次数*/</span><br><span class="line">  &#125;</span><br><span class="line">  @keyframes moveUp &#123;/*定义动画*/</span><br><span class="line">    0% &#123;</span><br><span class="line">      transform: translateY(0);</span><br><span class="line">    &#125;</span><br><span class="line">    99% &#123;</span><br><span class="line">      transform: translateY(-40px);</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">      visibility: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  .muyu &#123;</span><br><span class="line">    position: absolute;/*定位*/</span><br><span class="line">    height: 350px;</span><br><span class="line">    top: 250px;</span><br><span class="line">    background-color: transparent;/*背景颜色*/</span><br><span class="line">    width: 450px;/*大小*/</span><br><span class="line">  &#125;</span><br><span class="line">  .cnt &#123;</span><br><span class="line">    font-size: 70px;/*字体大小*/</span><br><span class="line">    bottom: 100px;/*定位*/</span><br><span class="line">    position: absolute;</span><br><span class="line">    color: white;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如有错误，欢迎指出。</p>
+</div>
+  
+    <div class="post__license">
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> Genkaim
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/3f1ce327">https://www.genkaim.top/posts/3f1ce327</a>
+        </p>
+        
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
+    </div>
+ <div class="post-entry__tags"><a href="/tags/Coding/" class="post-tags__link button"># Coding</a></div>
+
+   
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
+</article>
+
+
+<div class="nav">
+  <div class="nav__prev">
+    
+    <a href="/posts/9d27b799" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">快速破解seewo冰点还原</div>
+      </div>
+
+    </a>
+
+    
+  </div>
+  <div class="nav__next">
+    
+    <a href="/posts/d87f7e0c" class="nav__link">
+      <div>
+        <div class="nav__label">下一篇</div>
+        <div class="nav__title">RSS+Tinyletter+Zapier实现博客更新邮件推送</div>
+      </div>
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+            fill="#808080"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+
+</main>
+ <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2023 - 2025 <a href="/">Genkaim</a>
+        </p>
+    
+    
+    <p class="p_footer">萌ICP备20239004号    <a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
+</footer>
+
+    </div>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+  <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body>
+</html>

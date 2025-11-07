@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>RSS+Tinyletter+Zapier实现博客更新邮件推送 | Genkaim的博客</title>
+
+
+    <meta name="keywords" content="教程">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="吐槽我查了很多网上的教程，包括mailChimp，mailsender还有 | Genkaimの博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSS+Tinyletter+Zapier实现博客更新邮件推送">
+<meta property="og:url" content="https://www.genkaim.top/posts/d87f7e0c">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:description" content="吐槽我查了很多网上的教程，包括mailChimp，mailsender还有 | Genkaimの博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824094043823.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095925176.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095940578.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092054322.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092212178.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092603376.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092641233.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092705303.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092830760.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093013819.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093103530.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093142158.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093647329.png">
+<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093800196.png">
+<meta property="article:published_time" content="2023-08-23T16:12:44.000Z">
+<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824094043823.png">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/style_light.css">  
+    
+        <link rel="stylesheet" type="text/css" href="/css/loader.css">  
+    
+        <script src="/js/script.js"></script> 
+    
+        <script src="/js/loader.js"></script> 
+    
+        <script src="/js/copy-tex.js"></script> 
+    
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
+        <link href="/css/material_icon.css" rel="stylesheet"> 
+    
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
+</head>
+
+  <body>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
+
+    <div id="app" tabindex="-1">
+      <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Genkaim的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;"><i style="color: red" class="material-icons">face</i></a>
+            </div>
+        
+    </div>
+</header>
+ 
+ <main class="main">
+    
+
+<div class="post-title">
+  <h1 class="post-title__text">RSS+Tinyletter+Zapier实现博客更新邮件推送</h1>
+  
+
+  <div class="post-title__meta">
+    <a
+  href="/archives/2023/08/"
+  class="post-meta__date"
+  >发布于 2023-08-24|
+  更新于 2025-07-24
+</a>
+ 
+ 
+    
+    
+
+
+ 
+
+
+  </div>
+</div>
+
+
+<aside class="post-side">
+  <div class="post-side__toc">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%90%E6%A7%BD"><span class="toc-text"> 吐槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tinyletter"><span class="toc-text"> Tinyletter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zapier"><span class="toc-text"> Zapier</span></a></li></ol>
+  </div>
+</aside>
+<a class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</a>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%90%E6%A7%BD"><span class="toc-text"> 吐槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tinyletter"><span class="toc-text"> Tinyletter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zapier"><span class="toc-text"> Zapier</span></a></li></ol>
+</div>
+
+
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"><p>hideToggle Update Log</p>
+<p>timeline 2023,purple</p>
+<!-- timeline 09-16 -->
+<p>更新提醒</p>
+<!-- endtimeline -->
+<p>endtimeline</p>
+<p>endhideToggle</p>
+<p><s>rss很方便，但有人不会用（？</s></p>
+<p>为了提供更多元的订阅方式(？</p>
+<p><strong>提醒：Tinyletter会无理由封禁用户账户，我的账号已经被封了两次了，不建议使用。最近我会迁移邮件服务提供商并更新博客。在此之前，博客更新不会有邮件提醒（不过依然可以填写邮箱，我会迁移数据到新的服务商）</strong></p>
+<h2 id="吐槽"><a class="markdownIt-Anchor" href="#吐槽"></a> 吐槽</h2>
+<p>我查了很多网上的教程，包括mailChimp，mailsender还有power automate等等，但都不行，有各种各样的原因。。。不过最后还是找到了</p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<ol>
+<li>在Zapier使用Rss作为触发器，给Tinyletter发送邮件。</li>
+<li>Tinyletter分发邮件给填写过表单的访客。</li>
+</ol>
+<p>思路来自于 <strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://backendology.com/2018/08/31/hugo-newsletter/">Newsletter for Hugo Blog</a></strong> 在此基础上增加了一些细节并翻译成中文。</p>
+<p>link 获取网站的Favicon图标并显示在你的网页上,owen0o0,<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/owen0o0/getFavicon">https://github.com/owen0o0/getFavicon</a></p>
+<h2 id="tinyletter"><a class="markdownIt-Anchor" href="#tinyletter"></a> Tinyletter</h2>
+<p>-&gt; <strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://app.tinyletter.com/">Tinyletter官网</a></strong></p>
+<p>注册过程不再赘述。</p>
+<ol>
+<li>进入个人档案</li>
+</ol>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824094043823.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824094043823.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824094043823" /></p>
+<ol start="2">
+<li>填写表单，Newsletter暂时不用管，随便填一些，填完记得保存。 <strong>如果出现跳转，那是有必填项目没填</strong>  <small>（它这提示我当时不知道为什么就是没看到，卡了好久。。。 </small></li>
+</ol>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>把这里打马赛克的地方复制下来，下一阶段要用</strong><br />
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>红色框出的网址是访客填邮箱用的，记得添加到博客，下一步会对其美化</strong></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095925176.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095925176.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824095925176" /></p>
+<ol start="3">
+<li>个性化表单界面(views指不同情况下，报错、邮件格式错误…的界面)<br />
+<img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095940578.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824095940578.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824095940578" /></li>
+</ol>
+<p>Tinyletter部分完成了。<br />
+<strong>注意，每次博客文章更新，你会在Draft一栏看到Zapier发送的邮件，你需要手动发送给订阅者（不过是一键的）</strong></p>
+<h2 id="zapier"><a class="markdownIt-Anchor" href="#zapier"></a> Zapier</h2>
+<p>-&gt; <strong><a target="_blank" rel="noopener external nofollow noreferrer" href="https://zapier.com/">zapier官网</a></strong></p>
+<p>注册过程不再赘述。</p>
+<ol>
+<li>进入仪表盘，新建zap</li>
+</ol>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092054322.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092054322.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824092054322" /></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092212178.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092212178.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824092212178" /></p>
+<ol start="2">
+<li>设置触发器，按下图的红框依次操作</li>
+</ol>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092603376.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092603376.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824092603376" /></p>
+<p><strong>即当RSS更新时触发发送电子邮件</strong></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092641233.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092641233.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824092641233" /></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092705303.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092705303.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824092705303" /></p>
+<img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092830760.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824092830760.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824092830760" height=50% width=50% />
+<ol start="3">
+<li>设置动作，按下图红框依次操作</li>
+</ol>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093013819.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093013819.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824093013819" /></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093103530.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093103530.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824093103530" /></p>
+<p>下图的1、2、3依次填入：</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>To</strong> :刚才获取的tinyletter的邮件地址</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>Subject</strong> : 填你喜欢的名字</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="2em"/></mrow><annotation encoding="application/x-tex">\qquad</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0em;vertical-align:0em;"></span><span class="mspace" style="margin-right:2em;"></span></span></span></span> <strong>Body</strong> : 填入发件内容，可以参考我附在末尾的html代码</p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093142158.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093142158.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824093142158" /></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093647329.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093647329.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824093647329" /></p>
+<p><strong>最后在仪表盘看到这种效果就行了</strong></p>
+<p><img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093800196.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230824093800196.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" alt="image-20230824093800196" /></p>
+<p>附html代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;circle-cover&quot;</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;circle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;main-img&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.luogu.com.cn/upload/image_hosting/0xd4prt2.png&quot;</span>&gt;</span>	</span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>本站更新了<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">P</span>&gt;</span>发送时间<span class="tag">&lt;/<span class="name">P</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;time&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>/*这里的标题和链接都要改成自己的（插入的数据）*/</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;post&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span>标题<span class="tag">&lt;<span class="name">br</span>&gt;</span>&#123;&#123;205114825__title&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123;205114825__link&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;link&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.gitmirror.com/genkaim/blog_img/main/data/line_s.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.post</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-left</span>: <span class="number">25px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="number">#d5d5d5</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.post</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">25px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.title</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-decoration</span>: none; <span class="comment">/* 去掉下划线 */</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">color</span>: white;</span></span><br><span class="line"><span class="language-css">		</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-id">#time</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, <span class="number">#365262</span> <span class="number">0%</span>, <span class="number">#1c6a54</span> <span class="number">50%</span>, <span class="number">#254050</span> <span class="number">100%</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="selector-tag">text</span>-<span class="attribute">fill</span>-<span class="attribute">color</span>: transparent;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-id">#time</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-tag">h1</span> &#123;<span class="comment">/*这里可以改成自己喜欢的渐变色*/</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, <span class="number">#365262</span> <span class="number">0%</span>, <span class="number">#1c6a54</span> <span class="number">50%</span>, <span class="number">#254050</span> <span class="number">100%</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="selector-tag">text</span>-<span class="attribute">fill</span>-<span class="attribute">color</span>: transparent;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-tag">p</span> &#123;<span class="comment">/*这里可以改成自己喜欢的渐变色*/</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, <span class="number">#365262</span> <span class="number">0%</span>, <span class="number">#1c6a54</span> <span class="number">50%</span>, <span class="number">#254050</span> <span class="number">100%</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="attribute">background-clip</span>: text;</span></span><br><span class="line"><span class="language-css">		-webkit-<span class="selector-tag">text</span>-<span class="attribute">fill</span>-<span class="attribute">color</span>: transparent;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.main-img</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">overflow</span>:hidden;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">pointer-events</span>:none;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: -<span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: block; </span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin</span>: auto;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-top</span>: <span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.main</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">padding</span>:<span class="number">40px</span> <span class="number">0px</span> <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin</span>:<span class="number">0px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-color</span>: <span class="number">#f1e6e6</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">350px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.footer</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">350px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin-left</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.p</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">top</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-size</span>: <span class="number">10px</span> <span class="meta">!important</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.link</span> &#123;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-size</span>: <span class="number">15px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background</span>: <span class="number">#b3b3b3</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">border-radius</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">margin</span>: <span class="number">40px</span> auto; <span class="comment">/* 设置左右外边距为 auto */</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">padding</span>: <span class="number">5px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">color</span>: white;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">width</span>: <span class="number">150px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: block; <span class="comment">/* 设置元素为块级元素 */</span></span></span><br><span class="line"><span class="language-css">		<span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">line-height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.circle</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: auto;</span></span><br><span class="line"><span class="language-css">		<span class="attribute">box-shadow</span>: inset <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="built_in">rgb</span>(<span class="number">22</span>, <span class="number">22</span>, <span class="number">22</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">https://cdn.luogu.com.cn/upload/image_hosting/py13qt58.png</span>);</span></span><br><span class="line"><span class="language-css">		<span class="attribute">background-size</span>: <span class="number">95%</span> <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title function_">fetch</span>(<span class="string">&#x27;http://quan.suning.com/getSysTime.do&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span></span><br><span class="line"><span class="language-javascript">  .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 获取时间</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> timeString = data.<span class="property">sysTime2</span>;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 将时间显示在页面上</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;time&#x27;</span>).<span class="property">textContent</span> = timeString;</span></span><br><span class="line"><span class="language-javascript">  &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+  
+    <div class="post__license">
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> Genkaim
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/d87f7e0c">https://www.genkaim.top/posts/d87f7e0c</a>
+        </p>
+        
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
+    </div>
+ <div class="post-entry__tags"><a href="/tags/%E6%95%99%E7%A8%8B/" class="post-tags__link button"># 教程</a></div>
+
+   
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
+</article>
+
+
+<div class="nav">
+  <div class="nav__prev">
+    
+    <a href="/posts/3f1ce327" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">velaOS快应用快速入门</div>
+      </div>
+
+    </a>
+
+    
+  </div>
+  <div class="nav__next">
+    
+    <a href="/posts/5c0d8670" class="nav__link">
+      <div>
+        <div class="nav__label">下一篇</div>
+        <div class="nav__title">Hexo Butterfly优化合集-添加弹窗|修改加载动画|引入聊天机器人|css美化|修改链接悬停样式</div>
+      </div>
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+            fill="#808080"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+
+</main>
+ <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2023 - 2025 <a href="/">Genkaim</a>
+        </p>
+    
+    
+    <p class="p_footer">萌ICP备20239004号    <a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
+</footer>
+
+    </div>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+  <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body>
+</html>
