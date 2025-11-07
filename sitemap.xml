@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.genkaim.top/posts/d87f8e0d</loc>
+    <loc>https://www.genkaim.top/posts/o87f8e0d</loc>
     
     <lastmod>2025-11-07</lastmod>
     
@@ -146,15 +146,6 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/test</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-07-24</lastmod>
@@ -173,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/link/</loc>
+    <loc>https://www.genkaim.top/test</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -182,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/</loc>
+    <loc>https://www.genkaim.top/link/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -208,6 +199,15 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://www.genkaim.top/tags/</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>https://www.genkaim.top/</loc>
@@ -225,13 +225,6 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/AI/</loc>
-    <lastmod>2025-11-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.genkaim.top/tags/Coding/</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -240,6 +233,13 @@
   
   <url>
     <loc>https://www.genkaim.top/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/tags/AI/</loc>
     <lastmod>2025-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
