@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>PID控制算法原理 | Genkaim的博客</title>
+
+
+    <meta name="keywords" content="教程">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="部分例子来自知乎文章  P比例控制 u(k)&#x3D;Kp×e(k)u(k)&#x3D;Kp \times e(k) u(k)&#x3D;Kp×e(k) **Kp：**P比例系数，可以理解为放大倍数. $$e(k)&#x3D;Expect - X_k$$: 第k时刻的偏差. 控制及时，但不能消除偏差，会在目标值附近进行波动.  For instance, 假设水缸里的水位是0.2米，那么当前时刻的水位和目标水位之间是存在一个误差的er">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PID控制算法原理">
+<meta property="og:url" content="https://www.genkaim.top/posts/o87f8e0d">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:description" content="部分例子来自知乎文章  P比例控制 u(k)&#x3D;Kp×e(k)u(k)&#x3D;Kp \times e(k) u(k)&#x3D;Kp×e(k) **Kp：**P比例系数，可以理解为放大倍数. $$e(k)&#x3D;Expect - X_k$$: 第k时刻的偏差. 控制及时，但不能消除偏差，会在目标值附近进行波动.  For instance, 假设水缸里的水位是0.2米，那么当前时刻的水位和目标水位之间是存在一个误差的er">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-07T11:00:48.588Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/style_light.css">  
+    
+        <link rel="stylesheet" type="text/css" href="/css/loader.css">  
+    
+        <script src="/js/script.js"></script> 
+    
+        <script src="/js/loader.js"></script> 
+    
+        <script src="/js/copy-tex.js"></script> 
+    
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
+        <link href="/css/material_icon.css" rel="stylesheet"> 
+    
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
+</head>
+
+  <body>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
+
+    <div id="app" tabindex="-1">
+      <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Genkaim的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;"><i style="color: red" class="material-icons">face</i></a>
+            </div>
+        
+    </div>
+</header>
+ 
+ <main class="main">
+    
+
+<div class="post-title">
+  <h1 class="post-title__text">PID控制算法原理</h1>
+  
+
+  <div class="post-title__meta">
+    <a
+  href="/archives/2025/11/"
+  class="post-meta__date"
+  >发布于 2025-11-07|
+  更新于 2025-11-07
+</a>
+ 
+ 
+    
+    
+
+
+ 
+
+
+  </div>
+</div>
+
+
+<aside class="post-side">
+  <div class="post-side__toc">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#p%E6%AF%94%E4%BE%8B%E6%8E%A7%E5%88%B6"><span class="toc-text"> P比例控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i%E7%A7%AF%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> I积分控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d%E5%BE%AE%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> D微分控制</span></a></li></ol>
+  </div>
+</aside>
+<a class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</a>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#p%E6%AF%94%E4%BE%8B%E6%8E%A7%E5%88%B6"><span class="toc-text"> P比例控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i%E7%A7%AF%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> I积分控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d%E5%BE%AE%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> D微分控制</span></a></li></ol>
+</div>
+
+
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"><p>部分例子来自<a target="_blank" rel="noopener external nofollow noreferrer" href="https://zhuanlan.zhihu.com/p/39573490">知乎文章</a></p>
+<h3 id="p比例控制"><a class="markdownIt-Anchor" href="#p比例控制"></a> P比例控制</h3>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>u</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>=</mo><mi>K</mi><mi>p</mi><mo>×</mo><mi>e</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">u(k)=Kp \times e(k)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">u</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span></span></p>
+<p>**Kp：**P比例系数，可以理解为放大倍数.</p>
+<p><strong>$$e(k)=Expect - X_k$$:</strong> 第k时刻的偏差.</p>
+<p>控制及时，但不能消除偏差，会在目标值附近进行波动.</p>
+<hr />
+<p><strong>For instance,</strong></p>
+<p>假设水缸里的水位是0.2米，那么当前时刻的水位和目标水位之间是存在一个误差的error，且error为0.8.</p>
+<p>这个时候，假设旁边站着一个人，这个人通过往缸里加水的方式来控制水位。如果单纯的用比例控制算法，就是指加入的水量u和误差error是成正比的。即$$u=kp<em>error$$<br />
+假设Kp取0.5，<br />
+<strong>t=1时</strong>，这一次加入的水量会使水位在0.2的基础上上升0.4，达到0.6.<br />
+<strong>t=2时</strong>，当前水位是0.6，所以error是0.4。$$u=0.5</em>0.4=0.2$$，会使水位再次上升0.2，达到0.8.<br />
+<strong>以此类推</strong></p>
+<blockquote>
+<p>稳态误差：<br />
+假设这个水缸在加水的过程中，存在漏水的情况，假设每次加水的过程，都会漏掉0.1米高度的水。仍然假设kp取0.5，那么会存在着某种情况，假设经过几次加水，水缸中的水位到0.8时，水位将不会再变换！！！因为，水位为0.8，则误差error=0.2. 所以每次往水缸中加水的量为u=0.5*0.2=0.1.同时，每次加水，缸里又会流出去0.1米的水！！！加入的水和流出的水相抵消，水位将不再变化！！</p>
+</blockquote>
+<h3 id="i积分控制"><a class="markdownIt-Anchor" href="#i积分控制"></a> I积分控制</h3>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>u</mi><mo stretchy="false">(</mo><mi>k</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>K</mi><mi>i</mi></msub><mo>×</mo><mfrac><mrow><mo>∑</mo><msub><mi>e</mi><mi>i</mi></msub></mrow><msub><mi>T</mi><mi>i</mi></msub></mfrac></mrow><annotation encoding="application/x-tex">u(k)=K_i \times \frac{∑e_i}{T_i}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">u</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.263em;vertical-align:-0.8360000000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>(由于偏差的累积效应，使得系统第一次达到期望值时，过去所有时刻都未达标，即$$∑e_i$$很大，所以曲线其实会超过期望的那条虚线并持续增长，所以，我们通常会在I环节中除以积分时间$$T_i$$，)</p>
+<p><strong>$$∑ e_i$$</strong>：对过去所有时间的偏差进行求和.</p>
+<p>在控制系统刚启动时，由于I环节的 偏差累积效应，可以 <strong>更快</strong>的达到期望值。但仅考虑以前. 但当输入突变时，输出不会突变——降低了系统的反应速度(“滞后”控制作用).</p>
+<blockquote>
+<p>系统卡在稳态误差了，即上例中的0.8，由于加入了积分项的存在，会让输入增大，从而使得水缸的水位可以大于0.8，渐渐到达目标的1.0.</p>
+</blockquote>
+<h3 id="d微分控制"><a class="markdownIt-Anchor" href="#d微分控制"></a> D微分控制</h3>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>u</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>K</mi><mi>d</mi></msub><mo>×</mo><mfrac><mrow><mi>d</mi><mi>e</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">u(t)=K_d \times \frac{de(t)}{dt}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">u</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>有函数变化率，有超前控制作用，减少超调量，缩短调节时间，. 偏差不发生改变的情况下不会起作用，因此微分控制不能单独使用.</p>
+<blockquote>
+<p>这个微分项的作用，就可以理解为刹车，当车离停车线很近并且车速还很快时，这个微分项的绝对值（实际上是一个负数）就会很大，从而表示应该用力踩刹车才能让车停下来。</p>
+</blockquote>
+</div>
+  
+    <div class="post__license">
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> Genkaim
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/o87f8e0d">https://www.genkaim.top/posts/o87f8e0d</a>
+        </p>
+        
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
+    </div>
+ <div class="post-entry__tags"><a href="/tags/%E6%95%99%E7%A8%8B/" class="post-tags__link button"># 教程</a></div>
+
+   
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
+</article>
+
+
+<div class="nav">
+  <div class="nav__prev">
+    
+    <a href="/posts/37cb61b3" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">👋Hello</div>
+      </div>
+
+    </a>
+
+    
+  </div>
+  <div class="nav__next">
+    
+    <a href="/posts/321swq" class="nav__link">
+      <div>
+        <div class="nav__label">下一篇</div>
+        <div class="nav__title">How to Guide | 如何吃冰激淋不长胖？</div>
+      </div>
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+            fill="#808080"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+
+</main>
+ <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2023 - 2025 <a href="/">Genkaim</a>
+        </p>
+    
+    
+    <p class="p_footer">萌ICP备20239004号    <a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
+</footer>
+
+    </div>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+  <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body>
+</html>
