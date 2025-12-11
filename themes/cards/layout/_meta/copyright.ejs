@@ -1,0 +1,44 @@
+<% if (theme.meta.copyright.enable && page.copyright !== false) { %>
+    <div class="post__license">
+        <p style="font-weight: bold;">
+            <strong><%= __('post.copyright.author') %></strong> <%= theme.meta.author.name %>
+        </p>
+        <p>
+            <strong>
+                <%= __('post.copyright.permalink') %>
+            </strong>
+            <a href="<%= page.permalink %>"><%= page.permalink %></a>
+        </p>
+        <% (theme.meta.copyright.custom_text || []).forEach((text) => { %>
+            <strong>
+                <%- markdown(text) %>
+            </strong>
+        <% }); %>
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
+    </div>
+<% } %>

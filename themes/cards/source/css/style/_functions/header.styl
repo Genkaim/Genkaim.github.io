@@ -1,0 +1,123 @@
+.header
+    display -webkit-box
+    display -ms-flexbox
+    display flex
+    -webkit-box-pack justify
+    -ms-flex-pack justify
+    justify-content space-between
+    -webkit-box-align center
+    -ms-flex-align center
+    align-items center
+    min-height $header_height
+    padding 0 calc(var(--space)/2)
+    top 0
+    z-index 10
+
+    .header__left
+    .header__right
+        display -webkit-box
+        display -ms-flexbox
+        display flex
+        -webkit-box-align center
+        -ms-flex-align center
+        align-items center
+        font-family rubik,sans-serif,Varela Round
+
+    .header__left
+
+        .logo__text
+            font-size 18px
+            padding 16px 10px 16px 10px
+            border-radius 5px
+
+    .header__right
+
+        .navbar__menus
+            padding 0 0 0 15px
+
+            .navbar-menu
+                font-size 16px
+                padding 16px 10px 16px 10px
+                border-radius 5px
+
+                &:hover
+                    background-color var(--bg-menu)
+
+        #btn-search
+        #btn-toggle-dark
+            height 55.5px
+            padding 15px 10px
+
+        .dropdown-icon
+            display none
+            height 55.5px
+            padding 15px 10px
+            border 0 !important
+            background-color transparent
+
+            *
+                width 24px
+                height 24px
+
+            &:focus + .dropdown-menus
+                display -webkit-box
+                display -ms-flexbox
+                display flex
+
+        .dropdown-menus
+            -webkit-animation slide-down 0.15s ease 1
+            animation slide-down 0.15s ease 1
+            display none
+            position absolute
+            left 12px
+            right 12px
+            top $header_height
+            z-index 9999
+            border-radius 6px
+            padding 24px
+            background var(--bg-content-color)
+            -webkit-box-shadow 1px 1px 5px 0 rgba(0,0,0,0.02), 1px 1px 15px 0 rgba(0,0,0,0.03)
+            box-shadow 1px 1px 5px 0 rgba(0,0,0,.02),1px 1px 15px 0 rgba(0,0,0,.03)
+            justify-items center
+            -webkit-box-pack center
+            -ms-flex-pack center
+            justify-content center
+            -webkit-box-orient vertical
+            -webkit-box-direction normal
+            -ms-flex-direction column
+            flex-direction column
+
+            &:hover
+                display -webkit-box
+                display -ms-flexbox
+                display flex
+
+            .dropdown-menu
+                padding 10px
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-1.6rem)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+if (hexo-config('navbar.sticky'))
+    @media screen and (min-width: 1080px)
+        .header
+            position sticky
+            -webkit-backdrop-filter blur(20px)
+            backdrop-filter blur(20px)
+
+@media screen and (max-width: 764px)
+    .navbar__menus
+        display none !important
+
+    .dropdown-icon
+        display block !important
+

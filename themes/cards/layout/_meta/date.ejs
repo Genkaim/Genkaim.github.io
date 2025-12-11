@@ -1,0 +1,7 @@
+<a
+  href="<%= url_for('archives/' + date(post.date, 'YYYY/MM/')) %>"
+  class="post-meta__date"
+  >发布于<%= ' '+theme.meta.date.title + date(post.date, theme.meta.date.format)+'|' %>
+  <%= (theme.meta.updated.title || __('post.updated')) + date(page.updated,
+  theme.meta.updated.format) %>
+</a>

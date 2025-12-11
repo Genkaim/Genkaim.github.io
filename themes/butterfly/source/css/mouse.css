@@ -1,0 +1,150 @@
+/*
+body {
+    cursor:url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/noramal_bl.cur),
+          default;
+  }
+  a,
+  img {
+    cursor:url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur),
+          default; 
+  }
+  button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+  button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .toggle-button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .toggle-button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .copy-button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .copy-button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .copy-button:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .copy-button:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .expand:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #article-container .highlight-tools .expand:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #nav .site-page:active {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #nav .site-page:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #pagination .page-number.current:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    #pagination .page-number:hover {
+      cursor: url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur), default;
+    }
+    */
+    [data-theme='light'] #cursor-dot {
+        background: #000;
+      }
+      
+    [data-theme='light'] #cursor-circle {
+        border: 1px solid #000;
+      }
+    [data-theme='dark'] #cursor-dot {
+        background: #ffffff;
+      }
+      
+    [data-theme='dark'] #cursor-circle {
+        border: 1px solid #ffffff;
+      }
+    
+    #cursor-dot {
+      z-index: 1000000000;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 1s linear;
+      pointer-events: none;
+    }
+    
+    #cursor-circle {
+      z-index: 100000000;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 50%;
+      box-sizing: border-box;
+      position: absolute;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s linear, border 0.3s linear, width 0.2s linear, height 0.2s linear, opacity 0.7s 0.3s linear;
+      pointer-events: none;
+    }
+    body {
+      cursor: none;
+    }
+    a,
+    img {
+      cursor: none;
+    }
+    button:active {
+      cursor: none;
+      }
+    button:hover {
+        cursor: none
+      }
+      .toggle-button:active {
+        cursor: none
+      }
+      .toggle-button:hover {
+        cursor: none
+      }
+      .copy-button:active {
+        cursor: none
+      }
+      .copy-button:hover {
+        cursor: none
+      }
+      #article-container .highlight-tools .copy-button:active {
+        cursor: none
+      }
+      #article-container .highlight-tools .copy-button:hover {
+        cursor: none
+      }
+      #article-container .highlight-tools .expand:active {
+        cursor: none
+      }
+      #article-container .highlight-tools .expand:hover {
+        cursor: none
+      }
+      #nav .site-page:active {
+        cursor: none
+      }
+      #nav .site-page:hover {
+        cursor: none
+      }
+      .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet:hover {
+        cursor: none
+      }
+      #pagination .page-number.current:hover {
+        cursor: none
+      }
+      #pagination .page-number:hover {
+        cursor: none
+      }

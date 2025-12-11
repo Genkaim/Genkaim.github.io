@@ -1,0 +1,41 @@
+- class_name: 感谢以下大佬提供的技术支持
+  class_desc: 
+  link_list:
+    - name: Hexo
+      link: https://hexo.io/zh-tw/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: 快速、简单且强大的网志框架
+    - name: Butterfly
+      link: https://butterfly.js.org
+      avatar: https://butterfly.js.org/img/avatar.png
+      descr: A Simple and Card UI Design theme for Hexo
+    - name: DIYgod
+      link: https://diygod.cc/
+      avatar: https://xlog.app/cdn-cgi/image/width=384,quality=75,format=auto,onerror=redirect/https://ipfs.xlog.app/ipfs/bafybeibefx2tyow77m2wcnsh5anaaxfy7ypxbcuapb52c4h255onqp72ye
+      descr: 写代码是热爱，写到世界充满爱！
+    - name: 花猪
+      link: https://cnhuazhu.top/
+      avatar: https://gcore.jsdelivr.net/gh/CNhuazhu/Image/avatar.jpg
+      descr: 佛系青年
+    - name: Akilarの糖果屋
+      link: https://akilar.top/
+      avatar: https://npm.elemecdn.com/akilar-friends@latest/avatar/akilar.top.jpg
+      descr: 欢迎光临糖果屋
+    - name: 张洪Heo
+      link: https://blog.zhheo.com/
+      avatar: https://bu.dusays.com/2022/12/28/63ac2812183aa.png
+      descr: 分享设计与科技生活
+    - name: 小冰博客
+      link: https://zfe.space/
+      avatar: https://zfe.space/images/headimage.png
+      descr: 做个有梦想的人！
+
+
+
+- class_name: 这是朋友捏ˋ( ° ▽、° ) 
+  class_desc: （还有点少
+  link_list:
+    - name: Fgaoxing
+      link: https://www.yt-blog.top/
+      avatar: https://npm.elemecdn.com/ytblogimg/webp/logo.webp
+      descr: 一个少年的博客

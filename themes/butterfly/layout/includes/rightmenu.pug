@@ -1,0 +1,31 @@
+#rightMenu
+	.rightMenu-group.rightMenu-small
+		a.rightMenu-item(href="javascript:window.history.back();")
+			i.fa-solid.fa-arrow-left
+		a.rightMenu-item(href="javascript:window.history.forward();")
+			i.fa-solid.fa-arrow-right
+		a.rightMenu-item(href="javascript:window.location.reload();")
+			i.fa-solid.fa-arrow-rotate-right
+		a.rightMenu-item(href="javascript:rmf.scrollToTop();")
+			i.fa-solid.fa-arrow-up 
+	.rightMenu-group.rightMenu-line.hide#menu-text
+		a.rightMenu-item(href="javascript:rmf.copySelect();")
+			i.fa-solid.fa-clone
+			span='复制'
+		a.rightMenu-item(href="javascript:rmf.searchWithBing();")
+			i.fa-solid.fa-search
+			span='用 Bing 搜索'
+	.rightMenu-group.rightMenu-line
+		a.rightMenu-item(href="javascript:rmf.switchDarkMode();")
+			i.fa-solid.fa-moon
+			span='模式切换'
+		a.rightMenu-item(href="javascript:rmf.switchReadMode();")
+			i.fa-solid.fa-earth-asia
+			span='阅读模式'
+		a.rightMenu-item(href="javascript:rmf.op();", onclick="alert('现在我开不了了喵~麻烦按下F12吧');")
+			i.fa-solid.fa-microchip
+			span='开发者工具'
+#rightmenu-mask(onclick='RemoveRightMenu()')
+#cursor-dot
+#cursor-circle
+

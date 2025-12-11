@@ -1,0 +1,4 @@
+# hexo robots.txt
+User-agent: *
+Disallow:/resource/
+Sitemap: https://genkaim.github.io/sitemap.xml

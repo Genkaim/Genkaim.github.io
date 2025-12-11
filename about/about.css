@@ -1,0 +1,387 @@
+      /* CSS */
+      .active-star {
+        transition: opacity 0.7s ease-in-out;
+      }
+      #stars .main {
+        transition: box-shadow 3s;
+      }
+
+      body {
+        background-color: rgb(0, 0, 0);
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        font-family: "Mona Sans";
+      }
+      @font-face {
+        font-family: "Mona Sans";
+        src: url("https://raw.gitmirror.com/genkaim/blog_img/main/data/Mona-Sans.woff2")
+            format("woff2 supports variations"),
+          url("https://raw.gitmirror.com/genkaim/blog_img/main/data/Mona-Sans.woff2")
+            format("woff2-variations");
+        font-weight: 200 900;
+        font-stretch: 75% 125%;
+      }
+      .top {
+        margin-top: 7vw;
+        margin-left: 7vw;
+        width: 500px;
+        height: 230px;
+        background-color:rgb(16, 16, 16);
+        border: 1px solid rgb(69, 69, 69);
+        border-radius:25px;
+      }
+      .top .avator {
+        position: relative;
+        width: 100px;
+        border-radius:50%;
+        margin-left:40px;
+        top:20px;
+      }
+      html {
+        font-family: "Mona Sans";
+      }
+      a {
+        text-decoration: none;
+      }
+      .top h1 {
+        position: relative;
+        color: white;
+        font-size: 50px;
+        font-weight: bolder;
+        margin-left: 0.1px;
+        bottom: 1px;
+        margin-bottom: 0px;
+        padding: 0.01px;
+        text-shadow: 0px 0px 15px rgb(103, 102, 102);
+        z-index: 10000;
+        display: inline-block;
+        opacity: 0;
+      }
+      h1#line1-f {
+        margin-top: 5vw !important;
+        margin-left: 7vw !important;
+      }
+      h1#line2-f {
+        margin-left: 7vw !important;
+      }
+      h2 {
+        position: relative;
+        color: white;
+        font-size: 40px;
+        margin-left: 7vw;
+        z-index: 10000;
+        opacity: 0;
+        margin-bottom: 25px;
+        margin-top: 30px;
+      }
+      p {
+        position: relative;
+        color: white;
+        font-size: 25px;
+        margin-left: 7vw;
+        margin-top: 3vw;
+        opacity: 0;
+        text-shadow: 0px 0px 15px rgb(49, 49, 49);
+        font-family: "Segoe UI";
+      }
+      h6 {
+        position: absolute;
+        color: white;
+        font-size: 10px;
+        margin-left: 60vw;
+        margin-bottom: 0px;
+        opacity: 1;
+        text-shadow: 0px 0px 15px rgb(49, 49, 49);
+      }
+      h5 {
+        position: fixed;
+        color: white;
+        font-size: 30px;
+        margin-left: 7vw;
+        margin-top: 35px;
+        margin-bottom: 0.01vw;
+        opacity: 0;
+        text-shadow: 0px 0px 15px rgb(49, 49, 49);
+      }
+      #stars .main {
+        z-index: 1;
+        position: fixed;
+        right: -30vw;
+        top: -40vw;
+        opacity: 0;
+        background-color: white;
+        width: 80vw;
+        height: 70vw;
+        border-radius: 50%;
+      }
+      .small-star span {
+        opacity: 0;
+        position: fixed;
+        background: white;
+        border-radius: 50%;
+        z-index: -1;
+      }
+      .stats-img {
+        opacity: 0;
+        margin-left: 7vw;
+        height: 140px;
+        z-index: 10000;
+      }
+      .icon {
+        opacity: 0;
+        z-index: 10000;
+      }
+      .footer-icons {
+        margin-left: 2vw;
+        position: relative;
+      }
+      .cpp {
+        opacity: 1;
+        margin-top: 20px;
+        margin-left: 7vw;
+        height: 60px;
+        z-index: 10000;
+      }
+      .css,
+      .ps,
+      .pr,
+      .py,
+      .git,
+      .js {
+        opacity: 1;
+        margin-top: 20px;
+        margin-left: 2vw;
+        height: 60px;
+        z-index: 10000;
+      }
+
+      #stars .orbit {
+        position: fixed;
+        right: 2vw;
+        bottom: 10vw;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        transform-origin: center;
+        animation: spin 10s linear infinite;
+      }
+      #stars .orbit:nth-of-type(2) {
+        width: 250px;
+        height: 250px;
+        animation-duration: 8s;
+      }
+      #stars .orbit:nth-of-type(3) {
+        width: 300px;
+        height: 300px;
+        animation-duration: 6s;
+      }
+      #stars .planet {
+        opacity: 0;
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        right: 10px;
+        background-color: transparent;
+        background-image: url(https://raw.gitmirror.com/genkaim/blog_img/main/data/genshin.png);
+        background-size: 50px 50px;
+      }
+      .disapear-down {
+        animation: disapear-down 0.4s ease-in-out forwards;
+      }
+      .show-planet {
+        animation: show-planet 2s ease-in-out forwards;
+      }
+      .move-stars {
+        animation: move-stars 6s ease-out forwards;
+      }
+      .show_star1 {
+        animation: show_star1 3s forwards;
+      }
+      p.slide-down {
+        animation: slide-down 1.5s ease-in-out forwards;
+      }
+      .slide-down {
+        animation: slide-down 2s ease-in-out forwards;
+      }
+      .slide-down-quick {
+        animation: slide-down-quick 0.5s ease-in-out forwards;
+      }
+      .slide-down-img {
+        animation: slide-down-img 3s ease-in-out forwards;
+      }
+      .slide-up {
+        animation: slide-up 2s ease-in-out forwards;
+      }
+      h1:nth-of-type(1) {
+        animation-delay: 0ms;
+      }
+      h1:nth-of-type(2) {
+        animation-delay: 300ms;
+      }
+      h1:nth-of-type(3) {
+        animation-delay: 600ms;
+      }
+      h1:nth-of-type(4) {
+        animation-delay: 900ms;
+      }
+      h1:nth-of-type(5) {
+        animation-delay: 1200ms;
+      }
+      h1:nth-of-type(6) {
+        animation-delay: 300ms;
+      }
+      h1:nth-of-type(7) {
+        animation-delay: 600ms;
+      }
+      @keyframes disapear-down {
+        0% {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(0, 30%);
+        }
+      }
+      @keyframes show_star1 {
+        0% {
+          opacity: 0;
+          transform: translate(60vw, -55vw);
+        }
+        70% {
+          opacity: 0.2;
+          box-shadow: 0 0 20vw rgb(27, 27, 27);
+        }
+        70% {
+          box-shadow: 0 0 20vw rgb(35, 35, 35);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0);
+          box-shadow: 0 0 20vw rgb(122, 122, 122);
+        }
+      }
+      @keyframes blink {
+        0% {
+          opacity: 0.6;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+
+      @keyframes move-stars {
+        0% {
+          opacity: 0;
+          transform: translate(100vw, -100vw);
+        }
+        30% {
+          transform: translate(10vw, -10vw);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.1;
+        }
+        100% {
+          transform: translate(0, 0);
+          opacity: 0.5;
+        }
+      }
+      @keyframes slide-down {
+        0% {
+          opacity: 0;
+          transform: translateY(-40%);
+        }
+        75% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slide-down-quick {
+        0% {
+          opacity: 0;
+          transform: translateY(-20%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slide-up {
+        0% {
+          opacity: 0;
+          transform: translateY(40%);
+        }
+        75% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slide-down-img {
+        0% {
+          opacity: 0;
+          transform: translateY(-20%);
+        }
+        70% {
+          opacity: 0.1;
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes show-planet {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .link {
+        transition: transform 0.5s;
+      }
+      .link:hover {
+        transform: translateY(-10px);
+      }
+      p.link {
+        transition: color 0.5s;
+      }
+      p.link:hover {
+        color: rgb(122, 122, 122);
+      }
+
+      /* CSS */
+      .starfield {
+        position: relative;
+        width: 60px;
+        margin-left: 7vw;
+        margin-top: 7vw;
+      }
+      .footer-icons {
+        width: 90px;
+      }
