@@ -73,7 +73,7 @@ a:hover {
   transition: all 0.58s ease;
 }
 .footer .button {
-    bottom: 4.8rem !important;
+  bottom: 4.8rem !important;
   transition: all 0.3s ease;
   background-color: white !important;
   border-radius: 20px !important;
@@ -84,8 +84,11 @@ a:hover {
   transition: all 0.3s ease;
   background: white !important;
   border-radius: 20px !important;
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
+  padding: 30px;
+
 }
+
 .btn-toc:hover {
   transform: scale(1.05) translateY(-5px) translateX(-5px);
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.101) !important;
@@ -222,12 +225,9 @@ svg {
   padding-top: 30px;
   transition: all 0.3s ease;
 }
-.toc:hover {
-  transform: translateX(-5px);
-}
+
 .toc-item {
   padding-left: 7px;
-  padding-right: 7px;
   padding-top: 2px;
 }
 .toc-item a {
@@ -235,9 +235,6 @@ svg {
   border-radius: 14px;
   transition: all 0.3s ease;
   margin: 10px;
-}
-.toc-item a:hover {
-  background-color: white;
 }
 .toc-child {
   margin-top: 10px;
