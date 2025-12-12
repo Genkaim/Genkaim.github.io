@@ -6,8 +6,10 @@ abbrlink: add30e99
 ---
 
 $$
-question:\qquad calculate \lim_{n\to\infty}\frac{\sqrt{1}+\sqrt{2}+...+\sqrt{n}}{n\sqrt{n}}
+question:calculate \lim_{n\to\infty}\frac{\sqrt{1}+\sqrt{2}+...+\sqrt{n}}{n\sqrt{n}}
 $$
+## Push forward
+
 先根据答案推过程：要求$\int_{0}^{1} \sqrt{n}$ . 已知其极限存在，根据定义等价于求下面这个图形的面积
 
 <small>图床还没配置好，图先没了</small>
@@ -30,3 +32,14 @@ $$
 \lim_{n\to\infty}\sum_{i=1}^{n}\frac{1}{n}\times \sqrt{\frac{i}{n}} = \lim_{n\to\infty}\frac{1}{n}\sum_{i=1}^{n}\times \sqrt{\frac{i}{n}} = \lim_{n\to\infty}\frac{1}{n}\times \frac{1}{\sqrt{n}}\times(\sqrt{1}+\sqrt{2}+...+\sqrt{n})
 $$
 就是原式.
+
+所以只需求
+$$
+\int_0^1 \sqrt{x} = [\frac{2}{3} x^{\frac{3}{2}}]_0^1 =\frac{2}{3}
+$$
+
+## Pull back
+
+but,怎么联想到$\int_{0}^{1} \sqrt{n}$？回归定义，最直观的办法就是观察到有**面积**的表达式和$1/n$和$i/n$的关系~~（也许是这样~~.
+
+主包最开始想两边夹的. 一定要来评论区补充啊/(ㄒoㄒ)/~~
