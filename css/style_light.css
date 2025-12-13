@@ -80,13 +80,12 @@ a:hover {
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
 }
 .btn-toc {
+  width: 3rem !;
   bottom: 1.2rem !important;
   transition: all 0.3s ease;
   background: white !important;
   border-radius: 20px !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
-  padding: 30px;
-
 }
 
 .btn-toc:hover {
@@ -278,10 +277,7 @@ svg {
 img {
   border-radius: 30px;
 }
-#toc-menus {
-  box-shadow: 0.6rem 0.6rem 0.6rem rgba(48, 55, 66, 0.079); /* 调整阴影模糊度和透明度 */
-  border-radius: 50px !important;
-}
+
 .post__license {
   border-left: none;
   border-radius: 20px;
