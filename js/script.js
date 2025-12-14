@@ -255,3 +255,43 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+
+
+
+
+
+
+// 点击toc-menus外部区域关闭目录面板
+document.addEventListener('click', function(event) {
+  const tocMenus = document.querySelector('.toc-menus');
+  const btnToc = document.querySelector('.btn-toc');
+  
+  // 如果点击的元素不在toc-menus内部，也不是btn-toc按钮本身
+  if (tocMenus && btnToc && 
+      !tocMenus.contains(event.target) && 
+      event.target !== btnToc && 
+      !btnToc.contains(event.target)) {
+    tocMenus.style.display = 'none';
+  }
+});
+
+// 点击btn-toc按钮切换toc-menus显示状态
+document.addEventListener('DOMContentLoaded', function() {
+  const btnToc = document.querySelector('.btn-toc');
+  const tocMenus = document.querySelector('.toc-menus');
+  
+  if (btnToc && tocMenus) {
+    btnToc.addEventListener('click', function(e) {
+      e.stopPropagation(); // 阻止事件冒泡
+      e.preventDefault(); // 阻止默认行为
+      
+      // 修复：正确处理所有可能的状态（包括初始状态display为空字符串）
+      if (tocMenus.style.display === 'block') {
+        tocMenus.style.display = 'none';
+      } else {
+        tocMenus.style.display = 'block';
+      }
+    });
+  }
+});

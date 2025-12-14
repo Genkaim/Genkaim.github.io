@@ -574,7 +574,8 @@ button {
 }
 @media screen and (max-width: 764px) {
   .content-card {
-    padding: 30px;
+    padding: 9%;
+    padding-top: 11%;
   }
   .post__content {
     position: relative;
@@ -623,4 +624,41 @@ button {
   bottom: 30px;
   font-weight: bold;
   color: rgba(128, 128, 128, 0.101);
+}
+.toc-menus {
+  border-radius: 40px 40px 0 0;
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.249), 0 6px 20px rgba(0, 0, 0, 0.205);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.085), 0 6px 20px rgba(0, 0, 0, 0.101);
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+  display: none; 
+  padding: 0;
+   scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.toc-menus .toc-title {
+  padding: 24px 24px 16px 24px;
+  margin: 0;
+  flex-shrink: 0;
+  border-bottom: 1px solid #eaecef;
+}
+
+.toc-menus .toc {
+  padding: 16px 24px 24px 24px;
+  overflow-y: auto;
+  flex: 1;
+  margin-top: 0;
+  
+
+}
+
+/* 隐藏 Webkit 浏览器的滚动条 */
+.toc-menus .toc::-webkit-scrollbar {
+  display: none;
+}
+.toc-title {
+  font-weight: bolder;
+  font-size: 1.2rem;
 }
