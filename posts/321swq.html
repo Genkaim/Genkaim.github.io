@@ -236,7 +236,8 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97"><span class="toc-text"> 计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text"> 结论</span></a></li></ol>
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -248,7 +249,9 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97"><span class="toc-text"> 计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text"> 结论</span></a></li></ol>
@@ -388,7 +391,6 @@
     
   </div>
 </div>
-
 
 </main>
  <footer class="footer">

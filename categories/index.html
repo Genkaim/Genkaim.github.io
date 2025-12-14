@@ -231,7 +231,8 @@
     
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -243,7 +244,9 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   
@@ -308,7 +311,6 @@
     });
   </script>
 </article>
-
 
 
 </main>

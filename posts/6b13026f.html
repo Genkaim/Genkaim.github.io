@@ -239,7 +239,8 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E9%92%B1%E5%8C%85"><span class="toc-text"> 注册钱包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C"><span class="toc-text"> 开始写作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2"><span class="toc-text"> 自定义你的博客</span></a></li></ol>
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -251,7 +252,9 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E9%92%B1%E5%8C%85"><span class="toc-text"> 注册钱包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C"><span class="toc-text"> 开始写作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2"><span class="toc-text"> 自定义你的博客</span></a></li></ol>
@@ -391,7 +394,6 @@
     
   </div>
 </div>
-
 
 </main>
  <footer class="footer">

@@ -236,7 +236,8 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 一些素材声明</span></a></li></ol>
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -248,7 +249,9 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 一些素材声明</span></a></li></ol>
@@ -374,7 +377,6 @@
     
   </div>
 </div>
-
 
 </main>
  <footer class="footer">

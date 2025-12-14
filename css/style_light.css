@@ -387,7 +387,7 @@ button {
   outline: none; /* 取消焦点时的描边 */
   background-color: transparent; /* 取消背景颜色 */
   cursor: pointer; /* 设置鼠标指针为手形 */
-  padding: 8px 16px; /* 添加内边距以保持按钮的视觉效果 */
+  padding: 8px -5px; /*添加内边距以保持按钮的视觉效果 */
   font-size: 16px; /* 设置字体大小 */
   color: #333; /* 设置字体颜色 */
 }
@@ -625,17 +625,59 @@ button {
   font-weight: bold;
   color: rgba(128, 128, 128, 0.101);
 }
+.btn-toc {
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  z-index: 1001;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  border-radius: 20px;
+  color: var(--title-color);
+  background: white;
+  -webkit-box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.15);
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.15);
+  display: none; /* 默认隐藏，只在移动端显示 */
+  cursor: pointer;
+}
+
+.btn-toc * {
+  margin: 3px;
+}
+
+/* 使用焦点控制目录菜单的显示状态 */
+.toc-control {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: none;
+}
+
+/* 当按钮获得焦点时，显示控制层和目录菜单 */
+.btn-toc:focus + .toc-control,
+.btn-toc:focus + .toc-control + .toc-menus,
+.toc-control:focus-within {
+  display: block;
+}
+
 .toc-menus {
   border-radius: 40px 40px 0 0;
   -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.249), 0 6px 20px rgba(0, 0, 0, 0.205);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.085), 0 6px 20px rgba(0, 0, 0, 0.101);
-  display: flex;
+  display: none;
   flex-direction: column;
   max-height: 60vh;
-  display: none; 
   padding: 0;
-   scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom:0px;
+  z-index: 99900;
 }
 
 .toc-menus .toc-title {
@@ -651,12 +693,51 @@ button {
   flex: 1;
   margin-top: 0;
   
-
+  /* 隐藏滚动条但仍可滚动 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
 /* 隐藏 Webkit 浏览器的滚动条 */
 .toc-menus .toc::-webkit-scrollbar {
   display: none;
+}
+
+@media screen and (max-width: 764px) {
+  #btn-toc {
+    display: block; /* 在移动端显示按钮 */
+  }
+  
+  .toc-menus {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 30px 30px 0px 0px;
+  }
+}
+
+/* 动画定义 */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
 }
 .toc-title {
   font-weight: bolder;

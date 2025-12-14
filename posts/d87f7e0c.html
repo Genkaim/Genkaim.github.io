@@ -251,7 +251,8 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%90%E6%A7%BD"><span class="toc-text"> 吐槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tinyletter"><span class="toc-text"> Tinyletter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zapier"><span class="toc-text"> Zapier</span></a></li></ol>
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -263,7 +264,9 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%90%E6%A7%BD"><span class="toc-text"> 吐槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tinyletter"><span class="toc-text"> Tinyletter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zapier"><span class="toc-text"> Zapier</span></a></li></ol>
@@ -450,7 +453,6 @@
     
   </div>
 </div>
-
 
 </main>
  <footer class="footer">

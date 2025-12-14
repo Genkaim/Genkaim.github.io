@@ -239,7 +239,8 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-text"> 写在最前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#summary"><span class="toc-text"> Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%80%81%E7%89%88seewo%E7%AE%A1%E5%AE%B6"><span class="toc-text"> 安装老版seewo管家</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AF%86%E7%A0%81"><span class="toc-text"> 获取密码</span></a></li></ol>
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -251,7 +252,9 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="toc-text"> 写在最前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#summary"><span class="toc-text"> Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%80%81%E7%89%88seewo%E7%AE%A1%E5%AE%B6"><span class="toc-text"> 安装老版seewo管家</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AF%86%E7%A0%81"><span class="toc-text"> 获取密码</span></a></li></ol>
@@ -397,7 +400,6 @@
     
   </div>
 </div>
-
 
 </main>
  <footer class="footer">

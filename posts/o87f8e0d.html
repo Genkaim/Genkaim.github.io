@@ -236,7 +236,8 @@
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#p%E6%AF%94%E4%BE%8B%E6%8E%A7%E5%88%B6"><span class="toc-text"> P比例控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i%E7%A7%AF%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> I积分控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d%E5%BE%AE%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> D微分控制</span></a></li></ol>
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -248,7 +249,9 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#p%E6%AF%94%E4%BE%8B%E6%8E%A7%E5%88%B6"><span class="toc-text"> P比例控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i%E7%A7%AF%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> I积分控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d%E5%BE%AE%E5%88%86%E6%8E%A7%E5%88%B6"><span class="toc-text"> D微分控制</span></a></li></ol>
@@ -401,7 +404,6 @@
     
   </div>
 </div>
-
 
 </main>
  <footer class="footer">
