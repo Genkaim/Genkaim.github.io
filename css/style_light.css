@@ -642,7 +642,8 @@ button {
 }
 
 .btn-toc * {
-  margin: 3px;
+  margin: 2px;
+  color: rgba(0, 0, 0, 0.349) !important;
 }
 
 /* 使用焦点控制目录菜单的显示状态 */
@@ -662,7 +663,6 @@ button {
 .toc-control:focus-within {
   display: block;
 }
-
 .toc-menus {
   border-radius: 40px 40px 0 0;
   -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.249), 0 6px 20px rgba(0, 0, 0, 0.205);
@@ -678,6 +678,10 @@ button {
   right: 0px;
   bottom:0px;
   z-index: 99900;
+  -webkit-animation: slide-up2 0.2s ease-in-out 1;
+  animation: slide-up2 0.2s ease-in-out 1;
+  background: white; /* 确保背景颜色 */
+  overflow: hidden; /* 防止自身滚动 */
 }
 
 .toc-menus .toc-title {
@@ -687,11 +691,23 @@ button {
   border-bottom: 1px solid #eaecef;
 }
 
+.toc-title {
+  font-weight: bolder;
+  font-size: larger;
+  padding-left: 60px !important;
+}
+
+.toc-menus .toc-wrapper {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+
 .toc-menus .toc {
   padding: 16px 24px 24px 24px;
-  overflow-y: auto;
-  flex: 1;
+  overflow-y: auto; /* 只允许垂直滚动 */
   margin-top: 0;
+  max-height: calc(60vh - 80px); /* 限制最大高度 */
   
   /* 隐藏滚动条但仍可滚动 */
   scrollbar-width: none; /* Firefox */
@@ -701,6 +717,30 @@ button {
 /* 隐藏 Webkit 浏览器的滚动条 */
 .toc-menus .toc::-webkit-scrollbar {
   display: none;
+}
+
+/* 渐变遮罩元素 */
+.toc-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+  z-index: 10;
+  pointer-events: none;
+}
+
+.toc-menus .toc-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+  z-index: 10;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 764px) {
@@ -718,10 +758,10 @@ button {
 }
 
 /* 动画定义 */
-@keyframes slide-up {
+@keyframes slide-up2 {
   from {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(10%);
   }
   to {
     opacity: 1;
@@ -729,17 +769,13 @@ button {
   }
 }
 
-@keyframes slide-down {
+@keyframes slide-down2 {
   from {
     opacity: 1;
     transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(10%);
   }
-}
-.toc-title {
-  font-weight: bolder;
-  font-size: 1.2rem;
 }
