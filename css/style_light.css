@@ -29,7 +29,7 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
 .post-entry__content h2 {
   font-weight: bold !important;
 }
-.main .post-title h1 {
+.main .post-title .post-title__text {
   background: linear-gradient(
     to right,
     #365262 0%,

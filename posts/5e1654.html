@@ -33,7 +33,7 @@
     <!-- meta -->
 
 
-<title>How to Guide|显示“你的windows许可证只支持一种语言”时如何更改语言 | Genkaim的博客</title>
+<title>显示“你的windows许可证只支持一种语言”时如何更改语言 | Genkaim的博客</title>
 
 
     <meta name="keywords" content="教程">
@@ -43,15 +43,15 @@
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言。但只需要更改Windows版本就行了. cmd运行Dism&#x2F;Online &#x2F;Get-TargetEditions 可以看到，不支持直接转换成Professional，但是可以先转换成ProfessionalEducation再转换成Professional.(实测">
+    <meta name="description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言. 但如果先更改windows许可版本的话，就可以更改语言了. 下面以把CoreCountrySpecific转换成常用的Professional为例子. 因为CoreCountrySpecific的Windows不支持直接转换成Professional，所以需要先">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to Guide|显示“你的windows许可证只支持一种语言”时如何更改语言">
+<meta property="og:title" content="显示“你的windows许可证只支持一种语言”时如何更改语言">
 <meta property="og:url" content="https://www.genkaim.top/posts/5e1654">
 <meta property="og:site_name" content="Genkaim的博客">
-<meta property="og:description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言。但只需要更改Windows版本就行了. cmd运行Dism&#x2F;Online &#x2F;Get-TargetEditions 可以看到，不支持直接转换成Professional，但是可以先转换成ProfessionalEducation再转换成Professional.(实测">
+<meta property="og:description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言. 但如果先更改windows许可版本的话，就可以更改语言了. 下面以把CoreCountrySpecific转换成常用的Professional为例子. 因为CoreCountrySpecific的Windows不支持直接转换成Professional，所以需要先">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-19T04:39:51.000Z">
-<meta property="article:modified_time" content="2025-12-19T05:02:52.950Z">
+<meta property="article:modified_time" content="2025-12-19T10:59:26.337Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,9 +208,78 @@
     
 
 <div class="post-title">
-  <h1 class="post-title__text">How to Guide|显示“你的windows许可证只支持一种语言”时如何更改语言</h1>
   
-
+  
+  <h1 class="post-title__text">
+    显示“你的windows许可证只支持一种语言”时如何更改语言
+  </h1>
+  
+  
+    <div class="post-title-background-tags">
+      
+        <div class="post_backgroundTag"><span class="tag-hash">#</span> 教程</div>
+      
+    </div>
+  
+<style>
+  .post-title {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  
+  .post-title-background-tags {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .post_backgroundTag {
+    font-size: 5em;
+    opacity: 0.3;
+    white-space: nowrap;
+    font-weight: bolder;
+    color: rgb(91, 91, 91);
+    font-family: "Source Han Serif CN", "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", serif; /* 思源宋体 */
+    margin-bottom: 40px;
+  }
+  .tag-hash {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 900; /* 设置最粗的字体粗细 */
+    margin-right: 5px;
+    font-size: 1.2em; /* 可选：稍微增大 # 号 */
+  }
+  .post-title__text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 600px; /* 设置标题最大宽度 */
+    word-wrap: break-word; /* 允许长单词换行 */
+    word-break: break-word; /* 在适当位置断行 */
+    overflow-wrap: break-word; /* 确保长内容能正确换行 */
+  }
+  
+  /* 实现向左偏移 */
+  .post-title-background-tags::before {
+    content: '';
+    flex-basis: calc(50% - 330px); /* 增加偏移量使标签更靠左 */
+    flex-shrink: 0;
+  }
+</style>
+  
+  
   <div class="post-title__meta">
     <a
   href="/archives/2025/12/"
@@ -268,8 +337,8 @@
     
   </div>
   <div class="post__content"><h2 id="原因办法"><a class="markdownIt-Anchor" href="#原因办法"></a> 原因&amp;办法</h2>
-<p>可能是oem厂商的限制，笔记本电脑的windows版本是<code>CoreCountrySpecific</code>，所以没法更改语言。但只需要更改Windows版本就行了.</p>
-<p>cmd运行<code>Dism/Online /Get-TargetEditions</code> 可以看到，不支持直接转换成<code>Professional</code>，但是可以先转换成<code>ProfessionalEducation</code>再转换成<code>Professional</code>.(实测可行)</p>
+<p>可能是oem厂商的限制，笔记本电脑的windows版本是<code>CoreCountrySpecific</code>，所以没法更改语言. 但如果先更改windows许可版本的话，就可以更改语言了. 下面以把<code>CoreCountrySpecific</code>转换成常用的<code>Professional</code>为例子.</p>
+<p>因为<code>CoreCountrySpecific</code>的Windows不支持直接转换成<code>Professional</code>，所以需要先转换成<code>ProfessionalEducation</code>再转换成<code>Professional</code>.(实测可行)</p>
 <h2 id="使用heu-kms-activator转换"><a class="markdownIt-Anchor" href="#使用heu-kms-activator转换"></a> 使用HEU KMS Activator转换</h2>
 <p>GitHub Release链接：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/zbezj/HEU_KMS_Activator/releases">https://github.com/zbezj/HEU_KMS_Activator/releases</a></p>
 <p>安装时可能会被Windows Defender报毒，建议搭配以下指令使用：</p>

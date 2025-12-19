@@ -43,15 +43,15 @@
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="欢迎来到我的博客 24.9.28 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  一些素材声明    名称 来源     主题框架 Hexo   主题">
+    <meta name="description" content="欢迎来到我的博客 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  素材声明    名称 来源     主题框架 Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="👋Hello">
 <meta property="og:url" content="https://www.genkaim.top/posts/37cb61b3">
 <meta property="og:site_name" content="Genkaim的博客">
-<meta property="og:description" content="欢迎来到我的博客 24.9.28 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  一些素材声明    名称 来源     主题框架 Hexo   主题">
+<meta property="og:description" content="欢迎来到我的博客 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  素材声明    名称 来源     主题框架 Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2077-03-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:modified_time" content="2025-12-19T11:26:54.733Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="其他">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,15 +208,84 @@
     
 
 <div class="post-title">
-  <h1 class="post-title__text">👋Hello</h1>
   
-
+  
+  <h1 class="post-title__text">
+    👋Hello
+  </h1>
+  
+  
+    <div class="post-title-background-tags">
+      
+        <div class="post_backgroundTag"><span class="tag-hash">#</span> 其他</div>
+      
+    </div>
+  
+<style>
+  .post-title {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  
+  .post-title-background-tags {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .post_backgroundTag {
+    font-size: 5em;
+    opacity: 0.3;
+    white-space: nowrap;
+    font-weight: bolder;
+    color: rgb(91, 91, 91);
+    font-family: "Source Han Serif CN", "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", serif; /* 思源宋体 */
+    margin-bottom: 40px;
+  }
+  .tag-hash {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 900; /* 设置最粗的字体粗细 */
+    margin-right: 5px;
+    font-size: 1.2em; /* 可选：稍微增大 # 号 */
+  }
+  .post-title__text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 600px; /* 设置标题最大宽度 */
+    word-wrap: break-word; /* 允许长单词换行 */
+    word-break: break-word; /* 在适当位置断行 */
+    overflow-wrap: break-word; /* 确保长内容能正确换行 */
+  }
+  
+  /* 实现向左偏移 */
+  .post-title-background-tags::before {
+    content: '';
+    flex-basis: calc(50% - 330px); /* 增加偏移量使标签更靠左 */
+    flex-shrink: 0;
+  }
+</style>
+  
+  
   <div class="post-title__meta">
     <a
   href="/archives/2077/03/"
   class="post-meta__date"
   >发布于 2077-03-10|
-  更新于 2025-07-24
+  更新于 2025-12-19
 </a>
  
  
@@ -233,7 +302,7 @@
 
 <aside class="post-side">
   <div class="post-side__toc">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 一些素材声明</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 素材声明</span></a></li></ol>
   </div>
 </aside>
 <!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
@@ -256,7 +325,7 @@
   <div class="toc-title">文章目录</div>
   <div class="toc-wrapper">
     <div class="toc-gradient-overlay"></div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 一些素材声明</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 素材声明</span></a></li></ol>
   </div>
 </div>
 
@@ -268,10 +337,10 @@
     
   </div>
   <div class="post__content"><h1 id="text-stylefont-size-25px欢迎来到我的博客text"><a class="markdownIt-Anchor" href="#text-stylefont-size-25px欢迎来到我的博客text"></a> <text style="font-size: 25px;"><strong>欢迎来到我的博客</strong></text></h1>
-<p><strong>24.9.28</strong></p>
+<p><big><strong>博客首席设计师</strong>：<strong>zczzzzz</strong></big></p>
 <p>本站重构基本完成，依然基于Hexo框架，使用了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/ChrAlpha">ChrAlpha</a>大佬开发的Cards主题。</p>
 <p>相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333</p>
-<h2 id="一些素材声明"><a class="markdownIt-Anchor" href="#一些素材声明"></a> 一些素材声明</h2>
+<h2 id="素材声明"><a class="markdownIt-Anchor" href="#素材声明"></a> 素材声明</h2>
 <table>
 <thead>
 <tr>
@@ -287,10 +356,6 @@
 <tr>
 <td>主题</td>
 <td><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/ChrAlpha/hexo-theme-cards">Cards</a></td>
-</tr>
-<tr>
-<td>加载动画（Hello部分）</td>
-<td><a href="Wokine.com">Wokine</a></td>
 </tr>
 <tr>
 <td>主页图片</td>
@@ -361,7 +426,7 @@
     <a href="/posts/5e1654" class="nav__link">
       <div>
         <div class="nav__label">下一篇</div>
-        <div class="nav__title">How to Guide|显示“你的windows许可证只支持一种语言”时如何更改语言</div>
+        <div class="nav__title">显示“你的windows许可证只支持一种语言”时如何更改语言</div>
       </div>
       <div>
         <svg
