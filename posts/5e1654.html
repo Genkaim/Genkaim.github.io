@@ -33,27 +33,27 @@
     <!-- meta -->
 
 
-<title>👋Hello | Genkaim的博客</title>
+<title>【How to Guide】显示“你的windows许可证只支持一种语言”时如何更改语言 | Genkaim的博客</title>
 
 
-    <meta name="keywords" content="其他">
+    <meta name="keywords" content="教程">
 
 
 
 
     <!-- OpenGraph -->
  
-    <meta name="description" content="欢迎来到我的博客 24.9.28 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  一些素材声明    名称 来源     主题框架 Hexo   主题">
+    <meta name="description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言。但只需要更改Windows版本就行了. cmd运行Dism&#x2F;Online &#x2F;Get-TargetEditions 可以看到，不支持直接转换成Professional，但是可以先转换成ProfessionalEducation再转换成Professional.(实测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="👋Hello">
-<meta property="og:url" content="https://www.genkaim.top/posts/37cb61b3">
+<meta property="og:title" content="【How to Guide】显示“你的windows许可证只支持一种语言”时如何更改语言">
+<meta property="og:url" content="https://www.genkaim.top/posts/5e1654">
 <meta property="og:site_name" content="Genkaim的博客">
-<meta property="og:description" content="欢迎来到我的博客 24.9.28 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  一些素材声明    名称 来源     主题框架 Hexo   主题">
+<meta property="og:description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言。但只需要更改Windows版本就行了. cmd运行Dism&#x2F;Online &#x2F;Get-TargetEditions 可以看到，不支持直接转换成Professional，但是可以先转换成ProfessionalEducation再转换成Professional.(实测">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2077-03-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:published_time" content="2025-12-19T04:39:51.000Z">
+<meta property="article:modified_time" content="2025-12-19T04:51:38.181Z">
 <meta property="article:author" content="Genkaim">
-<meta property="article:tag" content="其他">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
 
 
@@ -208,15 +208,15 @@
     
 
 <div class="post-title">
-  <h1 class="post-title__text">👋Hello</h1>
+  <h1 class="post-title__text">【How to Guide】显示“你的windows许可证只支持一种语言”时如何更改语言</h1>
   
 
   <div class="post-title__meta">
     <a
-  href="/archives/2077/03/"
+  href="/archives/2025/12/"
   class="post-meta__date"
-  >发布于 2077-03-10|
-  更新于 2025-07-24
+  >发布于 2025-12-19|
+  更新于 2025-12-19
 </a>
  
  
@@ -233,7 +233,7 @@
 
 <aside class="post-side">
   <div class="post-side__toc">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 一些素材声明</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%E5%8A%9E%E6%B3%95"><span class="toc-text"> 原因&amp;办法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8heu-kms-activator%E8%BD%AC%E6%8D%A2"><span class="toc-text"> 使用HEU KMS Activator转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8cmd%E6%9C%AA%E5%AE%9E%E6%B5%8B"><span class="toc-text"> 直接使用cmd（未实测）</span></a></li></ol>
   </div>
 </aside>
 <!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
@@ -256,7 +256,7 @@
   <div class="toc-title">文章目录</div>
   <div class="toc-wrapper">
     <div class="toc-gradient-overlay"></div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 一些素材声明</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%E5%8A%9E%E6%B3%95"><span class="toc-text"> 原因&amp;办法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8heu-kms-activator%E8%BD%AC%E6%8D%A2"><span class="toc-text"> 使用HEU KMS Activator转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8cmd%E6%9C%AA%E5%AE%9E%E6%B5%8B"><span class="toc-text"> 直接使用cmd（未实测）</span></a></li></ol>
   </div>
 </div>
 
@@ -267,37 +267,21 @@
   <div class="post__header">
     
   </div>
-  <div class="post__content"><h1 id="text-stylefont-size-25px欢迎来到我的博客text"><a class="markdownIt-Anchor" href="#text-stylefont-size-25px欢迎来到我的博客text"></a> <text style="font-size: 25px;"><strong>欢迎来到我的博客</strong></text></h1>
-<p><strong>24.9.28</strong></p>
-<p>本站重构基本完成，依然基于Hexo框架，使用了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/ChrAlpha">ChrAlpha</a>大佬开发的Cards主题。</p>
-<p>相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333</p>
-<h2 id="一些素材声明"><a class="markdownIt-Anchor" href="#一些素材声明"></a> 一些素材声明</h2>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>来源</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>主题框架</td>
-<td><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/">Hexo</a></td>
-</tr>
-<tr>
-<td>主题</td>
-<td><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/ChrAlpha/hexo-theme-cards">Cards</a></td>
-</tr>
-<tr>
-<td>加载动画（Hello部分）</td>
-<td><a href="Wokine.com">Wokine</a></td>
-</tr>
-<tr>
-<td>主页图片</td>
-<td><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.freepik.com/free-vector/gradient-lake-scenery_19852064.htm#query=landscape%20svg&amp;position=1&amp;from_view=keyword&amp;track=ais_hybrid&amp;uuid=8fee4377-2332-49fc-8ff5-81f1ad25162f">Freepik</a></td>
-</tr>
-</tbody>
-</table>
+  <div class="post__content"><h2 id="原因办法"><a class="markdownIt-Anchor" href="#原因办法"></a> 原因&amp;办法</h2>
+<p>可能是oem厂商的限制，笔记本电脑的windows版本是<code>CoreCountrySpecific</code>，所以没法更改语言。但只需要更改Windows版本就行了.</p>
+<p>cmd运行<code>Dism/Online /Get-TargetEditions</code> 可以看到，不支持直接转换成<code>Professional</code>，但是可以先转换成<code>ProfessionalEducation</code>再转换成<code>Professional</code>.(实测可行)</p>
+<h2 id="使用heu-kms-activator转换"><a class="markdownIt-Anchor" href="#使用heu-kms-activator转换"></a> 使用HEU KMS Activator转换</h2>
+<p>GitHub Release链接：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/zbezj/HEU_KMS_Activator/releases">https://github.com/zbezj/HEU_KMS_Activator/releases</a></p>
+<p>安装时可能会被Windows Defender报毒，建议搭配以下指令使用：</p>
+<figure class="highlight cmd"><figcaption><span>添加当前目录到白名单</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;%~dp0&#x27;); Force = $True&#125; Add -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;<span class="variable">%temp%</span>\_temp_heu168yyds&#x27;); Force = $True&#125; Add -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><figcaption><span>移除当前目录出白名单</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;%~dp0&#x27;); Force = $True&#125; Remove -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;<span class="variable">%temp%</span>\_temp_heu168yyds&#x27;); Force = $True&#125; Remove -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>然后在软件的<code>其他</code> -&gt; <code>更改Windows10/11版本</code>处依次更改Windows版本为<code>ProfessionalEducation</code> and<code>Professional</code>.</p>
+<h2 id="直接使用cmd未实测"><a class="markdownIt-Anchor" href="#直接使用cmd未实测"></a> 直接使用cmd（未实测）</h2>
+<p>如果不想额外下软件，可以直接使用cmd更改版本.</p>
+<p>依次在cmd运行（需要管理员）</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dism /online /<span class="built_in">Set</span>-Edition:ProfessionalEducation</span><br></pre></td></tr></table></figure>
+<p>重启.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dism /online /<span class="built_in">Set</span>-Edition:Professional</span><br></pre></td></tr></table></figure>
 </div>
   
     <div class="post__license">
@@ -308,7 +292,7 @@
             <strong>
                 本文链接：
             </strong>
-            <a href="https://www.genkaim.top/posts/37cb61b3">https://www.genkaim.top/posts/37cb61b3</a>
+            <a href="https://www.genkaim.top/posts/5e1654">https://www.genkaim.top/posts/5e1654</a>
         </p>
         
         <div class="post_reward">
@@ -338,7 +322,7 @@
         </script>
 
     </div>
- <div class="post-entry__tags"><a href="/tags/%E5%85%B6%E4%BB%96/" class="post-tags__link button"># 其他</a></div>
+ <div class="post-entry__tags"><a href="/tags/%E6%95%99%E7%A8%8B/" class="post-tags__link button"># 教程</a></div>
 
    
   <div id="waline"></div>
@@ -355,13 +339,36 @@
 <div class="nav">
   <div class="nav__prev">
     
+    <a href="/posts/37cb61b3" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">👋Hello</div>
+      </div>
+
+    </a>
+
+    
   </div>
   <div class="nav__next">
     
-    <a href="/posts/5e1654" class="nav__link">
+    <a href="/posts/216e7f58" class="nav__link">
       <div>
         <div class="nav__label">下一篇</div>
-        <div class="nav__title">【How to Guide】显示“你的windows许可证只支持一种语言”时如何更改语言</div>
+        <div class="nav__title">串并行系统的时序逻辑</div>
       </div>
       <div>
         <svg
