@@ -33,7 +33,7 @@
     <!-- meta -->
 
 
-<title>【How to Guide】显示“你的windows许可证只支持一种语言”时如何更改语言 | Genkaim的博客</title>
+<title>How to Guide|显示“你的windows许可证只支持一种语言”时如何更改语言 | Genkaim的博客</title>
 
 
     <meta name="keywords" content="教程">
@@ -45,13 +45,13 @@
  
     <meta name="description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言。但只需要更改Windows版本就行了. cmd运行Dism&#x2F;Online &#x2F;Get-TargetEditions 可以看到，不支持直接转换成Professional，但是可以先转换成ProfessionalEducation再转换成Professional.(实测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【How to Guide】显示“你的windows许可证只支持一种语言”时如何更改语言">
+<meta property="og:title" content="How to Guide|显示“你的windows许可证只支持一种语言”时如何更改语言">
 <meta property="og:url" content="https://www.genkaim.top/posts/5e1654">
 <meta property="og:site_name" content="Genkaim的博客">
 <meta property="og:description" content="原因&amp;办法 可能是oem厂商的限制，笔记本电脑的windows版本是CoreCountrySpecific，所以没法更改语言。但只需要更改Windows版本就行了. cmd运行Dism&#x2F;Online &#x2F;Get-TargetEditions 可以看到，不支持直接转换成Professional，但是可以先转换成ProfessionalEducation再转换成Professional.(实测">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-19T04:39:51.000Z">
-<meta property="article:modified_time" content="2025-12-19T04:51:38.181Z">
+<meta property="article:modified_time" content="2025-12-19T05:02:52.950Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
     
 
 <div class="post-title">
-  <h1 class="post-title__text">【How to Guide】显示“你的windows许可证只支持一种语言”时如何更改语言</h1>
+  <h1 class="post-title__text">How to Guide|显示“你的windows许可证只支持一种语言”时如何更改语言</h1>
   
 
   <div class="post-title__meta">
@@ -273,14 +273,16 @@
 <h2 id="使用heu-kms-activator转换"><a class="markdownIt-Anchor" href="#使用heu-kms-activator转换"></a> 使用HEU KMS Activator转换</h2>
 <p>GitHub Release链接：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/zbezj/HEU_KMS_Activator/releases">https://github.com/zbezj/HEU_KMS_Activator/releases</a></p>
 <p>安装时可能会被Windows Defender报毒，建议搭配以下指令使用：</p>
-<figure class="highlight cmd"><figcaption><span>添加当前目录到白名单</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;%~dp0&#x27;); Force = $True&#125; Add -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;<span class="variable">%temp%</span>\_temp_heu168yyds&#x27;); Force = $True&#125; Add -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cmd"><figcaption><span>移除当前目录出白名单</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;%~dp0&#x27;); Force = $True&#125; Remove -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;<span class="variable">%temp%</span>\_temp_heu168yyds&#x27;); Force = $True&#125; Remove -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>添加当前目录到白名单:</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;%~dp0&#x27;); Force = $True&#125; Add -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;<span class="variable">%temp%</span>\_temp_heu168yyds&#x27;); Force = $True&#125; Add -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>移除当前目录出白名单:</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;%~dp0&#x27;); Force = $True&#125; Remove -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br><span class="line">powershell &quot;try &#123;$null = icim MSFT_MpPreference @&#123;ExclusionPath = @(&#x27;<span class="variable">%temp%</span>\_temp_heu168yyds&#x27;); Force = $True&#125; Remove -Namespace root/Microsoft/Windows/Defender -EA <span class="number">1</span>&#125; catch &#123;$host.SetShouldExit($_.Exception.HResult)&#125;&quot;</span><br></pre></td></tr></table></figure>
 <p>然后在软件的<code>其他</code> -&gt; <code>更改Windows10/11版本</code>处依次更改Windows版本为<code>ProfessionalEducation</code> and<code>Professional</code>.</p>
 <h2 id="直接使用cmd未实测"><a class="markdownIt-Anchor" href="#直接使用cmd未实测"></a> 直接使用cmd（未实测）</h2>
 <p>如果不想额外下软件，可以直接使用cmd更改版本.</p>
 <p>依次在cmd运行（需要管理员）</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dism /online /<span class="built_in">Set</span>-Edition:ProfessionalEducation</span><br></pre></td></tr></table></figure>
-<p>重启.</p>
+<p>重启后运行.</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dism /online /<span class="built_in">Set</span>-Edition:Professional</span><br></pre></td></tr></table></figure>
 </div>
   
