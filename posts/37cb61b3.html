@@ -211,80 +211,35 @@
   
   
   <h1 class="post-title__text">
-      👋Hello
+    
+      
+        <span class="post-title-tag">其他&nbsp;</span>
+      
+    
+    👋Hello
   </h1>
-  
-  
-    <div class="post-title-background-tags">
-      
-        <div class="post_backgroundTag"><span class="tag-hash">#</span> 其他</div>
-      
-    </div>
-  
-<style>
-  .post-title {
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-  }
-  .post-title__text {
-        position: relative;
-    min-height: 130px;
-        position: relative;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-  }
-  .post-title-background-tags {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-    z-index: 0;
-    pointer-events: none;
-  }
-  
-  .post_backgroundTag {
-    font-size: 5em;
-    opacity: 0.3;
-    white-space: nowrap;
-    font-weight: bolder;
-    color: rgb(91, 91, 91);
-    font-family: "Source Han Serif CN", "Source Han Serif SC", "Noto Serif CJK SC", "思源宋体", serif; /* 思源宋体 */
-    margin-bottom: 40px;
-  }
-  .tag-hash {
-    font-family: "Times New Roman", Times, serif;
-    font-weight: 900; /* 设置最粗的字体粗细 */
-    margin-right: 5px;
-    font-size: 1.2em; /* 可选：稍微增大 # 号 */
-  }
-  .post-title__text {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    grid-column: 1;
-    grid-row: 1;
-    max-width: 600px; /* 设置标题最大宽度 */
-    word-wrap: break-word; /* 允许长单词换行 */
-    word-break: break-word; /* 在适当位置断行 */
-    overflow-wrap: break-word; /* 确保长内容能正确换行 */
-  }
-  
-  /* 实现向左偏移 */
-  .post-title-background-tags::before {
-    content: '';
-    flex-basis: calc(50% - 330px); /* 增加偏移量使标签更靠左 */
-    flex-shrink: 0;
-  }
-</style>
+  <style>
+    .post-title-tag {
+      font-weight: bold;
+      color: #5b5b5b93;
+      font-size: 0.9rem;
+      background-color: #5b5b5b21;
+      padding: 4px 7px;
+      border-radius: 10px;
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+    
+    .post-title__text {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      text-align: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 700px;
+    }
+  </style>
   
   
   <div class="post-title__meta">
