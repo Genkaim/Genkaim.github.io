@@ -151,15 +151,9 @@ a:hover {
 .footer {
   font-size: 1em !important;
 }
-@font-face {
-  font-family: "MiSans";
-  font-display: swap;
-  src: url("https://raw.gitmirror.com/genkaim/blog_img/main/data/202401201604298.woff2")
-    format("woff2");
-}
 
 body {
-  font-family: "MiSans" !important;
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 #dropdown-menus {
   border-radius: 30px;

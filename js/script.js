@@ -7,9 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < children.length; i++) {
       const child = children[i];
       if (child.classList.contains("katex-block")) {
-        child.style.background = "#f4f4f496";
-        child.style.borderRadius = "10px";
-        child.style.padding = "1px";
+        child.style.background = "#f4f4f44d";
+        child.style.borderRadius = "7px";
+        // 给公式内部的行元素添加下边距
+        const baseElements = child.querySelectorAll('.base');
+        baseElements.forEach(base => {
+          base.style.marginBottom = '8px'; // 调整这个值来控制行间距
+          base.style.marginTop = '10px'; // 调整这个值来控制行间距
+        });
       }
     }
   }
