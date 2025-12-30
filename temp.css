@@ -29,7 +29,7 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
 .post-entry__content h2 {
   font-weight: bold !important;
 }
-.main .post-title .post-title__text {
+.main .post-title h1 {
   background: linear-gradient(
     to right,
     #365262 0%,
@@ -80,12 +80,13 @@ a:hover {
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
 }
 .btn-toc {
-  width: 3rem !;
   bottom: 1.2rem !important;
   transition: all 0.3s ease;
   background: white !important;
   border-radius: 20px !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
+  padding: 30px;
+
 }
 
 .btn-toc:hover {
@@ -151,9 +152,15 @@ a:hover {
 .footer {
   font-size: 1em !important;
 }
+@font-face {
+  font-family: "MiSans";
+  font-display: swap;
+  src: url("https://raw.gitmirror.com/genkaim/blog_img/main/data/202401201604298.woff2")
+    format("woff2");
+}
 
 body {
-  font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "MiSans" !important;
 }
 #dropdown-menus {
   border-radius: 30px;
@@ -271,7 +278,10 @@ svg {
 img {
   border-radius: 30px;
 }
-
+#toc-menus {
+  box-shadow: 0.6rem 0.6rem 0.6rem rgba(48, 55, 66, 0.079); /* 调整阴影模糊度和透明度 */
+  border-radius: 50px !important;
+}
 .post__license {
   border-left: none;
   border-radius: 20px;
@@ -381,7 +391,7 @@ button {
   outline: none; /* 取消焦点时的描边 */
   background-color: transparent; /* 取消背景颜色 */
   cursor: pointer; /* 设置鼠标指针为手形 */
-  padding: 8px -5px; /*添加内边距以保持按钮的视觉效果 */
+  padding: 8px 16px; /* 添加内边距以保持按钮的视觉效果 */
   font-size: 16px; /* 设置字体大小 */
   color: #333; /* 设置字体颜色 */
 }
@@ -568,8 +578,7 @@ button {
 }
 @media screen and (max-width: 764px) {
   .content-card {
-    padding: 9%;
-    padding-top: 11%;
+    padding: 30px;
   }
   .post__content {
     position: relative;
@@ -618,158 +627,4 @@ button {
   bottom: 30px;
   font-weight: bold;
   color: rgba(128, 128, 128, 0.101);
-}
-.btn-toc {
-  width: 3rem;
-  height: 3rem;
-  position: fixed;
-  z-index: 1001;
-  right: 1.2rem;
-  bottom: 1.2rem;
-  border-radius: 20px;
-  color: var(--title-color);
-  background: white;
-  -webkit-box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.15);
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.15);
-  display: none; /* 默认隐藏，只在移动端显示 */
-  cursor: pointer;
-}
-
-.btn-toc * {
-  margin: 2px;
-  color: rgba(0, 0, 0, 0.349) !important;
-}
-
-/* 使用焦点控制目录菜单的显示状态 */
-.toc-control {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  display: none;
-}
-
-/* 当按钮获得焦点时，显示控制层和目录菜单 */
-.btn-toc:focus + .toc-control,
-.btn-toc:focus + .toc-control + .toc-menus,
-.toc-control:focus-within {
-  display: block;
-}
-.toc-menus {
-  border-radius: 40px 40px 0 0;
-  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.249), 0 6px 20px rgba(0, 0, 0, 0.205);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.085), 0 6px 20px rgba(0, 0, 0, 0.101);
-  display: none;
-  flex-direction: column;
-  max-height: 60vh;
-  padding: 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  bottom:0px;
-  z-index: 99900;
-  -webkit-animation: slide-up2 0.2s ease-in-out 1;
-  animation: slide-up2 0.2s ease-in-out 1;
-  background: white; /* 确保背景颜色 */
-  overflow: hidden; /* 防止自身滚动 */
-}
-
-.toc-menus .toc-title {
-  padding: 24px 24px 16px 24px;
-  margin: 0;
-  flex-shrink: 0;
-  border-bottom: 1px solid #eaecef;
-}
-
-.toc-title {
-  font-weight: bolder;
-  font-size: larger;
-  padding-left: 40px !important;
-}
-
-.toc-menus .toc-wrapper {
-  position: relative;
-  overflow: hidden;
-  flex: 1;
-}
-
-.toc-menus .toc {
-  padding: 16px 24px 24px 24px;
-  overflow-y: auto; /* 只允许垂直滚动 */
-  margin-top: 0;
-  max-height: calc(60vh - 80px); /* 限制最大高度 */
-  
-  /* 隐藏滚动条但仍可滚动 */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-/* 隐藏 Webkit 浏览器的滚动条 */
-.toc-menus .toc::-webkit-scrollbar {
-  display: none;
-}
-
-/* 渐变遮罩元素 */
-.toc-gradient-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 30px;
-  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
-  z-index: 10;
-  pointer-events: none;
-}
-
-.toc-menus .toc-wrapper::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
-  z-index: 10;
-  pointer-events: none;
-}
-
-@media screen and (max-width: 764px) {
-  #btn-toc {
-    display: block; /* 在移动端显示按钮 */
-  }
-  
-  .toc-menus {
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    border-radius: 30px 30px 0px 0px;
-  }
-}
-
-/* 动画定义 */
-@keyframes slide-up2 {
-  from {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-down2 {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(10%);
-  }
 }

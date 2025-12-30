@@ -1,7 +1,7 @@
 ---
 title: 写都写了，发一下吧
 date: 2025-12-11 22:15:24
-tags: 教程
+tags: 数学
 abbrlink: add30e99
 ---
 

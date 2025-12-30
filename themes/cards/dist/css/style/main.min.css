@@ -1255,33 +1255,24 @@ overflows table th {
 .btn-toc * {
   margin: 8px;
 }
-.btn-toc:focus + .toc-menus {
-  display: block;
-}
 .toc-menus {
   -webkit-animation: slide-up 0.15s ease 1;
   animation: slide-up 0.15s ease 1;
   display: none;
   position: fixed;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
   max-height: 60vh;
   overflow: auto;
-  border-radius: 6px;
-  padding: 24px;
+  border-radius: 0px;
   background: var(--bg-content-color);
-  -webkit-box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.02),
-    1px 1px 15px 0 rgba(0, 0, 0, 0.03);
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.02),
-    1px 1px 15px 0 rgba(0, 0, 0, 0.03);
   z-index: 9999;
 }
 .toc-menus:hover {
   display: block;
 }
 .toc-menus .toc-title {
-  font-size: 0.9rem;
   color: grey;
   margin-bottom: 0.8rem;
   padding-bottom: 0.2rem;

@@ -1,16 +1,51 @@
 <% page.cover = false; %>
 
 <div class="post-title">
-  <h1 class="post-title__text"><%= page.title || theme.meta.title %></h1>
+  <% 
+    let displayTitle = page.title || theme.meta.title;
+  %>
+  
+  <h1 class="post-title__text">
+    <% if ((post.tags || []).length > 0) { %>
+      <% (post.tags || []).forEach(function(item) { %>
+        <span class="post-title-tag"><%= item.name %>&nbsp;</span>
+      <% }); %>
+    <% } %>
+    <%= displayTitle %>
+  </h1>
+  <style>
+    .post-title-tag {
+      font-weight: bold;
+      color: #5b5b5b93;
+      font-size: 0.9rem;
+      background-color: #5b5b5b21;
+      padding-left: 10px;
+      padding-right: 7px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 10px;
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+    
+    .post-title__text {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      text-align: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 700px;
+    }
+  </style>
   <% if (page.cover) { %>
   <div class="post-cover">
     <img src="<%= page.cover %>" alt="Post Cover" />
   </div>
   <% } %>
-
+  
   <div class="post-title__meta">
-    <%- partial('_meta/date') %> <%- partial('_meta/categories') %> <%-
-    partial('_plugins/statistics/index', {position: 'page'}) %>
+    <%- partial('_meta/date') %> <%- partial('_meta/categories') %> <%- partial('_plugins/statistics/index', {position: 'page'}) %>
   </div>
 </div>
 
@@ -21,7 +56,8 @@
     max_depth: 6, min_depth: 2}) %>
   </div>
 </aside>
-<a class="btn-toc button" id="btn-toc" tabindex="0">
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
   <svg
     viewBox="0 0 1024 1024"
     width="32"
@@ -33,11 +69,16 @@
       fill="currentColor"
     ></path>
   </svg>
-</a>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title"><%= __('post.toc') %></div>
-  <%- toc(page.content, {list_number: (theme.meta.toc.list_number || false),
-  max_depth: 6, min_depth: 2}) %>
+  <div class="toc-wrapper">
+    <div class="toc-gradient-overlay"></div>
+    <%- toc(page.content, {list_number: (theme.meta.toc.list_number || false),
+    max_depth: 6, min_depth: 2}) %>
+  </div>
 </div>
 <% } %>
 
