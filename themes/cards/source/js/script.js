@@ -20,91 +20,91 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const currentUrl = window.location.href;
-  const isHomePage =
-    currentUrl === window.location.origin + "/" ||
-    currentUrl === window.location.origin + "/#" ||
-    currentUrl.includes("/page");
-  const cover = document.querySelector(".cover");
-  const header = document.querySelector(".header");
-  if (!isHomePage) return;
-  const _cover_height = header.style.height;
-  if (cover) {
-    function adjustCoverHeight() {
-      const windowHeight = window.innerHeight;
-      cover.style.height = `${windowHeight - _cover_height}px`;
-    }
-    window.addEventListener("resize", adjustCoverHeight);
-    adjustCoverHeight();
-  }
-});
-let lastScrollTop = 0; // 记录上一次滚动的位置
-let temp_cnt = 0;
-document.addEventListener("DOMContentLoaded", () => {
-  // 监听滚轮事件
-  window.addEventListener("wheel", (event) => {
-    const main = document.querySelector(".main");
-    const currentUrl = window.location.href;
-    const isHomePage =
-      currentUrl === window.location.origin + "/" ||
-      currentUrl === window.location.origin + "/#" ||
-      currentUrl.includes("/page");
-    if (!isHomePage) return;
-    const header = document.querySelector(".header");
-    const windowHeight = window.innerHeight;
-    const headerHeight = header.offsetHeight; // 使用 offsetHeight 获取元素的实际高度
-    const targetPosition = windowHeight - headerHeight;
-    const footer = document.querySelector(".footer");
-    const app = document.querySelector("body");
-    const cover_cover = document.querySelector(".cover_cover");
-    const scrollTop = window.scrollY;
-    // 判断是否滚动到顶部
-    if (scrollTop === 0) {
-      if(temp_cnt == 0) {
-        setTimeout(() => {
-          temp_cnt = 0;
-        }, 500);
-        temp_cnt++;
-        return;
-      }
-      else {
-        temp_cnt++;
-        if(temp_cnt < 2) return
-      }
-      main.style.top = `${0}px`;
-      footer.style.top = `${0}px`;
-      cover_cover.style.backgroundColor = "transparent";
-      cover_cover.style.backdropFilter = "blur(0px)"
-      setTimeout(() => {
-        if(footer.style.top === "0px"){
-          cover_cover.style.display = "none";
-        }
-      }, 1000);
-      window.scrollTo({
-        top: 0,
-        behavior: "auto",
-      });
-      temp_cnt = 0;
-    }
-    // 判断是否从顶部开始滚动
-    if (lastScrollTop === 0 && scrollTop > 0) {
-      cover_cover.style.display = "flex";
-      setTimeout(() => {
-        main.style.top = `-${targetPosition}px`;
-        cover_cover.style.backgroundColor = "#f4f4f4";
-        cover_cover.style.backdropFilter = "blur(20px)";
-        footer.style.top = `-${targetPosition}px`;
-        app.style.height = `${app.offsetHeight}px`;
-      }, 10);
-      window.scrollTo({
-        top: 0,
-        behavior: "auto",
-      });
-    }
-    lastScrollTop = scrollTop; // 更新上一次滚动的位置
-  });
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   const currentUrl = window.location.href;
+//   const isHomePage =
+//     currentUrl === window.location.origin + "/" ||
+//     currentUrl === window.location.origin + "/#" ||
+//     currentUrl.includes("/page");
+//   const cover = document.querySelector(".cover");
+//   const header = document.querySelector(".header");
+//   if (!isHomePage) return;
+//   const _cover_height = header.style.height;
+//   if (cover) {
+//     function adjustCoverHeight() {
+//       const windowHeight = window.innerHeight;
+//       cover.style.height = `${windowHeight - _cover_height}px`;
+//     }
+//     window.addEventListener("resize", adjustCoverHeight);
+//     adjustCoverHeight();
+//   }
+// });
+// let lastScrollTop = 0; // 记录上一次滚动的位置
+// let temp_cnt = 0;
+// document.addEventListener("DOMContentLoaded", () => {
+//   // 监听滚轮事件
+//   window.addEventListener("wheel", (event) => {
+//     const main = document.querySelector(".main");
+//     const currentUrl = window.location.href;
+//     const isHomePage =
+//       currentUrl === window.location.origin + "/" ||
+//       currentUrl === window.location.origin + "/#" ||
+//       currentUrl.includes("/page");
+//     if (!isHomePage) return;
+//     const header = document.querySelector(".header");
+//     const windowHeight = window.innerHeight;
+//     const headerHeight = header.offsetHeight; // 使用 offsetHeight 获取元素的实际高度
+//     const targetPosition = windowHeight - headerHeight;
+//     const footer = document.querySelector(".footer");
+//     const app = document.querySelector("body");
+//     const cover_cover = document.querySelector(".cover_cover");
+//     const scrollTop = window.scrollY;
+//     // 判断是否滚动到顶部
+//     if (scrollTop === 0) {
+//       if(temp_cnt == 0) {
+//         setTimeout(() => {
+//           temp_cnt = 0;
+//         }, 500);
+//         temp_cnt++;
+//         return;
+//       }
+//       else {
+//         temp_cnt++;
+//         if(temp_cnt < 2) return
+//       }
+//       main.style.top = `${0}px`;
+//       footer.style.top = `${0}px`;
+//       cover_cover.style.backgroundColor = "transparent";
+//       cover_cover.style.backdropFilter = "blur(0px)"
+//       setTimeout(() => {
+//         if(footer.style.top === "0px"){
+//           cover_cover.style.display = "none";
+//         }
+//       }, 1000);
+//       window.scrollTo({
+//         top: 0,
+//         behavior: "auto",
+//       });
+//       temp_cnt = 0;
+//     }
+//     // 判断是否从顶部开始滚动
+//     if (lastScrollTop === 0 && scrollTop > 0) {
+//       cover_cover.style.display = "flex";
+//       setTimeout(() => {
+//         main.style.top = `-${targetPosition}px`;
+//         cover_cover.style.backgroundColor = "#f4f4f4";
+//         cover_cover.style.backdropFilter = "blur(20px)";
+//         footer.style.top = `-${targetPosition}px`;
+//         app.style.height = `${app.offsetHeight}px`;
+//       }, 10);
+//       window.scrollTo({
+//         top: 0,
+//         behavior: "auto",
+//       });
+//     }
+//     lastScrollTop = scrollTop; // 更新上一次滚动的位置
+//   });
+// });
 function lockScroll() {
   let widthBar = 17,
     root = document.documentElement;
