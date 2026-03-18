@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+    
+        <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/mkvl0n6t.png">
+    
+
+
+    <!-- meta -->
+
+
+<title>如何证明∞等于0 | Genkaim的博客</title>
+
+
+    <meta name="keywords" content="发癫">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="若要直接证明这个命题十分困难. 但是我们可以通过构造一个数列来辅助证明. 构造数列 a1&#x3D;2,a2&#x3D;4,...,an&#x3D;2na_1&#x3D;2, a_2&#x3D;4,...,a_n&#x3D;2^n a1​&#x3D;2,a2​&#x3D;4,...,an​&#x3D;2n  通过递推式求数列极限 anan−1&#x3D;2n2n−1&#x3D;2∴an&#x3D;2an−1\frac{a_n}{a_{n-1}}&#x3D;\frac{2^n}{2^{n-1}}&#x3D;2\\ \therefore">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何证明∞等于0">
+<meta property="og:url" content="https://www.genkaim.top/posts/b1898e8e">
+<meta property="og:site_name" content="Genkaim的博客">
+<meta property="og:description" content="若要直接证明这个命题十分困难. 但是我们可以通过构造一个数列来辅助证明. 构造数列 a1&#x3D;2,a2&#x3D;4,...,an&#x3D;2na_1&#x3D;2, a_2&#x3D;4,...,a_n&#x3D;2^n a1​&#x3D;2,a2​&#x3D;4,...,an​&#x3D;2n  通过递推式求数列极限 anan−1&#x3D;2n2n−1&#x3D;2∴an&#x3D;2an−1\frac{a_n}{a_{n-1}}&#x3D;\frac{2^n}{2^{n-1}}&#x3D;2\\ \therefore">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-18T14:28:43.000Z">
+<meta property="article:modified_time" content="2026-03-18T14:44:07.817Z">
+<meta property="article:author" content="Genkaim">
+<meta property="article:tag" content="发癫">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
+
+    
+    
+
+    
+
+     
+
+    <!-- custom head -->
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/style_light.css">  
+    
+        <link rel="stylesheet" type="text/css" href="/css/loader.css">  
+    
+        <script src="/js/script.js"></script> 
+    
+        <script src="/js/loader.js"></script> 
+    
+        <script src="/js/copy-tex.js"></script> 
+    
+        <link rel="stylesheet" href="/css/waline.css"/> 
+    
+        <link href="/css/material_icon.css" rel="stylesheet"> 
+    
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
+</head>
+
+  <body>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
+
+    <div id="app" tabindex="-1">
+      <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Genkaim的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往</a>
+                
+                <a class="submit" target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij"  style="color:white;">订阅</a>
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往</a>
+                
+                <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" class="submit" style="margin-left:0px;margin-top: 10px;">订阅博客</a>
+            </div>
+        
+    </div>
+</header>
+ 
+ <main class="main">
+    
+
+<div class="post-title">
+  
+  
+<h1 class="post-title__text">
+  
+    
+    
+    
+    <div class="post-title-tags-group1">
+      
+        <span class="post-title-tag">发癫&nbsp;</span>
+      
+    </div>
+    
+    
+  
+  如何证明∞等于0
+</h1>
+  <style>
+    .post-title-tag {
+      font-weight: bold;
+      color: #5b5b5b93;
+      font-size: 0.9rem;
+      background-color: #5b5b5b21;
+      padding-left: 10px;
+      padding-right: 7px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 10px;
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+    .post-title-tags-group1,
+.post-title-tags-group2 {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.post-title-tags-group2 {
+  margin-left: 10px; /* 第二组标签的缩进 */
+}
+    .post-title__text {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      text-align: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 700px;
+    }
+  </style>
+  
+  
+  <div class="post-title__meta">
+    <a
+  href="/archives/2026/03/"
+  class="post-meta__date"
+  >发布于 2026-03-18|
+  更新于 2026-03-18
+</a>
+ 
+ 
+    
+    
+
+
+ 
+
+
+  </div>
+</div>
+
+
+<aside class="post-side">
+  <div class="post-side__toc">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%80%92%E6%8E%A8%E5%BC%8F%E6%B1%82%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90"><span class="toc-text"> 通过递推式求数列极限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%80%9A%E9%A1%B9%E6%B1%82%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90"><span class="toc-text"> 通过通项求数列极限</span></a></li></ol>
+  </div>
+</aside>
+<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
+<button class="btn-toc button" id="btn-toc" tabindex="0">
+  <svg
+    viewBox="0 0 1024 1024"
+    width="32"
+    height="32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</button>
+<!-- 控制层，用于捕获外部点击 -->
+<div class="toc-control" tabindex="0"></div>
+<div class="toc-menus" id="toc-menus">
+  <div class="toc-title">文章目录</div>
+  <div class="toc-wrapper">
+    <div class="toc-gradient-overlay"></div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%80%92%E6%8E%A8%E5%BC%8F%E6%B1%82%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90"><span class="toc-text"> 通过递推式求数列极限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%80%9A%E9%A1%B9%E6%B1%82%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90"><span class="toc-text"> 通过通项求数列极限</span></a></li></ol>
+  </div>
+</div>
+
+
+<article
+  class="post post__with-toc content-card"
+>
+  <div class="post__header">
+    
+  </div>
+  <div class="post__content"><p>若要直接证明这个命题十分困难. 但是我们可以通过构造一个数列来辅助证明.</p>
+<p>构造数列</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mn>2</mn><mo separator="true">,</mo><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><mn>4</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">a_1=2, a_2=4,...,a_n=2^n
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">4</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7143919999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<h2 id="通过递推式求数列极限"><a class="markdownIt-Anchor" href="#通过递推式求数列极限"></a> 通过递推式求数列极限</h2>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><msub><mi>a</mi><mi>n</mi></msub><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mfrac><mo>=</mo><mfrac><msup><mn>2</mn><mi>n</mi></msup><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mfrac><mo>=</mo><mn>2</mn><mspace linebreak="newline"></mspace><mo>∴</mo><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mn>2</mn><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\frac{a_n}{a_{n-1}}=\frac{2^n}{2^{n-1}}=2\\
+\therefore a_n=2a_{n-1}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0018909999999996em;vertical-align:-0.894331em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1075599999999999em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.894331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.027392em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.341392em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.69224em;vertical-align:0em;"></span><span class="mrel amsrm">∴</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.852771em;vertical-align:-0.208331em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>若设<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo><mi>lim</mi><mo>⁡</mo></mo><mrow><mi>n</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></msub><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">\lim_{n \to \infty}a_n=A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mop"><span class="mop">lim</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span>, 则有</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>A</mi><mo>=</mo><mn>2</mn><mi>A</mi><mspace linebreak="newline"></mspace><mi>A</mi><mo>=</mo><mn>0</mn><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A=2A \\
+A=0(1)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathnormal">A</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span></p>
+<h2 id="通过通项求数列极限"><a class="markdownIt-Anchor" href="#通过通项求数列极限"></a> 通过通项求数列极限</h2>
+<p>两边同时取极限</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><munder><mo><mi>lim</mi><mo>⁡</mo></mo><mrow><mi>n</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></munder><msub><mi>a</mi><mi>n</mi></msub><mo>=</mo><munder><mo><mi>lim</mi><mo>⁡</mo></mo><mrow><mi>n</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow></munder><msup><mn>2</mn><mi>n</mi></msup><mo>=</mo><mi mathvariant="normal">∞</mi><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\lim_{n \to \infty}a_n=\lim_{n \to \infty}2^n=\infty(2)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.39444em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.4143919999999999em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mrel mtight">→</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∞</span><span class="mopen">(</span><span class="mord">2</span><span class="mclose">)</span></span></span></span></span></p>
+<p>联立<code>(1)</code>式，得</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>0</mn><mo>=</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">0=\infty
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord">∞</span></span></span></span></span></p>
+<p>得证.</p>
+</div>
+  
+    <div class="post__license">
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> Genkaim
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/b1898e8e">https://www.genkaim.top/posts/b1898e8e</a>
+        </p>
+        
+        <div class="post_reward">
+            <p>打赏博主😘</p>
+                <div class="reward-container">
+                    <div class="reward-left">
+                    <img style="height:200px;border-radius: 10px;" src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/4101cee9663459a4e741d18289e1e4c.jpg" alt="二维码1" class="reward-image">
+                    </div>
+                    <div class="reward-right">
+                    <div class="reward-bottom" onclick="window.open('https://afdian.com/a/genkaim', '_blank')" style="cursor: pointer;">
+                    爱发电
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://space.bilibili.com/479871643', '_blank')" style="cursor: pointer;">
+                    Bilibili
+                    </div>
+                    <div class="reward-bottom" onclick="window.open('https://xlog.genkaim.top/', '_blank')" style="cursor: pointer;">
+                    🍭$MIRA
+                    </div>
+                    <div class="reward-bottom" style="background-color: transparent;">...</div>
+                    </div> 
+                </div>
+        </div>
+        <script>
+            document.querySelector('.post_reward').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+
+    </div>
+ <div class="post-entry__tags"><a href="/tags/%E5%8F%91%E7%99%AB/" class="post-tags__link button"># 发癫</a></div>
+
+   
+  <div id="waline"></div>
+  <script type="module">
+    import { init } from "/js/waline.js";
+    init({
+      el: "#waline",
+      serverURL: "https://waline.genkaim.top",
+    });
+  </script>
+</article>
+
+
+<div class="nav">
+  <div class="nav__prev">
+    
+    <a href="/posts/37cb61b3" class="nav__link">
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+            fill="#808080"
+          ></path>
+        </svg>
+        
+      </div>
+      <div>
+        <div class="nav__label">上一篇</div>
+        <div class="nav__title">👋Hello</div>
+      </div>
+
+    </a>
+
+    
+  </div>
+  <div class="nav__next">
+    
+    <a href="/posts/27e8a06f" class="nav__link">
+      <div>
+        <div class="nav__label">下一篇</div>
+        <div class="nav__title">柯西吃过土豆丝吗</div>
+      </div>
+      <div>
+        <svg
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+            fill="#808080"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+</main>
+ <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2023 - 2026 <a href="/">Genkaim</a>
+        </p>
+    
+    
+    <p class="p_footer"> 萌ICP备20239004号<a href="https://hexo.io" rel="external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://github.com/ChrAlpha/hexo-theme-cards" rel="external nofollow noreferrer" target="_blank">Cards</a></p>
+</footer>
+
+    </div>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <script>
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            threshold: 0
+        };
+    </script>
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+  <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body>
+</html>
