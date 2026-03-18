@@ -43,8 +43,8 @@ dy=Q(x)dx-y \cdot P(x)dx\\
 $$
 虽然此时有$y$纠缠在$x$里，但若继续积分
 $$
-\int \frac{dy}{y}= \int (\frac{Q(x)}{y}dx-P(x))dx\\
-\ln|y| = \int (\frac{Q(x)}{y}dx-P(x))dx +C_1\\
+\int \frac{dy}{y}= \int (\frac{Q(x)}{y}-P(x))dx\\
+\ln|y| = \int (\frac{Q(x)}{y}-P(x))dx +C_1\\
 y= C \cdot e^{\int \frac{Q(x)}{y}dx} \times e^{\int-P(x)dx}
 $$
 其中不难发现，$C \cdot e^{\int \frac{Q(x)}{y}dx}$是关于$x$的一个函数，若设

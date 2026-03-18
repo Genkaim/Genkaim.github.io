@@ -5,14 +5,27 @@
     let displayTitle = page.title || theme.meta.title;
   %>
   
-  <h1 class="post-title__text">
-    <% if ((post.tags || []).length > 0) { %>
-      <% (post.tags || []).forEach(function(item) { %>
+<h1 class="post-title__text">
+  <% if ((post.tags || []).length > 0) { %>
+    <% const tags = post.tags || []; %>
+    <% const midIndex = Math.ceil(tags.length / 2); %>
+    
+    <div class="post-title-tags-group1">
+      <% tags.slice(0, midIndex).forEach(function(item) { %>
         <span class="post-title-tag"><%= item.name %>&nbsp;</span>
       <% }); %>
+    </div>
+    
+    <% if (tags.length > 1) { %>
+      <div class="post-title-tags-group2">
+        <% tags.slice(midIndex).forEach(function(item) { %>
+          <span class="post-title-tag"><%= item.name %>&nbsp;</span>
+        <% }); %>
+      </div>
     <% } %>
-    <%= displayTitle %>
-  </h1>
+  <% } %>
+  <%= displayTitle %>
+</h1>
   <style>
     .post-title-tag {
       font-weight: bold;
@@ -27,7 +40,15 @@
       margin-right: 10px;
       margin-top: 3px;
     }
-    
+    .post-title-tags-group1,
+.post-title-tags-group2 {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.post-title-tags-group2 {
+  margin-left: 10px; /* 第二组标签的缩进 */
+}
     .post-title__text {
       display: inline-flex !important;
       align-items: center !important;
