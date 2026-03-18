@@ -154,7 +154,6 @@ a:hover {
 
 body {
   font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
- background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, #ffffffad 20%,#ffffff 70%) !important
 }
 #dropdown-menus {
   border-radius: 30px;
@@ -175,7 +174,7 @@ body {
   transform: scale(1.05) translateY(-5px) translateX(-5px);
 }
 .main {
-  background-color: #f4f4f400;
+  background-color: #f4f4f46f;
   top: 0px;
   position: relative !important;
   transition: all 0.58s ease;
@@ -207,7 +206,7 @@ svg {
 }
 
 .cover_cover {
-  background-color: #f4f4f400;
+  background-color: #f4f4f46f;
   width: 100%;
   height: 100%;
   position: absolute;
