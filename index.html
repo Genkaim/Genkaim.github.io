@@ -102,7 +102,8 @@
       z-index: 99999;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.2s ease-out;
+      will-change: opacity;
     }
 
     #pjax-overlay.active {
@@ -110,18 +111,19 @@
       pointer-events: all;
     }
 
-    body.pjax-loading {
+    body.pjax-transitioning > #app {
       opacity: 0.3;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.2s ease-out;
+      will-change: opacity;
     }
 
-    body.pjax-loaded {
-      opacity: 1;
-      transition: opacity 0.3s ease;
+    .cover {
+      position: relative;
+      z-index: 1;
     }
   </style>
   
-  <body class="pjax-loaded">
+  <body>
     <!--
     <div id="loader">
       <div class="loader_show_cover"></div>
@@ -907,28 +909,27 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Pjax 开始加载时的回调
         document.addEventListener('pjax:send', function() {
-          const overlay = document.getElementById('pjax-overlay');
-          if (overlay) {
-            overlay.classList.add('active');
-          }
-          
-          document.body.classList.remove('pjax-loaded');
-          document.body.classList.add('pjax-loading');
+          requestAnimationFrame(() => {
+            const overlay = document.getElementById('pjax-overlay');
+            if (overlay) {
+              overlay.classList.add('active');
+            }
+            document.body.classList.add('pjax-transitioning');
+          });
         });
         
         // Pjax 成功后的回调
         document.addEventListener('pjax:success', function() {
-          setTimeout(() => {
-            document.body.classList.remove('pjax-loading');
-            document.body.classList.add('pjax-loaded');
+          requestAnimationFrame(() => {
+            document.body.classList.remove('pjax-transitioning');
             
             setTimeout(() => {
               const overlay = document.getElementById('pjax-overlay');
               if (overlay) {
                 overlay.classList.remove('active');
               }
-            }, 300);
-          }, 300);
+            }, 200);
+          });
           
           // 重新初始化需要的事件监听器
           if (typeof initPageScripts === 'function') {
