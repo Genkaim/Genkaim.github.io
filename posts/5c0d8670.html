@@ -881,6 +881,174 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     <script>
+      // 页面脚本初始化函数
+      function initPageScripts() {
+        // 1. 初始化 KaTeX 公式块样式
+        const postContent = document.querySelector(".post__content");
+        if (postContent) {
+          const children = postContent.children;
+          for (let i = 0; i < children.length; i++) {
+            const child = children[i];
+            if (child.classList.contains("katex-block")) {
+              child.style.background = "#f4f4f44d";
+              child.style.borderRadius = "7px";
+              const baseElements = child.querySelectorAll('.base');
+              baseElements.forEach(base => {
+                base.style.marginBottom = '8px';
+                base.style.marginTop = '10px';
+              });
+            }
+          }
+        }
+
+        // 2. 初始化首页封面高度
+        const currentUrl = window.location.href;
+        const isHomePage = currentUrl === window.location.origin + "/" ||
+                          currentUrl === window.location.origin + "/#" ||
+                          currentUrl.includes("/page");
+        
+        if (isHomePage) {
+          const cover = document.querySelector(".cover");
+          const header = document.querySelector(".header");
+          if (cover && header) {
+            const _cover_height = header.style.height;
+            function adjustCoverHeight() {
+              const windowHeight = window.innerHeight;
+              cover.style.height = `${windowHeight - _cover_height}px`;
+            }
+            // 移除旧的 resize 监听器（如果存在）
+            window.removeEventListener('resize', adjustCoverHeight);
+            window.addEventListener("resize", adjustCoverHeight);
+            adjustCoverHeight();
+          }
+
+          // 3. 首页滚动限制
+          window.addEventListener("wheel", (event) => {
+            const header = document.querySelector(".header");
+            const windowHeight = window.innerHeight;
+            const headerHeight = header.offsetHeight;
+            const targetPosition = windowHeight - headerHeight;
+            const scrollTop = window.scrollY;
+            const doc_height = document.body.offsetHeight;
+            const temp = doc_height - targetPosition * 2;
+            if (scrollTop > temp) {
+              window.scrollTo({
+                top: temp,
+                behavior: "smooth",
+              });
+            }
+          }, { passive: true });
+
+          // 8. 首页卡片样式
+          const content_card = document.querySelector(".post-list");
+          if (content_card) {
+            const firstChild = content_card.firstElementChild;
+            if (firstChild) {
+              firstChild.style.backgroundImage = "linear-gradient(to top, white 30%, #a8ede965 100%)";
+            }
+          }
+        }
+
+        // 4. 回到顶部按钮
+        const button = document.querySelector("#b2t");
+        if (button) {
+          window.addEventListener("wheel", () => {
+            if (window.scrollY > 100) {
+              button.style.opacity = "1";
+            } else {
+              button.style.opacity = "0";
+            }
+          }, { passive: true });
+          
+          // 克隆节点以移除旧的事件监听器
+          const newButton = button.cloneNode(true);
+          button.parentNode.replaceChild(newButton, button);
+          
+          newButton.addEventListener("click", function () {
+            newButton.style.opacity = "0";
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
+        }
+
+        // 5. 归档页面特殊处理
+        const isArchivesPage = currentUrl === window.location.origin + "/archives" ||
+                              currentUrl === window.location.origin + "/archives/";
+        if (isArchivesPage) {
+          const cover = document.querySelector(".cover");
+          const footer = document.querySelector(".footer");
+          const main = document.querySelector(".main");
+          
+          if (cover) cover.style.display = "none";
+          if (main) main.style.top = "100px";
+          if (footer) footer.style.top = "80px";
+          
+          const navbarMenus = document.querySelector(".navbar__menus");
+          if (navbarMenus) {
+            const links = navbarMenus.querySelectorAll("a");
+            links.forEach(function (link) {
+              var href = link.getAttribute("href");
+              if (href == "/archives/") {
+                link.style.backgroundColor = "white";
+              }
+            });
+          }
+        }
+
+        // 6. 代码高亮复制功能
+        const highlights = document.querySelectorAll(".highlight");
+        highlights.forEach((highlight) => {
+          // 检查是否已经添加过复制按钮
+          if (highlight.querySelector(".highlight_header")) return;
+          
+          const classes = Array.from(highlight.classList).filter(
+            (cls) => cls !== "highlight"
+          );
+          const table = highlight.querySelector("table");
+
+          if (table) {
+            if (table.offsetHeight > 500) {
+              table.style.height = '500px';
+            }
+            
+            const div = document.createElement("div");
+            div.classList.add("highlight_header");
+            const show = document.createElement("text");
+            show.textContent = classes[0];
+            show.classList.add("highlight_language");
+            div.appendChild(show);
+            
+            const button = document.createElement("button");
+            button.textContent = "复制";
+            button.classList.add("highlight_copy_button");
+            div.appendChild(button);
+
+            const codeContent = table.querySelector(".code").innerText;
+
+            button.addEventListener("click", () => {
+              navigator.clipboard
+                .writeText(codeContent)
+                .then(() => {
+                  button.textContent = "✔";
+                  setTimeout(() => {
+                    button.textContent = "复制";
+                  }, 2000);
+                })
+                .catch((err) => {
+                  button.textContent = "Error";
+                  setTimeout(() => {
+                    button.textContent = "复制";
+                  }, 2000);
+                });
+            });
+            
+            highlight.insertBefore(div, highlight.firstChild);
+          }
+        });
+      }
+
       // 初始化 Pjax
       if (typeof Pjax !== 'undefined') {
         var pjax = new Pjax({
@@ -917,10 +1085,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 200);
           });
           
-          // 重新初始化需要的事件监听器
-          if (typeof initPageScripts === 'function') {
-            initPageScripts();
-          }
+          // 重新初始化页面脚本
+          initPageScripts();
           
           // 重新初始化 Waline 评论系统
           const walineContainer = document.querySelector('#waline');
@@ -974,6 +1140,11 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
+      
+      // 首次加载时也执行初始化
+      document.addEventListener('DOMContentLoaded', function() {
+        initPageScripts();
+      });
     </script>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
