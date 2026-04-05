@@ -101,7 +101,39 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Genkaim的博客" type="application/atom+xml">
 </head>
 
-  <body>
+  
+  <!-- Pjax 过渡动画样式 -->
+  <style>
+    #pjax-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #pjax-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    body.pjax-loading {
+      opacity: 0.3;
+      transition: opacity 0.3s ease;
+    }
+
+    body.pjax-loaded {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+  </style>
+  
+  <body class="pjax-loaded">
     <!--
     <div id="loader">
       <div class="loader_show_cover"></div>
@@ -167,6 +199,9 @@
       </div>
 
     </div>-->
+
+    <!-- Pjax 过渡动画蒙版 -->
+    <div id="pjax-overlay"></div>
 
     <div id="app" tabindex="-1" data-pjax-container>
       <header class="header">
@@ -720,8 +755,31 @@ document.addEventListener('DOMContentLoaded', () => {
           debug: false
         });
         
+        // Pjax 开始加载时的回调
+        document.addEventListener('pjax:send', function() {
+          const overlay = document.getElementById('pjax-overlay');
+          if (overlay) {
+            overlay.classList.add('active');
+          }
+          
+          document.body.classList.remove('pjax-loaded');
+          document.body.classList.add('pjax-loading');
+        });
+        
         // Pjax 成功后的回调
         document.addEventListener('pjax:success', function() {
+          setTimeout(() => {
+            document.body.classList.remove('pjax-loading');
+            document.body.classList.add('pjax-loaded');
+            
+            setTimeout(() => {
+              const overlay = document.getElementById('pjax-overlay');
+              if (overlay) {
+                overlay.classList.remove('active');
+              }
+            }, 300);
+          }, 300);
+          
           // 重新初始化需要的事件监听器
           if (typeof initPageScripts === 'function') {
             initPageScripts();
