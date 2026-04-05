@@ -171,6 +171,8 @@
 
     </div>-->
 
+    <div id="pjax-loading-overlay"></div>
+
     <div id="app" tabindex="-1" data-pjax-container>
       <header class="header">
     <div class="header__left">
@@ -718,28 +720,133 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     <script>
-      // 初始化 Pjax
+      let loadingTimer = null;
+      let isLoading = false;
+      
+      function showLoadingOverlay() {
+        isLoading = true;
+        loadingTimer = setTimeout(() => {
+          const overlay = document.getElementById('pjax-loading-overlay');
+          if (overlay && isLoading) {
+            overlay.style.display = 'block';
+            setTimeout(() => {
+              overlay.classList.add('visible');
+            }, 10);
+          }
+        }, 300);
+      }
+      
+      function hideLoadingOverlay() {
+        isLoading = false;
+        
+        if (loadingTimer) {
+          clearTimeout(loadingTimer);
+          loadingTimer = null;
+        }
+        
+        const overlay = document.getElementById('pjax-loading-overlay');
+        if (overlay) {
+          overlay.classList.remove('visible');
+          setTimeout(() => {
+            if (!isLoading) {
+              overlay.style.display = 'none';
+            }
+          }, 300);
+        }
+      }
+      
+      function initPageScripts() {
+        if (typeof Waline !== 'undefined') {
+          const walineElement = document.querySelector('#waline');
+          if (walineElement && !window.walineInstance) {
+            window.walineInstance = Waline.init({
+              el: '#waline',
+              serverURL: walineElement.dataset.serverUrl || '',
+              path: window.location.pathname,
+              lang: 'zh-CN' || 'zh-CN'
+            });
+          }
+        }
+        
+        const b2tButton = document.getElementById('b2t');
+        if (b2tButton) {
+          b2tButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      }
+      
       if (typeof Pjax !== 'undefined') {
         var pjax = new Pjax({
-          elements: "a:not([data-no-pjax])",
+          elements: "a[href]:not([data-no-pjax]):not([href^='#']):not([href^='javascript:'])",
           selectors: [
             "title",
+            "meta[name=description]",
             "[data-pjax-container]"
           ],
           cacheBust: false,
-          debug: false
+          debug: false,
+          scrollTo: false
         });
         
-        // Pjax 成功后的回调
-        document.addEventListener('pjax:success', function() {
-          // 重新初始化需要的事件监听器
-          if (typeof initPageScripts === 'function') {
-            initPageScripts();
+        document.addEventListener('pjax:send', function() {
+          showLoadingOverlay();
+          
+          if (window.walineInstance) {
+            window.walineInstance.destroy();
+            window.walineInstance = null;
           }
         });
+        
+        document.addEventListener('pjax:success', function() {
+          setTimeout(function() {
+            initPageScripts();
+            hideLoadingOverlay();
+          }, 100);
+        });
+        
+        document.addEventListener('pjax:error', function(e) {
+          console.error('Pjax error:', e);
+          hideLoadingOverlay();
+          window.location = e.requestUrl;
+        });
       }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        initPageScripts();
+      });
     </script>
+    
+    <style>
+      #pjax-loading-overlay {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 99998;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      
+      #pjax-loading-overlay.visible {
+        opacity: 1;
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        #pjax-loading-overlay {
+          background: rgba(30, 30, 30, 0.7);
+        }
+      }
+    </style>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
                 var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
