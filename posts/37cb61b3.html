@@ -102,71 +102,7 @@
 </head>
 
   <body>
-    <!--
-    <div id="loader">
-      <div class="loader_show_cover"></div>
-      <div class="loader_show">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          aria-hidden="true"
-          role="img"
-          class="iconify iconify--line-md"
-          style="
-            color: rgb(51, 51, 51);
-            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
-            height: 70px;
-            transform: rotate(0deg) translate(0px);
-            width: 70px;
-          "
-          width="1em"
-          height="1em"
-          viewBox="0 0 24 24"
-        >
-          <g
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          >
-            <path
-              stroke-dasharray="16"
-              stroke-dashoffset="16"
-              d="M12 3c4.97 0 9 4.03 9 9"
-            >
-              <animate
-                fill="freeze"
-                attributeName="stroke-dashoffset"
-                dur="0.3s"
-                values="16;0"
-              ></animate>
-              <animateTransform
-                attributeName="transform"
-                dur="1.5s"
-                repeatCount="indefinite"
-                type="rotate"
-                values="0 12 12;360 12 12"
-              ></animateTransform>
-            </path>
-            <path
-              stroke-dasharray="64"
-              stroke-dashoffset="64"
-              stroke-opacity=".3"
-              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
-            >
-              <animate
-                fill="freeze"
-                attributeName="stroke-dashoffset"
-                dur="1.2s"
-                values="64;0"
-              ></animate>
-            </path>
-          </g>
-        </svg>
-      </div>
-
-    </div>-->
+    <div id="pjax-loading-overlay"></div>
 
     <div id="app" tabindex="-1" data-pjax-container>
       <header class="header">
@@ -206,7 +142,8 @@
     </div>
 </header>
  
- <main class="main">
+ 
+      <main class="main">
     
 
 <div class="post-title">
@@ -429,7 +366,8 @@
 </div>
 
 </main>
- <footer class="footer">
+ 
+      <footer class="footer">
      
     <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
@@ -647,7 +585,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
     
-    
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
     <script>
         window.lazyLoadOptions = {
@@ -693,6 +630,36 @@ document.addEventListener('DOMContentLoaded', () => {
     
     <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     <script>
+      let loadingTimer = null;
+      let isLoading = false;
+      
+      function showLoadingOverlay() {
+        isLoading = true;
+        loadingTimer = setTimeout(() => {
+          const overlay = document.getElementById('pjax-loading-overlay');
+          if (overlay && isLoading) {
+            overlay.style.display = 'block';
+            overlay.offsetHeight; 
+            overlay.classList.add('visible');
+          }
+        }, 300);
+      }
+      
+      function hideLoadingOverlay() {
+        isLoading = false;
+        if (loadingTimer) {
+          clearTimeout(loadingTimer);
+          loadingTimer = null;
+        }
+        const overlay = document.getElementById('pjax-loading-overlay');
+        if (overlay) {
+          overlay.classList.remove('visible');
+          setTimeout(() => {
+            if (!isLoading) overlay.style.display = 'none';
+          }, 400);
+        }
+      }
+      
       function initPageScripts() {
         if (typeof Waline !== 'undefined') {
           const walineElement = document.querySelector('#waline');
@@ -708,27 +675,28 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const b2tButton = document.getElementById('b2t');
         if (b2tButton) {
-          b2tButton.addEventListener('click', function(e) {
+          b2tButton.onclick = function(e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
+          };
         }
       }
       
       if (typeof Pjax !== 'undefined') {
         var pjax = new Pjax({
-          elements: "a[href]:not([data-no-pjax]):not([href^='#']):not([href^='javascript:'])",
+          // 核心修复：排除所有新窗口打开的链接，这些在手机端最容易导致 Pjax 抓取 URL 失败
+          elements: "a[href]:not([target='_blank']):not([data-no-pjax]):not([href^='#']):not([href^='javascript:'])",
           selectors: [
             "title",
             "meta[name=description]",
             "[data-pjax-container]"
           ],
           cacheBust: false,
-          debug: false,
           scrollTo: false
         });
         
         document.addEventListener('pjax:send', function() {
+          showLoadingOverlay();
           if (window.walineInstance) {
             window.walineInstance.destroy();
             window.walineInstance = null;
@@ -736,21 +704,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         document.addEventListener('pjax:success', function() {
-          setTimeout(function() {
-            initPageScripts();
-          }, 100);
+          initPageScripts();
+          hideLoadingOverlay();
         });
         
         document.addEventListener('pjax:error', function(e) {
-          console.error('Pjax error:', e);
-          window.location = e.requestUrl;
+          hideLoadingOverlay();
+          // 手机端拦截 undefined 跳转
+          const errUrl = e.requestUrl || (e.detail && e.detail.url);
+          if (errUrl && errUrl.indexOf('undefined') === -1) {
+            window.location.href = errUrl;
+          } else {
+            console.error('Pjax blocked an undefined redirect.');
+            // 如果点击的是顶栏导致失败，强制刷新当前点击的目标
+            if (document.activeElement && document.activeElement.href) {
+               window.location.href = document.activeElement.href;
+            }
+          }
         });
       }
       
-      document.addEventListener('DOMContentLoaded', function() {
-        initPageScripts();
-      });
+      document.addEventListener('DOMContentLoaded', initPageScripts);
     </script>
+    
+    <style>
+      /* 1. 遮罩层 */
+      #pjax-loading-overlay {
+        position: fixed;
+        top: 0; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 999999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none; 
+      }
+      #pjax-loading-overlay.visible {
+        opacity: 1;
+        pointer-events: auto; 
+      }
+      
+      /* 2. 核心修复：防止手机端点击 A 标签内的文字（span/svg）导致无法获取 href */
+      .header a *, 
+      .navbar__menus a *, 
+      .dropdown-menus a * {
+        pointer-events: none !important;
+      }
+      .header a, 
+      .navbar__menus a, 
+      .dropdown-menus a {
+        pointer-events: auto !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #pjax-loading-overlay {
+          background: rgba(18, 18, 18, 0.75);
+        }
+      }
+    </style>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
                 var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
