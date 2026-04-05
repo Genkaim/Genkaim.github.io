@@ -68,10 +68,36 @@
 
     </div>-->
 
-    <div id="app" tabindex="-1">
+    <div id="app" tabindex="-1" data-pjax-container>
       <%- partial('_partial/source/cover') %> <%- body %> <%-
       partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
     </div>
+    
+    <%- partial('_partial/music-player') %>
+    
     <%- partial('_partial/scripts/index') %>
+    
+    <script>
+      // 初始化 Pjax
+      if (typeof Pjax !== 'undefined') {
+        var pjax = new Pjax({
+          elements: "a:not([data-no-pjax])",
+          selectors: [
+            "title",
+            "[data-pjax-container]"
+          ],
+          cacheBust: false,
+          debug: false
+        });
+        
+        // Pjax 成功后的回调
+        document.addEventListener('pjax:success', function() {
+          // 重新初始化需要的事件监听器
+          if (typeof initPageScripts === 'function') {
+            initPageScripts();
+          }
+        });
+      }
+    </script>
   </body>
 </html>

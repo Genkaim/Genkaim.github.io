@@ -40,6 +40,7 @@ head:
     - '<script src="/js/copy-tex.js"></script>'
     - '<link rel="stylesheet" href="/css/waline.css"/>'
     - '<link href="/css/material_icon.css" rel="stylesheet">'
+    - '<script src="/js/pjax.min.js"></script>'
 
 # ---------------------------------------------------------------
 # 导航栏/封面配置
