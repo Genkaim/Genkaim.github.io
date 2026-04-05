@@ -20,25 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const currentUrl = window.location.href;
-//   const isHomePage =
-//     currentUrl === window.location.origin + "/" ||
-//     currentUrl === window.location.origin + "/#" ||
-//     currentUrl.includes("/page");
-//   const cover = document.querySelector(".cover");
-//   const header = document.querySelector(".header");
-//   if (!isHomePage) return;
-//   const _cover_height = header.style.height;
-//   if (cover) {
-//     function adjustCoverHeight() {
-//       const windowHeight = window.innerHeight;
-//       cover.style.height = `${windowHeight - _cover_height}px`;
-//     }
-//     window.addEventListener("resize", adjustCoverHeight);
-//     adjustCoverHeight();
-//   }
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUrl = window.location.href;
+  const isHomePage =
+    currentUrl === window.location.origin + "/" ||
+    currentUrl === window.location.origin + "/#" ||
+    currentUrl.includes("/page");
+  const cover = document.querySelector(".cover");
+  const header = document.querySelector(".header");
+  if (!isHomePage) return;
+  const _cover_height = header.style.height;
+  if (cover) {
+    function adjustCoverHeight() {
+      const windowHeight = window.innerHeight;
+      cover.style.height = `${windowHeight - _cover_height}px`;
+    }
+    window.addEventListener("resize", adjustCoverHeight);
+    adjustCoverHeight();
+  }
+});
 // let lastScrollTop = 0; // 记录上一次滚动的位置
 // let temp_cnt = 0;
 // document.addEventListener("DOMContentLoaded", () => {
