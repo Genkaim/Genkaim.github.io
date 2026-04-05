@@ -102,7 +102,71 @@
 </head>
 
   <body>
-    <div id="pjax-loading-overlay"></div>
+    <!--
+    <div id="loader">
+      <div class="loader_show_cover"></div>
+      <div class="loader_show">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--line-md"
+          style="
+            color: rgb(51, 51, 51);
+            filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 0px 0px);
+            height: 70px;
+            transform: rotate(0deg) translate(0px);
+            width: 70px;
+          "
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          >
+            <path
+              stroke-dasharray="16"
+              stroke-dashoffset="16"
+              d="M12 3c4.97 0 9 4.03 9 9"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="16;0"
+              ></animate>
+              <animateTransform
+                attributeName="transform"
+                dur="1.5s"
+                repeatCount="indefinite"
+                type="rotate"
+                values="0 12 12;360 12 12"
+              ></animateTransform>
+            </path>
+            <path
+              stroke-dasharray="64"
+              stroke-dashoffset="64"
+              stroke-opacity=".3"
+              d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="1.2s"
+                values="64;0"
+              ></animate>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+    </div>-->
 
     <div id="app" tabindex="-1" data-pjax-container>
       <header class="header">
@@ -142,8 +206,7 @@
     </div>
 </header>
  
- 
-      <main class="main">
+ <main class="main">
     
 
 <div class="post-title">
@@ -570,8 +633,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </div>
 
 </main>
- 
-      <footer class="footer">
+ <footer class="footer">
      
     <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
@@ -789,6 +851,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
     
+    
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
     <script>
         window.lazyLoadOptions = {
@@ -834,41 +897,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     <script>
-      let loadingTimer = null;
-      let isLoading = false;
-      
-      // 显示遮罩
-      function showLoadingOverlay() {
-        isLoading = true;
-        loadingTimer = setTimeout(() => {
-          const overlay = document.getElementById('pjax-loading-overlay');
-          if (overlay && isLoading) {
-            overlay.style.display = 'block';
-            overlay.offsetHeight; // 强制重绘
-            overlay.classList.add('visible');
-          }
-        }, 300); // 300ms 延迟防止快闪
-      }
-      
-      // 隐藏遮罩
-      function hideLoadingOverlay() {
-        isLoading = false;
-        if (loadingTimer) {
-          clearTimeout(loadingTimer);
-          loadingTimer = null;
-        }
-        const overlay = document.getElementById('pjax-loading-overlay');
-        if (overlay) {
-          overlay.classList.remove('visible');
-          setTimeout(() => {
-            if (!isLoading) overlay.style.display = 'none';
-          }, 400); // 等待动画结束
-        }
-      }
-      
-      // 初始化页面脚本
       function initPageScripts() {
-        // Waline 评论初始化
         if (typeof Waline !== 'undefined') {
           const walineElement = document.querySelector('#waline');
           if (walineElement && !window.walineInstance) {
@@ -881,98 +910,51 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         
-        // 回到顶部按钮
         const b2tButton = document.getElementById('b2t');
         if (b2tButton) {
-          b2tButton.onclick = function(e) {
+          b2tButton.addEventListener('click', function(e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-          };
+          });
         }
       }
       
-      // Pjax 核心配置
       if (typeof Pjax !== 'undefined') {
         var pjax = new Pjax({
-          // 优化选择器：显式排除含有 download 属性和外部链接
-          elements: "a[href]:not([data-no-pjax]):not([href^='#']):not([href^='javascript:']):not([target='_blank'])",
+          elements: "a[href]:not([data-no-pjax]):not([href^='#']):not([href^='javascript:'])",
           selectors: [
             "title",
             "meta[name=description]",
             "[data-pjax-container]"
           ],
           cacheBust: false,
+          debug: false,
           scrollTo: false
         });
         
-        // 发送请求前
         document.addEventListener('pjax:send', function() {
-          showLoadingOverlay();
           if (window.walineInstance) {
             window.walineInstance.destroy();
             window.walineInstance = null;
           }
         });
         
-        // 加载成功
         document.addEventListener('pjax:success', function() {
-          initPageScripts();
-          hideLoadingOverlay();
+          setTimeout(function() {
+            initPageScripts();
+          }, 100);
         });
         
-        // 关键修复：处理错误跳转
         document.addEventListener('pjax:error', function(e) {
-          hideLoadingOverlay();
-          console.error('Pjax Error:', e);
-          
-          // 手机端 undefined 修复逻辑
-          // 如果 e.requestUrl 不存在，尝试从触发事件的元素中获取
-          const targetUrl = e.requestUrl || (e.detail && e.detail.url);
-          
-          if (targetUrl && targetUrl !== 'undefined') {
-            window.location.href = targetUrl;
-          } else {
-            // 如果完全拿不到 URL，则不做强制重定向，让浏览器默认的 A 标签跳转生效
-            // 或者使用 window.location.reload() 作为最后的降级
-            console.warn('Pjax failed to get valid URL, falling back to browser navigation.');
-          }
+          console.error('Pjax error:', e);
+          window.location = e.requestUrl;
         });
       }
       
-      document.addEventListener('DOMContentLoaded', initPageScripts);
+      document.addEventListener('DOMContentLoaded', function() {
+        initPageScripts();
+      });
     </script>
-    
-    <style>
-      /* 遮罩层样式优化 */
-      #pjax-loading-overlay {
-        position: fixed;
-        top: 0; /* 改为 0，防止手机端顶部状态栏留白 */
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        z-index: 999999; /* 确保在最顶层 */
-        display: none;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        /* 关键：显示时才拦截点击 */
-        pointer-events: none; 
-      }
-      
-      #pjax-loading-overlay.visible {
-        opacity: 1;
-        pointer-events: auto; 
-      }
-      
-      /* 暗色模式适配 */
-      @media (prefers-color-scheme: dark) {
-        #pjax-loading-overlay {
-          background: rgba(18, 18, 18, 0.75);
-        }
-      }
-    </style>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
                 var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
