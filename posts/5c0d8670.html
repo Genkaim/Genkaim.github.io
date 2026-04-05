@@ -103,6 +103,8 @@
     
         <link href="/css/material_icon.css" rel="stylesheet"> 
     
+        <script src="/js/pjax.min.js"></script> 
+    
 
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
@@ -178,7 +180,7 @@
 
     </div>-->
 
-    <div id="app" tabindex="-1">
+    <div id="app" tabindex="-1" data-pjax-container>
       <header class="header">
     <div class="header__left">
         <a href="/" class="button">
@@ -607,6 +609,197 @@
 
     </div>
     
+    <div id="global-music-player" class="music-player-container">
+  <div class="music-player-content" id="musicPlayerBox">
+    <div class="music-iframe-wrapper">
+      <iframe 
+        id="music-iframe"
+        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+        frameborder="0" 
+        scrolling="no"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+        src="https://embed.music.apple.com/cn/playlist/%E7%88%B1%E4%B8%8D%E9%87%8A%E8%80%B3/pl.pm-01ed408c735a7f33a29d4fa6a925b877">
+      </iframe>
+    </div>
+    <button class="music-toggle-btn" onclick="toggleMusicPlayer()" aria-label="播放器控制">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.68L9.54 5.98A1 1 0 0 0 8 6.82z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+/* --- 基础容器 --- */
+.music-player-container {
+  position: fixed;
+  /* 默认保持 20px 边距 */
+  bottom: 20px;
+  left: 20px;
+  z-index: 99999;
+  line-height: 0;
+  /* 平滑处理位置切换 */
+  transition: bottom 0.4s ease, left 0.4s ease;
+}
+
+.music-player-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px; 
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  width: 56px;
+  height: 56px;
+  transform-origin: left bottom;
+  transition: 
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.4s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* 桌面端展开尺寸 */
+.music-player-content.expanded {
+  width: 350px;
+  height: 450px;
+  border-radius: 12px;
+}
+
+/* --- 移动端专项适配 (484px) --- */
+@media (max-width: 484px) {
+  /* 展开时：容器位置归零，实现底部贴合 */
+  .music-player-container.is-expanded-mode {
+    bottom: 0 !important;
+    left: 0 !important;
+  }
+
+  .music-player-content {
+    /* 展开前也是全圆角，看起来更好看 */
+    border-radius: 22px; 
+  }
+
+  /* 展开状态下的样式覆盖 */
+  .music-player-content.expanded {
+    width: 100vw !important;
+    height: 60vh !important;
+    max-height: 550px;
+    /* 展开后：顶部圆角，底部直角 */
+    border-radius: 30px 30px 0 0 !important;
+    border: none;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* 内部 Wrapper & iframe */
+.music-iframe-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.music-player-content.expanded .music-iframe-wrapper {
+  opacity: 1;
+  visibility: visible;
+}
+
+.music-iframe-wrapper iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+  display: block;
+}
+
+/* --- 按钮样式 --- */
+.music-toggle-btn {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.music-player-content.expanded .music-toggle-btn {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.music-toggle-btn svg {
+  width: 22px;
+  height: 22px;
+  transform: translateX(1px);
+  transition: transform 0.4s ease;
+}
+
+.music-player-content.expanded .music-toggle-btn svg {
+  transform: rotate(180deg);
+}
+
+/* 桌面端悬浮 */
+@media (min-width: 485px) {
+  .music-player-content:not(.expanded):hover {
+    transform: scale(1.08) translate(2px, -2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+}
+</style>
+
+<script>
+function toggleMusicPlayer() {
+  const container = document.querySelector('.music-player-container');
+  const player = document.getElementById('musicPlayerBox');
+  const isExpanded = player.classList.contains('expanded');
+  const isMobile = window.innerWidth <= 484;
+  
+  if (isExpanded) {
+    player.classList.remove('expanded');
+    if (isMobile) container.classList.remove('is-expanded-mode');
+    localStorage.setItem('cardsMusicPlayerCollapsed', 'true');
+  } else {
+    player.classList.add('expanded');
+    if (isMobile) container.classList.add('is-expanded-mode');
+    localStorage.setItem('cardsMusicPlayerCollapsed', 'false');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.music-player-container');
+  const player = document.getElementById('musicPlayerBox');
+  const isCollapsed = localStorage.getItem('cardsMusicPlayerCollapsed') === 'true';
+  const isMobile = window.innerWidth <= 484;
+
+  // 移动端默认不展开
+  if (!isCollapsed && !isMobile) {
+    player.classList.add('expanded');
+  }
+  
+  // 初始检查移动端状态
+  if (player.classList.contains('expanded') && isMobile) {
+    container.classList.add('is-expanded-mode');
+  }
+});
+</script>
+    
+    
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
     <script>
         window.lazyLoadOptions = {
@@ -649,6 +842,29 @@
 
 
 
+    
+    <script>
+      // 初始化 Pjax
+      if (typeof Pjax !== 'undefined') {
+        var pjax = new Pjax({
+          elements: "a:not([data-no-pjax])",
+          selectors: [
+            "title",
+            "[data-pjax-container]"
+          ],
+          cacheBust: false,
+          debug: false
+        });
+        
+        // Pjax 成功后的回调
+        document.addEventListener('pjax:success', function() {
+          // 重新初始化需要的事件监听器
+          if (typeof initPageScripts === 'function') {
+            initPageScripts();
+          }
+        });
+      }
+    </script>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
                 var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
