@@ -68,6 +68,8 @@
 
     </div>-->
 
+    <div id="pjax-loading-overlay"></div>
+
     <div id="app" tabindex="-1" data-pjax-container>
       <%- partial('_partial/source/cover') %> <%- body %> <%-
       partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
@@ -77,27 +79,132 @@
     
     <%- partial('_partial/scripts/index') %>
     
+    <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
     <script>
-      // 初始化 Pjax
+      let loadingTimer = null;
+      let isLoading = false;
+      
+      function showLoadingOverlay() {
+        isLoading = true;
+        loadingTimer = setTimeout(() => {
+          const overlay = document.getElementById('pjax-loading-overlay');
+          if (overlay && isLoading) {
+            overlay.style.display = 'block';
+            setTimeout(() => {
+              overlay.classList.add('visible');
+            }, 10);
+          }
+        }, 300);
+      }
+      
+      function hideLoadingOverlay() {
+        isLoading = false;
+        
+        if (loadingTimer) {
+          clearTimeout(loadingTimer);
+          loadingTimer = null;
+        }
+        
+        const overlay = document.getElementById('pjax-loading-overlay');
+        if (overlay) {
+          overlay.classList.remove('visible');
+          setTimeout(() => {
+            if (!isLoading) {
+              overlay.style.display = 'none';
+            }
+          }, 300);
+        }
+      }
+      
+      function initPageScripts() {
+        if (typeof Waline !== 'undefined') {
+          const walineElement = document.querySelector('#waline');
+          if (walineElement && !window.walineInstance) {
+            window.walineInstance = Waline.init({
+              el: '#waline',
+              serverURL: walineElement.dataset.serverUrl || '',
+              path: window.location.pathname,
+              lang: '<%= config.language %>' || 'zh-CN'
+            });
+          }
+        }
+        
+        const b2tButton = document.getElementById('b2t');
+        if (b2tButton) {
+          b2tButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      }
+      
       if (typeof Pjax !== 'undefined') {
         var pjax = new Pjax({
-          elements: "a:not([data-no-pjax])",
+          elements: "a[href]:not([data-no-pjax]):not([href^='#']):not([href^='javascript:'])",
           selectors: [
             "title",
+            "meta[name=description]",
             "[data-pjax-container]"
           ],
           cacheBust: false,
-          debug: false
+          debug: false,
+          scrollTo: false
         });
         
-        // Pjax 成功后的回调
-        document.addEventListener('pjax:success', function() {
-          // 重新初始化需要的事件监听器
-          if (typeof initPageScripts === 'function') {
-            initPageScripts();
+        document.addEventListener('pjax:send', function() {
+          showLoadingOverlay();
+          
+          if (window.walineInstance) {
+            window.walineInstance.destroy();
+            window.walineInstance = null;
           }
         });
+        
+        document.addEventListener('pjax:success', function() {
+          setTimeout(function() {
+            initPageScripts();
+            hideLoadingOverlay();
+          }, 100);
+        });
+        
+        document.addEventListener('pjax:error', function(e) {
+          console.error('Pjax error:', e);
+          hideLoadingOverlay();
+          window.location = e.requestUrl;
+        });
       }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        initPageScripts();
+      });
     </script>
+    
+    <style>
+      #pjax-loading-overlay {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 99998;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      
+      #pjax-loading-overlay.visible {
+        opacity: 1;
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        #pjax-loading-overlay {
+          background: rgba(30, 30, 30, 0.7);
+        }
+      }
+    </style>
   </body>
 </html>
