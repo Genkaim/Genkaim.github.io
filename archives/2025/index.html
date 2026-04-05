@@ -330,7 +330,7 @@ Profile施工中。。。
   href="/archives/2025/12/"
   class="post-meta__date"
   >发布于 2025-12-30|
-  更新于 2026-04-05
+  更新于 2026-04-06
 </a>
 
     
@@ -359,7 +359,7 @@ Profile施工中。。。
   href="/archives/2025/12/"
   class="post-meta__date"
   >发布于 2025-12-30|
-  更新于 2026-04-05
+  更新于 2026-04-06
 </a>
 
     
@@ -388,7 +388,7 @@ Profile施工中。。。
   href="/archives/2025/12/"
   class="post-meta__date"
   >发布于 2025-12-19|
-  更新于 2026-04-05
+  更新于 2026-04-06
 </a>
 
     
@@ -418,7 +418,7 @@ Profile施工中。。。
   href="/archives/2025/12/"
   class="post-meta__date"
   >发布于 2025-12-12|
-  更新于 2026-04-05
+  更新于 2026-04-06
 </a>
 
     
@@ -446,7 +446,7 @@ Profile施工中。。。
   href="/archives/2025/12/"
   class="post-meta__date"
   >发布于 2025-12-11|
-  更新于 2026-04-05
+  更新于 2026-04-06
 </a>
 
     
@@ -476,7 +476,7 @@ Profile施工中。。。
   href="/archives/2025/11/"
   class="post-meta__date"
   >发布于 2025-11-07|
-  更新于 2026-04-05
+  更新于 2026-04-06
 </a>
 
     
@@ -506,7 +506,7 @@ Profile施工中。。。
   href="/archives/2025/07/"
   class="post-meta__date"
   >发布于 2025-07-10|
-  更新于 2026-04-05
+  更新于 2026-04-06
 </a>
 
     
@@ -786,272 +786,241 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
-    <script>
-      // 页面脚本初始化函数
-      function initPageScripts() {
-        // 1. 初始化 KaTeX 公式块样式
-        const postContent = document.querySelector(".post__content");
-        if (postContent) {
-          const children = postContent.children;
-          for (let i = 0; i < children.length; i++) {
-            const child = children[i];
-            if (child.classList.contains("katex-block")) {
-              child.style.background = "#f4f4f44d";
-              child.style.borderRadius = "7px";
-              const baseElements = child.querySelectorAll('.base');
-              baseElements.forEach(base => {
-                base.style.marginBottom = '8px';
-                base.style.marginTop = '10px';
-              });
-            }
+<script>
+  /** =========================
+   * 全局事件（只绑定一次）
+   * ========================= */
+  let isGlobalEventsBound = false;
+
+  function bindGlobalEvents() {
+    if (isGlobalEventsBound) return;
+
+    /** scroll（控制返回顶部按钮） */
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const btn = document.querySelector("#b2t");
+          if (btn) {
+            btn.style.opacity = window.scrollY > 100 ? '1' : '0';
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
 
-        // 2. 初始化首页封面高度
-        const currentUrl = window.location.href;
-        const isHomePage = currentUrl === window.location.origin + "/" ||
-                          currentUrl === window.location.origin + "/#" ||
-                          currentUrl.includes("/page");
-        
-        if (isHomePage) {
-          const cover = document.querySelector(".cover");
-          const header = document.querySelector(".header");
-          if (cover && header) {
-            const _cover_height = header.style.height;
-            function adjustCoverHeight() {
-              const windowHeight = window.innerHeight;
-              cover.style.height = `${windowHeight - _cover_height}px`;
-            }
-            // 移除旧的 resize 监听器（如果存在）
-            window.removeEventListener('resize', adjustCoverHeight);
-            window.addEventListener("resize", adjustCoverHeight);
-            adjustCoverHeight();
-          }
+    /** 首页滚动限制（wheel） */
+    window.addEventListener("wheel", (event) => {
+      if (!window.__IS_HOME__) return;
 
-          // 3. 首页滚动限制
-          window.addEventListener("wheel", (event) => {
-            const header = document.querySelector(".header");
-            const windowHeight = window.innerHeight;
-            const headerHeight = header.offsetHeight;
-            const targetPosition = windowHeight - headerHeight;
-            const scrollTop = window.scrollY;
-            const doc_height = document.body.offsetHeight;
-            const temp = doc_height - targetPosition * 2;
-            if (scrollTop > temp) {
-              window.scrollTo({
-                top: temp,
-                behavior: "smooth",
-              });
-            }
-          }, { passive: true });
+      const header = document.querySelector(".header");
+      if (!header) return;
 
-          // 8. 首页卡片样式
-          const content_card = document.querySelector(".post-list");
-          if (content_card) {
-            const firstChild = content_card.firstElementChild;
-            if (firstChild) {
-              firstChild.style.backgroundImage = "linear-gradient(to top, white 30%, #a8ede965 100%)";
-            }
-          }
-        }
+      const windowHeight = window.innerHeight;
+      const headerHeight = header.offsetHeight;
+      const targetPosition = windowHeight - headerHeight;
+      const scrollTop = window.scrollY;
+      const doc_height = document.body.offsetHeight;
+      const temp = doc_height - targetPosition * 2;
 
-        // 4. 回到顶部按钮
-        const button = document.querySelector("#b2t");
-        if (button) {
-          window.addEventListener("wheel", () => {
-            if (window.scrollY > 100) {
-              button.style.opacity = "1";
-            } else {
-              button.style.opacity = "0";
-            }
-          }, { passive: true });
-          
-          // 克隆节点以移除旧的事件监听器
-          const newButton = button.cloneNode(true);
-          button.parentNode.replaceChild(newButton, button);
-          
-          newButton.addEventListener("click", function () {
-            newButton.style.opacity = "0";
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
-          });
-        }
-
-        // 5. 归档页面特殊处理
-        const isArchivesPage = currentUrl === window.location.origin + "/archives" ||
-                              currentUrl === window.location.origin + "/archives/";
-        if (isArchivesPage) {
-          const cover = document.querySelector(".cover");
-          const footer = document.querySelector(".footer");
-          const main = document.querySelector(".main");
-          
-          if (cover) cover.style.display = "none";
-          if (main) main.style.top = "100px";
-          if (footer) footer.style.top = "80px";
-          
-          const navbarMenus = document.querySelector(".navbar__menus");
-          if (navbarMenus) {
-            const links = navbarMenus.querySelectorAll("a");
-            links.forEach(function (link) {
-              var href = link.getAttribute("href");
-              if (href == "/archives/") {
-                link.style.backgroundColor = "white";
-              }
-            });
-          }
-        }
-
-        // 6. 代码高亮复制功能
-        const highlights = document.querySelectorAll(".highlight");
-        highlights.forEach((highlight) => {
-          // 检查是否已经添加过复制按钮
-          if (highlight.querySelector(".highlight_header")) return;
-          
-          const classes = Array.from(highlight.classList).filter(
-            (cls) => cls !== "highlight"
-          );
-          const table = highlight.querySelector("table");
-
-          if (table) {
-            if (table.offsetHeight > 500) {
-              table.style.height = '500px';
-            }
-            
-            const div = document.createElement("div");
-            div.classList.add("highlight_header");
-            const show = document.createElement("text");
-            show.textContent = classes[0];
-            show.classList.add("highlight_language");
-            div.appendChild(show);
-            
-            const button = document.createElement("button");
-            button.textContent = "复制";
-            button.classList.add("highlight_copy_button");
-            div.appendChild(button);
-
-            const codeContent = table.querySelector(".code").innerText;
-
-            button.addEventListener("click", () => {
-              navigator.clipboard
-                .writeText(codeContent)
-                .then(() => {
-                  button.textContent = "✔";
-                  setTimeout(() => {
-                    button.textContent = "复制";
-                  }, 2000);
-                })
-                .catch((err) => {
-                  button.textContent = "Error";
-                  setTimeout(() => {
-                    button.textContent = "复制";
-                  }, 2000);
-                });
-            });
-            
-            highlight.insertBefore(div, highlight.firstChild);
-          }
+      if (scrollTop > temp) {
+        window.scrollTo({
+          top: temp,
+          behavior: "auto" // ⚠️ 防止抖动
         });
       }
+    }, { passive: true });
 
-      // 初始化 Pjax
-      if (typeof Pjax !== 'undefined') {
-        var pjax = new Pjax({
-          elements: "a:not([data-no-pjax])",
-          selectors: [
-            "title",
-            "[data-pjax-container]"
-          ],
-          cacheBust: false,
-          debug: false
-        });
-        
-        // Pjax 开始加载时的回调
-        document.addEventListener('pjax:send', function() {
-          requestAnimationFrame(() => {
-            const overlay = document.getElementById('pjax-overlay');
-            if (overlay) {
-              overlay.classList.add('active');
-            }
-            document.body.classList.add('pjax-transitioning');
-          });
-        });
-        
-        // Pjax 成功后的回调
-        document.addEventListener('pjax:success', function() {
-          requestAnimationFrame(() => {
-            document.body.classList.remove('pjax-transitioning');
-            
-            setTimeout(() => {
-              const overlay = document.getElementById('pjax-overlay');
-              if (overlay) {
-                overlay.classList.remove('active');
-              }
-            }, 200);
-          });
-          
-          // 重新初始化页面脚本
-          initPageScripts();
-          
-          // 重新初始化 Waline 评论系统
-          const walineContainer = document.querySelector('#waline');
-          if (walineContainer) {
-            walineContainer.innerHTML = '';
-            
-            import('/js/waline.js').then((module) => {
-              module.init({
-                el: '#waline',
-                serverURL: 'https://waline.genkaim.top',
-              });
-            }).catch(err => {
-              console.error('Failed to load Waline:', err);
-            });
-          }
-          
-          // 重新初始化回到顶部按钮（使用 b2t.js 的逻辑，避免重复绑定）
-          const b2tButton = document.querySelector('#b2t');
-          if (b2tButton) {
-            // 克隆节点以移除所有旧的事件监听器
-            const newButton = b2tButton.cloneNode(true);
-            b2tButton.parentNode.replaceChild(newButton, b2tButton);
-            
-            // 重新绑定点击事件 - 不使用 behavior: 'smooth'，让 smoothscroll polyfill 处理
-            newButton.addEventListener('click', function() {
-              newButton.style.opacity = '0';
-              // 直接调用 scrollTo，让 smoothscroll.min.js 自动处理平滑效果
-              window.scrollTo(0, 0);
-            });
-            
-            // 重新绑定滚动显示/隐藏逻辑
-            const windowViewPortHeight = window.innerHeight;
-            let isRequestingAnimationFrame = false;
-            
-            const scrollHandler = function() {
-              if (!isRequestingAnimationFrame) {
-                requestAnimationFrame(function() {
-                  const windowPageYOffset = window.pageYOffset || document.documentElement.scrollTop;
-                  if (windowPageYOffset > windowViewPortHeight) {
-                    newButton.style.display = 'block';
-                  } else {
-                    newButton.style.display = 'none';
-                  }
-                  isRequestingAnimationFrame = false;
-                });
-                isRequestingAnimationFrame = true;
-              }
-            };
-            
-            window.addEventListener('scroll', scrollHandler, { passive: true });
-          }
-        });
-      }
-      
-      // 首次加载时也执行初始化
-      document.addEventListener('DOMContentLoaded', function() {
-        initPageScripts();
+/** resize（首页封面高度） */
+  window.addEventListener("resize", () => {
+    if (!window.__IS_HOME__) return;
+
+    const cover = document.querySelector(".cover");
+    if (!cover) return;
+
+    // ✅ 关键：resize 不减 header，防止高度抖动 / 累积误差
+    cover.style.height = `${window.innerHeight}px`;
+  });
+    isGlobalEventsBound = true;
+  }
+
+  /** =========================
+   * 返回顶部按钮
+   * ========================= */
+  function setupBackToTopButton() {
+    const button = document.querySelector("#b2t");
+    if (!button) return;
+
+    const newButton = button.cloneNode(true);
+    button.parentNode.replaceChild(newButton, button);
+
+    newButton.addEventListener('click', () => {
+      newButton.style.opacity = '0';
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
-    </script>
+    });
+  }
+
+  /** =========================
+   * 页面初始化（PJAX 每次执行）
+   * ========================= */
+  function initPageScripts() {
+    const currentUrl = window.location.href;
+
+    /** 是否首页 */
+    window.__IS_HOME__ =
+      currentUrl === window.location.origin + "/" ||
+      currentUrl === window.location.origin + "/#" ||
+      currentUrl.includes("/page");
+
+    /** KaTeX */
+    const postContent = document.querySelector(".post__content");
+    if (postContent) {
+      const children = postContent.children;
+      for (let child of children) {
+        if (child.classList.contains("katex-block")) {
+          child.style.background = "#f4f4f44d";
+          child.style.borderRadius = "7px";
+
+          child.querySelectorAll('.base').forEach(base => {
+            base.style.marginBottom = '8px';
+            base.style.marginTop = '10px';
+          });
+        }
+      }
+    }
+
+    /** 首页封面 */
+    if (window.__IS_HOME__) {
+      const cover = document.querySelector(".cover");
+      const header = document.querySelector(".header");
+
+    // if (cover && header) {
+    //   window.addEventListener('load', () => {
+    //      = `${window.innerHeight - header.offsetHeight}px`;
+    //   }, { once: true });
+    // }
+
+      /** 首页卡片 */
+      const content_card = document.querySelector(".post-list");
+      if (content_card?.firstElementChild) {
+        content_card.firstElementChild.style.backgroundImage =
+          "linear-gradient(to top, white 30%, #a8ede965 100%)";
+      }
+    }
+
+    /** 返回顶部按钮 */
+    setupBackToTopButton();
+
+    /** 归档页 */
+    const isArchivesPage =
+      currentUrl === window.location.origin + "/archives" ||
+      currentUrl === window.location.origin + "/archives/";
+
+    if (isArchivesPage) {
+      document.querySelector(".cover")?.style.setProperty("display", "none");
+      document.querySelector(".main")?.style.setProperty("top", "100px");
+      document.querySelector(".footer")?.style.setProperty("top", "80px");
+
+      document.querySelectorAll(".navbar__menus a").forEach(link => {
+        if (link.getAttribute("href") === "/archives/") {
+          link.style.backgroundColor = "white";
+        }
+      });
+    }
+
+    /** 代码复制 */
+    document.querySelectorAll(".highlight").forEach((highlight) => {
+      if (highlight.querySelector(".highlight_header")) return;
+
+      const classes = [...highlight.classList].filter(c => c !== "highlight");
+      const table = highlight.querySelector("table");
+      if (!table) return;
+
+      if (table.offsetHeight > 500) table.style.height = '500px';
+
+      const div = document.createElement("div");
+      div.classList.add("highlight_header");
+
+      const show = document.createElement("text");
+      show.textContent = classes[0];
+      show.classList.add("highlight_language");
+
+      const button = document.createElement("button");
+      button.textContent = "复制";
+      button.classList.add("highlight_copy_button");
+
+      const codeContent = table.querySelector(".code").innerText;
+
+      button.addEventListener("click", () => {
+        navigator.clipboard.writeText(codeContent).then(() => {
+          button.textContent = "✔";
+          setTimeout(() => button.textContent = "复制", 2000);
+        }).catch(() => {
+          button.textContent = "Error";
+          setTimeout(() => button.textContent = "复制", 2000);
+        });
+      });
+
+      div.appendChild(show);
+      div.appendChild(button);
+      highlight.insertBefore(div, highlight.firstChild);
+    });
+  }
+
+  /** =========================
+   * PJAX
+   * ========================= */
+  if (typeof Pjax !== 'undefined') {
+    new Pjax({
+      elements: "a:not([data-no-pjax])",
+      selectors: ["title", "[data-pjax-container]"],
+      cacheBust: false
+    });
+
+    document.addEventListener('pjax:send', () => {
+      requestAnimationFrame(() => {
+        document.getElementById('pjax-overlay')?.classList.add('active');
+        document.body.classList.add('pjax-transitioning');
+      });
+    });
+
+    document.addEventListener('pjax:success', () => {
+      requestAnimationFrame(() => {
+        document.body.classList.remove('pjax-transitioning');
+
+        setTimeout(() => {
+          document.getElementById('pjax-overlay')?.classList.remove('active');
+        }, 200);
+      });
+
+      initPageScripts();
+
+      /** Waline */
+      const walineContainer = document.querySelector('#waline');
+      if (walineContainer) {
+        walineContainer.innerHTML = '';
+        import('/js/waline.js').then(module => {
+          module.init({
+            el: '#waline',
+            serverURL: 'https://waline.genkaim.top',
+          });
+        });
+      }
+    });
+  }
+
+  /** =========================
+   * 首次加载
+   * ========================= */
+  document.addEventListener('DOMContentLoaded', () => {
+    bindGlobalEvents();   // ✅ 只执行一次
+    initPageScripts();    // ✅ 每页执行
+  });
+</script>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
                 var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
                 var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
