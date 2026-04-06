@@ -2,7 +2,7 @@
 title: 博客接入搜索引擎、百度统计
 tags: 教程
 description: 如何让博客接入搜索引擎、百度统计？ |Genkaim的博客
-cover: 'https://raw.gitmirror.com/genkaim/blog_img/main/data/202309230802993.jpg'
+cover: 'https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/202309230802993.jpg'
 abbrlink: 72dcbf6a
 date: 2023-07-23 07:54:26
 ---

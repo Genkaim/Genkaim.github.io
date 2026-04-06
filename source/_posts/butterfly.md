@@ -4,7 +4,7 @@ tags: 教程
 description: Hexo Butterfly优化合集-添加弹窗-修改加载动画-引入聊天机器人|genkaimの博客
 abbrlink: 5c0d8670
 date: 2023-08-20 18:12:30
-cover: https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100926980.png
+cover: https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308100926980.png
 ---
 
 
@@ -438,7 +438,7 @@ section .author a:hover {
 2. 创建机器人，注意免费版只能创建一个机器人。
 2. 设置机器人的基础信息，注意催眠的地方在**Advanced settings**中最下面
 
-![image-20230809203623323](https://raw.gitmirror.com/genkaim/blog_pic/main/data/image-20230809203623323.png)
+![image-20230809203623323](https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/image-20230809203623323.png)
 
 
 
@@ -446,23 +446,23 @@ section .author a:hover {
 
 **注意免费版只能有一个数据来源**，但一般也够了
 
-![image-20230809214044613](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092140893.png)
+![image-20230809214044613](https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308092140893.png)
 
 有很多中不同方式，这里介绍两种方式：
 
 1. Website：（因为可以用sitemap）如图，输入网址即可
 
-<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092043992.png" alt="image-20230809204349728" width="50%" height="50%" />
+<img src="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308092043992.png" alt="image-20230809204349728" width="50%" height="50%" />
 
 2. RSS订阅：点击你的xlog主页的RSS按钮，复制新打开网页的网址到下图位置即可即可
 
-   ![image-20230810085810825](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100858296.png)
+   ![image-20230810085810825](https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308100858296.png)
 
-![image-20230810085956865](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100859979.png)
+![image-20230810085956865](https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308100859979.png)
 
 <big>**注意要保存并同步数据源**</big>
 
-![image-20230810090147307](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100901485.png)
+![image-20230810090147307](https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308100901485.png)
 
 这样，数据源也设置好啦
 
@@ -470,7 +470,7 @@ section .author a:hover {
 
 点开Embed Bot，参考下图翻译，选择你想要的方式插入就好了
 
-<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092045929.png" alt="image-20230809204552761" width="50%" height="50%">
+<img src="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308092045929.png" alt="image-20230809204552761" width="50%" height="50%">
 
 如果是插入文章/页面，那么很简单，直接在对应`.md`插入你看到的代码就好了。
 
@@ -480,9 +480,9 @@ section .author a:hover {
 ```
 效果分别如图
 
-<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092105044.png" alt="image-20230809210531921" width="30%" height="30%" />
+<img src="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308092105044.png" alt="image-20230809210531921" width="30%" height="30%" />
 
-<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308092053443.png" alt="image-20230809205358309" width="80%" height="80%" />
+<img src="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308092053443.png" alt="image-20230809205358309" width="80%" height="80%" />
 
 ## 引入樱花特效
 
@@ -734,7 +734,7 @@ document.addEventListener('pjax:complete', function () {
 
 ~~大佬也有百密一疏呢~~
 
-![image-20230703184447160](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202307031844677.png)
+![image-20230703184447160](https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202307031844677.png)
 
 ### 😋解决问题
 
@@ -755,5 +755,5 @@ img.site-icon(src=url_for(theme.nav.logo), alt="Site Icon")
 #引号内的Site Icon可以替换
 ```
 
-![image-20230703204759360](https://raw.gitmirror.com/genkaim/blog_pic/main/data/202307032047563.png)
+![image-20230703204759360](https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202307032047563.png)
 

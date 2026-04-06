@@ -3,7 +3,7 @@ title: 快速破解seewo冰点还原
 tags: 教程
 abbrlink: 9d27b799
 date: 2024-07-25 12:20:22
-cover: https://raw.gitmirror.com/Genkaim/blog_img/main/data/202407251432348.webp
+cover: https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/202407251432348.webp
 ---
 
 
@@ -30,7 +30,7 @@ cover: https://raw.gitmirror.com/Genkaim/blog_img/main/data/202407251432348.webp
 2.运行`C:\Program Files(x86)\Seewo\SeewoService\Uninstall.exe`卸载seewo管家
 **密码000000** 不过似乎没有密码也能卸载；
 
-![image-20240725142119275](https://raw.gitmirror.com/Genkaim/blog_img/main/data/202407251421627.png)
+![image-20240725142119275](https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/202407251421627.png)
 
 3.安装1.1.9版本的seewo管家。
 
@@ -40,7 +40,7 @@ cover: https://raw.gitmirror.com/Genkaim/blog_img/main/data/202407251432348.webp
 
 1.显示学校名称后，打开`C:\ProgramData\Seewo\SeewoCore\SeewoCore.ini`记录下`PASSWORD`；
 
-![image-20240725141307223](https://raw.gitmirror.com/Genkaim/blog_img/main/data/202407251413911.png)
+![image-20240725141307223](https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/202407251413911.png)
 
 2.把`PASSWORD`转换成明文，成功查看到密码；
 

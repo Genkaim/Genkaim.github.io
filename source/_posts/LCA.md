@@ -1,7 +1,7 @@
 ---
 title: 'LCA|最近公共祖先 详解 '
 tags: Coding
-cover: 'https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308100919024.webp'
+cover: 'https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308100919024.webp'
 abbrlink: '90748940'
 date: 2023-07-16 08:19:26
 swiper_index: 5
@@ -153,7 +153,7 @@ void init_st(){
 
 ​		这样得到的点应该是在 $x$ 和 $y$ 的最近公共祖先的前一个点，所以需要返回root[x]。
 
-<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308090851667.png" style="zoom:30%;" />
+<img src="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308090851667.png" style="zoom:30%;" />
 
 ```c++
 //log2(n)函数在头文件cmath中，得以2为底n的对数

@@ -5,7 +5,7 @@ abbrlink: 6b13026f
 date: 2023-08-20 16:15:21
 description: 在xLog托管你的博客|教程|genkaimの博客
 swiper_index: 4
-cover: https://raw.gitmirror.com/genkaim/blog_img/main/data/2021021012571650539.jpg
+cover: https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/2021021012571650539.jpg
 ---
 
 
@@ -21,7 +21,7 @@ cover: https://raw.gitmirror.com/genkaim/blog_img/main/data/2021021012571650539.
 
 如果你从未接触过，那么打开[xLog](https://xlog.app/about)，在右上角找到连接，选择你喜欢的钱包（我用的是[Coinbase Wallet](https://www.coinbase.com)），找到它的官网，下载APP，按照软件的提示操作，然后选择你注册的钱包登录。
 
-<img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230820162003780.png" alt="image-20230820162003780" height =40% width=40% />
+<img src="https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/image-20230820162003780.png" alt="image-20230820162003780" height =40% width=40% />
 
 ## 开始写作
 
@@ -31,7 +31,7 @@ xLog支持文章、作品集、页面三个发布方式。
 
 文章支持mardown格式，注意**Latex公式需要套两个$$**，页面同理，作品集支持发布其他平台的作品放入，并自动抓取信息，单击即可跳转。
 
-<img src="https://raw.gitmirror.com/genkaim/blog_img/main/data/image-20230820164450362.png" alt="image-20230820164450362" height =25% width=25% />
+<img src="https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/image-20230820164450362.png" alt="image-20230820164450362" height =25% width=25% />
 
 ## 自定义你的博客
 
@@ -391,12 +391,12 @@ td {
 /**/
 
 body {
-  cursor:url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/noramal_bl.cur),
+  cursor:url(https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/noramal_bl.cur),
         default;
 }
 a,
 img {
-  cursor:url(https://raw.gitmirror.com/genkaim/blog_pic/main/data/choose_bl.cur),
+  cursor:url(https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/choose_bl.cur),
         default; 
 }
 ```
