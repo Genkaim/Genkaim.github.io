@@ -120,29 +120,6 @@ function unlockScroll() {
   root.style.borderRight = "";
 }
 document.addEventListener("DOMContentLoaded", () => {
-  const currentUrl = window.location.href;
-  const isHomePage =
-    currentUrl === window.location.origin + "/" ||
-    currentUrl === window.location.origin + "/#" ||
-    currentUrl.includes("/page");
-  if (!isHomePage) return;
-  window.addEventListener("wheel", (event) => {
-    const header = document.querySelector(".header");
-    const windowHeight = window.innerHeight;
-    const headerHeight = header.offsetHeight; // 使用 offsetHeight 获取元素的实际高度
-    const targetPosition = windowHeight - headerHeight;
-    const scrollTop = window.scrollY;
-    const doc_height = document.body.offsetHeight;
-    const temp = doc_height - targetPosition * 2;
-    if (scrollTop > temp) {
-      window.scrollTo({
-        top: temp,
-        behavior: "smooth",
-      });
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
   const button = document.querySelector("#b2t");
   window.addEventListener("wheel", (event) => {
     if (window.scrollY > 100) {
