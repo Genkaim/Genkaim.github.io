@@ -173,15 +173,6 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/google82ec51778917651a</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.genkaim.top/link.json</loc>
     
     <lastmod>2025-07-24</lastmod>
@@ -191,7 +182,25 @@
   </url>
   
   <url>
+    <loc>https://www.genkaim.top/google82ec51778917651a</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.genkaim.top/reward</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -228,15 +237,6 @@
   
   <url>
     <loc>https://www.genkaim.top/tags/</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -300,14 +300,14 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <loc>https://www.genkaim.top/tags/AIGC/</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/AIGC/</loc>
+    <loc>https://www.genkaim.top/tags/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

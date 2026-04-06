@@ -667,36 +667,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
 
-    /** 首页滚动限制（wheel） 
-    window.addEventListener("wheel", (event) => {
-      if (!window.__IS_HOME__) return;
-
-      const header = document.querySelector(".header");
-      if (!header) return;
-
-      const windowHeight = window.innerHeight;
-      const headerHeight = header.offsetHeight;
-      const targetPosition = windowHeight - headerHeight;
-      const scrollTop = window.scrollY;
-      const doc_height = document.body.offsetHeight;
-      const temp = doc_height - targetPosition * 2;
-
-      if (scrollTop > temp) {
-        window.scrollTo({
-          top: temp,
-          behavior: "auto" // ⚠️ 防止抖动
-        });
-      }
-    }, { passive: true });*/
-
-/** resize（首页封面高度） */
+    /** resize（首页封面高度） */
   window.addEventListener("resize", () => {
     if (!window.__IS_HOME__) return;
 
     const cover = document.querySelector(".cover");
     if (!cover) return;
 
-    // ✅ 关键：resize 不减 header，防止高度抖动 / 累积误差
     cover.style.height = `${window.innerHeight}px`;
   });
     isGlobalEventsBound = true;
@@ -722,6 +699,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /** =========================
+   * 初始化懒加载图片
+   * ========================= */
+  function initLazyLoad() {
+    if (typeof LazyLoad === 'undefined') return;
+
+    if (window.lazyLoadInstance) {
+      window.lazyLoadInstance.update();
+    } else {
+      window.lazyLoadInstance = new LazyLoad({
+        elements_selector: 'img.lazy',
+        threshold: 0
+      });
+    }
+  }
+
+  /** =========================
    * 页面初始化（PJAX 每次执行）
    * ========================= */
   function initPageScripts() {
@@ -732,6 +725,9 @@ document.addEventListener('DOMContentLoaded', () => {
       currentUrl === window.location.origin + "/" ||
       currentUrl === window.location.origin + "/#" ||
       currentUrl.includes("/page");
+
+    /** 初始化懒加载图片 */
+    initLazyLoad();
 
     /** KaTeX */
     const postContent = document.querySelector(".post__content");
@@ -750,16 +746,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-/** 首页封面 */
-    if (window.__IS_HOME__) {
-      const cover = document.querySelector(".cover");
-      
-      // ✅ 直接在这里为 cover 赋值高度。
-      // 因为 initPageScripts 在 DOMContentLoaded 和 Pjax success 时都会执行，
-      // 这样就能保证每次（包括直接刷新和 Pjax 切换）进入首页时高度都是正常的。
-      if (cover) {
-        cover.style.height = `${window.innerHeight}px`;
-      }
+    /** 首页封面 */
+    if (window.__IS_HOME__) {
+      const cover = document.querySelector(".cover");
+      
+      if (cover) {
+        cover.style.height = `${window.innerHeight}px`;
+      }
 
       /** 首页卡片 */
       const content_card = document.querySelector(".post-list");
@@ -874,8 +867,8 @@ document.addEventListener('DOMContentLoaded', () => {
    * 首次加载
    * ========================= */
   document.addEventListener('DOMContentLoaded', () => {
-    bindGlobalEvents();   // ✅ 只执行一次
-    initPageScripts();    // ✅ 每页执行
+    bindGlobalEvents();
+    initPageScripts();
   });
 </script>
   <!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
