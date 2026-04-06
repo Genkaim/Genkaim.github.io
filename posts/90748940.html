@@ -50,13 +50,13 @@
 <meta property="og:site_name" content="Genkaim的博客">
 <meta property="og:description" content="LCA|最近公共祖先 详解|genkaimの博客|和它的全称一样，lca（$Lowest Common Ancestor$）目的的就是任意两个点最近的公共祖先在哪">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308090851667.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308090851667.png">
 <meta property="article:published_time" content="2023-07-16T00:19:26.000Z">
-<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:modified_time" content="2026-04-06T08:49:40.932Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="Coding">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308090851667.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308090851667.png">
 
 
     
@@ -306,7 +306,7 @@
   href="/archives/2023/07/"
   class="post-meta__date"
   >发布于 2023-07-16|
-  更新于 2025-07-24
+  更新于 2026-04-06
 </a>
  
  
@@ -421,7 +421,7 @@
 <p>​		所以显然，我们需要在第一个 x’ != y’ 的地方更新x和y才能保证不走过。</p>
 <p>​		(x’ 和 y’指在循环中走跳(1&lt;&lt;i)个点时到的点)</p>
 <p>​		这样得到的点应该是在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 的最近公共祖先的前一个点，所以需要返回root[x]。</p>
-<img src="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308090851667.png" class="lazy" data-srcset="https://raw.gitmirror.com/genkaim/blog_pic/main/data/202308090851667.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" style="zoom:30%;" />
+<img src="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308090851667.png" class="lazy" data-srcset="https://raw.githubusercontent.com/Genkaim/blog_pic/refs/heads/main/data/202308090851667.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==" style="zoom:30%;" />
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//log2(n)函数在头文件cmath中，得以2为底n的对数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="built_in">log2</span>(n); i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">        <span class="type">int</span> _x = st[x][i];<span class="comment">//在当前i下x和y跳到的位置</span></span><br><span class="line">        <span class="type">int</span> _y = st[y][i];</span><br><span class="line">        <span class="keyword">if</span>(_x == _y)<span class="keyword">continue</span>;<span class="comment">//当x和y跳到的位置相同，说明跳过了，x和y不更新</span></span><br><span class="line">        x = _x;<span class="comment">//更新以二分逼近x和y的最近公共祖先的子节点</span></span><br><span class="line">        y = _y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root[x];</span><br></pre></td></tr></table></figure>
 <p>最后附上包含预处理的完整代码：</p>
 <p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.luogu.com.cn/problem/P3379">洛谷</a>P3379 【模板】最近公共祖先（LCA）</p>
