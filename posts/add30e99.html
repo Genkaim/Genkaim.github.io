@@ -755,7 +755,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 .music-player-content.expanded {
   width: 350px;
   height: 450px;
-  border-radius: 12px;
+  border-radius: 20px;
 }
 
 /* --- 移动端专项适配 (484px) --- */
@@ -1039,16 +1039,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    /** 首页封面 */
-    if (window.__IS_HOME__) {
-      const cover = document.querySelector(".cover");
-      const header = document.querySelector(".header");
-
-    // if (cover && header) {
-    //   window.addEventListener('load', () => {
-    //      = `${window.innerHeight - header.offsetHeight}px`;
-    //   }, { once: true });
-    // }
+/** 首页封面 */
+    if (window.__IS_HOME__) {
+      const cover = document.querySelector(".cover");
+      
+      // ✅ 直接在这里为 cover 赋值高度。
+      // 因为 initPageScripts 在 DOMContentLoaded 和 Pjax success 时都会执行，
+      // 这样就能保证每次（包括直接刷新和 Pjax 切换）进入首页时高度都是正常的。
+      if (cover) {
+        cover.style.height = `${window.innerHeight}px`;
+      }
 
       /** 首页卡片 */
       const content_card = document.querySelector(".post-list");
