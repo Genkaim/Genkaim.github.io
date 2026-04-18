@@ -302,7 +302,7 @@ img {
 }
 .post_reward .reward-container {
   display: none;
-  height: 200px;
+  height: 80px;
   border-radius: 10px;
 }
 .post_reward.active .reward-container {
@@ -311,7 +311,7 @@ img {
 }
 .post_reward.active {
   background-color: transparent;
-  height: 230px;
+  margin-top: 20px;
   color:transparent;
   border-radius: 30px;
 }
@@ -320,15 +320,15 @@ img {
 }
 .reward-top, .reward-bottom {
   background-color: #303030;
-  height:100px;
+  height:50px !important;
   margin-bottom: 10px;
-  border-radius: 20px;
-  width:50px;
+  border-radius: 15px;
 }
 .reward-container {
   display: flex;
   width: 100%;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 7px;
   box-sizing: border-box;
 }
 
@@ -353,11 +353,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200%;
+  width: 100%;
   text-align: center;
   font-size: 14px;
   color: black;
-  width:100px;
   background-color: #e2e2e296;
   margin-bottom: 10px;
   transition: all 0.3s ease;
