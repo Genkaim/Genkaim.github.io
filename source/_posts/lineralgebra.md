@@ -327,13 +327,22 @@ $$
 恭喜你，已经对线性方程组的解有一些建树了，下面有一些判断题考考你。设 $A$
 是 $m \times n$ 矩阵，且 $\mathbf{b}$ 是 $m$ 维列向量：
 
-1.  若 $A\mathbf{x} = \mathbf{b}$ 有解，则 $A\mathbf{x} = \mathbf{0}$
-    有唯一解；
+1.  若 $A\mathbf{x} = \mathbf{b}$ 有解，则 $A\mathbf{x} = \mathbf{0}$有唯一解；
 
-2.  若 $A\mathbf{x} = \mathbf{b}$ 存在两个不同的解，则
-    $A\mathbf{x} = \mathbf{b}$ 有无穷多解；
+2.  若 $A\mathbf{x} = \mathbf{b}$ 存在两个不同的解，则$A\mathbf{x} = \mathbf{b}$ 有无穷多解；
 
 3.  若矩阵 $A$ 的秩为 $m$，则 $A\mathbf{x} = \mathbf{b}$ 一定有解；
 
-4.  若矩阵 $A$ 的秩为 $m$，则齐次线性方程组 $A^T\mathbf{x} = \mathbf{0}$
-    仅有零解。
+4.  若矩阵 $A$ 的秩为 $m$，则齐次线性方程组 $A^T\mathbf{x} = \mathbf{0}$仅有零解。
+<style>.post__license{display:none!important;}</style>
+<div class="post__license" style="display:block !important;">
+        <p style="font-weight: bold;">
+            <strong>本文作者：</strong> zczzzzz
+        </p>
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://www.genkaim.top/posts/3ca8bcae" data-pjax-state="">https://www.genkaim.top/posts/3ca8bcae</a>
+        </p>
+</div>
