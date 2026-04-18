@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/reward</loc>
+    <loc>https://www.genkaim.top/link.json</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -209,16 +209,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/link.json</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/categories/</loc>
+    <loc>https://www.genkaim.top/reward</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -237,6 +228,15 @@
   
   <url>
     <loc>https://www.genkaim.top/link/</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/categories/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -288,14 +288,14 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/Coding/</loc>
+    <loc>https://www.genkaim.top/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://www.genkaim.top/tags/Coding/</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
