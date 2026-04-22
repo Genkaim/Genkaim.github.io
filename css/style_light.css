@@ -269,7 +269,7 @@ svg {
   white-space: pre-wrap;
 }*/
 img {
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .post__license {
@@ -552,7 +552,7 @@ button {
 .cover_img {
   width: 35%;
   transition: all 0.3s ease;
-  border-radius: 40px;
+  border-radius: 20px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
