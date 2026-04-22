@@ -574,6 +574,10 @@ button {
     position: relative;
     top: 13px;
   }
+  .post-title {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
   .cover_img {
     width: 70% !important;
     border-radius: 30px !important;
