@@ -51,7 +51,7 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
   border-radius: 40px;
 }
 .post__content p img {
-  border-radius: 30px;
+  border-radius: 10px;
 }
 a {
   text-decoration: none !important; /* 去掉下划线 */
