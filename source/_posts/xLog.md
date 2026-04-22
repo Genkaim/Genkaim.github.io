@@ -13,11 +13,11 @@ padding-top:13px;border-radius:17px;color:white;">
   <p style="text-align:center;font-size:20px;font-weight:bold;margin-bottom:0px;">
     过时内容
   </p>
-  <p style="text-align:center;font-size:15px;margin-bottom:0px;margin-top:0px;">
-    xlog官网现已无法正常打开
+  <p style="text-align:center;font-size:12px;margin-bottom:0px;margin-top:0px;">
+    （xLog官网现已无法正常打开)
   </p>
-  <p style="text-align:right;font-size:10px;margin-bottom:0px;margin-right:15px;">
-    Update: 2026.4.22
+  <p style="text-align:right;font-size:9px;margin-bottom:0px;margin-right:15px;">
+    Update Date: 2026.4.22
   </p>
 </div>
 <!-- ... existing code ... -->
