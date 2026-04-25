@@ -157,7 +157,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .post, .post h1, h2, h3, h4, h5 {
-  font-family: "Times New Roman" !important;
+  font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -169,7 +169,7 @@ body {
 /* 专门针对 iOS 的强制设置 */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   .post, .post h1, .post h2, .post h3, .post h4, .post h5 {
-    font-family: "Times New Roman", Times, serif !important;
+    font-family: "Times New Roman", "Noto Serif SC", Times, "STSong", serif !important;
   }
 }
 #dropdown-menus {
