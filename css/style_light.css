@@ -154,13 +154,23 @@ a:hover {
 @import url('https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap');
 
 body {
-  font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .post, .post h1, h2, h3, h4, h5 {
-  font-family: "Times New Roman", "Noto Serif SC", "思源宋体", serif !important;
+  font-family: "Times New Roman" !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .post__license, #waline, #wl-edit, .post-entry__title {
-  font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+}
+
+/* 专门针对 iOS 的强制设置 */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .post, .post h1, .post h2, .post h3, .post h4, .post h5 {
+    font-family: "Times New Roman", Times, serif !important;
+  }
 }
 #dropdown-menus {
   border-radius: 30px;
