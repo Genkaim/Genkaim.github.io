@@ -119,7 +119,7 @@ a:hover {
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.012) !important;
 }
 .post-entry:hover {
-  transform: scale(1.02) !important;
+  transform: scale(1.01) !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.06) !important;
 }
 .header {
@@ -151,8 +151,15 @@ a:hover {
 .footer {
   font-size: 1em !important;
 }
+@import url('https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap');
 
 body {
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
+}
+.post, .post h1, h2, h3, h4, h5 {
+  font-family: "Times New Roman", "Noto Serif SC", "思源宋体", serif !important;
+}
+.post__license, #waline, #wl-edit, .post-entry__title {
   font-family: "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 #dropdown-menus {
