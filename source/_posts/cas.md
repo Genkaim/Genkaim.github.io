@@ -14,7 +14,7 @@ $$
 <div class="svg-container">
 <?xml version="1.0" encoding="UTF-8"?>
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360pt" height="240pt" viewBox="0 0 360 240" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360pt" height="auto" viewBox="0 0 360 240" version="1.1">
 <defs>
 <g>
 <symbol overflow="visible" id="glyph0-0">
