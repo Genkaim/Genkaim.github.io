@@ -339,7 +339,7 @@ img {
   background-color: #303030;
   height:50px !important;
   margin-bottom: 10px;
-  border-radius: 15px;
+  border-radius:20px;
 }
 .reward-container {
   display: flex;
@@ -380,7 +380,7 @@ img {
 }
 .reward-bottom:hover {
   background-color: #e2e2e2;
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 @keyframes fadeIn {
   from {

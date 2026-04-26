@@ -182,25 +182,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/link.json</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.genkaim.top/google82ec51778917651a</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/reward</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -218,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/about/</loc>
+    <loc>https://www.genkaim.top/link.json</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -227,7 +209,16 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/categories/</loc>
+    <loc>https://www.genkaim.top/reward</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -245,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/</loc>
+    <loc>https://www.genkaim.top/categories/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -255,6 +246,15 @@
   
   <url>
     <loc>https://www.genkaim.top/m.pdd.com/12sas312sdx</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/tags/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
