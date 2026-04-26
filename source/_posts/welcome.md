@@ -29,12 +29,3 @@ tags: 其他
 | 2026.4.6  | 1.更新了apple music web embed作为网页播放器; |
 |           | 2.使用pjax加载;                              |
 |           | 3.修复若干bug.                               |
-
-```mermaid
-graph TD
-    A[开始] --> B{条件判断}
-    B -->|Yes| C[执行操作A]
-    B -->|No| D[执行操作B]
-    C --> E[结束]
-    D --> E
-```
