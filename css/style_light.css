@@ -450,43 +450,44 @@ button {
 .katex-display > .katex {
   white-space: pre-wrap !important ;
 }
-.highlight table {
-  background-color: #f4f4f496;
-  padding: 30px;
-  padding-top: 20px;
-  padding-right: 0px;
-  padding-bottom: 20px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
+
 .highlight_copy_button {
   top: 0px;
   right: 0px;
   transition: all 0.3s ease;
   font-size: 14px;
-  height: 40px;
-  width: 60px;
-  color: white;
+  height: 30px;
+  width: 50px;
+  color: rgb(90, 90, 90);
   font-weight: bold;
-  background-color: black;
-  padding: 10px 15px 10px 15px !important;
-  border-radius: 12px;
-  margin: 20px;
-  margin-right: 25px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0px !important;
+  border-radius: 9px;
+  margin: 5px;
+  margin-right: 6px;
 }
 .highlight_copy_button:hover {
-  background-color: #000000a1;
+  background-color: #6c6c6c20;
   transform: scale(1.05);
 }
 .highlight_header {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  padding-left: 20px;
+  padding-left: 10px;
   background-color: #f4f4f4;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: left; /* 保持默认文本对齐方式 */
+}
+.highlight table {
+  background-color: #f4f4f496;
+  padding: 15px;
+  padding-top: 12px;
+  padding-right: 0px;
+  padding-bottom: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 .highlight_language {
   font-weight: bold;
