@@ -51,7 +51,7 @@
 <meta property="og:description" content="本文还没写完，先发上来看看效果 &#x2F;doge  写在前面 这个模板是我在Claude老师与Gemini老师的指导下，在刷题的过程中总结出来的，如您觉得有改进之处或者错误欢迎指出. 另外，主播的英语不好，函数名都是乱取的( 总的来说，模板由两部分组成. 一部分使用一个定时器负责当作时钟，可以定时调用函数, 而另一部分就是实现功能的函数.  时钟部分  以下均以Timer0​为例.  作为计时的部分，我">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-29T14:39:07.846Z">
-<meta property="article:modified_time" content="2026-04-30T16:18:06.869Z">
+<meta property="article:modified_time" content="2026-04-30T16:18:42.099Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -370,7 +370,6 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Timer0_Routine</span><span class="params">(<span class="type">void</span>)</span> interrupt 1 &#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">unsigned</span> <span class="type">char</span> cnt=<span class="number">0</span>;</span><br><span class="line">	cnt++;</span><br><span class="line">	<span class="keyword">if</span>(cnt &gt;= timeLimit)&#123;  <span class="comment">//&lt;&lt;---</span></span><br><span class="line">		<span class="comment">//do something...</span></span><br><span class="line">		cnt = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来要解决的问题就是：在这个中断函数中应该干什么呢?</p>
 <h2 id="输入与输出"><a class="markdownIt-Anchor" href="#输入与输出"></a> 输入与输出</h2>
-<p>与模板耦合较多的部分是数码管显示与按键扫描，这里单独写出.</p>
 <h3 id="按键扫描"><a class="markdownIt-Anchor" href="#按键扫描"></a> 按键扫描</h3>
 <p>这部分 分为扫描矩阵键盘与处理扫描函数返回值两个部分.</p>
 <p>第一部分，我们定义一个函数用来扫描矩阵键盘，返回当前键码值. 函数原型为:</p>
