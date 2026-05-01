@@ -6,6 +6,14 @@ if (!keywords) {
     keywords += page.tags && page.tags.length > 0 ? page.tags.map(t => t.name).join(', ') : '';
 }
 keywords += config.keywords ? keywords ? ', ' + config.keywords : config.keywords : '';
+
+// ✅ 新增：description 提取逻辑
+var rawDesc = page.description || page.excerpt || page.content || config.description || '';
+var description = rawDesc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().substring(0, 160);
+
+// ✅ 新增：canonical URL
+var canonicalUrl = page.canonical_url || page.permalink || config.url;
+
 if (is_archive()) {
     title = __('navbar.archive');
     if (is_month()) {
@@ -18,16 +26,27 @@ if (is_archive()) {
 } else if (is_tag()) {
     title = __('navbar.tag') + __('symbol.colon') + page.tag;
 } else if (is_home()) {
-    title = '';
+    title = '';  // 首页只显示站名，保持不变
 }
 %>
 
 <title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
 
+<%# ✅ description — 对 Google 搜索结果摘要至关重要 %>
+<% if (description) { %>
+    <meta name="description" content="<%= description %>">
+<% } %>
+
 <% if (keywords) { %>
     <meta name="keywords" content="<%= keywords %>">
 <% } %>
 
-<% if (page.layout === 'search') { %>
-    <link rel="canonical" href="<%= page.permalink %>">
+<%# ✅ author %>
+<% if (config.author) { %>
+    <meta name="author" content="<%= config.author %>">
+<% } %>
+
+<%# ✅ canonical 放到所有页面，防止重复内容问题 %>
+<% if (canonicalUrl) { %>
+    <link rel="canonical" href="<%= canonicalUrl %>">
 <% } %>

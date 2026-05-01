@@ -1,9 +1,7 @@
 <head>
     <meta charset="utf-8">
 
-    <% if (page.robots) { %>
-        <meta name="robots" content="<%= page.robots %>">
-    <% } %>
+
 
     <!-- 渲染优化 -->
     <meta name="renderer" content="webkit">
@@ -30,4 +28,39 @@
     <%- partial('_plugins/statistics/busuanzi/source') %>
 
     <%- partial('./custom') %>
+        <%# ✅ JSON-LD 结构化数据（仅文章页）%>
+<% if (is_post()) { %>
+<%
+var ld_title = page.title || '';
+var ld_desc = (page.description || page.excerpt || '').replace(/<[^>]+>/g, '').trim().substring(0, 160);
+var ld_url = page.permalink || '';
+var ld_published = page.date ? page.date.toISOString() : '';
+var ld_modified = page.updated ? page.updated.toISOString() : ld_published;
+var ld_author = config.author || '';
+var ld_publisher = config.title || '';
+var ld_keywords = (page.tags && page.tags.length > 0) ? page.tags.map(t => t.name).join(', ') : '';
+%>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": <%- JSON.stringify(ld_title) %>,
+  "description": <%- JSON.stringify(ld_desc) %>,
+  "url": <%- JSON.stringify(ld_url) %>,
+  "datePublished": <%- JSON.stringify(ld_published) %>,
+  "dateModified": <%- JSON.stringify(ld_modified) %>,
+  "author": {
+    "@type": "Person",
+    "name": <%- JSON.stringify(ld_author) %>
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": <%- JSON.stringify(ld_publisher) %>
+  }
+  <% if (ld_keywords) { %>
+  ,"keywords": <%- JSON.stringify(ld_keywords) %>
+  <% } %>
+}
+</script>
+<% } %>
 </head>
