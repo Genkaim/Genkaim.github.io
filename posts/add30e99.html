@@ -972,7 +972,12 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
   /* 平滑处理位置切换 */
   transition: bottom 0.4s ease, left 0.4s ease;
 }
-
+/* 移动端完全隐藏播放器 */
+@media (max-width: 768px) {
+  .music-player-container {
+    display: none !important;
+  }
+}
 .music-player-content {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);

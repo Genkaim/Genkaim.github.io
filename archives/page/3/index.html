@@ -373,7 +373,7 @@ Profile施工中。。。
                         <a href="/posts/eabfbc74">
                             <span class="archives-title">
                                 
-                                    蓝桥杯国赛单片机模板详解 | 各类功能实现详解
+                                    蓝桥杯单片机国赛模板详解 | 各类功能实现详解
                                 
                             </span>
                         </a>
@@ -851,7 +851,12 @@ Profile施工中。。。
   /* 平滑处理位置切换 */
   transition: bottom 0.4s ease, left 0.4s ease;
 }
-
+/* 移动端完全隐藏播放器 */
+@media (max-width: 768px) {
+  .music-player-container {
+    display: none !important;
+  }
+}
 .music-player-content {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);

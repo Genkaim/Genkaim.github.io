@@ -33,7 +33,7 @@
     <!-- meta -->
 
 
-<title>蓝桥杯国赛单片机模板详解 | 各类功能实现详解 | Genkaim的博客</title>
+<title>蓝桥杯单片机国赛模板详解 | 各类功能实现详解 | Genkaim的博客</title>
 
 
 
@@ -58,13 +58,13 @@
 
     <meta name="description" content="基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蓝桥杯国赛单片机模板详解 | 各类功能实现详解">
+<meta property="og:title" content="蓝桥杯单片机国赛模板详解 | 各类功能实现详解">
 <meta property="og:url" content="https://www.genkaim.top/posts/eabfbc74">
 <meta property="og:site_name" content="Genkaim的博客">
 <meta property="og:description" content="基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-29T14:39:07.846Z">
-<meta property="article:modified_time" content="2026-04-30T16:35:49.697Z">
+<meta property="article:modified_time" content="2026-05-01T05:25:24.829Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -114,11 +114,11 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "蓝桥杯国赛单片机模板详解 | 各类功能实现详解",
+  "headline": "蓝桥杯单片机国赛模板详解 | 各类功能实现详解",
   "description": "基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解",
   "url": "https://www.genkaim.top/posts/eabfbc74",
   "datePublished": "2026-04-29T14:39:07.846Z",
-  "dateModified": "2026-04-30T16:35:49.697Z",
+  "dateModified": "2026-05-01T05:25:24.829Z",
   "author": {
     "@type": "Person",
     "name": "Genkaim"
@@ -301,7 +301,7 @@
     
     
   
-  蓝桥杯国赛单片机模板详解 | 各类功能实现详解
+  蓝桥杯单片机国赛模板详解 | 各类功能实现详解
 </h1>
   <style>
     .post-title-tag {
@@ -360,7 +360,7 @@
 
 <aside class="post-side">
   <div class="post-side__toc">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-text"> 写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E9%83%A8%E5%88%86"><span class="toc-text"> 时钟部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text"> 输入与输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%94%AE%E6%89%AB%E6%8F%8F"><span class="toc-text"> 按键扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%A0%81%E7%AE%A1%E6%98%BE%E7%A4%BA"><span class="toc-text"> 数码管显示</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-text"> 写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E9%83%A8%E5%88%86"><span class="toc-text"> 时钟部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text"> 输入与输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%94%AE%E6%89%AB%E6%8F%8F"><span class="toc-text"> 按键扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%A0%81%E7%AE%A1%E6%98%BE%E7%A4%BA"><span class="toc-text"> 数码管显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E5%86%99"><span class="toc-text"> 主函数如何写？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE"><span class="toc-text"> 外设</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#e2prom-%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8"><span class="toc-text"> E2PROM 持久化存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ds1302-%E6%97%B6%E9%97%B4%E5%AD%98%E5%82%A8"><span class="toc-text"> DS1302 时间存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%A3%B0%E6%B3%A2"><span class="toc-text"> 超声波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ds18b20-%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8"><span class="toc-text"> DS18B20 温度传感器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pcf8591-adcdac"><span class="toc-text"> PCF8591 ADC&#x2F;DAC</span></a></li></ol></li></ol>
   </div>
 </aside>
 <!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
@@ -383,7 +383,7 @@
   <div class="toc-title">文章目录</div>
   <div class="toc-wrapper">
     <div class="toc-gradient-overlay"></div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-text"> 写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E9%83%A8%E5%88%86"><span class="toc-text"> 时钟部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text"> 输入与输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%94%AE%E6%89%AB%E6%8F%8F"><span class="toc-text"> 按键扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%A0%81%E7%AE%A1%E6%98%BE%E7%A4%BA"><span class="toc-text"> 数码管显示</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-text"> 写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E9%83%A8%E5%88%86"><span class="toc-text"> 时钟部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text"> 输入与输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%94%AE%E6%89%AB%E6%8F%8F"><span class="toc-text"> 按键扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%A0%81%E7%AE%A1%E6%98%BE%E7%A4%BA"><span class="toc-text"> 数码管显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E5%86%99"><span class="toc-text"> 主函数如何写？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE"><span class="toc-text"> 外设</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#e2prom-%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8"><span class="toc-text"> E2PROM 持久化存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ds1302-%E6%97%B6%E9%97%B4%E5%AD%98%E5%82%A8"><span class="toc-text"> DS1302 时间存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%A3%B0%E6%B3%A2"><span class="toc-text"> 超声波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ds18b20-%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8"><span class="toc-text"> DS18B20 温度传感器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pcf8591-adcdac"><span class="toc-text"> PCF8591 ADC&#x2F;DAC</span></a></li></ol></li></ol>
   </div>
 </div>
 
@@ -1076,8 +1076,27 @@
 <p>此外，长按也可以在这里处理. 不同的是，<strong>它不用在按键松开的条件下处理</strong>，所以在<code>if</code>外写. 同样需要定义一个计数变量用来记录长按了多久，在大于一定值时触发.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ProcessKey</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">unsigned</span> <span class="type">char</span> preKey=<span class="number">0</span>, s4Cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">char</span> key=ScanMatrix();</span><br><span class="line">	<span class="comment">//existing code...</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(key==<span class="number">4</span>) s4Cnt++;</span><br><span class="line">	<span class="keyword">else</span> s4Cnt=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(s4Cnt&gt;=<span class="number">10</span>)&#123;<span class="comment">//长按了10*100ms=1s</span></span><br><span class="line">		<span class="comment">//do something...</span></span><br><span class="line">	&#125;</span><br><span class="line">	preKey = key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="数码管显示"><a class="markdownIt-Anchor" href="#数码管显示"></a> 数码管显示</h3>
-<p>模板中，时钟最小有1ms，这已经很小了，所以没必要再在中断里调用循环了，直接把中断当循环用就行了.</p>
+<p>模板中，时钟最小有1ms，这已经很小了，没必要再在中断里调用循环了，直接把中断当循环用就行了.</p>
+<p>so在中断里面需要调用一个函数，它的功能是更新指定位置的数码管. 与之配套的，需要一个数组存储显示的数据.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> segData[<span class="number">8</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>&#125;;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> code segTable[<span class="number">18</span>] = &#123;<span class="number">0xC0</span>, <span class="number">0xF9</span>, <span class="number">0xA4</span>, <span class="number">0xB0</span>, <span class="number">0x99</span>, <span class="number">0x92</span>, <span class="number">0x82</span>, <span class="number">0xF8</span>, <span class="number">0x80</span>, <span class="number">0x90</span>, <span class="number">0xFF</span>, </span><br><span class="line">    <span class="number">0xBF</span>, <span class="comment">/*11 -*/</span></span><br><span class="line">    <span class="number">0xC6</span>, <span class="comment">/*12 C*/</span></span><br><span class="line">    <span class="number">0x89</span>, <span class="comment">/*13 H*/</span></span><br><span class="line">    <span class="number">0x8E</span>, <span class="comment">/*14 F*/</span></span><br><span class="line">    <span class="number">0x8C</span>, <span class="comment">/*15 P*/</span></span><br><span class="line">    <span class="number">0x86</span>, <span class="comment">/*16 E*/</span></span><br><span class="line">    <span class="number">0x88</span>, <span class="comment">/*17 A*/</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">void</span> <span class="title function_">DisplaySingleDigit</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> addr)</span> &#123;</span><br><span class="line">    <span class="comment">//消隐</span></span><br><span class="line">    P2 = (P2 &amp; <span class="number">0x1F</span>) | <span class="number">0xE0</span>; </span><br><span class="line">    P0 = <span class="number">0xFF</span>;</span><br><span class="line">    P2 = P2 &amp; <span class="number">0x1F</span>; <span class="comment">//Lock</span></span><br><span class="line">	<span class="comment">//位选</span></span><br><span class="line">    P2 = (P2 &amp; <span class="number">0x1F</span>) | <span class="number">0xC0</span>; <span class="comment">//</span></span><br><span class="line">    P0 = (<span class="number">1</span> &lt;&lt; addr);</span><br><span class="line">    P2 = P2 &amp; <span class="number">0x1F</span>; <span class="comment">//Lock</span></span><br><span class="line">	<span class="comment">//段选</span></span><br><span class="line">    P2 = (P2 &amp; <span class="number">0x1F</span>) | <span class="number">0xE0</span>; </span><br><span class="line">    P0 = segTable[segData[addr]];</span><br><span class="line">    P2 = P2 &amp; <span class="number">0x1F</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而在中断之中，需要用一个变量指明该更新哪一位数码管</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Timer0_Routine</span><span class="params">()</span> interrupt 1 &#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">unsigned</span> <span class="type">char</span> segCnt=<span class="number">0</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">unsigned</span> <span class="type">char</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//existing code...</span></span><br><span class="line">    DisplaySingleDigit(segCnt);</span><br><span class="line">    <span class="keyword">if</span>(cnt&amp;<span class="number">0x01</span>) segCnt++;<span class="comment">//与if(cnt%2)等价，速度快一些</span></span><br><span class="line">    cnt++;</span><br><span class="line">    <span class="keyword">if</span>(segCnt&gt;=<span class="number">8</span>) segCnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(cnt &gt;= timeLimit)&#123;</span><br><span class="line">        <span class="comment">//do something...</span></span><br><span class="line">        cnt = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就写完了.</p>
+<h2 id="主函数如何写"><a class="markdownIt-Anchor" href="#主函数如何写"></a> 主函数如何写？</h2>
+<p>比如说我们有一个函数<code>Funtion()</code>用来获取外设数据与进行逻辑计算. 那是在中断中调用好呢，还是在主循环调用好呢？后者更好. 因为前者会导致函数阻塞中断，会导致中断时间不准确. 比如<code>OneWire</code>的通讯时间就需要几十毫秒.</p>
+<p>所以我们在中断中需要做的是操控一个标志变量，让主函数里的循环去读取这个变量观察是否运行.</p>
+<p>下面实现了<strong>每100ms</strong>运行一次<code>Funtion</code>.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">volatile</span> bit runFlag=<span class="number">0</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(runFlag) &#123;</span><br><span class="line">            runFlag=<span class="number">0</span>;<span class="comment">//先置0，防止运行时间超过100ms的话，会导致下一次运行失效的情况.</span></span><br><span class="line">			Function();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Timer0_Routine</span><span class="params">()</span> interrupt 1 &#123;<span class="comment">//1ms per time</span></span><br><span class="line">    <span class="type">static</span> <span class="type">unsigned</span> <span class="type">char</span> cnt=<span class="number">0</span>;</span><br><span class="line">    cnt++;</span><br><span class="line">    <span class="keyword">if</span>(cnt &gt;= <span class="number">100</span>)&#123;</span><br><span class="line">        <span class="comment">//do something...</span></span><br><span class="line">        runFlag = <span class="number">1</span>;</span><br><span class="line">        cnt = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里，基本模板的部分结束了. 在这个模板之上调用封装好的外设函数与数据处理等函数完全可以应付蓝桥杯了. 下面的外设部分本意是我个人复习之用，所以可能解析写的不是很详细.</p>
+<h2 id="外设"><a class="markdownIt-Anchor" href="#外设"></a> 外设</h2>
+<h3 id="e2prom-持久化存储"><a class="markdownIt-Anchor" href="#e2prom-持久化存储"></a> E2PROM 持久化存储</h3>
+<h3 id="ds1302-时间存储"><a class="markdownIt-Anchor" href="#ds1302-时间存储"></a> DS1302 时间存储</h3>
+<h3 id="超声波"><a class="markdownIt-Anchor" href="#超声波"></a> 超声波</h3>
+<h3 id="ds18b20-温度传感器"><a class="markdownIt-Anchor" href="#ds18b20-温度传感器"></a> DS18B20 温度传感器</h3>
+<h3 id="pcf8591-adcdac"><a class="markdownIt-Anchor" href="#pcf8591-adcdac"></a> PCF8591 ADC/DAC</h3>
+<blockquote>
 <p>本文还没写完，先发上来看看效果 /doge</p>
+</blockquote>
 </div>
   
     <div class="post__license">
@@ -1237,7 +1256,12 @@
   /* 平滑处理位置切换 */
   transition: bottom 0.4s ease, left 0.4s ease;
 }
-
+/* 移动端完全隐藏播放器 */
+@media (max-width: 768px) {
+  .music-player-container {
+    display: none !important;
+  }
+}
 .music-player-content {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);

@@ -881,3 +881,6 @@ button {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+html {
+  scroll-padding-top: 100px; /* 根据你的导航栏高度调整这个值 */
+}
