@@ -64,7 +64,7 @@
 <meta property="og:description" content="基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-29T14:39:07.846Z">
-<meta property="article:modified_time" content="2026-05-02T12:39:32.545Z">
+<meta property="article:modified_time" content="2026-05-02T13:19:06.314Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -118,7 +118,7 @@
   "description": "基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解",
   "url": "https://www.genkaim.top/posts/eabfbc74",
   "datePublished": "2026-04-29T14:39:07.846Z",
-  "dateModified": "2026-05-02T12:39:32.545Z",
+  "dateModified": "2026-05-02T13:19:06.314Z",
   "author": {
     "@type": "Person",
     "name": "Genkaim"
@@ -463,7 +463,7 @@
 <p>比如说，我需要定义一个这样的命令：<code>P:A,V:B;</code>:</p>
 <p>在数码管第A个位置显示B. 若B大于10则向后移位填入, 如果超出范围则把超出部分从头填入. 如果设置成功，串口返回&quot;OJBK&quot;，反之返回&quot;ERROR&quot;. 如果B是<code>'?'</code>，那么返回A位置的数字.</p>
 <p>一般不考虑把字符串暂存起来/用很多<code>if-else</code>，这样会浪费空间/很难维护.</p>
-<p>这里考虑使用**有限状态机. **简单来说，**有限状态机就是一个“记录当前走到哪一步，并根据下一个输入决定下一步去哪”的逻辑模型. 这种机制最大的好处是：**它永远知道自己现在处于哪一步，绝不会错乱。一旦遇到不符合预期的字符，直接把状态重置为 0，容错能力极强.</p>
+<p>这里考虑使用<strong>有限状态机</strong>. 简单来说，<strong>有限状态机就是一个“记录当前走到哪一步，并根据下一个输入决定下一步去哪”的逻辑模型. 这种机制最大的好处是</strong>：它永远知道自己现在处于哪一步，绝不会错乱。一旦遇到不符合预期的字符，直接把状态重置为 0，容错能力极强.</p>
 <blockquote>
 <p><strong>状态 0（IDLE / 找 P）：</strong> 保安在门口打瞌睡。</p>
 <ul>
