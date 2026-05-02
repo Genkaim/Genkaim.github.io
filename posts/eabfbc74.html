@@ -386,6 +386,23 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-text"> 写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E9%83%A8%E5%88%86"><span class="toc-text"> 时钟部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-text"> 输入与输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%94%AE%E6%89%AB%E6%8F%8F"><span class="toc-text"> 按键扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%A0%81%E7%AE%A1%E6%98%BE%E7%A4%BA"><span class="toc-text"> 数码管显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E5%86%99"><span class="toc-text"> 主函数如何写？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE"><span class="toc-text"> 外设</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E5%8F%A3"><span class="toc-text"> 串口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#e2prom-%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8"><span class="toc-text"> E2PROM 持久化存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ds1302-%E6%97%B6%E9%97%B4%E5%AD%98%E5%82%A8"><span class="toc-text"> DS1302 时间存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%B5%8B%E8%B7%9D"><span class="toc-text"> 超声波测距</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ds18b20-%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8"><span class="toc-text"> DS18B20 温度传感器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pcf8591-adcdac"><span class="toc-text"> PCF8591 ADC&#x2F;DAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ne555"><span class="toc-text"> NE555</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B"><span class="toc-text"> 样例</span></a></li></ol>
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article

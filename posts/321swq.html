@@ -386,6 +386,23 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97"><span class="toc-text"> 计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text"> 结论</span></a></li></ol>
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article

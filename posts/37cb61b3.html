@@ -386,6 +386,23 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A0%E6%9D%90%E5%A3%B0%E6%98%8E"><span class="toc-text"> 素材声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="toc-text"> 更新日志</span></a></li></ol>
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article

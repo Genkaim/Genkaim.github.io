@@ -386,6 +386,23 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#push-forward"><span class="toc-text"> Push forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull-back"><span class="toc-text"> Pull back</span></a></li></ol>
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article

@@ -386,6 +386,23 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text"> 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-text"> 公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text"> 结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%AF%BC"><span class="toc-text"> 推导</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E7%AE%97%E6%B3%95"><span class="toc-text"> 朴素算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-text"> 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-text"> 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%9B%E6%B3%95%E8%A7%A3%E6%B3%95"><span class="toc-text"> 筛法解法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%83%E6%B0%8F%E7%AD%9B%E6%B3%95"><span class="toc-text"> 埃氏筛法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E7%AD%9B%E6%B3%95"><span class="toc-text"> 欧拉筛法</span></a></li></ol></li></ol>
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article

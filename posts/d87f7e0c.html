@@ -401,6 +401,23 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%90%E6%A7%BD"><span class="toc-text"> 吐槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text"> 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tinyletter"><span class="toc-text"> Tinyletter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zapier"><span class="toc-text"> Zapier</span></a></li></ol>
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article

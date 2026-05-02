@@ -62,7 +62,7 @@
 <meta property="og:description" content="Vela App               电子木鱼(还没写完)             .page_main {     width: 100%;     height: 1000px;   }   .list {     margin-top: 30px;     margin-left: 30px;     width: 100%;   }   .section {     pad">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-30T11:06:09.000Z">
-<meta property="article:modified_time" content="2025-07-24T03:19:14.000Z">
+<meta property="article:modified_time" content="2026-05-02T13:09:39.429Z">
 <meta property="article:author" content="Genkaim">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -305,7 +305,7 @@
   href="/archives/2024/09/"
   class="post-meta__date"
   >发布于 2024-09-30|
-  更新于 2025-07-24
+  更新于 2026-05-02
 </a>
  
  
@@ -348,6 +348,23 @@
     
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article

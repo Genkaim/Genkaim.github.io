@@ -386,6 +386,23 @@
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%8E%86%E5%8F%B2%E8%83%8C%E6%99%AF%E9%A9%AC%E9%93%83%E8%96%AF%E5%9C%A8%E6%B3%95%E5%9B%BD%E7%9A%84%E5%90%88%E6%B3%95%E5%8C%96%E4%B8%8E%E6%99%AE%E5%8F%8A"><span class="toc-text"> 一、 历史背景：马铃薯在法国的合法化与普及</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E7%83%B9%E9%A5%AA%E5%BD%A2%E6%80%81%E5%AD%A6%E7%9A%84%E5%AF%B9%E6%AF%94%E6%B3%95%E5%BC%8F-vs-%E4%B8%AD%E5%BC%8F"><span class="toc-text"> 二、 烹饪形态学的对比：法式 vs 中式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E8%B7%A8%E6%96%87%E5%8C%96%E4%BC%A0%E6%92%AD%E7%9A%84%E9%9A%9C%E7%A2%8D"><span class="toc-text"> 三、 跨文化传播的障碍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E7%BB%93%E8%AE%BA"><span class="toc-text"> 四、 结论</span></a></li></ol>
   </div>
 </div>
+<script>
+  function onTocLinkClick(e) {
+    if (!e.target.closest('.toc-link')) return;
+    const tocMenus = document.getElementById('toc-menus');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.style.display = 'none';
+    if (btnToc) {
+      btnToc.blur();
+      btnToc.addEventListener('focus', () => {
+        if (tocMenus) tocMenus.style.display = '';
+      }, { once: true });
+    }
+  }
+
+  document.removeEventListener('click', onTocLinkClick);
+  document.addEventListener('click', onTocLinkClick);
+</script>
 
 
 <article
