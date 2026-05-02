@@ -64,7 +64,7 @@
 <meta property="og:description" content="基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-29T14:39:07.846Z">
-<meta property="article:modified_time" content="2026-05-02T06:53:32.162Z">
+<meta property="article:modified_time" content="2026-05-02T12:39:32.545Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -118,7 +118,7 @@
   "description": "基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解",
   "url": "https://www.genkaim.top/posts/eabfbc74",
   "datePublished": "2026-04-29T14:39:07.846Z",
-  "dateModified": "2026-05-02T06:53:32.162Z",
+  "dateModified": "2026-05-02T12:39:32.545Z",
   "author": {
     "@type": "Person",
     "name": "Genkaim"
@@ -442,6 +442,74 @@
 <h2 id="外设"><a class="markdownIt-Anchor" href="#外设"></a> 外设</h2>
 <p>以下设计通信协议的内容均使用蓝桥杯官方数据包里的参考代码.</p>
 <h3 id="串口"><a class="markdownIt-Anchor" href="#串口"></a> 串口</h3>
+<p>对于单个串口数据的读取来说，并不难. 难的是多个数据的读取与发送，也就是字符串的匹配与异常处理. 这部分很难总结，下面以一个具体的题目为例.</p>
+<p>比如说，我需要定义一个这样的命令：<code>P:A,V:B;</code>:</p>
+<p>在数码管第A个位置显示B. 若B大于10则向后移位填入, 如果超出范围则把超出部分从头填入. 如果设置成功，串口返回&quot;OJBK&quot;，反之返回&quot;ERROR&quot;. 如果B是<code>'?'</code>，那么返回A位置的数字.</p>
+<p>一般不考虑把字符串暂存起来/用很多<code>if-else</code>，这样会浪费空间/很难维护.</p>
+<p>这里考虑使用**有限状态机. **简单来说，**有限状态机就是一个“记录当前走到哪一步，并根据下一个输入决定下一步去哪”的逻辑模型. 这种机制最大的好处是：**它永远知道自己现在处于哪一步，绝不会错乱。一旦遇到不符合预期的字符，直接把状态重置为 0，容错能力极强.</p>
+<blockquote>
+<p><strong>状态 0（IDLE / 找 P）：</strong> 保安在门口打瞌睡。</p>
+<ul>
+<li>如果收到 <code>P</code> -&gt; 保安醒了，进入<strong>状态 1</strong>。</li>
+<li>收到其他 -&gt; 继续打瞌睡（丢弃数据，保持<strong>状态 0</strong>）。</li>
+</ul>
+<p><strong>状态 1（等冒号 1）：</strong> 保安看到 P 了，等着验证身份。</p>
+<ul>
+<li>如果收到 <code>:</code> -&gt; 验证通过，进入<strong>状态 2</strong>。</li>
+<li>收到其他 -&gt; 验证失败，报错，踹回<strong>状态 0</strong>。</li>
+</ul>
+<p><strong>状态 2（读 A）：</strong> 身份没问题，开始记下位置 A。</p>
+<ul>
+<li>如果是 <code>数字</code> -&gt; 存入变量 A，保持在<strong>状态 2</strong>。</li>
+<li>如果是 <code>,</code> -&gt; 位置输入完毕，进入<strong>状态 3</strong>。</li>
+<li>收到其他 -&gt; 格式错误，踹回<strong>状态 0</strong>。</li>
+</ul>
+<p><strong>状态 3（找 V）：</strong> … 以此类推，直到找到最后的 <code>;</code> 和 <code>:</code>。</p>
+</blockquote>
+<p>首先我们进行状态拆分，观察<code>P:A,V:B;</code>有哪些状态:</p>
+<table>
+<thead>
+<tr>
+<th><strong>状态</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>状态0</strong></td>
+<td>等待输入;</td>
+</tr>
+<tr>
+<td><strong>状态1</strong></td>
+<td>位置指示符，等待位置输入;</td>
+</tr>
+<tr>
+<td><strong>状态2</strong></td>
+<td>位置输入;</td>
+</tr>
+<tr>
+<td><strong>状态3</strong></td>
+<td>分隔符;</td>
+</tr>
+<tr>
+<td><strong>状态4</strong></td>
+<td>数值指示符，等待数值输入;</td>
+</tr>
+<tr>
+<td><strong>状态5</strong></td>
+<td>数值输入;</td>
+</tr>
+<tr>
+<td><strong>状态6</strong></td>
+<td>结束符.</td>
+</tr>
+</tbody>
+</table>
+<p>接下来，在中断函数里，我们根据当前的状态来判断该做什么.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Uart1_Isr</span><span class="params">(<span class="type">void</span>)</span> interrupt 4 &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>还没写完，先放上来试试水/doge</p>
+</blockquote>
 <h3 id="e2prom-持久化存储"><a class="markdownIt-Anchor" href="#e2prom-持久化存储"></a> E2PROM 持久化存储</h3>
 <p>IIC函数原型:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">I2CStart</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">I2CStop</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">I2CSendByte</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> byt)</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> <span class="title function_">I2CReceiveByte</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> <span class="title function_">I2CWaitAck</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">I2CSendAck</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> ackbit)</span>;</span><br></pre></td></tr></table></figure>
@@ -551,18 +619,14 @@
 </ul>
 </blockquote>
 <p><strong>DAC</strong></p>
-<p>根据时序图：</p>
-<p>我们先addressing给出control byte，再直接给出对应digit值.</p>
+<p>根据时序图，我们先addressing给出control byte，再直接给出对应digit值：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">DAConvert</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> dat)</span> &#123;</span><br><span class="line">    I2CStart();</span><br><span class="line">    I2CSendByte(<span class="number">0x90</span>); <span class="comment">//addresising write</span></span><br><span class="line">    I2CWaitAck();</span><br><span class="line">    I2CSendByte(<span class="number">0x40</span>);</span><br><span class="line">    I2CWaitAck();</span><br><span class="line">    I2CSendByte(dat);</span><br><span class="line">    I2CWaitAck();</span><br><span class="line">    I2CStop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="ne555"><a class="markdownIt-Anchor" href="#ne555"></a> NE555</h3>
 <p>与超声波测距类似，这里也需要使用定时器，不同的是这里作计数器用.</p>
 <p>蓝桥杯板子的NE555输出接在<code>P3.4</code>上，所以只能用<code>Timer0</code>计数. 而我们只需要数1s内有多少个脉冲，就能算出它的频率了.  <strong>如果与主时钟冲突的话，记得把主时钟换成其他定时器.</strong></p>
 <p>和需要转换与读取分开的温度一样，这里需要两个函数. 第一个开始测量，第二个读取.</p>
-<p>需要把定时模式改成计数器模式，就在于修改 <strong>TMOD</strong> 寄存器中的 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi mathvariant="normal">/</mi><mover accent="true"><mi>T</mi><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">C/\overline{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span></strong> 位为1.</p>
+<p>其次需要把定时模式改成计数器模式，修改 <strong>TMOD</strong> 寄存器中的 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi mathvariant="normal">/</mi><mover accent="true"><mi>T</mi><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">C/\overline{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span></strong> 位为1.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">StartDetectNE555</span><span class="params">()</span> &#123;</span><br><span class="line">	AUXR &amp;= <span class="number">0x7F</span>;			<span class="comment">//定时器时钟12T模式</span></span><br><span class="line">	TMOD &amp;= <span class="number">0xF0</span>;			<span class="comment">//设置定时器模式</span></span><br><span class="line">	TMOD |= <span class="number">0x05</span>; 	<span class="comment">// 设置为 0000 0101</span></span><br><span class="line">	TL0 = <span class="number">0x00</span>;		<span class="comment">//设置定时初值</span></span><br><span class="line">	TH0 = <span class="number">0x00</span>;		<span class="comment">//设置定时初值</span></span><br><span class="line">	TF0 = <span class="number">0</span>;		<span class="comment">//清除TF1标志</span></span><br><span class="line">	TR0 = <span class="number">1</span>;		<span class="comment">//定时器1开始计时</span></span><br><span class="line">    ET0 = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">unsigned</span> <span class="title function_">ReadNE555</span><span class="params">()</span> &#123;</span><br><span class="line">    TR0 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> (TH0 &lt;&lt; <span class="number">8</span>) | TL0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>本文还没写完，先发上来看看效果 /doge</p>
-</blockquote>
 <h2 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h2>
 <p>下面是用这个模板写的第15届蓝桥杯省赛代码</p>
 <p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Genkaim/LQ15th-Danpianji/tree/main">https://github.com/Genkaim/LQ15th-Danpianji/tree/main</a></p>
