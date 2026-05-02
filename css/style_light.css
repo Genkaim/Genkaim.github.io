@@ -882,5 +882,5 @@ button {
   margin-bottom: 20px;
 }
 html {
-  scroll-padding-top: 150px; /* 根据你的导航栏高度调整这个值 */
+  scroll-padding-top: 120px; /* 根据你的导航栏高度调整这个值 */
 }
