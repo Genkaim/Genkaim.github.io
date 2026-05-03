@@ -126,7 +126,7 @@ a:hover {
   backdrop-filter: blur(20px);
   position: fixed;
   width: 100%;
-  background-color: #d4d4d43a;
+  background-color: #d4d4d400;
   height: 90px !important;
 }
 
