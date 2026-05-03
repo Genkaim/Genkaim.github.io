@@ -16,9 +16,6 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
   transition: all 0.3s ease;
 
 }
-.header:hover {
-  background-color: #c1c1c133;
-}
 #btn-search a {
   color: black !important;
 }
@@ -48,7 +45,8 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0), 1px 1px 15px 0 rgba(0, 0, 0, 0);
 }
 .content-card {
-  border-radius: 40px;
+  border-radius: 10px;
+  background-color: rgba(244, 244, 244, 0.435) !important;
 }
 .post__content p img {
   border-radius: 10px;
@@ -105,7 +103,7 @@ a:hover {
 
 }
 .navbar__menus .button:hover {
-  background-color: white !important;
+  background-color: rgba(80, 80, 80, 0.068) !important;
   transform: translateY(0px) !important;
   /*box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,0.15) !important;
 */
@@ -114,36 +112,37 @@ a:hover {
   padding: 15px 20px 15px 20px !important;
 }
 .header .button:hover {
-  background-color: white !important;
+  background-color: rgba(255, 255, 255, 0.288) !important;
   transform: translateY(0px);
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.012) !important;
 }
 .post-entry:hover {
-  transform: scale(1.01) !important;
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.06) !important;
+  transform: scale(1) !important;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0) !important;
+  background-color: #68686800 !important;
 }
 .header {
   margin-top: 0px !important;
   backdrop-filter: blur(20px);
   position: fixed;
   width: 100%;
-  background-color: #f4f4f46f;
+  background-color: #d4d4d43a;
   height: 90px !important;
 }
 
 .nav {
   display: flex;
   justify-content: left; /* 水平居中 */
-  background-color: white !important;
-  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-radius: 10px;
   padding: 30px;
   padding-bottom: 40px;
   transition: all 0.3s ease;
 }
 .nav:hover {
-  background-color: white !important;
-  transform: scale(1.02) !important;
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.04) !important;
+  background-color: rgba(99, 99, 99, 0.032) !important;
+  transform: scale(1) !important;
+  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0) !important;
 }
 .nav .nav__prev {
   flex: 40% 1 !important;
@@ -162,8 +161,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.post__license, #waline, #wl-edit, .post-entry__title {
+.post__license, #waline{
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+}
+.post-entry__content,.post-meta__date,.post-tags__link button {
+  font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
 }
 
 /* 专门针对 iOS 的强制设置 */
@@ -250,7 +252,7 @@ svg {
   margin-top: 10px;
 }
 .highlight {
-  background-color: white !important;
+  background-color: rgba(33, 33, 33, 0) !important;
 }
 
 ::-webkit-scrollbar {
@@ -426,7 +428,7 @@ button {
 }
 
 .archives-content a .archives-title:hover {
-  background-color: white;
+  background-color: rgba(44, 44, 44, 0.073);
 }
 .archives-year {
   background-color: rgba(255, 255, 255, 0);
@@ -444,7 +446,7 @@ button {
   transition: background-color 0.3s ease;
 }
 .submit:hover {
-  color: white !important;
+  color: rgba(14, 14, 14, 0.063) !important;
   background-color: #000000a1;
 }
 .katex-display > .katex {
@@ -474,7 +476,7 @@ button {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   padding-left: 10px;
-  background-color: #f4f4f4;
+  background-color: #5858580d;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -583,11 +585,15 @@ button {
 .cover_text {
   padding-right: 30%;
   padding-left: 10px;
+  font-family: "Times New Roman", "Noto Serif SC", Times, "STSong", serif !important;
 }
 @media screen and (max-width: 764px) {
   .content-card {
     padding: 9%;
     padding-top: 11%;
+  }
+  .post__with-toc {
+    padding: 6% !important;
   }
   .post__content {
     position: relative;

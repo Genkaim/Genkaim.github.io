@@ -222,21 +222,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const currentUrl = window.location.href;
-  const isHomePage =
-    currentUrl === window.location.origin + "/" ||
-    currentUrl === window.location.origin + "/#";
-  if (!isHomePage) return;
-  const content_card = document.querySelector(".post-list");
-  if (content_card) {
-    const firstChild = content_card.firstElementChild;
-    if (firstChild) {
-      //firstChild.style.display = 'none'
-      firstChild.style.backgroundImage = "linear-gradient(to top,  white 30%,  #a8ede965 100%)";
-    }
-  }
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   const currentUrl = window.location.href;
+//   const isHomePage =
+//     currentUrl === window.location.origin + "/" ||
+//     currentUrl === window.location.origin + "/#";
+//   if (!isHomePage) return;
+//   const content_card = document.querySelector(".post-list");
+//   if (content_card) {
+//     const firstChild = content_card.firstElementChild;
+//     if (firstChild) {
+//       //firstChild.style.display = 'none'
+//       firstChild.style.backgroundImage = "linear-gradient(to top,  white 30%,  #a8ede965 100%)";
+//     }
+//   }
+// });
 
 
 

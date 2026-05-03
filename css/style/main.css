@@ -69,7 +69,6 @@ section {
 }
 .main {
   margin: 0 auto;
-  padding: 1.5vw 12px 0;
 }
 .main.tagscloud,
 .main.links {
@@ -681,11 +680,26 @@ overflows table td {
   margin-left: -2px;
   word-break: break-all;
 }
+.post-list {
+  position: relative;
+}
 .post-list>:last-child {
   margin-bottom: 0;
 }
+.post-list>.content-card:not(:last-child) {
+  position: relative;
+}
+.post-list>.content-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0,0,0,0.27);
+  z-index: 1;
+}
 .post-entry {
-  margin-bottom: var(--space);
   position: relative;
 }
 .post-entry:hover {
