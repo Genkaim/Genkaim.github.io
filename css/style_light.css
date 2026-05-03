@@ -153,7 +153,7 @@ a:hover {
 @import url('https://fonts.geekzu.org/css2?family=Noto+Serif+SC&display=swap');
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+ font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
 }
 .post, .post h1, h2, h3, h4, h5 {
   font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
@@ -889,4 +889,16 @@ button {
 }
 html {
   scroll-padding-top: 120px; /* 根据你的导航栏高度调整这个值 */
+}
+.post-entry__tags {
+  display: none !important;
+}
+
+.post-entry__content h2.post-entry__title {
+  margin-bottom: 0px !important;
+}
+
+.post-entry__content > p:first-of-type {
+  margin-top: 0px !important;
+  margin-bottom: 10px !important;
 }
