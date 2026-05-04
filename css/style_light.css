@@ -548,7 +548,7 @@ button {
   position: absolute;
   right: 20px;
   height: 100%;
-  width: 30%;
+  width: 0%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -699,7 +699,9 @@ button {
   background-color: rgb(245, 245, 245);
 }
 .btn-toc * {
-  margin: 2px;
+  margin: 1.5px;
+  margin-left: 1.5px;
+  margin-bottom: 0px !important;
   color: rgba(0, 0, 0, 0.349) !important;
 }
 #b2t {
