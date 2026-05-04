@@ -587,6 +587,14 @@ button {
   padding-left: 10px;
   font-family: "Times New Roman", "Noto Serif SC", Times, "STSong", serif !important;
 }
+    .post-title__text {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      justify-content: center ;
+      width: 100% !important;
+      max-width: 700px;
+    }
 @media screen and (max-width: 764px) {
   .content-card {
     padding: 9%;
@@ -608,12 +616,13 @@ button {
   }
   .post-title, .post-title__text,.post-title-tag {
     text-align: left !important;
+    justify-content: left;
   }
   .post-title-tags-group1, .post-title-tags-group2 {
     display: none !important;
   }
   .post-title {
-    padding-left: 30px !important;
+    padding-left: 6% !important;
   }
   .cover_img {
     width: 70% !important;
