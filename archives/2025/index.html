@@ -246,10 +246,6 @@
  
 <div class="cover">
   <div class="cover__logo">
-    <image
-      class="cover_img"
-      src="https://cdn.luogu.com.cn/upload/image_hosting/45dcuaax.png"
-    ></image>
 
     <div class="cover_text">
       <h1 class="home_content" id="text-stylefont-size-25px欢迎来到我的博客text">
@@ -954,7 +950,7 @@ document.addEventListener('DOMContentLoaded', () => {
       show.classList.add("highlight_language");
 
       const button = document.createElement("button");
-      button.textContent = "复制";
+      button.textContent = "Copy";
       button.classList.add("highlight_copy_button");
 
       const codeContent = table.querySelector(".code").innerText;
@@ -962,10 +958,10 @@ document.addEventListener('DOMContentLoaded', () => {
       button.addEventListener("click", () => {
         navigator.clipboard.writeText(codeContent).then(() => {
           button.textContent = "✔";
-          setTimeout(() => button.textContent = "复制", 2000);
+          setTimeout(() => button.textContent = "Copy", 2000);
         }).catch(() => {
           button.textContent = "Error";
-          setTimeout(() => button.textContent = "复制", 2000);
+          setTimeout(() => button.textContent = "Copy", 2000);
         });
       });
 

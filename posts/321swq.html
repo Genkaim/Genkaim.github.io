@@ -330,7 +330,6 @@
       display: inline-flex !important;
       align-items: center !important;
       flex-wrap: wrap !important;
-      text-align: center !important;
       justify-content: center !important;
       width: 100% !important;
       max-width: 700px;
@@ -949,7 +948,7 @@ document.addEventListener('DOMContentLoaded', () => {
       show.classList.add("highlight_language");
 
       const button = document.createElement("button");
-      button.textContent = "复制";
+      button.textContent = "Copy";
       button.classList.add("highlight_copy_button");
 
       const codeContent = table.querySelector(".code").innerText;
@@ -957,10 +956,10 @@ document.addEventListener('DOMContentLoaded', () => {
       button.addEventListener("click", () => {
         navigator.clipboard.writeText(codeContent).then(() => {
           button.textContent = "✔";
-          setTimeout(() => button.textContent = "复制", 2000);
+          setTimeout(() => button.textContent = "Copy", 2000);
         }).catch(() => {
           button.textContent = "Error";
-          setTimeout(() => button.textContent = "复制", 2000);
+          setTimeout(() => button.textContent = "Copy", 2000);
         });
       });
 

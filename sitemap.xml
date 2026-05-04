@@ -4,7 +4,7 @@
   <url>
     <loc>https://www.genkaim.top/posts/eabfbc74</loc>
     
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -209,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/reward</loc>
+    <loc>https://www.genkaim.top/test</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/test</loc>
+    <loc>https://www.genkaim.top/reward</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -237,15 +237,6 @@
   
   <url>
     <loc>https://www.genkaim.top/about/</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/categories/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -280,60 +271,69 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://www.genkaim.top/categories/</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   <url>
     <loc>https://www.genkaim.top/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://www.genkaim.top/tags/%E5%8F%91%E7%99%AB/</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.genkaim.top/tags/Coding/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.genkaim.top/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/tags/%E5%8F%91%E7%99%AB/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.genkaim.top/tags/AI/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.genkaim.top/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.genkaim.top/tags/AIGC/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.genkaim.top/tags/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

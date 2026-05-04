@@ -64,7 +64,7 @@
 <meta property="og:description" content="基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-29T14:39:07.846Z">
-<meta property="article:modified_time" content="2026-05-03T06:17:49.149Z">
+<meta property="article:modified_time" content="2026-05-04T04:11:51.593Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -118,7 +118,7 @@
   "description": "基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解",
   "url": "https://www.genkaim.top/posts/eabfbc74",
   "datePublished": "2026-04-29T14:39:07.846Z",
-  "dateModified": "2026-05-03T06:17:49.149Z",
+  "dateModified": "2026-05-04T04:11:51.593Z",
   "author": {
     "@type": "Person",
     "name": "Genkaim"
@@ -330,7 +330,6 @@
       display: inline-flex !important;
       align-items: center !important;
       flex-wrap: wrap !important;
-      text-align: center !important;
       justify-content: center !important;
       width: 100% !important;
       max-width: 700px;
@@ -343,7 +342,7 @@
   href="/archives/2026/04/"
   class="post-meta__date"
   >发布于 2026-04-29|
-  更新于 2026-05-03
+  更新于 2026-05-04
 </a>
  
  
@@ -648,7 +647,7 @@
 <h3 id="ne555"><a class="markdownIt-Anchor" href="#ne555"></a> NE555</h3>
 <p>与超声波测距类似，这里也需要使用定时器，不同的是这里作计数器用.</p>
 <p>蓝桥杯板子的NE555输出接在<code>P3.4</code>上，所以只能用<code>Timer0</code>计数. 而我们只需要数1s内有多少个脉冲，就能算出它的频率了.  <strong>如果与主时钟冲突的话，记得把主时钟换成其他定时器.</strong></p>
-<p>和需要转换与读取分开的温度一样，这里需要两个函数. 第一个开始测量，第二个读取.</p>
+<p>和需要转换与读取分开的温度一样，这里需要两个函数. 第一个开始测量，第二个读取. 注意需要<strong>把杜邦线把<code>SIG</code>引脚与<code>P34</code>连起来</strong>.</p>
 <p>其次需要把定时模式改成计数器模式，修改 <strong>TMOD</strong> 寄存器中的 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi mathvariant="normal">/</mi><mover accent="true"><mi>T</mi><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">C/\overline{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span></strong> 位为1.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">StartDetectNE555</span><span class="params">()</span> &#123;</span><br><span class="line">	AUXR &amp;= <span class="number">0x7F</span>;			<span class="comment">//定时器时钟12T模式</span></span><br><span class="line">	TMOD &amp;= <span class="number">0xF0</span>;			<span class="comment">//设置定时器模式</span></span><br><span class="line">	TMOD |= <span class="number">0x05</span>; 	<span class="comment">// 设置为 0000 0101</span></span><br><span class="line">	TL0 = <span class="number">0x00</span>;		<span class="comment">//设置定时初值</span></span><br><span class="line">	TH0 = <span class="number">0x00</span>;		<span class="comment">//设置定时初值</span></span><br><span class="line">	TF0 = <span class="number">0</span>;		<span class="comment">//清除TF1标志</span></span><br><span class="line">	TR0 = <span class="number">1</span>;		<span class="comment">//定时器1开始计时</span></span><br><span class="line">    ET0 = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">unsigned</span> <span class="title function_">ReadNE555</span><span class="params">()</span> &#123;</span><br><span class="line">    TR0 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> (TH0 &lt;&lt; <span class="number">8</span>) | TL0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h2>
@@ -1170,7 +1169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       show.classList.add("highlight_language");
 
       const button = document.createElement("button");
-      button.textContent = "复制";
+      button.textContent = "Copy";
       button.classList.add("highlight_copy_button");
 
       const codeContent = table.querySelector(".code").innerText;
@@ -1178,10 +1177,10 @@ document.addEventListener('DOMContentLoaded', () => {
       button.addEventListener("click", () => {
         navigator.clipboard.writeText(codeContent).then(() => {
           button.textContent = "✔";
-          setTimeout(() => button.textContent = "复制", 2000);
+          setTimeout(() => button.textContent = "Copy", 2000);
         }).catch(() => {
           button.textContent = "Error";
-          setTimeout(() => button.textContent = "复制", 2000);
+          setTimeout(() => button.textContent = "Copy", 2000);
         });
       });
 
