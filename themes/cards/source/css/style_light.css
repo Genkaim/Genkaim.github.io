@@ -78,10 +78,9 @@ a:hover {
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
 }
 .btn-toc {
-  width: 3rem !;
   bottom: 1.2rem !important;
   transition: all 0.3s ease;
-  background: white !important;
+  background: rgb(248, 248, 248) !important;
   border-radius: 20px !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
 }
@@ -191,9 +190,7 @@ body {
   opacity: 0;
 
 }
-#b2t:hover {
-  transform: scale(1.05) translateY(-5px) translateX(-5px);
-}
+
 .main {
   background-color: #f4f4f46f;
   top: 0px;
@@ -608,8 +605,8 @@ button {
     top: 13px;
   }
   .post-title {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 0px;
   }
   .cover__logo {
     margin-left: 0px !important;
@@ -677,18 +674,25 @@ button {
   bottom: 1.2rem;
   border-radius: 20px;
   color: var(--title-color);
-  background: white;
+          border: 1px solid rgba(0, 0, 0, 0.103) !important;
+  background: rgb(249, 249, 249) !important;
   -webkit-box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.15);
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.15);
   display: none; /* 默认隐藏，只在移动端显示 */
+  border: #1c6a54;
   cursor: pointer;
 }
-
+#toc-menus {
+  background-color: rgb(245, 245, 245);
+}
 .btn-toc * {
   margin: 2px;
   color: rgba(0, 0, 0, 0.349) !important;
 }
-
+#b2t {
+            border: 1px solid rgba(0, 0, 0, 0.103) !important;
+  background: rgb(249, 249, 249) !important;
+}
 /* 使用焦点控制目录菜单的显示状态 */
 .toc-control {
   position: fixed;
@@ -723,7 +727,7 @@ button {
   z-index: 99900;
   -webkit-animation: slide-up2 0.2s ease-in-out 1;
   animation: slide-up2 0.2s ease-in-out 1;
-  background: white; /* 确保背景颜色 */
+  background: rgb(250, 250, 250) !important;
   overflow: hidden; /* 防止自身滚动 */
 }
 
@@ -769,11 +773,10 @@ button {
   left: 0;
   right: 0;
   height: 30px;
-  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+  background: linear-gradient(to bottom, rgb(250, 250, 250), rgba(255, 255, 255, 0));
   z-index: 10;
   pointer-events: none;
 }
-
 .toc-menus .toc-wrapper::after {
   content: "";
   position: absolute;
@@ -781,7 +784,7 @@ button {
   left: 0;
   right: 0;
   height: 50px;
-  background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+  background: linear-gradient(to top, rgb(250, 250, 250), rgba(255, 255, 255, 0));
   z-index: 10;
   pointer-events: none;
 }
@@ -796,7 +799,7 @@ button {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    border-radius: 30px 30px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
   }
 }
 
