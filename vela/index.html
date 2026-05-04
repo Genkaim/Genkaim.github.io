@@ -62,7 +62,7 @@
 <meta property="og:description" content="Vela App               电子木鱼(还没写完)             .page_main {     width: 100%;     height: 1000px;   }   .list {     margin-top: 30px;     margin-left: 30px;     width: 100%;   }   .section {     pad">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-30T11:06:09.000Z">
-<meta property="article:modified_time" content="2026-05-02T13:09:39.429Z">
+<meta property="article:modified_time" content="2026-05-04T14:00:27.275Z">
 <meta property="article:author" content="Genkaim">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -303,7 +303,7 @@
   href="/archives/2024/09/"
   class="post-meta__date"
   >发布于 2024-09-30|
-  更新于 2026-05-02
+  更新于 2026-05-04
 </a>
  
  
@@ -466,7 +466,7 @@
       // 获取当前a标签的href属性值
       var href = link.getAttribute("href");
       if(href == "/vela/"){
-        link.style.backgroundColor = "white";
+        link.style.color = "#707070";
       }
 
       // 你可以在这里添加更多的操作，比如根据href做不同的事情
@@ -943,11 +943,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector(".main")?.style.setProperty("top", "100px");
       document.querySelector(".footer")?.style.setProperty("top", "80px");
 
-      document.querySelectorAll(".navbar__menus a").forEach(link => {
-        if (link.getAttribute("href") === "/archives/") {
-          link.style.backgroundColor = "white";
-        }
-      });
     }
 
     /** 代码复制 */
