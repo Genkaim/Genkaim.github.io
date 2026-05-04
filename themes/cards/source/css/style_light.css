@@ -176,8 +176,10 @@ body {
   }
 }
 #dropdown-menus {
-  border-radius: 30px;
+  border-radius: 20px;
   margin-top: 20px;
+  background-color: rgb(251, 251, 251);
+            border: 1px solid rgba(0, 0, 0, 0.103) !important;
 }
 .cover {
   height: 100px;
@@ -293,9 +295,9 @@ img {
 .post__license {
   border-left: none;
   border-radius: 0px;
-  border-bottom: 1px solid #989898;
-  padding: 20px;
-    padding-bottom: 20px;
+  border-bottom: 1px solid #9898984b;
+  padding: 5px;
+    padding-bottom: 50px;
         padding-top: 20px;
 }
 .katex,
@@ -910,6 +912,8 @@ button {
   display: flex; justify-content: center; align-items: center; width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: white;
+  padding: 15px;
 }
 html {
   scroll-padding-top: 120px; /* 根据你的导航栏高度调整这个值 */
