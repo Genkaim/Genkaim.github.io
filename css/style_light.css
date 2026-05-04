@@ -698,10 +698,11 @@ button {
 #toc-menus {
   background-color: rgb(245, 245, 245);
 }
+.btn-toc {
+  padding-top: 3px;
+}
 .btn-toc * {
-  margin: 1.5px;
-  margin-left: 1.5px;
-  margin-bottom: 0px !important;
+  margin: 0px;
   color: rgba(0, 0, 0, 0.349) !important;
 }
 #b2t {
