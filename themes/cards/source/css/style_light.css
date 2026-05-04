@@ -126,7 +126,7 @@ a:hover {
   backdrop-filter: blur(20px);
   position: fixed;
   width: 100%;
-  background-color: #d4d4d43a;
+  background-color: #d4d4d400;
   height: 90px !important;
 }
 
@@ -134,10 +134,12 @@ a:hover {
   display: flex;
   justify-content: left; /* 水平居中 */
   background-color: rgba(255, 255, 255, 0) !important;
-  border-radius: 10px;
+  border-radius: 0px;
   padding: 30px;
   padding-bottom: 40px;
   transition: all 0.3s ease;
+    border-top: 1px solid #a0a0a0;
+        padding-top: 20px;
 }
 .nav:hover {
   background-color: rgba(99, 99, 99, 0.032) !important;
@@ -153,9 +155,9 @@ a:hover {
 @import url('https://fonts.geekzu.org/css2?family=Noto+Serif+SC&display=swap');
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+ font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
 }
-.post, .post h1, h2, h3, h4, h5 {
+.post, .post h1, h2, h3, h4, h5,.post-title__text,.home_content {
   font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -293,8 +295,11 @@ img {
 
 .post__license {
   border-left: none;
-  border-radius: 20px;
+  border-radius: 0px;
+  border-bottom: 1px solid #989898;
   padding: 20px;
+    padding-bottom: 20px;
+        padding-top: 20px;
 }
 .katex,
 .katex-display {
@@ -551,7 +556,7 @@ button {
 
 .cover {
   text-align: left !important;
-  padding: 150px;
+  padding: 10px;
 }
 .cover .cover__logo h1 {
   font-weight: bold;
@@ -562,10 +567,10 @@ button {
   transition: all 0.3s ease;
   border-radius: 30px;
   padding: 60px;
+  margin-left: 20% !important;
 }
 .cover__logo:hover {
-  background-color: #c1c1c114;
-  transform: scale(1.01);
+  transform: scale(1);
 }
 .home_content {
   transition: all 0.3s ease;
@@ -578,9 +583,6 @@ button {
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0); /* 调整阴影模糊度和透明度 */
-}
-.cover_img:hover {
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.12); /* 调整阴影模糊度和透明度 */
 }
 .cover_text {
   padding-right: 30%;
@@ -600,8 +602,20 @@ button {
     top: 13px;
   }
   .post-title {
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .cover__logo {
+    margin-left: 0px !important;
+  }
+  .post-title, .post-title__text,.post-title-tag {
+    text-align: left !important;
+  }
+  .post-title-tags-group1, .post-title-tags-group2 {
+    display: none !important;
+  }
+  .post-title {
+    padding-left: 30px !important;
   }
   .cover_img {
     width: 70% !important;
@@ -889,4 +903,16 @@ button {
 }
 html {
   scroll-padding-top: 120px; /* 根据你的导航栏高度调整这个值 */
+}
+.post-entry__tags {
+  display: none !important;
+}
+
+.post-entry__content h2.post-entry__title {
+  margin-bottom: 0px !important;
+}
+
+.post-entry__content > p:first-of-type {
+  margin-top: 0px !important;
+  margin-bottom: 10px !important;
 }

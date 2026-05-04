@@ -72,6 +72,7 @@ section {
 }
 .main {
   margin: 0 auto;
+  padding: 1.5vw 12px 0;
 }
 .main.tagscloud,
 .main.links {

@@ -500,7 +500,7 @@ overflows table th {
 .post__content h5,
 .post__content h6 {
   margin-top: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-weight: 700;
   line-height: 1.25;
 }
