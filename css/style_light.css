@@ -648,7 +648,7 @@ button {
   }
   .cover {
     margin-left: 0px !important;
-    padding: 20px;
+    padding: 0px;
     overflow-x: hidden;
     width: 100%;
     box-sizing: border-box;
@@ -694,7 +694,7 @@ button {
   position: absolute;
   bottom: 30px;
   font-weight: bold;
-  color: rgba(128, 128, 128, 0.101);
+  color: rgba(91, 91, 91, 0.452);
 }
 .btn-toc {
   width: 3rem;
