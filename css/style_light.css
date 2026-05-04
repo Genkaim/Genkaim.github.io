@@ -432,9 +432,7 @@ button {
   border-radius: 20px;
 }
 
-.archives-content a .archives-title:hover {
-  background-color: rgba(44, 44, 44, 0.073);
-}
+
 .archives-year {
   background-color: rgba(255, 255, 255, 0);
   padding: 20px;
