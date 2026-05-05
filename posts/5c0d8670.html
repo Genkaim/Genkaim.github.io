@@ -1009,12 +1009,39 @@ document.addEventListener('DOMContentLoaded', () => {
    * ========================= */
   function initPageScripts() {
     const currentUrl = window.location.href;
+    const pathname = window.location.pathname;
 
     /** 是否首页 */
-    window.__IS_HOME__ =
-      currentUrl === window.location.origin + "/" ||
-      currentUrl === window.location.origin + "/#" ||
-      currentUrl.includes("/page");
+    window.__IS_HOME__ = pathname === "/";
+
+    if (!window.__IS_HOME__) {
+      console.log('非首页，隐藏 cover');
+      const cover = document.querySelector(".cover");
+      const main = document.querySelector(".main");
+      const footer = document.querySelector(".footer");
+      
+      console.log('Cover element:', cover);
+      console.log('Main element:', main);
+      console.log('Footer element:', footer);
+      
+      if (cover) {
+        cover.style.setProperty("display", "none", "important");
+        console.log('Cover hidden');
+      }
+      if (main) {
+        main.style.setProperty("top", "100px", "important");
+      }
+      if (footer) {
+        footer.style.setProperty("top", "80px", "important");
+      }
+    } else {
+      console.log('首页，显示 cover');
+      const cover = document.querySelector(".cover");
+      if (cover) {
+        cover.style.removeProperty("display");
+        cover.style.height = `${window.innerHeight}px`;
+      }
+    }
 
     /** 初始化懒加载图片 */
     initLazyLoad();
@@ -1052,13 +1079,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isArchivesPage =
       currentUrl === window.location.origin + "/archives" ||
       currentUrl === window.location.origin + "/archives/";
-
-    if (isArchivesPage) {
-      document.querySelector(".cover")?.style.setProperty("display", "none");
-      document.querySelector(".main")?.style.setProperty("top", "100px");
-      document.querySelector(".footer")?.style.setProperty("top", "80px");
-
-    }
 
     /** 代码复制 */
     document.querySelectorAll(".highlight").forEach((highlight) => {
