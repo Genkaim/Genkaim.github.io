@@ -8,15 +8,15 @@ swiper_index: 4
 cover: https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/2021021012571650539.jpg
 ---
 <!-- ... existing code ... -->
-<div style="width:100%; background:red;padding-bottom:3px;
-padding-top:13px;border-radius:17px;color:white;">
+<div style="width:100%; background:rgb(212, 58, 58);padding-bottom:3px;
+padding-top:13px;border-radius:0px;color:white;">
   <p style="text-align:center;font-size:20px;font-weight:bold;margin-bottom:0px;">
     过时内容
   </p>
   <p style="text-align:center;font-size:12px;margin-bottom:0px;margin-top:0px;">
     （xLog官网现已无法正常打开)
   </p>
-  <p style="text-align:right;font-size:9px;margin-bottom:0px;margin-right:15px;">
+  <p style="text-align:right;font-size:9px;margin-bottom:0px;margin-right:10px;">
     Update Date: 2026.4.22
   </p>
 </div>
