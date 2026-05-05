@@ -192,10 +192,14 @@ body {
   }
 }
 #dropdown-menus {
-  border-radius: 20px;
-  margin-top: 20px;
+  border-radius: 0px;
+  margin-top: 0px;
   background-color: rgb(251, 251, 251);
             border: 1px solid rgba(0, 0, 0, 0.103) !important;
+            display: fixed !important;
+            top:0px !important;
+            width: 100% !important;
+            left: 0px !important;
 }
 .cover {
   height: 100px;
@@ -454,6 +458,9 @@ button {
   border: none !important;
   background-color: transparent;
 }
+.archives {
+  margin-top: 100px;
+}
 .archives .archives-item:hover .archives-icon::before {
   background: transparent !important;
 }
@@ -471,17 +478,23 @@ button {
 }
 
 .submit {
-  background-color: black;
-  color: white !important;
+  background-color: rgba(0, 0, 0, 0.064);
   font-size: 16px;
   padding: 15px 20px 15px 20px !important;
-  border-radius: 19px;
+  border-radius: 0px;
   margin-left: 17px;
   transition: all 0.3s ease;
+    color: black !important;
+}
+.dropdown-menus a {
+    color: black !important;
 }
 .submit:hover {
-  color: rgb(255, 255, 255) !important;
-  background-color: #0b0b0bd3;
+  color: black !important;
+  background-color: #0b0b0b40 !important;
+}
+.dropdown-menus {
+  box-shadow:  1px 5px 0 rgba(0, 0, 0, 0.025), 1px 1px 15px 0 rgba(0, 0, 0, 0.134)
 }
 .katex-display > .katex {
   white-space: pre-wrap !important ;
