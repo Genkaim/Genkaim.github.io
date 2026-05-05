@@ -195,7 +195,7 @@ body {
   border-radius: 0px;
   margin-top: 0px;
   background-color: rgb(251, 251, 251);
-            border: 1px solid rgba(0, 0, 0, 0.103) !important;
+
             display: fixed !important;
             top:0px !important;
             width: 100% !important;
@@ -750,6 +750,7 @@ button {
 }
 #toc-menus {
   background-color: rgb(245, 245, 245);
+              border: 1px solid rgba(0, 0, 0, 0.103) !important;
 }
 .btn-toc {
   padding-top: 4px;
