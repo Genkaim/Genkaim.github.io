@@ -481,7 +481,7 @@ button {
   background-color: rgba(0, 0, 0, 0.064);
   font-size: 16px;
   padding: 15px 20px 15px 20px !important;
-  border-radius: 0px;
+  border-radius: 19px;
   margin-left: 17px;
   transition: all 0.3s ease;
     color: black !important;
