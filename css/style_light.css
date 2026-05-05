@@ -46,10 +46,11 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
 }
 .content-card {
   border-radius: 10px;
-  background-color: rgba(244, 244, 244, 0.435) !important;
+  background-color: rgba(244, 244, 244, 0) !important;
+
 }
 .post__content p img {
-  border-radius: 10px;
+  border-radius: 0px;
 }
 a {
   text-decoration: none !important; /* 去掉下划线 */
@@ -299,7 +300,8 @@ svg {
   white-space: pre-wrap;
 }*/
 img {
-  border-radius: 10px;
+  border-radius: 0px;
+  display: block; margin: 0 auto;
 }
 
 .post__license {
