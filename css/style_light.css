@@ -70,6 +70,11 @@ a:hover {
 }
 .footer {
   transition: all 0.58s ease;
+  margin-top: 2rem !important;
+}
+.nav {
+  margin-top: 0px !important;
+    margin-bottom: 0px !important;
 }
 .footer .button {
   bottom: 4.8rem !important;
@@ -152,7 +157,7 @@ a:hover {
         padding-top: 20px;
 }
 .nav:hover {
-  background-color: rgba(99, 99, 99, 0.032) !important;
+  background-color: rgba(99, 99, 99, 0.086) !important;
   transform: scale(1) !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0) !important;
 }
@@ -167,7 +172,7 @@ a:hover {
 body {
  font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
 }
-.post, .post h1, h2, h3, h4, h5,.post-title__text,.home_content {
+.post, .post h1, h2, h3, h4, h5,.post-title__text,.home_content,.footer {
   font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -364,7 +369,7 @@ img {
   -ms-user-select: none;
 }
 .post_reward.active:hover {
-    background-color: #86868607;
+    background-color: #86868621;
 }
 .post_reward.active p {
   display: none;

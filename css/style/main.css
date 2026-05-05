@@ -1073,19 +1073,21 @@ overflows table td {
   }
 }
 .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  max-width: var(--content-width);
-  margin: 1.5rem auto;
-  height: auto;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  max-width: var(--content-width) !important;
+  margin: 1.5rem auto !important;
+  height: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 .nav + * {
   margin-top: 0;

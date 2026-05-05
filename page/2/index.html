@@ -989,7 +989,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /** =========================
    * 页面初始化（PJAX 每次执行）
    * ========================= */
-  function initPageScripts() {
+  function initPageScripts() {    
     const currentUrl = window.location.href;
     const pathname = window.location.pathname;
 
@@ -1002,29 +1002,83 @@ document.addEventListener('DOMContentLoaded', () => {
       const main = document.querySelector(".main");
       const footer = document.querySelector(".footer");
       
-      console.log('Cover element:', cover);
-      console.log('Main element:', main);
-      console.log('Footer element:', footer);
-      
       if (cover) {
         cover.style.setProperty("display", "none", "important");
-        console.log('Cover hidden');
       }
+      
+      // 获取头部高度并设置 post-list 的 margin-top
+      const header = document.querySelector("header") || document.querySelector(".head");
+      const nav = document.querySelector("nav") || document.querySelector(".nav");
+      const postList = document.querySelector(".post-list");
+      
+      if (header && postList) {
+        const headerHeight = header.offsetHeight;
+        postList.style.setProperty("margin-top", `${headerHeight}px`, "important");
+      }
+      
+      // 设置 post-list 的最小高度为屏幕高度减去 header、nav 和 footer 的实际占用空间
+ if (postList && footer) {
+        const headerElement = header || document.querySelector("header");
+        const navElement = nav || document.querySelector(".nav");
+        
+        // 获取各元素的实际高度（包括 margin 和 padding）
+        const headerRect = headerElement ? headerElement.getBoundingClientRect() : { height: 0 };
+        const navRect = navElement ? navElement.getBoundingClientRect() : { height: 0 };
+        const footerRect = footer.getBoundingClientRect();
+        
+        // 获取 footer 的样式，计算 margin-bottom
+        const footerStyle = window.getComputedStyle(footer);
+        const footerMarginBottom = parseFloat(footerStyle.marginBottom) || 0;
+        
+        // 计算可用高度：屏幕高度 - header高度 - nav高度 - footer高度 - footer的margin-bottom
+        const headerHeight = headerRect.height;
+        const navHeight = navRect.height;
+        const footerHeight = footerRect.height;
+        const availableHeight = window.innerHeight - headerHeight - navHeight - footerHeight - footerMarginBottom*2;
+        
+        // 获取 post-list 的实际高度
+        const postListRect = postList.getBoundingClientRect();
+        const postListHeight = postListRect.height;
+        
+        // 如果 post-list 的实际高度小于可用高度，则设置最小高度
+        if (postListHeight < availableHeight) {
+          postList.style.setProperty("min-height", `${availableHeight}px`, "important");
+          console.log('Post list min-height set to:', availableHeight);
+        } else {
+          postList.style.removeProperty("min-height");
+        }
+      }
+      
+      // 只在非首页时调整 main 和 footer 的位置
       if (main) {
-        main.style.setProperty("top", "100px", "important");
+        main.style.setProperty("top", "0", "important");
       }
       if (footer) {
-        footer.style.setProperty("top", "80px", "important");
+        footer.style.setProperty("top", "0", "important");
       }
     } else {
-      console.log('首页，显示 cover');
       const cover = document.querySelector(".cover");
       if (cover) {
         cover.style.removeProperty("display");
         cover.style.height = `${window.innerHeight}px`;
       }
+      
+      // 首页时恢复默认位置
+      const main = document.querySelector(".main");
+      const footer = document.querySelector(".footer");
+      const postList = document.querySelector(".post-list");
+      
+      if (main) {
+        main.style.removeProperty("top");
+      }
+      if (footer) {
+        footer.style.removeProperty("top");
+      }
+      if (postList) {
+        postList.style.removeProperty("margin-top");
+        postList.style.removeProperty("min-height");
+      }
     }
-
     /** 初始化懒加载图片 */
     initLazyLoad();
 
