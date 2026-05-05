@@ -173,7 +173,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.post__license, #waline{
+#waline{
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .post-entry__content,.post-meta__date,.post-tags__link button {
@@ -308,9 +308,7 @@ img {
   border-left: none;
   border-radius: 0px;
   border-bottom: 1px solid #9898984b;
-  padding: 5px;
-    padding-bottom: 50px;
-        padding-top: 20px;
+  padding: 0px;
 }
 .katex,
 .katex-display {
@@ -332,23 +330,41 @@ img {
   align-items: center;      /* 垂直居中 */
 }
 .post_reward:hover {
-  background-color: #cfcfcf;
-  transform: scale(1.01);
+  background-color: #cfcfcf00;
+  transform: scale(1);
 }
 .post_reward .reward-container {
   display: none;
   height: 80px;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 .post_reward.active .reward-container {
   display: flex;
   animation: fadeIn 0.5s ease forwards;
 }
+
 .post_reward.active {
   background-color: transparent;
-  margin-top: 20px;
+  margin-top: 0px;
   color:transparent;
-  border-radius: 30px;
+  border-radius: 0px;
+  transition: all 0.3s ease;
+    cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+}
+.post_reward.active * {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.post_reward.active:hover {
+    background-color: #86868607;
 }
 .post_reward.active p {
   display: none;
@@ -356,14 +372,14 @@ img {
 .reward-top, .reward-bottom {
   background-color: #303030;
   height:50px !important;
-  margin-bottom: 10px;
-  border-radius:20px;
+  margin-bottom: 0px;
+  border-radius:0px;
 }
 .reward-container {
   display: flex;
   width: 100%;
   padding-top: 10px;
-  padding-bottom: 7px;
+  padding-bottom: 0px;
   box-sizing: border-box;
 }
 
@@ -392,13 +408,12 @@ img {
   text-align: center;
   font-size: 14px;
   color: black;
-  background-color: #e2e2e296;
+  background-color: #e2e2e200;
   margin-bottom: 10px;
   transition: all 0.3s ease;
 }
 .reward-bottom:hover {
-  background-color: #e2e2e2;
-  transform: scale(1.01);
+  color: rgb(51, 51, 51) !important;
 }
 @keyframes fadeIn {
   from {
