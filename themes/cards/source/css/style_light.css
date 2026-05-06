@@ -101,11 +101,17 @@ a:hover {
 }
 .navbar__menus .button,
 .header .button {
-  margin-left: 10px;
+  margin-left: 20px;
   transition: all 0.3s ease;
   border-radius: 20px !important;
   padding: 10px;
 
+}
+@media screen and (max-width: 764px) {
+  body.post-page .navbar__menus .button,
+  body.post-page .header .button {
+    margin-left: 0px !important;
+  }
 }
 .navbar__menus .button:hover {
   color: #707070 !important;
@@ -493,6 +499,12 @@ button {
 }
 .dropdown-menus a {
     color: black !important;
+    margin-left: 20px !important;
+}
+@media screen and (max-width: 764px) {
+  body.post-page .dropdown-menus a {
+    margin-left: 0px !important;
+  }
 }
 .submit:hover {
   color: black !important;
@@ -754,7 +766,7 @@ button {
   cursor: pointer;
 }
 #toc-menus { 
-  border-top: 2px solid #d9d9d9 !important;
+  border-top: 2px solid #dfdfdf !important;
             border-left: 2px solid #d9d9d9 !important;
                         border-right: 2px solid #d9d9d9 !important;  
             box-shadow: 6px 4px 6px 0px rgba(0, 0, 0, 0.028);
