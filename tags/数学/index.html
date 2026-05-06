@@ -736,7 +736,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** 是否首页 */
     window.__IS_HOME__ = pathname === "/";
-
+    /** 是否文章页 */
+    const isPostPage = document.querySelector('.post__content') || 
+                       document.querySelector('.article') ||
+                       pathname.includes('/posts/') ||
+                       pathname.match(/^\d{4}\/\d{2}\/\d{2}\//);
+    
+    if (isPostPage) {
+      document.body.classList.add('post-page');
+    } else {
+      document.body.classList.remove('post-page');
+    }
     if (!window.__IS_HOME__) {
       console.log('非首页，隐藏 cover');
       const cover = document.querySelector(".cover");
