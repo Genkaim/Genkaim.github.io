@@ -194,12 +194,14 @@ body {
 #dropdown-menus {
   border-radius: 0px;
   margin-top: 0px;
-  background-color: rgb(251, 251, 251);
+  background: linear-gradient(to bottom, rgba(244, 244, 244, 0) 0%, #f4f4f4 20%);
 
             display: fixed !important;
-            top:0px !important;
+            top:50px !important;
             width: 100% !important;
             left: 0px !important;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .cover {
   height: 100px;
