@@ -493,18 +493,13 @@ button {
   font-size: 16px;
   padding: 15px 20px 15px 20px !important;
   border-radius: 19px;
-  margin-left: 17px;
+  margin-left: 17px !important;
+  margin-right: 17px !important;
   transition: all 0.3s ease;
     color: black !important;
 }
 .dropdown-menus a {
     color: black !important;
-    margin-left: 20px !important;
-}
-@media screen and (max-width: 764px) {
-  body.post-page .dropdown-menus a {
-    margin-left: 0px !important;
-  }
 }
 .submit:hover {
   color: black !important;
