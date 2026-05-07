@@ -340,7 +340,7 @@ Profile施工中...
   href="/archives/2026/03/"
   class="post-meta__date"
   >发布于 2026-03-18|
-  更新于 2026-05-06
+  更新于 2026-05-07
 </a>
 
     
@@ -713,11 +713,6 @@ document.addEventListener('DOMContentLoaded', () => {
                        pathname.includes('/posts/') ||
                        pathname.match(/^\d{4}\/\d{2}\/\d{2}\//);
     
-    if (isPostPage) {
-      document.body.classList.add('post-page');
-    } else {
-      document.body.classList.remove('post-page');
-    }
     if (!window.__IS_HOME__) {
       console.log('非首页，隐藏 cover');
       const cover = document.querySelector(".cover");

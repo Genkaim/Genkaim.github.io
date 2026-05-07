@@ -902,11 +902,6 @@ document.addEventListener('DOMContentLoaded', () => {
                        pathname.includes('/posts/') ||
                        pathname.match(/^\d{4}\/\d{2}\/\d{2}\//);
     
-    if (isPostPage) {
-      document.body.classList.add('post-page');
-    } else {
-      document.body.classList.remove('post-page');
-    }
     if (!window.__IS_HOME__) {
       console.log('非首页，隐藏 cover');
       const cover = document.querySelector(".cover");
