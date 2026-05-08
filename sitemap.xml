@@ -245,16 +245,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/link/</loc>
-    
-    <lastmod>2025-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/tags/</loc>
+    <loc>https://www.genkaim.top/about/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
@@ -272,7 +263,16 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/about/</loc>
+    <loc>https://www.genkaim.top/link/</loc>
+    
+    <lastmod>2025-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.genkaim.top/tags/</loc>
     
     <lastmod>2025-07-24</lastmod>
     
