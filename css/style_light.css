@@ -457,6 +457,9 @@ button {
 .archives-item::before {
   background: transparent !important;
 }
+.archives .archives-item {
+  margin-right: 20px !important;
+ }
 .archives-icon {
   display: none;
   background: transparent !important;
