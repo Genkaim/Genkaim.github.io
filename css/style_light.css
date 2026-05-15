@@ -531,12 +531,11 @@ button {
   margin-right: 6px;
 }
 .highlight_copy_button:hover {
-  background-color: #6c6c6c20;
-  transform: scale(1.05);
+  color: #6c6c6c7e;
 }
 .highlight_header {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   padding-left: 10px;
   background-color: #5858580d;
   display: flex;
