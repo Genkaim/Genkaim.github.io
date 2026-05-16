@@ -218,6 +218,15 @@
   </url>
   
   <url>
+    <loc>https://www.genkaim.top/reward</loc>
+    
+    <lastmod>2026-05-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.genkaim.top/link.json</loc>
     
     <lastmod>2026-05-08</lastmod>
@@ -228,15 +237,6 @@
   
   <url>
     <loc>https://www.genkaim.top/test</loc>
-    
-    <lastmod>2026-05-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.genkaim.top/reward</loc>
     
     <lastmod>2026-05-08</lastmod>
     
@@ -493,14 +493,14 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <loc>https://www.genkaim.top/tags/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://www.genkaim.top/tags/%E6%95%B0%E5%AD%A6/</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
