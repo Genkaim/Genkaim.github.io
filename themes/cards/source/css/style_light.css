@@ -104,7 +104,7 @@ a:hover {
   margin-left: 20px;
   transition: all 0.3s ease;
   border-radius: 20px !important;
-  padding: 10px;
+  padding: 0px;
 
 }
 @media screen and (max-width: 764px) {
@@ -112,6 +112,10 @@ a:hover {
   body.post-page .header .button {
     margin-left: 0px !important;
   }
+}
+.header .button {
+  padding: 0px;
+
 }
 .navbar__menus .button:hover {
   color: #707070 !important;
@@ -121,6 +125,9 @@ a:hover {
 }
 .header .header__right .navbar__menus .navbar-menu {
   padding: 15px 20px 15px 20px !important;
+}
+.header .header__right .dropdown-menus .dropdown-menu {
+    padding-left: 7px !important;
 }
 .header .button:hover {
 
@@ -133,6 +140,7 @@ a:hover {
 }
 .header .header__left .logo__text {
   transition: all 0.3s ease;
+  padding: 16px 10px 16px 0px !important;
 }
 .header .header__left .logo__text:hover {
       color: #707070 !important;
@@ -655,6 +663,14 @@ button {
       width: 100% !important;
       max-width: 700px;
     }
+@media screen and (max-width: 650px) {
+  .header .header__left .logo__text {
+    padding-left: 10px !important;
+}
+.header .header__right .dropdown-menus .dropdown-menu {
+    padding-left: 0px !important;
+}
+}
 @media screen and (max-width: 764px) {
   .content-card {
     padding: 9%;
