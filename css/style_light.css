@@ -152,10 +152,14 @@ a:hover {
 }
 .header {
   margin-top: 0px !important;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(40px);
   position: fixed;
   width: 100%;
-  background-color: #d4d4d400;
+  background: linear-gradient(to bottom, 
+    #f4f4f496 0%,    /* 顶部稍实 */
+    #f4f4f496 20%,    /* 顶部稍实 */
+    #f4f4f4e3 100%   /* 底部更透明 */
+  );
   height: 90px !important;
 }
 
