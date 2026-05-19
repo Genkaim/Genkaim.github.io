@@ -23,6 +23,25 @@
     
     
     <entry>
+      <title>蓝桥杯超声波到底要发几个脉冲？</title>
+      <link href="/posts/abb27f10.html"/>
+      <url>/posts/abb27f10.html</url>
+      
+        <content type="html"><![CDATA[<p>网上的蓝桥杯教程（模块）中，超声波模块大多发送八个周期的<code>40khz</code>方波. 然而在实际操作中，<code>40khz</code>方波会显得非常不稳定.<br />在一次ai debug会话中，ai给出了以下发送超声波代码：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Transmit</span><span class="params">()</span> &#123;</span><br><span class="line">    EA=<span class="number">0</span>;</span><br><span class="line">    TX=<span class="number">1</span>;</span><br><span class="line">    Delay12us();</span><br><span class="line">    Delay12us();  </span><br><span class="line">    TX=<span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><p>这段脉冲的周期远低于八个周期，但出乎意料的，这段代码运行的很稳定.</p><p>于是，为了求证，我在4T平台找到蓝桥杯官方给出的超声波代码：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> <span class="title function_">Dist_Meas</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">unsigned</span> <span class="type">char</span> ucNum = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">  TX = <span class="number">0</span>;</span><br><span class="line">  CL = <span class="number">0xf4</span>;  CH = <span class="number">0xff</span>;     <span class="comment">// PCA 重载值，每 12μs 溢出一次</span></span><br><span class="line">  CR = <span class="number">1</span>;                      <span class="comment">// 启动 PCA</span></span><br><span class="line">  <span class="keyword">while</span> (ucNum--)              <span class="comment">// 翻转 10 次 = 5 个完整 40kHz 周期</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">while</span> (!CF);               <span class="comment">// 等 PCA 溢出</span></span><br><span class="line">    TX ^= <span class="number">1</span>;                   <span class="comment">// 翻转 TX</span></span><br><span class="line">    CL = <span class="number">0xf4</span>;  CH = <span class="number">0xff</span>;</span><br><span class="line">    CF = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  CR = <span class="number">0</span>;                      <span class="comment">// 关闭 PCA</span></span><br><span class="line"></span><br><span class="line">  CL = <span class="number">0</span>;  CH = <span class="number">0</span>;             <span class="comment">// PCA 清零</span></span><br><span class="line">  CR = <span class="number">1</span>;                      <span class="comment">// 启动</span></span><br><span class="line">  <span class="keyword">while</span>(RX &amp;&amp; !CF);            <span class="comment">// ← 等 RX 下降沿（和原始代码一样！）</span></span><br><span class="line">  CR = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> ((CH&lt;&lt;<span class="number">8</span>)+CL)*<span class="number">0.017</span>;   <span class="comment">// 同 t*17/1000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>它一共翻转了<code>ucNum</code>次电平，翻转了10次，也就是5个周期的<code>40khz</code>方波.</p><p>主包懒得做控制变量的实验，但这似乎也能说明8个周期的方波对于蓝桥杯板子的超声波模块来说，过于多了，以至于可能出现：RX 的放大/比较电路在发射期间被串扰<strong>饱和</strong>的情况。导致等脉冲发完，换能器还在机械余震，RX 继续振荡，造成干扰.</p><p>8周期的 8051 超声波例程最早来自某个开发板（可能是普中/清翔），那个板的接收电路增益低，需要 8 个脉冲才能让回波高于比较器阈值. 蓝桥杯竞赛板的模拟前端比那些开发板好，1个脉冲就够了.</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>蓝桥杯单片机国赛省赛模板详解 | 各类功能实现详解</title>
       <link href="/posts/eabfbc74.html"/>
       <url>/posts/eabfbc74.html</url>
