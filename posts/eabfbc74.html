@@ -64,7 +64,7 @@
 <meta property="og:description" content="基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-15T14:05:29.393Z">
-<meta property="article:modified_time" content="2026-05-16T06:49:18.777Z">
+<meta property="article:modified_time" content="2026-05-19T14:42:31.970Z">
 <meta property="article:author" content="Genkaim">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
@@ -118,7 +118,7 @@
   "description": "基于STC单片机的蓝桥杯国赛模板，涵盖定时器时钟、矩阵键盘扫描、组合键与长按处理、数码管显示等功能实现详解",
   "url": "https://www.genkaim.top/posts/eabfbc74",
   "datePublished": "2026-05-15T14:05:29.393Z",
-  "dateModified": "2026-05-16T06:49:18.777Z",
+  "dateModified": "2026-05-19T14:42:31.970Z",
   "author": {
     "@type": "Person",
     "name": "Genkaim"
@@ -341,7 +341,7 @@
   href="/archives/2026/05/"
   class="post-meta__date"
   >发布于 2026-05-15|
-  更新于 2026-05-16
+  更新于 2026-05-19
 </a>
  
  
@@ -416,7 +416,7 @@
 <blockquote>
 <p>以下均以<code>Timer0​</code>为例.</p>
 </blockquote>
-<p>作为计时的部分，我们首先需要确认定时器的最小时间为1ms. 这样，1ms整数倍的时间都能够在中断函数被表示.</p>
+<p>作为计时的部分，我们首先需要确认定时器的最小时间是什么. 一般选择1ms， 这样，1ms整数倍的时间都能够在中断函数被表示. （主要是方便数码管刷新）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Timer0_Init</span><span class="params">(<span class="type">void</span>)</span>		<span class="comment">//1毫秒@12.000MHz</span></span><br><span class="line">&#123;</span><br><span class="line">	AUXR &amp;= <span class="number">0x7F</span>;			<span class="comment">//定时器时钟12T模式</span></span><br><span class="line">	TMOD &amp;= <span class="number">0xF0</span>;			<span class="comment">//设置定时器模式</span></span><br><span class="line">	TL0 = <span class="number">0x18</span>;				<span class="comment">//设置定时初始值</span></span><br><span class="line">	TH0 = <span class="number">0xFC</span>;				<span class="comment">//设置定时初始值</span></span><br><span class="line">	TF0 = <span class="number">0</span>;				<span class="comment">//清除TF0标志</span></span><br><span class="line">	TR0 = <span class="number">1</span>;				<span class="comment">//定时器0开始计时</span></span><br><span class="line">	ET0 = <span class="number">1</span>;				<span class="comment">//开启Timer0中断</span></span><br><span class="line">	EA = <span class="number">1</span>;					<span class="comment">//开启总中断</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那如何隔一段时间调用函数呢？我们需要一个计数器来记录时间过去了多久.</p>
 <p>若定义一个<code>cnt</code>, 每次调用中断函数都过去<strong>1ms</strong>的时间, <code>cnt</code>都会计一次数，这样当过去<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>timeLimit</mtext><mo>×</mo><mtext>1ms</mtext></mrow><annotation encoding="application/x-tex">\text{timeLimit}\times \text{1ms}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">timeLimit</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">1ms</span></span></span></span></span>的时候，<code>if</code>条件成立，调用函数. 这样就实现了<strong>每过一段任意的时间</strong>调用一次函数.</p>
@@ -676,8 +676,11 @@ PCA 模块的底层逻辑完全不同。PCA 内部只有一个<strong>全局的�
 <p>其次需要把定时模式改成计数器模式，修改 <strong>TMOD</strong> 寄存器中的 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi mathvariant="normal">/</mi><mover accent="true"><mi>T</mi><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">C/\overline{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span></strong> 位为1.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">StartDetectNE555</span><span class="params">()</span> &#123;</span><br><span class="line">	AUXR &amp;= <span class="number">0x7F</span>;			<span class="comment">//定时器时钟12T模式</span></span><br><span class="line">	TMOD &amp;= <span class="number">0xF0</span>;			<span class="comment">//设置定时器模式</span></span><br><span class="line">	TMOD |= <span class="number">0x05</span>; 	<span class="comment">// 设置为 0000 0101</span></span><br><span class="line">	TL0 = <span class="number">0x00</span>;		<span class="comment">//设置定时初值</span></span><br><span class="line">	TH0 = <span class="number">0x00</span>;		<span class="comment">//设置定时初值</span></span><br><span class="line">	TF0 = <span class="number">0</span>;		<span class="comment">//清除TF1标志</span></span><br><span class="line">	TR0 = <span class="number">1</span>;		<span class="comment">//定时器1开始计时</span></span><br><span class="line">    ET0 = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">unsigned</span> <span class="title function_">ReadNE555</span><span class="params">()</span> &#123;</span><br><span class="line">    TR0 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> (TH0 &lt;&lt; <span class="number">8</span>) | TL0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="样例"><a class="markdownIt-Anchor" href="#样例"></a> 样例</h2>
-<p>下面是用这个模板写的第15届蓝桥杯省赛代码</p>
-<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Genkaim/LQ15th-Danpianji/tree/main">https://github.com/Genkaim/LQ15th-Danpianji/tree/main</a></p>
+<p>下面是用这个模板写的第15届蓝桥杯国赛满分代码.</p>
+<blockquote>
+<p>Claude code+Deepseek V4是真好用啊，直接改到满分了</p>
+</blockquote>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Genkaim/LQ15th-danpianji-guosai">https://github.com/Genkaim/LQ15th-danpianji-guosai</a></p>
 </div>
   
     <div class="post__license">
