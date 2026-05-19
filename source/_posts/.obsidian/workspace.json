@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "蓝桥杯单片机国赛省赛模板详解.md",
+                "file": "蓝桥杯超声波.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "蓝桥杯单片机国赛省赛模板详解"
+              "title": "蓝桥杯超声波"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "蓝桥杯单片机国赛省赛模板详解.md",
+                "file": "蓝桥杯超声波.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "蓝桥杯单片机国赛省赛模板详解 的大纲"
+              "title": "蓝桥杯超声波 的大纲"
             }
           }
         ],
