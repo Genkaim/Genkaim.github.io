@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "蓝桥杯超声波.md",
+                "file": "蓝桥杯单片机国赛省赛模板详解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "蓝桥杯超声波"
+              "title": "蓝桥杯单片机国赛省赛模板详解"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "蓝桥杯超声波.md",
+                "file": "蓝桥杯单片机国赛省赛模板详解.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "蓝桥杯超声波 的大纲"
+              "title": "蓝桥杯单片机国赛省赛模板详解 的大纲"
             }
           }
         ],
@@ -185,15 +185,16 @@
   },
   "active": "cffec2fe796e9ba1",
   "lastOpenFiles": [
-    "蓝桥杯单片机国赛省赛模板详解.md",
     "线代破门而入.md",
+    "筛法.md",
+    "蓝桥杯单片机国赛省赛模板详解.md",
+    "蓝桥杯超声波.md",
+    "串并行系统的时序逻辑.md",
     "柯西吃过土豆丝吗.md",
     "PID控制算法原理.md",
     "写都写了，发一下吧.md",
     "welcome.md",
     "十大排序算法之归并排序、快速排序、堆排序.md",
-    "筛法.md",
-    "串并行系统的时序逻辑.md",
     "显示“你的windows许可证只支持一种语言”时如何更改语言.md",
     "lagrangeConstsntChange.md",
     "如何证明∞等于0.md",
