@@ -223,9 +223,8 @@ body {
 #dropdown-menus {
   border-radius: 16px;
   margin-top: 0px;
-  background: var(--bg-content-color);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: #f7f7f7;
+
 
             display: fixed !important;
             top: 90px !important;
@@ -239,7 +238,7 @@ body {
 #dropdown-menus .dropdown-menu,
 #dropdown-menus .submit {
   background: transparent !important;
-  border-radius: 8px;
+  border-radius: 13px;
   margin: 2px 0;
 }
 #dropdown-menus .dropdown-menu:hover,
