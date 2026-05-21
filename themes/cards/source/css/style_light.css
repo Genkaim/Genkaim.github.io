@@ -55,13 +55,11 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
 .content-card::after {
     content: "";
     display: block;
-    width: calc(100% - 60px);  /* 总宽度减去左右边距 */
+    width: calc(100% - 40px);  /* 总宽度减去左右边距 */
     height: 0;
-    border-bottom: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a079 !important;
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);  /* 居中对齐 */
 }
 .content-card:last-child::after {
     display: none;
