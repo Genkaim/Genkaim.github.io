@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/categories/</loc>
+    <loc>https://www.genkaim.top/link/</loc>
     
     <lastmod>2026-05-08</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/link/</loc>
+    <loc>https://www.genkaim.top/categories/</loc>
     
     <lastmod>2026-05-08</lastmod>
     
@@ -516,14 +516,14 @@
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/AI/</loc>
+    <loc>https://www.genkaim.top/tags/%E5%8F%91%E7%99%AB/</loc>
     <lastmod>2026-05-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.genkaim.top/tags/%E5%8F%91%E7%99%AB/</loc>
+    <loc>https://www.genkaim.top/tags/AI/</loc>
     <lastmod>2026-05-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
