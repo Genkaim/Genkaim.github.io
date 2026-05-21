@@ -223,8 +223,9 @@ body {
 #dropdown-menus {
   border-radius: 16px;
   margin-top: 0px;
-  background: #f7f7f7;
-
+  background: var(--bg-content-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
             display: fixed !important;
             top: 90px !important;
@@ -235,14 +236,17 @@ body {
             border: 0.5px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
-#dropdown-menus .dropdown-menu,
-#dropdown-menus .submit {
+#dropdown-menus a {
+  display: block;
+  padding: 10px !important;
   background: transparent !important;
-  border-radius: 13px;
-  margin: 2px 0;
+  border-radius: 8px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 !important;
 }
-#dropdown-menus .dropdown-menu:hover,
-#dropdown-menus .submit:hover {
+#dropdown-menus a:hover {
   background: transparent !important;
   color: var(--main-color) !important;
 }

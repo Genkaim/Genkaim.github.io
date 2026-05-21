@@ -73,7 +73,7 @@
             top $header_height
             z-index 9999
             border-radius 16px
-            padding 16px
+            padding 10px
             width max-content
             min-width 160px
             transform-origin top right
@@ -83,25 +83,26 @@
             border 0.5px solid var(--border-color)
             -webkit-box-shadow 0 4px 16px rgba(0,0,0,0.08)
             box-shadow 0 4px 16px rgba(0,0,0,0.08)
-            justify-items center
-            -webkit-box-pack center
-            -ms-flex-pack center
-            justify-content center
             -webkit-box-orient vertical
             -webkit-box-direction normal
             -ms-flex-direction column
             flex-direction column
+            -webkit-box-align start
+            -ms-flex-align start
+            align-items flex-start
 
             &:hover
                 display -webkit-box
                 display -ms-flexbox
                 display flex
 
-            .dropdown-menu
-            .submit
+            a
                 padding 10px
                 background transparent
                 border-radius 8px
+                text-align left
+                width 100%
+                box-sizing border-box
 
                 &:hover
                     background transparent
