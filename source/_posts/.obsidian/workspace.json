@@ -15,7 +15,7 @@
               "state": {
                 "file": "蓝桥杯超声波.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "蓝桥杯超声波"
