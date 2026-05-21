@@ -596,6 +596,14 @@ button {
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: fit-content; /* ← 新增：让表格宽度适应内容 */
+}
 .highlight_language {
   font-weight: bold;
   font-size: 15px;
