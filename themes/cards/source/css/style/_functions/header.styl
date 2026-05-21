@@ -69,15 +69,20 @@
             animation slide-down 0.15s ease 1
             display none
             position absolute
-            left 12px
             right 12px
             top $header_height
             z-index 9999
-            border-radius 6px
-            padding 24px
+            border-radius 16px
+            padding 16px
+            width max-content
+            min-width 160px
+            transform-origin top right
             background var(--bg-content-color)
-            -webkit-box-shadow 1px 1px 5px 0 rgba(0,0,0,0.02), 1px 1px 15px 0 rgba(0,0,0,0.03)
-            box-shadow 1px 1px 5px 0 rgba(0,0,0,.02),1px 1px 15px 0 rgba(0,0,0,.03)
+            backdrop-filter blur(20px)
+            -webkit-backdrop-filter blur(20px)
+            border 0.5px solid var(--border-color)
+            -webkit-box-shadow 0 4px 16px rgba(0,0,0,0.08)
+            box-shadow 0 4px 16px rgba(0,0,0,0.08)
             justify-items center
             -webkit-box-pack center
             -ms-flex-pack center
@@ -93,17 +98,24 @@
                 display flex
 
             .dropdown-menu
+            .submit
                 padding 10px
+                background transparent
+                border-radius 8px
+
+                &:hover
+                    background transparent
+                    color var(--main-color)
 
 @keyframes slide-down {
     0% {
         opacity: 0;
-        transform: translateY(-1.6rem)
+        transform: scale(0.8) translateY(-0.8rem)
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0)
+        transform: scale(1) translateY(0)
     }
 }
 
@@ -120,4 +132,19 @@ if (hexo-config('navbar.sticky'))
 
     .dropdown-icon
         display block !important
+
+    .header
+        position relative
+        background linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) 25%, transparent 100%)
+
+        &::before
+            content ''
+            position absolute
+            inset 0
+            backdrop-filter blur(20px)
+            -webkit-backdrop-filter blur(20px)
+            -webkit-mask-image linear-gradient(to bottom, black 0%, black 35%, transparent 100%)
+            mask-image linear-gradient(to bottom, black 0%, black 35%, transparent 100%)
+            z-index -1
+            pointer-events none
 

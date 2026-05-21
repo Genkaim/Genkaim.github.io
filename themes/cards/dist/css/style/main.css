@@ -1006,15 +1006,24 @@ overflows table td {
   animation: slide-down 0.15s ease 1;
   display: none;
   position: absolute;
-  left: 12px;
   right: 12px;
   top: 60px;
   z-index: 9999;
-  border-radius: 6px;
-  padding: 24px;
+  border-radius: 16px;
+  padding: 16px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 160px;
+  -webkit-transform-origin: top right;
+      -ms-transform-origin: top right;
+          transform-origin: top right;
   background: var(--bg-content-color);
-  -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.02), 1px 1px 15px 0 rgba(0,0,0,0.03);
-  box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.02), 1px 1px 15px 0 rgba(0,0,0,0.03);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 0.5px solid var(--border-color);
+  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   justify-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -1032,8 +1041,16 @@ overflows table td {
   display: -webkit-flex;
   display: flex;
 }
-.header .header__right .dropdown-menus .dropdown-menu {
+.header .header__right .dropdown-menus .dropdown-menu,
+.header .header__right .dropdown-menus .submit {
   padding: 10px;
+  background: transparent;
+  border-radius: 8px;
+}
+.header .header__right .dropdown-menus .dropdown-menu:hover,
+.header .header__right .dropdown-menus .submit:hover {
+  background: transparent;
+  color: var(--main-color);
 }
 @media screen and (max-width: 764px) {
   .navbar__menus {
@@ -1042,29 +1059,45 @@ overflows table td {
   .dropdown-icon {
     display: block !important;
   }
+  .header {
+    position: relative;
+    background: -webkit-linear-gradient(top, var(--bg-color) 0%, var(--bg-color) 25%, transparent 100%);
+    background: linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) 25%, transparent 100%);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    -webkit-mask-image: -webkit-linear-gradient(top, black 0%, black 35%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
 }
 @-webkit-keyframes slide-down {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-1.6rem);
-            transform: translateY(-1.6rem);
+    -webkit-transform: scale(0.8) translateY(-0.8rem);
+            transform: scale(0.8) translateY(-0.8rem);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
   }
 }
 @keyframes slide-down {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-1.6rem);
-            transform: translateY(-1.6rem);
+    -webkit-transform: scale(0.8) translateY(-0.8rem);
+            transform: scale(0.8) translateY(-0.8rem);
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
   }
 }
 .nav {

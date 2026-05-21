@@ -152,15 +152,26 @@ a:hover {
 }
 .header {
   margin-top: 0px !important;
-  backdrop-filter: blur(40px);
   position: fixed;
   width: 100%;
-  background: linear-gradient(to bottom, 
-    #f4f4f496 0%,    /* 顶部稍实 */
-    #f4f4f496 20%,    /* 顶部稍实 */
-    #f4f4f4e3 100%   /* 底部更透明 */
+  background: linear-gradient(to bottom,
+    var(--bg-color) 0%,
+    var(--bg-color) 25%,
+    transparent 100%
   );
   height: 90px !important;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .nav {
@@ -210,19 +221,31 @@ body {
   }
 }
 #dropdown-menus {
-  border-radius: 0px;
+  border-radius: 16px;
   margin-top: 0px;
-  background: linear-gradient(to bottom, rgba(244, 244, 244, 0) 0%, #f4f4f4 17%);
+  background: var(--bg-content-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
             display: fixed !important;
-            top:50px !important;
-            width: 100% !important;
-            left: 0px !important;
-            border-bottom: 2px solid #d9d9d9;
-            border-left: 2px solid #d9d9d9;
-                        border-right: 2px solid #d9d9d9;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.028);
-            border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;
+            top: 90px !important;
+            width: max-content !important;
+            min-width: 160px;
+            right: 12px !important;
+            left: auto !important;
+            border: 0.5px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+#dropdown-menus .dropdown-menu,
+#dropdown-menus .submit {
+  background: transparent !important;
+  border-radius: 8px;
+  margin: 2px 0;
+}
+#dropdown-menus .dropdown-menu:hover,
+#dropdown-menus .submit:hover {
+  background: transparent !important;
+  color: var(--main-color) !important;
 }
 .cover {
   height: 100px;
