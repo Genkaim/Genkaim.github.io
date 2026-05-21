@@ -221,7 +221,7 @@ body {
   }
 }
 #dropdown-menus {
-  border-radius: 17px;
+  border-radius: 20px;
   margin-top: 0px;
   background: #f4f4f4b5;
   backdrop-filter: blur(40px);
@@ -238,8 +238,8 @@ body {
 }
 #dropdown-menus a {
   display: block;
-  padding: 9px;
-  padding-left: 15px !important;
+  padding: 11px;
+  padding-left: 20px !important;
 
   background: transparent !important;
   border-radius: 8px;
@@ -247,9 +247,10 @@ body {
   width: 100%;
   box-sizing: border-box;
   margin: 0 !important;
-    margin-right: 125px !important;
+    margin-right: 100px !important;
   color: rgba(0, 0, 0, 0.797);
   transition: all 0.3s ease;
+  font-weight: bold;
 }
 #dropdown-menus a:hover {
   background: transparent !important;
