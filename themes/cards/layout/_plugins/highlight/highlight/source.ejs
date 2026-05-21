@@ -1,4 +1,4 @@
-<% if (config.highlight.enable === true && config.highlight.hljs !== true && page.cover === false) { %>
+<% if (config.highlight.enable === true && config.highlight.hljs !== true && page.cover !== true) { %>
     <% if (theme.vendors.highlight) { %>
         <link rel="stylesheet" id="hl-default-theme" href="<%= `${theme.vendors.highlight}${theme.style.highlight.default || 'default'}.min.css` %>" media="none" <%- theme.darkmode === true ? "" : `onload="this.media='all'"` %>>
         <% if (theme.darkmode === true && (theme.style.highlight.darkmode !== theme.style.highlight.default || theme.style.highlight.darkmode === null)) { %>
