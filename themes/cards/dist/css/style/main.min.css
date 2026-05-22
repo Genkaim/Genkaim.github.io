@@ -1265,10 +1265,43 @@ overflows table th {
   padding-left: 0;
 }
 .toc .toc-link {
-  color: grey;
+  color: #aaa;
+  display: block;
+  padding: 4px 10px 4px 0;
+  border-radius: 6px;
+  transition: color 0.35s ease, text-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  will-change: transform;
+}
+.toc .toc-link.active {
+  color: #222;
+  font-weight: 900;
+  text-shadow: 0 0 0 #222;
+  -webkit-transform: translateX(4px) scale(1.08);
+  -ms-transform: translateX(4px) scale(1.08);
+  transform: translateX(4px) scale(1.08);
+}
+.toc .toc-link:hover {
+  color: #666;
+}
+.toc .toc-link.active:hover {
+  color: #222;
+  font-weight: 900;
+  text-shadow: 0 0 0 #222;
+  -webkit-transform: translateX(4px) scale(1.08);
+  -ms-transform: translateX(4px) scale(1.08);
+  transform: translateX(4px) scale(1.08);
 }
 .toc .toc-child {
-  padding-left: 0.6rem;
+  padding-left: 0.8rem;
   list-style-type: none;
 }
 .btn-toc {
@@ -1303,7 +1336,7 @@ overflows table th {
   z-index: 9999;
 }
 .toc-menus:hover {
-  display: block;
+  display: none;
 }
 .toc-menus .toc-title {
   color: grey;
