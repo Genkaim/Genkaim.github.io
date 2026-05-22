@@ -309,6 +309,8 @@ svg {
 .post__content svg rect[width="650"],
 .post-entry__content svg rect[width="650"] {
   fill: transparent !important;
+  fill: none !important;
+  opacity: 0 !important;
 }
 
 .post-cover {
@@ -1088,7 +1090,7 @@ table {
   display: flex; justify-content: center; align-items: center; width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: white;
+
   padding: 15px;
 }
 html {
