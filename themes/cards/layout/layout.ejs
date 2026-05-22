@@ -109,9 +109,11 @@
       <%- partial('_partial/source/cover') %> <%- body %> <%-
       partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
     </div>
-    
+
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+
     <%- partial('_partial/music-player') %>
-    
+
     <%- partial('_partial/scripts/index') %>
     
 <script>
@@ -120,9 +122,17 @@
    * ========================= */
   let isGlobalEventsBound = false;
 
+  // Safari 不显示遮罩
+  if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+    var style = document.createElement('style');
+    style.textContent = '.dropdown-backdrop, .toc-backdrop { display: none !important; } #dropdown-menus, .toc-menus { box-shadow: 0 6px 20px rgba(0,0,0,0.18) !important; }';
+    document.head.appendChild(style);
+  }
+
   function bindGlobalEvents() {
     if (isGlobalEventsBound) return;
 
+    /** scroll */
     /** scroll（控制返回顶部按钮） */
     let ticking = false;
     window.addEventListener('scroll', () => {

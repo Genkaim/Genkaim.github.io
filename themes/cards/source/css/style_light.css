@@ -85,14 +85,14 @@ a:hover {
     margin-bottom: 0px !important;
 }
 .footer .button {
-  bottom: 4.8rem !important;
+  bottom: 5.3rem !important;
   transition: all 0.3s ease;
   background-color: white !important;
   border-radius: 20px !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
 }
 .btn-toc {
-  bottom: 1.2rem !important;
+  bottom: 1.8rem !important;
   transition: all 0.3s ease;
   background: rgb(248, 248, 248) !important;
   border-radius: 20px !important;
@@ -162,6 +162,7 @@ a:hover {
   margin-top: 0px !important;
   position: fixed;
   width: 100%;
+  z-index: 1003;
   background: linear-gradient(to bottom,
     var(--bg-color) 0%,
     var(--bg-color) 10%,
@@ -235,13 +236,11 @@ body {
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 
-            display: fixed !important;
             top: 80px !important;
             width: max-content !important;
             min-width: 160px;
             right: 22px !important;
             left: auto !important;
-            border: 1px solid rgba(0, 0, 0, 0.116);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 #dropdown-menus a {
@@ -855,16 +854,16 @@ table {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   display: none;
   flex-direction: column;
-  max-height: none;
+  max-height: 70vh;
   padding: 0;
   position: fixed;
   right: 30px;
   left: auto;
-  bottom: calc(3rem + 24px);
+  bottom: calc(4rem + 30px);
   z-index: 99900;
   min-width: 180px;
-  width: 50vw;
-  max-width: 50vw;
+  width: 70vw;
+  max-width: 70vw;
   -webkit-transform-origin: bottom right;
       -ms-transform-origin: bottom right;
           transform-origin: bottom right;
@@ -873,7 +872,7 @@ table {
   background: #f4f4f4;
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
-  border: 1px solid rgba(0, 0, 0, 0.116);
+
   overflow: hidden;
 }
 .toc-menus.show {
@@ -909,22 +908,26 @@ table {
 }
 
 .toc-menus .toc-wrapper {
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .toc-menus .toc {
-  padding: 8px;
+  flex: 1;
+  min-height: 0;
+  padding: 8px 8px 4px;
   overflow-y: auto;
   margin-top: 0;
-  max-height: calc(100vh - 300px);
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
+  padding-bottom: 10px;
 }
 .toc-menus .toc .toc-link {
   color: rgba(0,0,0,0.75);
@@ -973,11 +976,11 @@ table {
 }
 
 .dropdown-backdrop {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgba(0,0,0,0.45);
   opacity: 0;
   pointer-events: none;
@@ -985,6 +988,10 @@ table {
   transition: opacity 0.2s ease;
 }
 #btn-dropdown:focus ~ .dropdown-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+.dropdown-backdrop.show {
   opacity: 1;
   pointer-events: auto;
 }
