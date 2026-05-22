@@ -784,7 +784,9 @@
 </footer>
 
     </div>
-    
+
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+
     <div id="global-music-player" class="music-player-container">
   <div class="music-player-content" id="musicPlayerBox">
     <div class="music-iframe-wrapper">
@@ -981,7 +983,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
-    
+
     
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
     <script>
@@ -1032,9 +1034,17 @@ document.addEventListener('DOMContentLoaded', () => {
    * ========================= */
   let isGlobalEventsBound = false;
 
+  // Safari 不显示遮罩
+  if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
+    var style = document.createElement('style');
+    style.textContent = '.dropdown-backdrop, .toc-backdrop { display: none !important; } #dropdown-menus, .toc-menus { box-shadow: 0 6px 20px rgba(0,0,0,0.18) !important; }';
+    document.head.appendChild(style);
+  }
+
   function bindGlobalEvents() {
     if (isGlobalEventsBound) return;
 
+    /** scroll */
     /** scroll（控制返回顶部按钮） */
     let ticking = false;
     window.addEventListener('scroll', () => {
