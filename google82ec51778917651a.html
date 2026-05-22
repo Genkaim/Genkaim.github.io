@@ -251,6 +251,7 @@
                 
                 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://forms.office.com/r/azdAgJ2eij" >订阅博客</a>
             </div>
+            <div class="dropdown-backdrop"></div>
         
     </div>
 </header>
@@ -337,31 +338,83 @@
     ></path>
   </svg>
 </button>
-<!-- 控制层，用于捕获外部点击 -->
-<div class="toc-control" tabindex="0"></div>
 <div class="toc-menus" id="toc-menus">
   <div class="toc-title">文章目录</div>
   <div class="toc-wrapper">
-    <div class="toc-gradient-overlay"></div>
     
   </div>
 </div>
+<div class="toc-backdrop" id="toc-backdrop"></div>
 <script>
+  function toggleTocMenus() {
+    const tocMenus = document.getElementById('toc-menus');
+    const backdrop = document.getElementById('toc-backdrop');
+    const btnToc = document.getElementById('btn-toc');
+    if (!tocMenus) return;
+    tocMenus.classList.toggle('show');
+    backdrop?.classList.toggle('show');
+    if (tocMenus.classList.contains('show')) {
+      btnToc.classList.add('active');
+    } else {
+      btnToc.classList.remove('active');
+    }
+  }
+
+  function closeTocMenus() {
+    const tocMenus = document.getElementById('toc-menus');
+    const backdrop = document.getElementById('toc-backdrop');
+    const btnToc = document.getElementById('btn-toc');
+    if (tocMenus) tocMenus.classList.remove('show');
+    if (backdrop) backdrop.classList.remove('show');
+    if (btnToc) btnToc.classList.remove('active');
+  }
+
   function onTocLinkClick(e) {
-    if (!e.target.closest('.toc-link')) return;
     const tocMenus = document.getElementById('toc-menus');
     const btnToc = document.getElementById('btn-toc');
-    if (tocMenus) tocMenus.style.display = 'none';
-    if (btnToc) {
-      btnToc.blur();
-      btnToc.addEventListener('focus', () => {
-        if (tocMenus) tocMenus.style.display = '';
-      }, { once: true });
+    if (!tocMenus || !tocMenus.classList.contains('show')) return;
+    const link = e.target.closest('.toc-link');
+    if (link) {
+      closeTocMenus();
+      return;
+    }
+    if (!tocMenus.contains(e.target) && e.target !== btnToc && !btnToc.contains(e.target)) {
+      closeTocMenus();
     }
   }
 
   document.removeEventListener('click', onTocLinkClick);
   document.addEventListener('click', onTocLinkClick);
+  document.getElementById('btn-toc')?.addEventListener('click', toggleTocMenus);
+
+  function initTocScroll() {
+    const tocLinks = document.querySelectorAll('.post-side__toc .toc-link');
+    if (!tocLinks.length) return;
+    const headings = [];
+    tocLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const el = document.querySelector(decodeURIComponent(href));
+      if (el) headings.push({ el, link });
+    });
+    if (!headings.length) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const target = headings.find(h => h.el === entry.target);
+          if (target) target.link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    headings.forEach(h => observer.observe(h.el));
+  }
+
+  document.addEventListener('DOMContentLoaded', initTocScroll);
+  // 兼容 PJAX：脚本直接执行
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(initTocScroll, 100);
+  }
 </script>
 
 
