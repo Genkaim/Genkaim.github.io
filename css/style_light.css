@@ -98,6 +98,9 @@ a:hover {
   border-radius: 20px !important;
   box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
 }
+.toc-menus .toc-title {
+  border-bottom: none !important;
+}
 
 .btn-toc:hover {
   transform: scale(1.05) translateY(-5px) translateX(-5px);
