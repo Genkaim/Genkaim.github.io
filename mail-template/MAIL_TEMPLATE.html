@@ -1,0 +1,110 @@
+<div class="background-img"></div>
+<div class="main">
+    <div class="main_content"
+        style="padding:40px;margin:0px;background-color:transparent;border-radius:0;box-shadow:none;">
+        <style type="text/css">
+            @media screen and (max-width:600px) {
+                .afterimg,.beforeimg { display:none !important }
+            }
+        </style>
+        <div class="inner-card"
+            style="border-radius:15px;font-size:15px;color:#4c4d4e;width:auto;font-family:'Times New Roman','Noto Serif SC','STSong',SimSun,serif;margin:0 auto;max-width:100%;background:transparent;padding:30px 40px;box-shadow:none;line-height:1.8;text-align:center;">
+            <div class="formmain"
+                style="background:none;width:100%;max-width:800px;margin:0 auto;overflow:hidden;">
+                <p class="title"
+                    style="font-size:30px;width:auto;display:block;margin:0 auto 20px;margin-left:30px;margin-right:40px;font-weight:900;text-align:center;word-break:break-all;color:#50596c;">
+                    您在<a style="text-decoration:none;color:rgba(0,0,0,0.5);" href="{{site.url}}">『{{site.name|safe}}』</a>上的留言有新回复啦！</p>
+                <div style="margin:30px auto;width:90%;">
+                    <p style="margin:0 0 16px;">Hi，{{parent.nick}}，您曾在文章上发表评论：</p>
+                    <div class="ms">
+                        {{parent.comment | safe}}</div>
+                    <p style="margin:20px 0 16px;"><strong>{{self.nick}}</strong> 给您的回复如下：</p>
+                    <div class="ms">
+                        {{self.comment | safe}}</div>
+                    <p style="margin:20px 0 0;">您可以在这里<a style="text-decoration:none;color:rgba(0,0,0,0.4);" href="{{site.postUrl}}" target="_blank">查看回复的完整內容</a>，欢迎再次光临<a style="text-decoration:none;color:rgba(0,0,0,0.5);" href="{{site.url}}" target="_blank"> {{site.name}}</a>。</p>
+                    <hr style="border:none;border-top:1px solid rgba(0,0,0,0.08);margin:24px 0;" />
+                    <p style="font-size:13px;color:rgba(0,0,0,0.45);text-align:center;margin:0;">
+                        本邮件为系统自动发送，请勿直接回复邮件哦，可到博文内容回复。<br />{{site.url}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .ms {
+        background:#f4f4f4;
+        box-shadow:none;
+        margin:16px 0;
+        padding:16px 20px;
+        border-radius:0px;
+        font-size:15px;
+        color:#4c4d4e;
+        line-height:1.8;
+        font-family:'Times New Roman','Noto Serif SC','STSong',SimSun,serif;
+        text-align:left;
+    }
+
+    .main {
+        margin-top:50px;
+        position:relative;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .background-img {
+        position:fixed;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background-color:#f4f4f4;
+        background-size:contain;
+    }
+
+    .main_content {
+        width:100%;
+        max-width:640px;
+        padding:20px !important;
+    }
+
+    @media screen and (max-width:700px) {
+        .ms {
+            padding-left:12px !important;
+            border-radius:0px !important;
+            border-left:4px solid rgba(0,0,0,0.12) !important;
+        }
+        .main_content {
+            width:100%;
+            padding:10px !important;
+        }
+        .inner-card,
+        .inner-card p,
+        .inner-card .ms,
+        .inner-card .title {
+            text-align:left !important;
+        }
+        .inner-card .title {
+            margin-left:0 !important;
+        }
+        .inner-card .formmain > div {
+            width:100% !important;
+            margin:20px 0 !important;
+        }
+    }
+
+    @media screen and (min-width:701px) {
+        .inner-card,
+        .inner-card p,
+        .inner-card .ms,
+        .inner-card .title {
+            text-align:center !important;
+        }
+    }
+
+    .title {
+        font-size:23px !important;
+        margin-bottom:40px !important;
+    }
+</style>
