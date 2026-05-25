@@ -8,9 +8,12 @@
             }
         </style>
         <div class="inner-card"
-            style="border-radius:15px;font-size:15px;color:#4c4d4e;width:auto;font-family:'Times New Roman','Noto Serif SC','STSong',SimSun,serif;margin:0 auto;max-width:100%;background:transparent;padding:30px 40px;box-shadow:none;line-height:1.8;text-align:center;">
+            style="border-radius:15px;font-size:15px;color:#4c4d4e;width:auto;font-family:'Times New Roman','Noto Serif SC','STSong',SimSun,serif;margin:0 auto;max-width:100%;background:transparent;padding-left:5px;padding-right:10px;box-shadow:none;line-height:1.8;text-align:left;">
             <div class="formmain"
-                style="background:none;width:100%;max-width:800px;margin:0 auto;overflow:hidden;">
+                style="background:none;width:100%;max-width:500px;margin:0 auto;overflow:hidden;">
+                <div style="width:50px; text-align: left; margin-right: auto;margin-bottom: 30px;">
+                    <img src="https://cdn.luogu.com.cn/upload/image_hosting/4m56mx1z.png" width="50" height="50" alt="Claude" style="display:block;" />
+                </div>
                 <p class="title"
                     style="font-size:30px;width:auto;display:block;margin:0 auto 20px;margin-left:30px;margin-right:40px;font-weight:900;text-align:center;word-break:break-all;color:#50596c;">
                     您在<a style="text-decoration:none;color:rgba(0,0,0,0.5);" href="{{site.url}}">『{{site.name|safe}}』</a>上的留言有新回复啦！</p>
@@ -69,7 +72,7 @@
         padding:20px !important;
     }
 
-    @media screen and (max-width:700px) {
+    @media screen and (max-width:7999990px) {
         .ms {
             padding-left:12px !important;
             border-radius:0px !important;
@@ -94,7 +97,7 @@
         }
     }
 
-    @media screen and (min-width:701px) {
+    @media screen and (min-width:79999991px) {
         .inner-card,
         .inner-card p,
         .inner-card .ms,
@@ -102,7 +105,11 @@
             text-align:center !important;
         }
     }
-
+    @media screen and (min-width:790px) { 
+        .formmain {
+            transform:translateX(-50px);
+        }
+    }
     .title {
         font-size:23px !important;
         margin-bottom:40px !important;
