@@ -13,7 +13,6 @@
 }
 .header {
 border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-left */
-  transition: all 0.3s ease;
 
 }
 #btn-search a {
@@ -85,7 +84,7 @@ a:hover {
     margin-bottom: 0px !important;
 }
 .footer .button {
-  bottom: 5.3rem !important;
+  bottom: 5.5rem !important;
   transition: all 0.3s ease;
   background-color: white !important;
   border-radius: 20px !important;
@@ -150,7 +149,7 @@ a:hover {
     color: #707070 !important;
 }
 .header .header__left .logo__text {
-  transition: all 0.3s ease;
+  transition: padding-left 0.3s ease;
   padding: 16px 10px 16px 0px !important;
 }
 .header .header__left .logo__text:hover {
@@ -173,6 +172,7 @@ a:hover {
   );
   height: 90px !important;
 }
+
 
 .header::before {
   content: '';
@@ -727,16 +727,22 @@ table {
     }
 @media screen and (max-width: 650px) {
   .header .header__left .logo__text {
-    padding-left: 10px !important;
-}
-.header .header__right .dropdown-menus .dropdown-menu {
-    padding-left: 0px !important;
-}
+    padding-left: 0 !important;
+  }
 }
 @media screen and (max-width: 764px) {
   .content-card {
     padding: 9%;
     padding-top: 11%;
+  }
+  .header {
+    padding-left: 9vw;
+  }
+  body:has(article.post) .header {
+    padding-left: 6vw;
+  }
+  .header .header__left .button {
+    margin-left: 0 !important;
   }
   .post__with-toc {
     padding: 6% !important;
@@ -1100,7 +1106,7 @@ table {
   margin-top: 20px;
   margin-bottom: 20px;
 
-  padding: 15px;
+  padding: 0px;
 }
 html {
   scroll-padding-top: 120px; /* 根据你的导航栏高度调整这个值 */
@@ -1117,3 +1123,4 @@ html {
   margin-top: 0px !important;
   margin-bottom: 10px !important;
 }
+
