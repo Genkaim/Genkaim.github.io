@@ -994,6 +994,15 @@ document.addEventListener('DOMContentLoaded', () => {
       highlight.insertBefore(div, highlight.firstChild);
     });
 
+    /** waline 邮箱占位符 */
+    (function checkWalineMail() {
+      var mailInput = document.querySelector('#wl-mail');
+      if (mailInput) {
+        mailInput.setAttribute('placeholder', '可用于接收回复通知');
+      } else {
+        setTimeout(checkWalineMail, 500);
+      }
+    })();
   }
 
   /** =========================
