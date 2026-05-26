@@ -23,19 +23,19 @@ tags: 其他
 
 ## 更新日志
 
-| 日期        | 内容                                 |     |
-| --------- | ---------------------------------- | --- |
-| 2026.5.4  | 1.更改博客设计语言.                        |     |
-| 2026.4.25 | 1.更改全局字体.                          |     |
-| 2026.4.6  | 1.更新了apple music web embed作为网页播放器; |     |
-|           | 2.使用pjax加载;                        |     |
-|           | 3.修复若干bug.                         |     |
+| 日期        | 内容                                 |
+| --------- | ---------------------------------- |
+| 2026.5.4  | 1.更改博客设计语言.                        |
+| 2026.4.25 | 1.更改全局字体.                          |
+| 2026.4.6  | 1.更新了apple music web embed作为网页播放器; |
+|           | 2.使用pjax加载;                        |
+|           | 3.修复若干bug.                         |
 
 <div class="svg-container">
 
 
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360pt" height="auto" viewBox="0 0 360 360" version="1.1">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130px" height="auto" viewBox="0 0 360 360" version="1.1">
 <g id="surface1">
 <rect x="0" y="0" width="360" height="360" style="fill:rgb(99.998474%,99.998474%,99.998474%);fill-opacity:0;stroke:none;"/>
 <path style=" stroke:none;fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 103.355469 174.792969 C 126.574219 174.792969 145.421875 156.183594 145.421875 133.265625 C 145.421875 110.347656 126.574219 91.738281 103.355469 91.738281 C 80.140625 91.738281 61.292969 110.347656 61.292969 133.265625 C 61.292969 156.183594 80.140625 174.792969 103.355469 174.792969 Z M 103.355469 174.792969 "/>
@@ -43,5 +43,8 @@ tags: 其他
 <path style="fill:none;stroke-width:3.825;stroke-linecap:square;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:3.25;" d="M 213.253906 235.746094 C 213.253906 235.746094 223.957031 251.917969 234.648438 252.984375 C 245.335938 254.046875 245.363281 253.511719 252.097656 243.589844 C 258.828125 233.671875 261.964844 221.417969 261.964844 221.417969 C 261.964844 221.417969 272.527344 240.28125 284.683594 237.101563 C 296.839844 233.921875 299.3125 234.042969 304.078125 229.960938 C 308.84375 225.878906 312.683594 208.265625 312.683594 208.265625 C 312.683594 208.265625 313.035156 209.363281 313.035156 209.363281 " transform="matrix(1,0,0,1,-66,-8)"/>
 </g>
 </svg>
-
 </div>
+
+## 送您几首歌
+
+<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/cn/playlist/%E7%88%B1%E4%B8%8D%E9%87%8A%E8%80%B3/pl.pm-01ed408c735a7f33a29d4fa6a925b877"></iframe>
