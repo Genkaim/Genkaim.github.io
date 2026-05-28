@@ -93,9 +93,12 @@ a:hover {
 .btn-toc {
   bottom: 1.8rem !important;
   transition: all 0.3s ease;
-  background: rgb(248, 248, 248) !important;
+  background: #f4f4f4 !important;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(0, 0, 0, 0.116) !important;
   border-radius: 20px !important;
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.1) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
 }
 .toc-menus .toc-title {
   border-bottom: none !important;
@@ -103,7 +106,7 @@ a:hover {
 
 .btn-toc:hover {
   transform: scale(1.05) translateY(-5px) translateX(-5px);
-  box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, 0.101) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
 }
 .button:hover {
   transform: translateY(0px);
@@ -213,7 +216,7 @@ a:hover {
 body {
  font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
 }
-.post, .post h1, h2, h3, h4, h5,.post-title__text,.home_content,.footer {
+.post, .post h1, h2, h3, h4, h5,.post-title__text,.home_content,.footer,.dropdown-menus{
   font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -233,7 +236,7 @@ body {
   }
 }
 #dropdown-menus {
-  border-radius: 20px;
+  border-radius: 32px;
   margin-top: 0px;
   background: #f4f4f4;
   backdrop-filter: blur(40px);
@@ -245,6 +248,7 @@ body {
             right: 22px !important;
             left: auto !important;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            padding: 15px !important;
 }
 #dropdown-menus a {
   display: block;
@@ -854,8 +858,10 @@ table {
   color: rgba(0, 0, 0, 0.349) !important;
 }
 #b2t {
-            border: 1px solid rgba(0, 0, 0, 0.103) !important;
-  background: rgb(249, 249, 249) !important;
+  border: 1px solid rgba(0, 0, 0, 0.116) !important;
+  background: #f4f4f4 !important;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
 }
 .toc-menus {
   border-radius: 30px;
