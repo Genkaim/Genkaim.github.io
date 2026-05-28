@@ -646,7 +646,8 @@ PCA 模块的底层逻辑完全不同。PCA 内部只有一个<strong>全局的�
 <p>超声波测距的原理是发送一段超声波，看他什么时候回来. 原理很简单，关键是如何计时与细节处理.</p>
 <p>发送信号一般由<strong>8 个周期</strong>的 <strong>40kHz</strong> 方波信号构成. 用循环写的话大概就是每个电平保持12us.</p>
 <blockquote>
-<p><strong>为什么是 8 个？</strong> 这是一个权衡：如果脉冲太少，接收端的压电晶体可能还没充分起振；如果脉冲太多，发射周期太长会增加盲区距离（即还没发完，回声就回来了）。</p>
+<p><strong>为什么是 8 个？</strong> 这是一个权衡：如果脉冲太少，接收端的压电晶体可能还没充分起振；如果脉冲太多，发射周期太长会增加盲区距离（即还没发完，回声就回来了）。<br />
+此外，主包额外做了<a href="https://www.genkaim.top/posts/abb27f10">一点探究</a>.</p>
 <p><strong>为什么是 40kHz？40kHz</strong> 正好处于一个“黄金分割点”：既能保证几米到十几米的探测距离，又不至于因为衰减太快而检测不到回波。</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Delay12us</span><span class="params">()</span> &#123; <span class="comment">// 针对 12MHz 晶振的简单延时</span></span><br><span class="line">    _nop_(); _nop_(); _nop_(); _nop_();</span><br><span class="line">    _nop_(); _nop_(); _nop_(); _nop_();</span><br><span class="line">    _nop_(); _nop_(); _nop_(); _nop_();</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">StartWave</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">		TX = <span class="number">1</span>;Delay12us();TX = <span class="number">0</span>;Delay12us();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
