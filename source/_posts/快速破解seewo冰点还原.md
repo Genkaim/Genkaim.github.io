@@ -17,7 +17,7 @@ cover: https://raw.githubusercontent.com/Genkaim/blog_img/refs/heads/main/data/2
 1.[希沃管家1.1.9](https://www.123pan.com/s/Zk0Kjv-5kRx.html) 如果不想登录的话可以在[这里](https://www.iefans.net/soft/v1119124.html)下载
 2.[MD5对照表](https://wwp.lanzoum.com/iU7uB0cc5i6j )密码:96os 
 
-> 对照表来自 https://www.bilibili.com/video/BV1424y1R74A
+> 对照表来自 [Bilibili](https://www.bilibili.com/video/BV1424y1R74A)
 
 ## Summary
 
