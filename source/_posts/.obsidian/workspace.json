@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "蓝桥杯单片机国赛省赛模板详解.md",
+                "file": "快速破解seewo冰点还原.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "蓝桥杯单片机国赛省赛模板详解"
+              "title": "快速破解seewo冰点还原"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "蓝桥杯单片机国赛省赛模板详解.md",
+                "file": "快速破解seewo冰点还原.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "蓝桥杯单片机国赛省赛模板详解 的大纲"
+              "title": "快速破解seewo冰点还原 的大纲"
             }
           }
         ],
@@ -185,6 +185,7 @@
   },
   "active": "cffec2fe796e9ba1",
   "lastOpenFiles": [
+    "快速破解seewo冰点还原.md",
     "蓝桥杯单片机国赛省赛模板详解.md",
     "蓝桥杯超声波.md",
     "线代破门而入.md",
@@ -207,7 +208,6 @@
     "LCA.md",
     "在xLog托管博客.md",
     "velaOS快应用快速入门.md",
-    "快速破解seewo冰点还原.md",
     "RSS+Tinyletter+Zapier实现博客更新邮件推送.md",
     "Hexo Butterfly优化合集.md",
     "博客接入搜索引擎、百度统计.md",

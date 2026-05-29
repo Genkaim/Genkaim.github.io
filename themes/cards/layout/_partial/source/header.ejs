@@ -8,9 +8,8 @@
         <% if (theme.navbar.menu && theme.navbar.menu.forEach) { %>
             <div class="navbar__menus">
                 <% theme.navbar.menu.forEach((item) => { %>
-                    <a href="<%= url_for(item.url) %>" class="navbar-menu button"><%= item.name %></a>
+                    <a href="<%= url_for(item.url) %>" class="navbar-menu button"><%= item.name %><% if (item.url.startsWith('http')) { %><span class="nav-arrow"><svg height="12" width="12" viewBox="0 0 16 16"><path d="M1.559 16 13.795 3.764v8.962H16V0H3.274v2.205h8.962L0 14.441 1.559 16z"/></svg></span><% } %></a>
                 <% }); %>
-                <a class="submit" href="https://forms.office.com/r/azdAgJ2eij">订阅</a>
             </div>
         <% } %>
         
@@ -22,9 +21,9 @@
             <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
             <div class="dropdown-menus" id="dropdown-menus">
                 <% theme.navbar.menu.forEach((item) => { %>
-                    <a href="<%= url_for(item.url) %>" class="dropdown-menu button"><%= item.name %></a>
+                    <a href="<%= url_for(item.url) %>" class="dropdown-menu button"><%= item.name %><% if (item.url.startsWith('http')) { %><span class="nav-arrow"><svg height="12" width="12" viewBox="0 0 16 16"><path d="M1.559 16 13.795 3.764v8.962H16V0H3.274v2.205h8.962L0 14.441 1.559 16z"/></svg></span><% } %></a>
                 <% }); %>
-                <a href="https://forms.office.com/r/azdAgJ2eij" >订阅博客</a>
+               
             </div>
             <div class="dropdown-backdrop"></div>
         <% } %>
