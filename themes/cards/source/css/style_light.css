@@ -275,6 +275,8 @@ body {
   vertical-align: middle;
   margin-left: 3px;
   fill: currentColor;
+  margin-bottom: 2px;
+  width: 10px;height: 10px;
 }
 
 .post__content a:not([href^="#"]):not(.toc-link),
@@ -302,7 +304,13 @@ body {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
-
+.toc .toc-link.active {
+  font-weight: 600 !important;
+  color: #444444 !important;
+}
+.toc .toc-link.active:hover {
+  color: #656565 !important;
+}
 a {
   color: #929292 !important;
   transition: all 0.3s ease;
