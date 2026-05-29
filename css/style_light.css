@@ -216,7 +216,7 @@ a:hover {
 body {
  font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
 }
-.post, .post h1, h2, h3, h4, h5,.post-title__text,.home_content,.footer,.dropdown-menus{
+.post, .post h1, h2, h3, h4, h5,.post-title__text,.home_content,.footer{
   font-family: "Times New Roman", "Noto Serif SC", "STSong", "SimSun", "Source Han Serif SC", "思源宋体", serif !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -269,6 +269,35 @@ body {
 #dropdown-menus a:hover {
   background: transparent !important;
   color: rgba(0, 0, 0, 0.483) !important;
+}
+
+.nav-arrow svg {
+  vertical-align: middle;
+  margin-left: 3px;
+  fill: currentColor;
+}
+
+.post__content a:not([href^="#"]):not(.toc-link)::after,
+.post-entry__content a:not([href^="#"])::after {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-left: 2px;
+  margin-right: 4px;
+  margin-bottom: 2px;
+  vertical-align: middle;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.559 16 13.795 3.764v8.962H16V0H3.274v2.205h8.962L0 14.441 1.559 16z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M1.559 16 13.795 3.764v8.962H16V0H3.274v2.205h8.962L0 14.441 1.559 16z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+a {
+  color: #929292 !important;
+  transition: all 0.3s ease;
 }
 .cover {
   height: 100px;
