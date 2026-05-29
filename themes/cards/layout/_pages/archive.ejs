@@ -26,8 +26,7 @@
                         </div>
                     </div>
                     <span class="archives-content">
-                        <%= date(post.date, 'MM-DD') %>
-                        &nbsp;
+                        <span class="archives-date"><%= date(post.date, 'MM-DD') %></span>
                         <a href="<%= url_for(post.link || post.path) %>">
                             <span class="archives-title">
                                 <% if (post.title){ %>
@@ -37,7 +36,7 @@
                                 <% } %>
                             </span>
                         </a>
-                        <br><br>
+                         <br><br>
                     </span>
                 </div>
             <% }) %>
