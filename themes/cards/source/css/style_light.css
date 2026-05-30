@@ -257,8 +257,7 @@ body {
   border-radius: 32px;
   margin-top: 0px;
   background: #f4f4f4;
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+  will-change: transform;
 
             top: 80px !important;
             width: max-content !important;
