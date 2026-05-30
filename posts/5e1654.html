@@ -1132,7 +1132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('pjax:send', () => {
       var headerEl = document.querySelector('.header');
       if (headerEl) {
-        headerEl.animate([{opacity: 1}, {opacity: 0}], {duration: 400, fill: 'forwards'});
+        var ani = headerEl.animate([{opacity: 1}, {opacity: 0}], {duration: 400});
+        ani.onfinish = function() { headerEl.style.opacity = '0'; };
       }
 
       requestAnimationFrame(() => {
@@ -1144,7 +1145,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('pjax:success', () => {
       var headerEl = document.querySelector('.header');
       if (headerEl) {
-        headerEl.animate([{opacity: 0}, {opacity: 1}], {duration: 400, fill: 'forwards'});
+        headerEl.style.opacity = '';
+        headerEl.animate([{opacity: 0}, {opacity: 1}], {duration: 400});
       }
 
       requestAnimationFrame(() => {

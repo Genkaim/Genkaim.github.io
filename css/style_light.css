@@ -44,7 +44,7 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0), 1px 1px 15px 0 rgba(0, 0, 0, 0);
 }
 .content-card {
-  border-radius: 10px;
+  border-radius: 0px;
   background-color: rgba(244, 244, 244, 0) !important;
   margin-bottom: 0px!important;
   margin-top: 0px!important;
@@ -112,8 +112,6 @@ a:hover {
   bottom: 1.8rem !important;
   transition: all 0.3s ease;
   background: #f4f4f4 !important;
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
   border: 1px solid rgba(0, 0, 0, 0.116) !important;
   border-radius: 20px !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
@@ -257,7 +255,7 @@ body {
   border-radius: 32px;
   margin-top: 0px;
   background: #f4f4f4;
-  will-change: transform;
+  isolation: isolate;
 
             top: 80px !important;
             width: max-content !important;
@@ -328,6 +326,7 @@ body {
   top: 0px;
   position: relative !important;
   transition: all 0.58s ease;
+  padding: 0px !important;
 }
 .footer {
   position: relative !important;
@@ -386,6 +385,9 @@ svg {
 }
 .toc-child {
   margin-top: 10px;
+}
+.post-list {
+  transform: translateY(-30px);
 }
 .highlight {
   background-color: rgba(33, 33, 33, 0) !important;
@@ -910,8 +912,6 @@ table {
 #b2t {
   border: 1px solid rgba(0, 0, 0, 0.116) !important;
   background: #f4f4f4 !important;
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
 }
 .toc-menus {
   border-radius: 30px;
@@ -935,8 +935,9 @@ table {
   -webkit-animation: toc-popup 0.2s cubic-bezier(0.22, 1, 0.36, 1) 1;
   animation: toc-popup 0.2s cubic-bezier(0.22, 1, 0.36, 1) 1;
   background: #f4f4f4;
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+
+  
+  
 
   overflow: hidden;
 }

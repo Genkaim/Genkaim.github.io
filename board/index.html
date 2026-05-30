@@ -54,12 +54,12 @@
 
     <!-- OpenGraph -->
 
-    <meta name="description" content=".post-title__meta,.post__license,#btn-toc { display: none; }     .wl-panel {       margin:0px !important;     }     .wl-comment {       width: 100% !important;     }     .post__with-toc {">
+    <meta name="description" content=".post-title__meta,.post__license,#btn-toc { display: none; }     .wl-panel {       margin:0px !important;     }     .wl-comment {       width: 100% !important;     }     .post__with-toc {       p">
 <meta property="og:type" content="website">
 <meta property="og:title" content="留言板">
 <meta property="og:url" content="https://www.genkaim.top/board/">
 <meta property="og:site_name" content="Genkaim的博客">
-<meta property="og:description" content=".post-title__meta,.post__license,#btn-toc { display: none; }     .wl-panel {       margin:0px !important;     }     .wl-comment {       width: 100% !important;     }     .post__with-toc {">
+<meta property="og:description" content=".post-title__meta,.post__license,#btn-toc { display: none; }     .wl-panel {       margin:0px !important;     }     .wl-comment {       width: 100% !important;     }     .post__with-toc {       p">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-30T04:32:40.000Z">
 <meta property="article:modified_time" content="2026-05-30T04:32:40.000Z">
@@ -425,8 +425,7 @@
   <div class="post__header">
     
   </div>
-  <div class="post__content"><html>
-    <style>
+  <div class="post__content"><style>
     .post-title__meta,.post__license,#btn-toc { display: none; }
     .wl-panel {
       margin:0px !important;
@@ -439,11 +438,11 @@
     }
       @media screen and (max-width: 764px) {
       .post-title__text {
-        transform: translateX(20px);
+        transform: translateY(-10px);
       }
     }
-    </style>
-    </html></div>
+</style>
+</div>
   
     <div class="post__license">
         <p style="font-weight: bold;">
@@ -1043,7 +1042,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('pjax:send', () => {
       var headerEl = document.querySelector('.header');
       if (headerEl) {
-        headerEl.animate([{opacity: 1}, {opacity: 0}], {duration: 400, fill: 'forwards'});
+        var ani = headerEl.animate([{opacity: 1}, {opacity: 0}], {duration: 400});
+        ani.onfinish = function() { headerEl.style.opacity = '0'; };
       }
 
       requestAnimationFrame(() => {
@@ -1055,7 +1055,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('pjax:success', () => {
       var headerEl = document.querySelector('.header');
       if (headerEl) {
-        headerEl.animate([{opacity: 0}, {opacity: 1}], {duration: 400, fill: 'forwards'});
+        headerEl.style.opacity = '';
+        headerEl.animate([{opacity: 0}, {opacity: 1}], {duration: 400});
       }
 
       requestAnimationFrame(() => {
