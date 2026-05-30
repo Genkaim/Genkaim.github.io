@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="<%= config.language%>">
   <%- partial('_partial/head/index') %>
-  <% if (page.path.includes('board')) { %>
-    <style>.post-title__meta,.post__license { display: none; }
-    .post__with-toc {
-      padding-top: 0px !important;
-    }
-      @media screen and (max-width: 764px) {
-      .post-title__text {
-        transform: translateX(20px);
-      }
-    }
-    </style>
-  <% } %>
   <!-- Pjax 过渡动画样式 -->
   <style>
     #pjax-overlay {
