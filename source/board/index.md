@@ -2,8 +2,7 @@
 title: 留言板
 date: 2026-05-30 12:32:40
 ---
-<html>
-    <style>
+<style>
     .post-title__meta,.post__license,#btn-toc { display: none; }
     .wl-panel {
       margin:0px !important;
@@ -16,8 +15,7 @@ date: 2026-05-30 12:32:40
     }
       @media screen and (max-width: 764px) {
       .post-title__text {
-        transform: translateX(20px);
+        transform: translateY(-10px);
       }
     }
-    </style>
-    </html>
+</style>
