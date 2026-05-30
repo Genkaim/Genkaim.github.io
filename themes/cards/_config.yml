@@ -60,6 +60,8 @@ navbar:
 #      url: /vela/
     - name: 归档
       url: /archives/
+    - name: 留言板
+      url: /board/
     - name: 开往
       url: https://www.travellings.cn/go.html
 #    - name: 友链

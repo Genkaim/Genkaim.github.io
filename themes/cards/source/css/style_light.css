@@ -559,7 +559,7 @@ button {
   color: #333; /* 设置字体颜色 */
 }
 .archives {
-  margin-top: 100px;
+  margin-top: 60px;
   max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
