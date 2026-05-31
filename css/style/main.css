@@ -1255,7 +1255,6 @@ overflows table td {
 }
 .toc .toc-link.active {
   color: #222;
-  font-weight: 900;
   text-shadow: 0 0 0 #222;
   transform: translateX(4px) scale(1.08);
 }
@@ -1264,7 +1263,6 @@ overflows table td {
 }
 .toc .toc-link.active:hover {
   color: #222;
-  font-weight: 900;
   text-shadow: 0 0 0 #222;
   transform: translateX(4px) scale(1.08);
 }

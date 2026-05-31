@@ -300,9 +300,10 @@ body {
   padding-right: 16px;
   position: relative;
 }
-
+.toc-link {
+  transition: all 0.3s ease;
+}
 .toc .toc-link.active {
-  font-weight: 600 !important;
   color: #444444 !important;
 }
 .toc .toc-link.active:hover {
