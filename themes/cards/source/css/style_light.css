@@ -67,8 +67,8 @@ a {
 a:hover {
   color: rgba(0, 0, 0, 0.244) !important; /* 设置链接颜色 */
 }
-.post__content a:not([href^="#"]):not(.toc-link)::after,
-.post-entry__content a:not([href^="#"])::after {
+.post__content a:not([href^="#"]):not([href^="/"]):not([href*="genkaim.top"]):not([href*="genkaim.github.io"]):not([href*="localhost"]):not(.toc-link)::after,
+.post-entry__content a:not([href^="#"]):not([href^="/"]):not([href*="genkaim.top"]):not([href*="genkaim.github.io"]):not([href*="localhost"])::after {
   content: '';
   position: absolute;
   right: 4px;
@@ -294,15 +294,16 @@ body {
   width: 10px;height: 10px;
 }
 
-.post__content a:not([href^="#"]):not(.toc-link),
-.post-entry__content a:not([href^="#"]) {
+.post__content a:not([href^="#"]):not([href^="/"]):not([href*="genkaim.top"]):not([href*="genkaim.github.io"]):not([href*="localhost"]):not(.toc-link),
+.post-entry__content a:not([href^="#"]):not([href^="/"]):not([href*="genkaim.top"]):not([href*="genkaim.github.io"]):not([href*="localhost"]) {
   white-space: nowrap;
   padding-right: 16px;
   position: relative;
 }
-
+.toc-link {
+  transition: all 0.3s ease;
+}
 .toc .toc-link.active {
-  font-weight: 600 !important;
   color: #444444 !important;
 }
 .toc .toc-link.active:hover {

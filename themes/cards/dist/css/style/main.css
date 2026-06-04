@@ -1276,7 +1276,6 @@ overflows table td {
 }
 .toc .toc-link.active {
   color: #222;
-  font-weight: 600;
   text-shadow: 0 0 0 #222;
   -webkit-transform: translateX(4px) scale(1.08);
       -ms-transform: translateX(4px) scale(1.08);
