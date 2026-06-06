@@ -676,6 +676,10 @@ PCA 模块的底层逻辑完全不同。PCA 内部只有一个<strong>全局的�
 <blockquote>
 <p>The data transfer starts with the least significant bit of byte 0 and continues through the scratchpad until the 9th byte…</p>
 </blockquote>
+<blockquote>
+<p>笔者2026.6.6考后按：<br />
+注意温度存储的数据有16位两个字节，需要用<strong>两个</strong><code>unsigned char</code>或一个<code>unsigned int</code>存. 千万不要只用一个<code>unsigned char</code>导致数据截断. 不然你会获得10摄氏度的空调房.</p>
+</blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> <span class="title function_">ReadTemperature</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> lo, hi;</span><br><span class="line">	init_ds18b20();</span><br><span class="line">	Write_DS18B20(<span class="number">0xCC</span>);</span><br><span class="line">	Write_DS18B20(<span class="number">0xBE</span>);</span><br><span class="line">	lo = Read_DS18B20();</span><br><span class="line">	hi = Read_DS18B20();</span><br><span class="line">	<span class="keyword">return</span> (((hi &lt;&lt; <span class="number">8</span>) | lo) * <span class="number">10</span>) &gt;&gt; <span class="number">4</span>; <span class="comment">//保留一位小数，右移代替浮点运算</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="pcf8591-adcdac"><a class="markdownIt-Anchor" href="#pcf8591-adcdac"></a> PCF8591 ADC/DAC</h3>
 <p>IIC函数原型:</p>
