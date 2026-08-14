@@ -714,7 +714,7 @@ table {
 }
 .cover {
   display: flex;
-  align-items:  flex-start; /* 上下居中 */
+  align-items: center; /* 上下居中，与宽度无关 */
   justify-content: left; /* 左右居中，如果需要的话 */
   height: 100%;
   height: 100%;
@@ -750,8 +750,8 @@ table {
   transition: all 0.3s ease;
   border-radius: 30px;
   padding: 60px;
+  padding-right: 200px;
   margin-left: 20% !important;
-  margin-top: 10%;
 }
 .cover__logo:hover {
   transform: scale(1);
@@ -772,6 +772,23 @@ table {
   padding-right: 30%;
   padding-left: 10px;
   font-family: "Times New Roman", "Noto Serif SC", Times, "STSong", serif !important;
+}
+.cover_text .cover_profile {
+  font-size: 18px;
+  color: #3f3f3f;
+  margin: 6px 0 4px;
+  letter-spacing: 0.5px;
+}
+.cover_text .cover_desc {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+.cover_text .cover_contact {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 8px;
 }
     .post-title__text {
       display: inline-flex !important;
@@ -816,6 +833,7 @@ table {
     margin-top: 160px !important;
     padding: 20px !important;
     padding-left: 50px !important;
+    background-color: transparent !important;
   }
   .post-title, .post-title__text,.post-title-tag {
     text-align: left !important;
@@ -841,6 +859,7 @@ table {
     overflow-x: hidden;
     width: 100%;
     box-sizing: border-box;
+    align-items: flex-start !important;
   }
   .cover_text {
     padding-right: 10px !important;
@@ -861,6 +880,7 @@ table {
   display: flex;
   align-items: center;
   justify-content: left;
+  gap: 12px;
   background-color: #a7a7a700;
   border-radius: 20px;
   margin-left: 0px;
@@ -869,12 +889,30 @@ table {
   transition: all 0.3s ease;
   padding-left: 0px;
 }
-.cover__link a {
-  margin-top: 0px;
-  width: 40px;
-  object-fit: contain;
-  margin-right: 20px;
+.cover__link a.cover__link__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background-color: rgba(128, 128, 128, 0.08);
   color: rgb(100, 100, 100) !important;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+  margin-top: 0px;
+  margin-right: 0px;
+  width: auto;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.cover__link a.cover__link__item:hover {
+  background-color: rgba(128, 128, 128, 0.18);
+  color: #333 !important;
+  transform: translateY(-2px);
+}
+.cover__link a.cover__link__item svg {
+  flex-shrink: 0;
 }
 
 .tixing {
