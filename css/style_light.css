@@ -52,8 +52,23 @@ border-radius: 0 0 30px 30px; /* top-left | top-right | bottom-right | bottom-le
     padding-top: 4rem !important;
   position: relative;
 }
+.post-entry.content-card {
+  border-bottom: none;
+}
+.post-entry.content-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.22);
+}
 .post-entry.content-card:last-of-type {
   border-bottom: none;
+}
+.post-entry.content-card:last-child::after {
+  display: none;
 }
 .post__content p img {
   border-radius: 0px;
