@@ -772,6 +772,8 @@ table {
   padding-right: 30%;
   padding-left: 10px;
   font-family: "Times New Roman", "Noto Serif SC", Times, "STSong", serif !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .cover_text .cover_profile {
   font-size: 18px;
@@ -878,6 +880,7 @@ table {
   padding: 0px;
   flex-direction: row;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: left;
   gap: 12px;
