@@ -19,7 +19,7 @@ tags: 其他
 | ---- | ---- |
 | 主题框架 | [Hexo](https://hexo.io/) |
 | 主题 | [Cards](https://github.com/ChrAlpha/hexo-theme-cards) |
-| 主页图片 | [Freepik](https://www.freepik.com/free-vector/gradient-lake-scenery_19852064.htm#query=landscape%20svg&position=1&from_view=keyword&track=ais_hybrid&uuid=8fee4377-2332-49fc-8ff5-81f1ad25162f) |
+| 加载动画 | [Hermes Agent](https://hermes-agent.nousresearch.com/) |
 
 ## 更新日志
 
