@@ -712,6 +712,222 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+<style id="hermes-loader-style">
+  #hermes-loader {
+    position: fixed;
+    top: 16px;
+    right: 56px;                    /* 移动端：右上角；左移给按钮让位，按需自行调整该值 */
+    width: 56px;
+    height: 56px;
+    z-index: 2147483647;
+    color: #1a1a1a;                 /* 浅色前景 */
+    pointer-events: none;           /* 关键：不阻挡任何点击/滚动 */
+    user-select: none;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    will-change: opacity, transform;
+  }
+  [data-user-color-scheme="dark"] #hermes-loader {
+    color: #d6d6d6;                 /* 深色前景 */
+  }
+  #hermes-loader.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* 桌面端：左右居中，上下靠上 */
+  @media (min-width: 769px) {
+    #hermes-loader {
+      top: 28px;
+      left: 50%;
+      right: auto;
+      width: 72px;
+      height: 72px;
+      transform: translateX(-50%) scale(0.85);
+    }
+    #hermes-loader.active {
+      transform: translateX(-50%) scale(1);
+    }
+  }
+  #hermes-loader svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: block;
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Fourier Flow loader，原样移植自 hermes.html ─────────────────────── */
+  const TWO_PI = Math.PI * 2;
+
+  const CURVE = {
+    durationMs: 2200,
+    particleCount: 92,
+    pulseDurationMs: 2000,
+    strokeWidth: 4.2,
+    trailSpan: 0.31,
+    point(progress, detailScale) {
+      const t = progress * TWO_PI;
+      const mix = 1 + detailScale * 0.16;
+      const x = 17 * Math.cos(t) + 7.5 * Math.cos(3 * t + 0.6 * mix) + 3.2 * Math.sin(5 * t - 0.4);
+      const y = 15 * Math.sin(t) + 8.2 * Math.sin(2 * t + 0.25) - 4.2 * Math.cos(4 * t - 0.5 * mix);
+      return { x: 50 + x, y: 50 + y };
+    }
+  };
+
+  const PATH_STEPS = 240;
+  const norm = (progress) => ((progress % 1) + 1) % 1;
+
+  function detailScaleFor(time, phaseOffset) {
+    const p = ((time + phaseOffset * CURVE.pulseDurationMs) % CURVE.pulseDurationMs) / CURVE.pulseDurationMs;
+    return 0.52 + ((Math.sin(p * TWO_PI + 0.55) + 1) / 2) * 0.48;
+  }
+
+  function buildPath(detailScale, steps) {
+    return Array.from({ length: steps + 1 }, (_, i) => {
+      const { x, y } = CURVE.point(i / steps, detailScale);
+      return `${i === 0 ? 'M' : 'L'} ${x.toFixed(2)} ${y.toFixed(2)}`;
+    }).join(' ');
+  }
+
+  function particleFor(index, progress, detailScale) {
+    const tail = index / (CURVE.particleCount - 1);
+    const { x, y } = CURVE.point(norm(progress - tail * CURVE.trailSpan), detailScale);
+    const fade = (1 - tail) ** 0.56;
+    return { x, y, opacity: 0.04 + fade * 0.96, radius: 0.9 + fade * 2.7 };
+  }
+
+  /* ── 容器与 SVG ──────────────────────────────────────────────────────── */
+  const container = document.createElement('div');
+  container.id = 'hermes-loader';
+  container.setAttribute('role', 'status');
+  container.setAttribute('aria-label', '加载中');
+  document.body.appendChild(container);
+
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 100 100');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('aria-hidden', 'true');
+  const curvePath = document.createElementNS(SVG_NS, 'path');
+  curvePath.setAttribute('opacity', '0.1');
+  curvePath.setAttribute('stroke', 'currentColor');
+  curvePath.setAttribute('stroke-linecap', 'round');
+  curvePath.setAttribute('stroke-linejoin', 'round');
+  curvePath.setAttribute('stroke-width', String(CURVE.strokeWidth));
+  svg.appendChild(curvePath);
+  const particles = Array.from({ length: CURVE.particleCount }, () => {
+    const c = document.createElementNS(SVG_NS, 'circle');
+    c.setAttribute('fill', 'currentColor');
+    svg.appendChild(c);
+    return c;
+  });
+  container.appendChild(svg);
+
+  /* ── 引用计数的全局加载 API（支持并发加载） ───────────────────────────── */
+  const api = {
+    _count: 0,
+    _active: false,
+    _frame: 0,
+    _startedAt: 0,
+    _phaseOffset: Math.random(),
+    _watchdog: 0,
+
+    show() {
+      this._count++;
+      this._appear();
+    },
+    hide() {
+      this._count = Math.max(0, this._count - 1);
+      if (this._count === 0) this._disappear();
+    },
+    reset() {
+      this._count = 0;
+      this._disappear();
+    },
+
+    _appear() {
+      if (this._active) return;
+      this._active = true;
+      container.classList.add('active');
+      this._startedAt = performance.now();
+      this._render(this._startedAt);
+      // 安全网：任何加载行为若超过 20s 仍未结束，强制收起，避免卡死
+      clearTimeout(this._watchdog);
+      this._watchdog = setTimeout(() => this.reset(), 20000);
+    },
+    _disappear() {
+      if (!this._active) return;
+      this._active = false;
+      container.classList.remove('active');
+      if (this._frame) cancelAnimationFrame(this._frame);
+      this._frame = 0;
+      clearTimeout(this._watchdog);
+    },
+
+    _render(now) {
+      const time = now - this._startedAt;
+      const progress = ((time + this._phaseOffset * CURVE.durationMs) % CURVE.durationMs) / CURVE.durationMs;
+      const detailScale = detailScaleFor(time, this._phaseOffset);
+
+      curvePath.setAttribute('d', buildPath(detailScale, PATH_STEPS));
+      particles.forEach((node, index) => {
+        const p = particleFor(index, progress, detailScale);
+        node.setAttribute('cx', p.x.toFixed(2));
+        node.setAttribute('cy', p.y.toFixed(2));
+        node.setAttribute('r', p.radius.toFixed(2));
+        node.setAttribute('opacity', p.opacity.toFixed(3));
+      });
+
+      this._frame = window.requestAnimationFrame((t) => this._render(t));
+    }
+  };
+
+  window.HermesLoader = api;
+
+  /* ── 1) 初始页面加载：文档仍在加载（图片/字体等）时显示 ───────────────── */
+  if (document.readyState !== 'complete') {
+    api.show();
+    window.addEventListener('load', () => api.hide());
+  }
+
+  /* ── 2) PJAX 页面跳转 ────────────────────────────────────────────────── */
+  document.addEventListener('pjax:send', () => api.show());
+  document.addEventListener('pjax:success', () => api.hide());
+  document.addEventListener('pjax:error', () => api.hide());
+
+  /* ── 3) 拦截所有 fetch 请求（含动态 import、Waline、搜索等） ──────────── */
+  const _origFetch = window.fetch ? window.fetch.bind(window) : null;
+  if (_origFetch) {
+    window.fetch = function () {
+      api.show();
+      return _origFetch.apply(window, arguments).finally(() => api.hide());
+    };
+  }
+
+  /* ── 4) 拦截所有 XMLHttpRequest 请求 ─────────────────────────────────── */
+  const _origOpen = XMLHttpRequest.prototype.open;
+  const _origSend = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.open = function () {
+    this.__hermesLoading = true;
+    return _origOpen.apply(this, arguments);
+  };
+  XMLHttpRequest.prototype.send = function () {
+    if (this.__hermesLoading) {
+      api.show();
+      this.addEventListener('loadend', () => api.hide(), { once: true });
+    }
+    return _origSend.apply(this, arguments);
+  };
+})();
+</script>
+
     
 <script>
   /** =========================
