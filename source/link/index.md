@@ -1,7 +1,6 @@
 ---
 title: 友链
 date: 2018-06-07 22:17:49
-type: "link"
-flink_style: butterfly # butterfly | volantis | flexcard
+layout: links
+links: /link.json
 ---
-### 欢迎在评论区提交友链！

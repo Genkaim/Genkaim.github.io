@@ -6,8 +6,9 @@
   %>
   
 <h1 class="post-title__text">
-  <% if ((post.tags || []).length > 0) { %>
-    <% const tags = post.tags || []; %>
+  <% let tags = post.tags; %>
+  <% tags = tags && typeof tags.toArray === 'function' ? tags.toArray() : (Array.isArray(tags) ? tags : []); %>
+  <% if (tags.length > 0) { %>
     <% const midIndex = Math.ceil(tags.length / 2); %>
     
     <div class="post-title-tags-group1">

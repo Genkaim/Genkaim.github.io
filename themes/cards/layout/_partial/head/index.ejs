@@ -38,7 +38,12 @@ var ld_published = page.date ? page.date.toISOString() : '';
 var ld_modified = page.updated ? page.updated.toISOString() : ld_published;
 var ld_author = config.author || '';
 var ld_publisher = config.title || '';
-var ld_keywords = (page.tags && page.tags.length > 0) ? page.tags.map(t => t.name).join(', ') : '';
+var ld_tags = page.tags;
+ld_tags = ld_tags && typeof ld_tags.toArray === 'function' ? ld_tags.toArray()
+    : Array.isArray(ld_tags) ? ld_tags
+    : typeof ld_tags === 'string' && ld_tags.trim() ? ld_tags.split(/[,，\s]+/)
+    : [];
+var ld_keywords = ld_tags.length > 0 ? ld_tags.map(t => (t && t.name) || t).join(', ') : '';
 %>
 <script type="application/ld+json">
 {

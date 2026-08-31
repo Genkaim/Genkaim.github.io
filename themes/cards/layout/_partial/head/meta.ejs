@@ -3,7 +3,12 @@
 var title = page.title || theme.meta.title || '';
 var keywords = page.keywords || '';
 if (!keywords) {
-    keywords += page.tags && page.tags.length > 0 ? page.tags.map(t => t.name).join(', ') : '';
+    var tagsList = page.tags;
+    tagsList = tagsList && typeof tagsList.toArray === 'function' ? tagsList.toArray()
+        : Array.isArray(tagsList) ? tagsList
+        : typeof tagsList === 'string' && tagsList.trim() ? tagsList.split(/[,，\s]+/)
+        : [];
+    keywords += tagsList.length > 0 ? tagsList.map(t => (t && t.name) || t).join(', ') : '';
 }
 keywords += config.keywords ? keywords ? ', ' + config.keywords : config.keywords : '';
 

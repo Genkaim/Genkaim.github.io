@@ -62,10 +62,10 @@ navbar:
       url: /archives/
     - name: 留言板
       url: /board/
+    - name: 友链
+      url: /link/
     - name: 开往
       url: https://www.travellings.cn/go.html
-#    - name: 友链
-#      url: /friends/
 
   # 导航栏永远显示在屏幕顶端
   # 仅当屏幕宽度不小于 1080 px 时生效

@@ -1,1 +1,1 @@
-<div class="post-entry__tags"><% (post.tags || []).forEach(function(item) { %><a href="<%= url_for(item.path) %>" class="post-tags__link button"># <%= item.name %></a><% }); %></div>
+<div class="post-entry__tags"><% let tags = post.tags; tags = tags && typeof tags.toArray === 'function' ? tags.toArray() : (Array.isArray(tags) ? tags : []); tags.forEach(function(item) { %><a href="<%= url_for(item.path) %>" class="post-tags__link button"># <%= item.name %></a><% }); %></div>

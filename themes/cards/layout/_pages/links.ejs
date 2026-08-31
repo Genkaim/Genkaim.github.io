@@ -1,5 +1,12 @@
 <main class="main links">
-    <div class="links-list">
+    <% if (page.title) { %>
+        <div class="post-title">
+            <h1 class="post-title__text">
+                <%= page.title %>
+            </h1>
+        </div>
+    <% } %>
+    <div class="links-list content-card">
         <div class='links-content'>
             <% if (page.links && !Array.isArray(page.links)) { %>
                 <script>
@@ -10,10 +17,13 @@
                                 let i;
                                 (i = document.createElement('a')).style = `background:${link.backgroundColor}; color:${link.textColor}`,
                                 i.className = 'links-card button',i.target = link.target || '_blank',i.href = link.url;
+                                const initial = String(link.name || '?').trim().charAt(0).toUpperCase();
                                 let temp =  `<div class='links-left'>`;
                                 if (link.avatar) {
                                     temp += `<img no-lazy class='avatar' src="${link.avatar}" />`;
-                                }                                   
+                                } else {
+                                    temp += `<span class='avatar avatar-placeholder'></span>`;
+                                }                                  
                                 temp += `</div><div class='links-right'><p class="links-name">${link.name}</p><div class='links-tags-wrapper'>`
                                 if (link.desc) {
                                     temp += `<p class="tags">${link.desc}</p>`
@@ -26,6 +36,15 @@
                                 }
                                 temp += '</div></div>';
                                 i.innerHTML = temp;
+                                const ph = i.querySelector('.avatar-placeholder');
+                                if (ph) ph.textContent = initial;
+                                const img = i.querySelector('img.avatar');
+                                if (img) img.addEventListener('error', () => {
+                                    const span = document.createElement('span');
+                                    span.className = 'avatar avatar-placeholder';
+                                    span.textContent = initial;
+                                    img.replaceWith(span);
+                                }, { once: true });
                                 document.querySelectorAll('.links-content')[0].appendChild(i);
                             });
                         });
@@ -35,7 +54,9 @@
                     <a class='links-card button' style='background:<%= item.backgroundColor %>; color:<%= item.textColor %>' target="<%= item.target || '_blank' %>" href='<%= url_for(item.url || '') %>'>
                         <div class='links-left'>
                             <% if (item.avatar) { %>
-                                <img no-lazy class='avatar' src='<%= item.avatar %>'/>
+                                <img no-lazy class='avatar' src='<%= item.avatar %>' onerror='this.outerHTML="<span class=\"avatar avatar-placeholder\"></span>"'/>
+                            <% } else { %>
+                                <span class='avatar avatar-placeholder'><%= (item.name || '?').trim().charAt(0).toUpperCase() %></span>
                             <% } %>
                         </div>
                         <div class='links-right'>
@@ -61,5 +82,24 @@
                 <% }); %>
             <% } %>
         </div>
+        <div class='links-apply'>
+            <br>
+            <p style="font-weight: bold;">您可以在这里申请添加友链👇</p>
+            <p>
+                您需要提供：<br>
+                - 网站名称：<br>
+                - 链接地址：<br>
+                - 头像链接（留空自动使用名称首字）：<br>
+                - 描述：
+            </p>
+        </div>
+        <div id="waline"></div>
+        <script type="module">
+            import { init } from "/js/waline.js";
+            init({
+                el: "#waline",
+                serverURL: "https://waline.genkaim.top",
+            });
+        </script>
     </div>
 </main>

@@ -575,7 +575,7 @@ button {
   color: #333; /* 设置字体颜色 */
 }
 .archives {
-  margin-top: 60px;
+  margin-top: 0px;
   max-width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
@@ -828,7 +828,9 @@ table {
   .header {
     padding-left: 9vw;
   }
-  body:has(article.post) .header {
+  body:has(article.post) .header,
+  body:has(main.links) .header,
+  body:has(main.archives-page) .header {
     padding-left: 6vw;
   }
   .header .header__left .button {
@@ -1282,7 +1284,8 @@ span.archives-content {
     }
 }
 .archives {
-  max-width: 700px !important;
+  max-width: 776px !important;
+  padding: 0 40.4px 40.4px !important;
 }
     .archives-date {
       margin-right: 0px;
@@ -1290,3 +1293,82 @@ span.archives-content {
     .archives-content a .archives-title {
       padding-left: 20px;
     }
+
+/* ===== 友链页：与留言板页风格一致 ===== */
+.main.links {
+  max-width: none;
+}
+.links .links-list {
+  max-width: 776px;
+  margin: 0 auto;
+  padding: 0 40.4px 40.4px !important;
+}
+.links .links-list .links-content {
+  margin: -8px;
+}
+.links .links-list .links-content .links-card {
+  background: transparent;
+  border-radius: 20px;
+  border: none;
+  box-shadow: none !important;
+  transition: all 0.3s ease;
+  max-width: none;
+  width: calc(100% / 2 - 16px);
+  margin-top: 24px;
+}
+.links .links-list .links-content .links-card:hover {
+  background-color: rgba(99, 99, 99, 0.086);
+  box-shadow: none !important;
+}
+.links .links-list .links-content .links-card .links-left .avatar {
+  margin: 16px 8px 4px 8px;
+}
+.links .links-list .links-content .links-card .links-left .avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  background: rgba(128, 128, 128, 0.18);
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 32px;
+  font-weight: bold;
+}
+.links .links-list .links-content .links-card .links-name {
+  color: rgba(0, 0, 0, 0.797);
+  font-weight: bold;
+}
+.links .links-apply {
+  margin: 24px 0 16px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.8;
+}
+.links .links-list .links-content .links-card .tags {
+  color: rgba(104, 104, 104, 0.695);
+}
+.links #waline .wl-panel {
+  margin: 0 !important;
+}
+.links .wl-comment {
+  width: 100% !important;
+}
+@media screen and (max-width: 764px) {
+  .links .post-title__text,
+  .archives-page .post-title__text {
+    transform: translateY(-10px);
+  }
+  /* 归档页标题左对齐到正文文字（年份）左缘，仅移动端 */
+  .archives-page .post-title {
+    text-align: left;
+    padding-left: 0 !important;
+  }
+  .archives-page .post-title__text {
+    justify-content: flex-start;
+    margin-left: 60.4px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .links .links-list .links-content .links-card {
+    width: calc(100% / 1 - 16px);
+  }
+}
