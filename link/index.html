@@ -37,8 +37,6 @@
 
 
 
-    <meta name="description" content="欢迎在评论区提交友链！">
-
 
 
 
@@ -54,12 +52,10 @@
 
     <!-- OpenGraph -->
 
-    <meta name="description" content="欢迎在评论区提交友链！">
-<meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="友链">
 <meta property="og:url" content="https://www.genkaim.top/link/">
 <meta property="og:site_name" content="Genkaim的博客">
-<meta property="og:description" content="欢迎在评论区提交友链！">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-06-07T14:17:49.000Z">
 <meta property="article:modified_time" content="2018-06-07T14:17:49.000Z">
@@ -231,6 +227,8 @@
                 
                     <a href="/board/" class="navbar-menu button">留言板</a>
                 
+                    <a href="/link/" class="navbar-menu button">友链</a>
+                
                     <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="navbar-menu button">开往<span class="nav-arrow"><svg height="12" width="12" viewBox="0 0 16 16"><path d="M1.559 16 13.795 3.764v8.962H16V0H3.274v2.205h8.962L0 14.441 1.559 16z"/></svg></span></a>
                 
             </div>
@@ -249,6 +247,8 @@
                 
                     <a href="/board/" class="dropdown-menu button">留言板</a>
                 
+                    <a href="/link/" class="dropdown-menu button">友链</a>
+                
                     <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.travellings.cn/go.html" class="dropdown-menu button">开往<span class="nav-arrow"><svg height="12" width="12" viewBox="0 0 16 16"><path d="M1.559 16 13.795 3.764v8.962H16V0H3.274v2.205h8.962L0 14.441 1.559 16z"/></svg></span></a>
                 
                
@@ -258,226 +258,146 @@
     </div>
 </header>
  
- <main class="main">
-    
+<div class="cover">
+  <div class="cover__logo">
 
-<div class="post-title">
-  
-  
-<h1 class="post-title__text">
-  
-  友链
-</h1>
-  <style>
-    .post-title-tag {
-      font-weight: bold;
-      color: #5b5b5b93;
-      font-size: 0.9rem;
-      background-color: #5b5b5b21;
-      padding-left: 10px;
-      padding-right: 7px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      border-radius: 10px;
-      margin-right: 10px;
-      margin-top: 3px;
-    }
-    .post-title-tags-group1,
-.post-title-tags-group2 {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.post-title-tags-group2 {
-  margin-left: 10px; /* 第二组标签的缩进 */
-}
-    .post-title__text {
-      display: inline-flex !important;
-      align-items: center !important;
-      flex-wrap: wrap !important;
-      width: 100% !important;
-      max-width: 700px;
-    }
-  </style>
-  
-  
-  <div class="post-title__meta">
-    <a
-  href="/archives/2018/06/"
-  class="post-meta__date"
-  >发布于  2018-06-07
-</a>
- 
- 
-    
-    
-
-
- 
-
-
-  </div>
-</div>
-
-
-<aside class="post-side">
-  <div class="post-side__toc">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A2%E8%BF%8E%E5%9C%A8%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%8F%90%E4%BA%A4%E5%8F%8B%E9%93%BE"><span class="toc-text"> 欢迎在评论区提交友链！</span></a></li></ol>
-  </div>
-</aside>
-<!-- 使用焦点控制来实现目录菜单的显示和隐藏 -->
-<button class="btn-toc button" id="btn-toc" tabindex="0">
-  <svg
-    viewBox="0 0 1024 1024"
-    width="32"
-    height="32"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z"
-      fill="currentColor"
-    ></path>
-  </svg>
-</button>
-<div class="toc-menus" id="toc-menus">
-  <div class="toc-title">文章目录</div>
-  <div class="toc-wrapper">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%A2%E8%BF%8E%E5%9C%A8%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%8F%90%E4%BA%A4%E5%8F%8B%E9%93%BE"><span class="toc-text"> 欢迎在评论区提交友链！</span></a></li></ol>
-  </div>
-</div>
-<div class="toc-backdrop" id="toc-backdrop"></div>
-<script>
-  function toggleTocMenus() {
-    const tocMenus = document.getElementById('toc-menus');
-    const backdrop = document.getElementById('toc-backdrop');
-    const btnToc = document.getElementById('btn-toc');
-    if (!tocMenus) return;
-    tocMenus.classList.toggle('show');
-    backdrop?.classList.toggle('show');
-    if (tocMenus.classList.contains('show')) {
-      btnToc.classList.add('active');
-    } else {
-      btnToc.classList.remove('active');
-    }
-  }
-
-  function closeTocMenus() {
-    const tocMenus = document.getElementById('toc-menus');
-    const backdrop = document.getElementById('toc-backdrop');
-    const btnToc = document.getElementById('btn-toc');
-    if (tocMenus) tocMenus.classList.remove('show');
-    if (backdrop) backdrop.classList.remove('show');
-    if (btnToc) btnToc.classList.remove('active');
-  }
-
-  function onTocLinkClick(e) {
-    const tocMenus = document.getElementById('toc-menus');
-    const btnToc = document.getElementById('btn-toc');
-    if (!tocMenus || !tocMenus.classList.contains('show')) return;
-    const link = e.target.closest('.toc-link');
-    if (link) {
-      closeTocMenus();
-      return;
-    }
-    if (!tocMenus.contains(e.target) && e.target !== btnToc && !btnToc.contains(e.target)) {
-      closeTocMenus();
-    }
-  }
-
-  document.removeEventListener('click', onTocLinkClick);
-  document.addEventListener('click', onTocLinkClick);
-  document.getElementById('btn-toc')?.addEventListener('click', toggleTocMenus);
-
-  function initTocScroll() {
-    const tocLinks = document.querySelectorAll('.post-side__toc .toc-link');
-    if (!tocLinks.length) return;
-    const headings = [];
-    tocLinks.forEach(function(link) {
-      var href = link.getAttribute('href');
-      if (!href) return;
-      var id = decodeURIComponent(href.replace(/^#/, ''));
-      var el = document.getElementById(id);
-      if (el) headings.push({ el: el, link: link });
-    });
-    if (!headings.length) return;
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          tocLinks.forEach(l => l.classList.remove('active'));
-          const target = headings.find(h => h.el === entry.target);
-          if (target) target.link.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-80px 0px -60% 0px' });
-    headings.forEach(function(h) { observer.observe(h.el); });
-  }
-
-  document.addEventListener('DOMContentLoaded', initTocScroll);
-  // 兼容 PJAX：脚本直接执行
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setTimeout(initTocScroll, 100);
-  }
-</script>
-
-
-<article
-  class="post post__with-toc content-card"
->
-  <div class="post__header">
-    
-  </div>
-  <div class="post__content"><h3 id="欢迎在评论区提交友链"><a class="markdownIt-Anchor" href="#欢迎在评论区提交友链"></a> 欢迎在评论区提交友链！</h3>
-</div>
-  
-    <div class="post__license">
-        <p style="font-weight: bold;">
-            <strong>本文作者：</strong> Genkaim
-        </p>
-        <p>
-            <strong>
-                本文链接：
-            </strong>
-            <a href="https://www.genkaim.top/link/">https://www.genkaim.top/link/</a>
-        </p>
-        
-        <div class="post_reward active">
-            <p>打赏博主😘</p>
-                <div class="reward-container" >
-                    <div class="reward-left" style="margin-right: 2px;">
-                        <div class="reward-bottom" style="border-top-right-radius: 7px;border-bottom-right-radius: 7px;"
-                        onclick="window.open('https://space.bilibili.com/479907494', '_blank')" style="cursor: pointer;">
-                        bilibili发电⚡
-                        </div>
-                    </div>
-                    <div class="reward-right" style="margin-left: 2px;">
-                        <div class="reward-bottom" style="border-top-left-radius: 7px;border-bottom-left-radius: 7px;"
-                        onclick="window.open('https://qr.alipay.com/fkx12959bsz9jopcduigw41', '_blank')" style="cursor: pointer;">
-                        Alipay (移动端)
-                        </div>
-                    </div> 
-                </div>
-        </div>
-
+    <div class="cover_text">
+      <h1 class="home_content" id="text-stylefont-size-25px欢迎来到我的博客text">
+        <a
+          class="markdownIt-Anchor"
+          href="#text-stylefont-size-25px欢迎来到我的博客text"
+        ></a>
+        <text class="home_content" style="font-size: 35px"><strong>欢迎来到我的博客</strong></text>
+      </h1>
+      <p class="cover_profile">Profile施工中...</p>
+      <p class="cover_contact">您可以在这里联系我👇</p>
     </div>
- <div class="post-entry__tags"></div>
+<div class="cover__link">
+  <!-- GitHub -->
+  <a class="cover__link__item" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Genkaim">
+    <svg
+      height="20"
+      width="20"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      version="1.1"
+      data-view-component="true"
+      class="octicon octicon-mark-github"
+      fill="currentColor"
+    >
+      <path
+        d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"
+      ></path>
+    </svg>
+    <span>GitHub</span>
+  </a>
 
-   
-     <!-- <p style="text-align: center;">博客评论数据迁移中，评论功能暂时下线</p>  -->
+  <!-- Email -->
+  <a class="cover__link__item" href="mailto:genkaim@outlook.com" rel="external nofollow noreferrer">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="20" 
+      height="20" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+    <span>genkaim@outlook.com</span>
+  </a>
+</div>
+  </div>
 
-  <div id="waline"></div>
-  <script type="module">
-    import { init } from "/js/waline.js";
-    init({
-      el: "#waline",
-      serverURL: "https://waline.genkaim.top",
-    });
-  </script>
+  
 
-</article>
+  <div class="cover_show">
 
+  </div>
+  <div class="cover_cover"></div>
+  <text class="tixing">向上滚动进入博客</text>
+</div>
 
+ 
+<main class="main links">
+    
+        <div class="post-title">
+            <h1 class="post-title__text">
+                友链
+            </h1>
+        </div>
+    
+    <div class="links-list content-card">
+        <div class='links-content'>
+            
+                <script>
+                    fetch('/link.json')
+                        .then(res => res.json())
+                        .then(links => {
+                            links.forEach(link => {
+                                let i;
+                                (i = document.createElement('a')).style = `background:${link.backgroundColor}; color:${link.textColor}`,
+                                i.className = 'links-card button',i.target = link.target || '_blank',i.href = link.url;
+                                const initial = String(link.name || '?').trim().charAt(0).toUpperCase();
+                                let temp =  `<div class='links-left'>`;
+                                if (link.avatar) {
+                                    temp += `<img no-lazy class='avatar' src="${link.avatar}" />`;
+                                } else {
+                                    temp += `<span class='avatar avatar-placeholder'></span>`;
+                                }                                  
+                                temp += `</div><div class='links-right'><p class="links-name">${link.name}</p><div class='links-tags-wrapper'>`
+                                if (link.desc) {
+                                    temp += `<p class="tags">${link.desc}</p>`
+                                } else if (link.tags) {
+                                    let ts = [];
+                                    (link.tags || []).forEach((tag) => {
+                                        ts.push(tag);
+                                    });
+                                    temp += `<p class="tags">${ts.join(' | ')}</p>`
+                                }
+                                temp += '</div></div>';
+                                i.innerHTML = temp;
+                                const ph = i.querySelector('.avatar-placeholder');
+                                if (ph) ph.textContent = initial;
+                                const img = i.querySelector('img.avatar');
+                                if (img) img.addEventListener('error', () => {
+                                    const span = document.createElement('span');
+                                    span.className = 'avatar avatar-placeholder';
+                                    span.textContent = initial;
+                                    img.replaceWith(span);
+                                }, { once: true });
+                                document.querySelectorAll('.links-content')[0].appendChild(i);
+                            });
+                        });
+                </script>
+            
+        </div>
+        <div class='links-apply'>
+            <br>
+            <p style="font-weight: bold;">您可以在这里申请添加友链👇</p>
+            <p>
+                您需要提供：<br>
+                - 网站名称：<br>
+                - 链接地址：<br>
+                - 头像链接（留空自动使用名称首字）：<br>
+                - 描述：
+            </p>
+        </div>
+        <div id="waline"></div>
+        <script type="module">
+            import { init } from "/js/waline.js";
+            init({
+                el: "#waline",
+                serverURL: "https://waline.genkaim.top",
+            });
+        </script>
+    </div>
 </main>
-  <footer class="footer">
+ <footer class="footer">
      
     <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
