@@ -142,7 +142,7 @@
 
   <!-- Pjax 过渡动画样式 -->
   <style>
-    body.pjax-transitioning > #app {
+    body.pjax-transitioning > #app > :not(header) {
       opacity: 0.3;
       transition: opacity 0.15s ease-out;
       will-change: opacity;
@@ -153,7 +153,8 @@
       to { opacity: 1; }
     }
 
-    .main {
+    .main,
+    body.is-home > #app > .cover {
       animation: main-fade-in 0.2s ease-out;
     }
 
@@ -162,14 +163,18 @@
       z-index: 1;
     }
 
-    /* 首页封面首帧即全屏，避免脚本执行后才拉伸 */
-    body:has(.post-list):not(:has(main.archives-page)) > #app > .cover {
+    /* 非首页封面默认隐藏，避免 PJAX 交换瞬间闪现；首页封面不受影响 */
+    body:not(.is-home) > #app > .cover {
+      display: none;
+    }
+
+    /* 首页封面首帧即全屏，避免脚本写入高度前的跳变；仅补高度，不动盒模型其余部分 */
+    body.is-home > #app > .cover {
       height: 100vh;
-      margin: 0;
     }
   </style>
   
-  <body>
+  <body class="">
     <!--
     <div id="loader">
       <div class="loader_show_cover"></div>
@@ -236,7 +241,8 @@
 
     </div>-->
 
-    <header class="header">
+    <div id="app" tabindex="-1" data-pjax-container>
+      <header class="header">
     <div class="header__left">
         <a href="/" class="button">
             <span class="logo__text">Genkaim的博客</span>
@@ -280,9 +286,8 @@
         
     </div>
 </header>
-
-    <div id="app" tabindex="-1" data-pjax-container>
-      <main class="main">
+ 
+ <main class="main">
     
 
 <div class="post-title">
@@ -631,8 +636,6 @@
 </footer>
 
     </div>
-    
-
 
     <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
 
@@ -1184,6 +1187,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** 是否首页 */
     window.__IS_HOME__ = pathname === "/";
+    /** 同步 body 类，供封面隐藏等样式规则使用 */
+    document.body.classList.toggle('is-home', window.__IS_HOME__);
     /** 是否文章页 */
     const isPostPage = document.querySelector('.post__content') || 
                        document.querySelector('.article') ||
