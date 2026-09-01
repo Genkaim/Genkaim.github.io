@@ -1381,6 +1381,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /** 系统返回/前进导致 PJAX 请求失败或页面从缓存恢复时，清理过渡状态 */
+  document.addEventListener('pjax:error', () => {
+    document.body.classList.remove('pjax-transitioning');
+  });
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      document.body.classList.remove('pjax-transitioning');
+    }
+  });
+
   /** =========================
    * 首次加载
    * ========================= */
