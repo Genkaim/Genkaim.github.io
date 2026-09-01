@@ -1354,14 +1354,27 @@ document.addEventListener('DOMContentLoaded', () => {
       cacheBust: false
     });
 
+    /** 过渡状态超时兑底：无论事件链是否完整，三秒后强制恢复 */
+    var transitionTimer = null;
+    var clearTransition = function() {
+      document.body.classList.remove('pjax-transitioning');
+      if (transitionTimer) {
+        clearTimeout(transitionTimer);
+        transitionTimer = null;
+      }
+    };
+    window.clearTransition = clearTransition;
+
     document.addEventListener('pjax:send', () => {
       requestAnimationFrame(() => {
         document.body.classList.add('pjax-transitioning');
       });
+      if (transitionTimer) clearTimeout(transitionTimer);
+      transitionTimer = setTimeout(clearTransition, 3000);
     });
 
     document.addEventListener('pjax:success', () => {
-      document.body.classList.remove('pjax-transitioning');
+      clearTransition();
 
       initPageScripts();
 
@@ -1381,7 +1394,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** 系统返回/前进导致 PJAX 请求失败或页面从缓存恢复时，清理过渡状态 */
   document.addEventListener('pjax:error', () => {
-    document.body.classList.remove('pjax-transitioning');
+    if (window.clearTransition) {
+      window.clearTransition();
+    } else {
+      document.body.classList.remove('pjax-transitioning');
+    }
   });
 
   window.addEventListener('pageshow', (event) => {
