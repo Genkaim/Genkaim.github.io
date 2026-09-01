@@ -1357,14 +1357,20 @@ span.archives-content {
   .archives-page .post-title__text {
     transform: translateY(-10px);
   }
-  /* 归档页标题左对齐到正文文字（年份）左缘，仅移动端 */
+  /* 归档页标题与主要内容与顶栏站名（6vw）左对齐，仅移动端 */
   .archives-page .post-title {
     text-align: left;
-    padding-left: 0 !important;
+    padding-left: 6vw !important;
   }
   .archives-page .post-title__text {
     justify-content: flex-start;
-    margin-left: 60.4px;
+    margin-left: 0;
+  }
+  .archives-page .archives {
+    margin-left: 6vw !important;
+    margin-right: 6vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 @media screen and (max-width: 768px) {

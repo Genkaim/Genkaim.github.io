@@ -1622,18 +1622,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('pjax:send', () => {
-      var headerEl = document.querySelector('.header');
-      if (headerEl) {
-        var ani = headerEl.animate([{opacity: 1}, {opacity: 0}], {duration: 400});
-        ani.onfinish = function() { headerEl.style.opacity = '0'; };
-      }
-
-      var mainEl = document.querySelector('.main');
-      if (mainEl) {
-        var mainAni = mainEl.animate([{opacity: 1}, {opacity: 0}], {duration: 300, easing: 'ease-out'});
-        mainAni.onfinish = function() { mainEl.style.opacity = '0'; };
-      }
-
       requestAnimationFrame(() => {
         document.getElementById('pjax-overlay')?.classList.add('active');
         document.body.classList.add('pjax-transitioning');
@@ -1641,19 +1629,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('pjax:success', () => {
-      var headerEl = document.querySelector('.header');
-      if (headerEl) {
-        headerEl.style.opacity = '';
-        headerEl.animate([{opacity: 0}, {opacity: 1}], {duration: 400});
-      }
+      document.body.classList.remove('pjax-transitioning');
 
-      requestAnimationFrame(() => {
-        document.body.classList.remove('pjax-transitioning');
-
-        setTimeout(() => {
-          document.getElementById('pjax-overlay')?.classList.remove('active');
-        }, 200);
-      });
+      setTimeout(() => {
+        document.getElementById('pjax-overlay')?.classList.remove('active');
+      }, 200);
 
       initPageScripts();
 
