@@ -178,6 +178,12 @@
       position: relative;
       z-index: 1;
     }
+
+    /* 首页封面首帧即全屏，避免脚本执行后才拉伸 */
+    body:has(.post-list):not(:has(main.archives-page)) > #app > .cover {
+      height: 100vh;
+      margin: 0;
+    }
   </style>
   
   <body>
