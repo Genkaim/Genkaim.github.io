@@ -908,8 +908,9 @@
         if (request.readyState === 4) {
           if (request.status === 200) {
             callback(request.responseText, request, location, options);
-          } else if (request.status !== 0) {
-            callback(null, request, location, options);
+          } else {
+            /* 状态为 0 表示请求被中止或网络异常，同样需回调以触发 pjax:complete */
+            callback(false, request, location, options);
           }
         }
       };
