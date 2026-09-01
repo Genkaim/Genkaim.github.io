@@ -1315,13 +1315,27 @@ span.archives-content {
   max-width: none;
   width: calc(100% / 2 - 16px);
   margin-top: 24px;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
 }
 .links .links-list .links-content .links-card:hover {
   background-color: rgba(99, 99, 99, 0.086);
   box-shadow: none !important;
 }
+.links .links-list .links-content .links-card .links-left {
+  flex-shrink: 0;
+  align-self: center;
+}
 .links .links-list .links-content .links-card .links-left .avatar {
-  margin: 16px 8px 4px 8px;
+  margin: 8px;
+}
+.links .links-list .links-content .links-card .links-right {
+  text-align: left;
+  margin: 4px 8px;
+}
+.links .links-list .links-content .links-card .links-right p {
+  text-align: left;
 }
 .links .links-list .links-content .links-card .links-left .avatar-placeholder {
   display: flex;
