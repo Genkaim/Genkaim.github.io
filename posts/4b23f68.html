@@ -142,28 +142,9 @@
 
   <!-- Pjax 过渡动画样式 -->
   <style>
-    #pjax-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.7);
-      z-index: 99999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease-out;
-      will-change: opacity;
-    }
-
-    #pjax-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
     body.pjax-transitioning > #app {
       opacity: 0.3;
-      transition: opacity 0.2s ease-out;
+      transition: opacity 0.15s ease-out;
       will-change: opacity;
     }
 
@@ -173,7 +154,7 @@
     }
 
     .main {
-      animation: main-fade-in 0.4s ease-out;
+      animation: main-fade-in 0.2s ease-out;
     }
 
     .cover {
@@ -248,9 +229,6 @@
       </div>
 
     </div>-->
-
-    <!-- Pjax 过渡动画蒙版 -->
-    <div id="pjax-overlay"></div>
 
     <div id="app" tabindex="-1" data-pjax-container>
       <header class="header">
@@ -1403,17 +1381,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('pjax:send', () => {
       requestAnimationFrame(() => {
-        document.getElementById('pjax-overlay')?.classList.add('active');
         document.body.classList.add('pjax-transitioning');
       });
     });
 
     document.addEventListener('pjax:success', () => {
       document.body.classList.remove('pjax-transitioning');
-
-      setTimeout(() => {
-        document.getElementById('pjax-overlay')?.classList.remove('active');
-      }, 200);
 
       initPageScripts();
 
