@@ -1665,6 +1665,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /** 点击右上角下拉菜单项后立即移除按钮焦点，弹窗随之即时关闭，
+   *  无需等待 PJAX 加载完成；委托在 document 上，顶栏被替换后依然有效 */
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.dropdown-menu')) {
+      const btn = document.getElementById('btn-dropdown');
+      if (btn) {
+        btn.blur();
+      }
+    }
+  });
+
   /** =========================
    * 首次加载
    * ========================= */

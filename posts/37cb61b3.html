@@ -37,7 +37,7 @@
 
 
 
-    <meta name="description" content="欢迎来到我的博客 0903 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载">
+    <meta name="description" content="欢迎来到我的博客 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说">
 
 
 
@@ -56,12 +56,12 @@
 
     <!-- OpenGraph -->
 
-    <meta name="description" content="欢迎来到我的博客 0903 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  素材声明    名称 来源     主题框架">
+    <meta name="description" content="欢迎来到我的博客 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  素材声明    名称 来源     主题框架 Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="👋Hello">
 <meta property="og:url" content="https://www.genkaim.top/posts/37cb61b3">
 <meta property="og:site_name" content="Genkaim的博客">
-<meta property="og:description" content="欢迎来到我的博客 0903 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  素材声明    名称 来源     主题框架">
+<meta property="og:description" content="欢迎来到我的博客 博客首席设计师：zczzzzz 本站重构基本完成，依然基于Hexo框架，使用了ChrAlpha大佬开发的Cards主题。 相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333  素材声明    名称 来源     主题框架 Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2077-03-09T16:00:00.000Z">
 <meta property="article:modified_time" content="2077-03-09T16:00:00.000Z">
@@ -468,7 +468,6 @@
     
   </div>
   <div class="post__content"><h1 id="text-stylefont-size-25px欢迎来到我的博客text"><a class="markdownIt-Anchor" href="#text-stylefont-size-25px欢迎来到我的博客text"></a> <text style="font-size: 25px;"><strong>欢迎来到我的博客</strong></text></h1>
-<p>0903</p>
 <p><big><strong>博客首席设计师</strong>：<strong>zczzzzz</strong></big></p>
 <p>本站重构基本完成，依然基于Hexo框架，使用了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/ChrAlpha">ChrAlpha</a>大佬开发的Cards主题。</p>
 <p>相比于花里胡哨的动效，我现在更喜欢简单一些（有点像老了）。上版博客的加载速度真的可以说是龟速。。。这版博客与原主题不同的地方基本都是我自写的，大部分资源都已经本地化，加载速度可以说有很大的提升2333</p>
@@ -1432,6 +1431,17 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
       document.body.classList.remove('pjax-transitioning');
+    }
+  });
+
+  /** 点击右上角下拉菜单项后立即移除按钮焦点，弹窗随之即时关闭，
+   *  无需等待 PJAX 加载完成；委托在 document 上，顶栏被替换后依然有效 */
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.dropdown-menu')) {
+      const btn = document.getElementById('btn-dropdown');
+      if (btn) {
+        btn.blur();
+      }
     }
   });
 
