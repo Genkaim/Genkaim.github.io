@@ -97,10 +97,12 @@
 
     </div>-->
 
+    <%- partial('_partial/source/header', null, {cache: false, path: path}) %>
     <div id="app" tabindex="-1" data-pjax-container>
-      <%- partial('_partial/source/cover') %> <%- body %> <%-
+      <%- body %> <%-
       partial('_partial/source/footer', null, {cache: !config.relative_link}) %>
     </div>
+    <%- partial('_partial/source/cover') %>
 
     <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
 
