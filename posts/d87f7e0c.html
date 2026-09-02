@@ -1423,10 +1423,33 @@ document.addEventListener('DOMContentLoaded', () => {
    * PJAX
    * ========================= */
   if (typeof Pjax !== 'undefined') {
+    /** 渐出时长，需与 .pjax-transitioning 的 transition 时长保持一致 */
+    var FADE_OUT_MS = 160;
+    /** 本次导航 pjax:send 的时刻，供自定义 switch 计算剩余渐出时间 */
+    var sendTime = 0;
+
     new Pjax({
       elements: "a:not([data-no-pjax])",
       selectors: ["title", "[data-pjax-container]"],
-      cacheBust: false
+      cacheBust: false,
+      switches: {
+        /** 自定义交换：等旧内容渐出完成后再替换 DOM。
+         *  默认 switch 在响应到达时（本地/缓存常 <40ms）立即替换，
+         *  会把 0.15s 的渐出截断到几乎不可见，表现为“从首页进入文章时渐出丢失”。 */
+        "[data-pjax-container]": function(oldEl, newEl, options) {
+          var self = this;
+          var swap = function() {
+            oldEl.outerHTML = newEl.outerHTML;
+            self.onSwitch();
+          };
+          var remain = FADE_OUT_MS - (performance.now() - sendTime);
+          if (remain > 0) {
+            setTimeout(swap, remain);
+          } else {
+            swap();
+          }
+        }
+      }
     });
 
     /** 过渡状态超时兑底：无论事件链是否完整，三秒后强制恢复 */
@@ -1440,16 +1463,23 @@ document.addEventListener('DOMContentLoaded', () => {
       var oldLeft = logoLastLeft;
       logoLastLeft = null;
       if (oldLeft === null) return;
-      var logo = document.querySelector('.header .logo__text');
-      if (!logo) return;
-      var dx = oldLeft - logo.getBoundingClientRect().left;
+      /* .logo__text 是 inline 的 <span>，transform 对其无效；
+       * 改为对可变换的 .header__left 容器施加 FLIP 平移 */
+      var box = document.querySelector('.header .header__left');
+      if (!box) return;
+      var dx = oldLeft - box.getBoundingClientRect().left;
       if (Math.abs(dx) < 1) return;
-      logo.style.transition = 'none';
-      logo.style.transform = 'translateX(' + dx + 'px)';
-      void logo.offsetWidth;
-      /* 恢复后由 .logo__text 既有的 transition: all 0.3s 接管回位动画 */
-      logo.style.transition = '';
-      logo.style.transform = '';
+      box.style.transition = 'none';
+      box.style.transform = 'translateX(' + dx + 'px)';
+      void box.offsetWidth;
+      /* 显式指定 transform 过渡，让新站名从旧位置平滑滑回新位置 */
+      box.style.transition = 'transform 0.3s ease';
+      box.style.transform = '';
+      var done = function() {
+        box.style.transition = '';
+        box.removeEventListener('transitionend', done);
+      };
+      box.addEventListener('transitionend', done);
     };
     var clearTransition = function() {
       document.body.classList.remove('pjax-transitioning');
@@ -1463,14 +1493,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.clearTransition = clearTransition;
 
     document.addEventListener('pjax:send', () => {
+      /** 记录本次导航起点，供自定义 switch 计算剩余渐出时间 */
+      sendTime = performance.now();
       /** 同步添加压暗类；若推迟到 rAF，缓存命中的快速响应会在回调执行前
        *  完成 success 清理，回调随后把类加回且再无事件可移除，页面永久压暗 */
       document.body.classList.add('pjax-transitioning');
       /** 切换页面时的归位滚动改为瞬时：原生平滑滚动速度不可调，
        *  慢速滚动动画会拖长页面切换感知；仅导航期间生效 */
       document.documentElement.style.scrollBehavior = 'auto';
-      var oldLogo = document.querySelector('.header .logo__text');
-      logoLastLeft = oldLogo ? oldLogo.getBoundingClientRect().left : null;
+      var oldBox = document.querySelector('.header .header__left');
+      logoLastLeft = oldBox ? oldBox.getBoundingClientRect().left : null;
       if (transitionTimer) clearTimeout(transitionTimer);
       transitionTimer = setTimeout(clearTransition, 3000);
     });
