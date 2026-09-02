@@ -155,7 +155,9 @@
 
     .main,
     body.is-home > #app > .cover {
-      animation: main-fade-in 0.2s ease-out;
+      animation: main-fade-in 0.35s ease-out;
+      /* 争取合成器驱动，避免移动端主线程阻塞吞掉动画帧；结束后由 JS 清除 */
+      will-change: opacity;
     }
 
     .cover {
@@ -1814,6 +1816,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** 过渡状态超时兑底：无论事件链是否完整，三秒后强制恢复 */
     var transitionTimer = null;
+    /** Waline 延迟初始化令牌：快速连续导航时仅最后一次生效 */
+    var walineInitToken = 0;
     var clearTransition = function() {
       document.body.classList.remove('pjax-transitioning');
       if (transitionTimer) {
@@ -1824,9 +1828,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.clearTransition = clearTransition;
 
     document.addEventListener('pjax:send', () => {
-      requestAnimationFrame(() => {
-        document.body.classList.add('pjax-transitioning');
-      });
+      /** 同步添加压暗类；若推迟到 rAF，缓存命中的快速响应会在回调执行前
+       *  完成 success 清理，回调随后把类加回且再无事件可移除，页面永久压暗 */
+      document.body.classList.add('pjax-transitioning');
       if (transitionTimer) clearTimeout(transitionTimer);
       transitionTimer = setTimeout(clearTransition, 3000);
     });
@@ -1836,17 +1840,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       initPageScripts();
 
-      /** Waline */
-      const walineContainer = document.querySelector('#waline');
-      if (walineContainer) {
-        walineContainer.innerHTML = '';
-        import('/js/waline.js').then(module => {
-          module.init({
-            el: '#waline',
-            serverURL: 'https://waline.genkaim.top',
+      /** Waline：推迟到渐入动画窗口之后，避免评论区初始化阻塞动画首帧后的主线程 */
+      const token = ++walineInitToken;
+      setTimeout(() => {
+        if (token !== walineInitToken) return;
+        const walineContainer = document.querySelector('#waline');
+        if (walineContainer) {
+          walineContainer.innerHTML = '';
+          import('/js/waline.js').then(module => {
+            module.init({
+              el: '#waline',
+              serverURL: 'https://waline.genkaim.top',
+            });
           });
-        });
-      }
+        }
+      }, 400);
     });
   }
 
@@ -1864,6 +1872,13 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('pjax-transitioning');
     }
   });
+
+  /** 渐入动画结束后释放合成层提升，避免长内容页长期占用显存 */
+  document.addEventListener('animationend', (event) => {
+    if (event.animationName === 'main-fade-in') {
+      event.target.style.willChange = 'auto';
+    }
+  }, true);
 
   /** 点击右上角下拉菜单项后立即移除按钮焦点，弹窗随之即时关闭，
    *  无需等待 PJAX 加载完成；委托在 document 上，顶栏被替换后依然有效 */
