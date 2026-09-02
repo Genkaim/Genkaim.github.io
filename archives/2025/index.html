@@ -1329,6 +1329,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     var clearTransition = function() {
       document.body.classList.remove('pjax-transitioning');
+      /** 恢复全局平滑滚动，供锚点跳转与返回顶部按钮使用 */
+      document.documentElement.style.scrollBehavior = '';
       if (transitionTimer) {
         clearTimeout(transitionTimer);
         transitionTimer = null;
@@ -1340,6 +1342,9 @@ document.addEventListener('DOMContentLoaded', () => {
       /** 同步添加压暗类；若推迟到 rAF，缓存命中的快速响应会在回调执行前
        *  完成 success 清理，回调随后把类加回且再无事件可移除，页面永久压暗 */
       document.body.classList.add('pjax-transitioning');
+      /** 切换页面时的归位滚动改为瞬时：原生平滑滚动速度不可调，
+       *  慢速滚动动画会拖长页面切换感知；仅导航期间生效 */
+      document.documentElement.style.scrollBehavior = 'auto';
       var oldLogo = document.querySelector('.header .logo__text');
       logoLastLeft = oldLogo ? oldLogo.getBoundingClientRect().left : null;
       if (transitionTimer) clearTimeout(transitionTimer);
@@ -1382,6 +1387,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
       document.body.classList.remove('pjax-transitioning');
+      document.documentElement.style.scrollBehavior = '';
     }
   });
 
