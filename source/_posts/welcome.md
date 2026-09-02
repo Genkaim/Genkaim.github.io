@@ -7,8 +7,6 @@ tags: 其他
 
 # <text style="font-size: 25px;">**欢迎来到我的博客**</text>
 
-0903
-
 <big>**博客首席设计师**：**zczzzzz**</big>
 
  本站重构基本完成，依然基于Hexo框架，使用了[ChrAlpha](https://github.com/ChrAlpha)大佬开发的Cards主题。
