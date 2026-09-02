@@ -137,6 +137,15 @@
       display: none;
     }
 
+    /* 导航发起即强制收起右上角弹窗与遮罩，不依赖移动端焦点行为 */
+    body.pjax-transitioning #dropdown-menus {
+      display: none !important;
+    }
+    body.pjax-transitioning .dropdown-backdrop {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
     /* 首页封面首帧即全屏，避免脚本写入高度前的跳变；仅补高度，不动盒模型其余部分 */
     body.is-home > #app > .cover {
       height: 100vh;
@@ -1413,6 +1422,24 @@ document.addEventListener('DOMContentLoaded', () => {
     var transitionTimer = null;
     /** Waline 延迟初始化令牌：快速连续导航时仅最后一次生效 */
     var walineInitToken = 0;
+    /** 站名 FLIP：顶栏随 PJAX 整体替换，CSS 过渡无法跨元素，
+     *  send 时记录旧位置，success 后由新元素反向播放位移 */
+    var logoLastLeft = null;
+    var playLogoFlip = function() {
+      var oldLeft = logoLastLeft;
+      logoLastLeft = null;
+      if (oldLeft === null) return;
+      var logo = document.querySelector('.header .logo__text');
+      if (!logo) return;
+      var dx = oldLeft - logo.getBoundingClientRect().left;
+      if (Math.abs(dx) < 1) return;
+      logo.style.transition = 'none';
+      logo.style.transform = 'translateX(' + dx + 'px)';
+      void logo.offsetWidth;
+      /* 恢复后由 .logo__text 既有的 transition: all 0.3s 接管回位动画 */
+      logo.style.transition = '';
+      logo.style.transform = '';
+    };
     var clearTransition = function() {
       document.body.classList.remove('pjax-transitioning');
       if (transitionTimer) {
@@ -1426,6 +1453,8 @@ document.addEventListener('DOMContentLoaded', () => {
       /** 同步添加压暗类；若推迟到 rAF，缓存命中的快速响应会在回调执行前
        *  完成 success 清理，回调随后把类加回且再无事件可移除，页面永久压暗 */
       document.body.classList.add('pjax-transitioning');
+      var oldLogo = document.querySelector('.header .logo__text');
+      logoLastLeft = oldLogo ? oldLogo.getBoundingClientRect().left : null;
       if (transitionTimer) clearTimeout(transitionTimer);
       transitionTimer = setTimeout(clearTransition, 3000);
     });
@@ -1434,6 +1463,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTransition();
 
       initPageScripts();
+      playLogoFlip();
 
       /** Waline：推迟到渐入动画窗口之后，避免评论区初始化阻塞动画首帧后的主线程 */
       const token = ++walineInitToken;
