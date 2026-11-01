@@ -587,21 +587,46 @@
         
         <div class="post_reward active">
             <p>打赏博主😘</p>
-                <div class="reward-container" >
-                    <div class="reward-left" style="margin-right: 2px;">
-                        <div class="reward-bottom" style="border-top-right-radius: 7px;border-bottom-right-radius: 7px;"
-                        onclick="window.open('https://space.bilibili.com/479907494', '_blank')" style="cursor: pointer;">
-                        bilibili发电⚡
-                        </div>
+                <div class="reward-container">
+                    <div class="reward-wechat" onclick="openWechatReward()" title="微信赞赏">
+                        微信赞赏
                     </div>
-                    <div class="reward-right" style="margin-left: 2px;">
-                        <div class="reward-bottom" style="border-top-left-radius: 7px;border-bottom-left-radius: 7px;"
-                        onclick="window.open('https://qr.alipay.com/fkx12959bsz9jopcduigw41', '_blank')" style="cursor: pointer;">
-                        Alipay (移动端)
-                        </div>
-                    </div> 
                 </div>
         </div>
+        <div class="wechat-reward-modal" id="wechat-reward-modal" aria-hidden="true">
+            <div class="wechat-reward-mask" onclick="closeWechatReward()"></div>
+            <div class="wechat-reward-box">
+                <img src="https://cdn.luogu.com.cn/upload/image_hosting/lk5s3h7d.webp" alt="微信赞赏码">
+                <button type="button" class="wechat-reward-close" aria-label="关闭" onclick="closeWechatReward()">&times;</button>
+            </div>
+        </div>
+        <script>
+            (function () {
+                function getModal() {
+                    return document.getElementById('wechat-reward-modal');
+                }
+                window.openWechatReward = function () {
+                    var modal = getModal();
+                    if (!modal) return;
+                    if (modal.parentNode !== document.body) {
+                        document.body.appendChild(modal);
+                    }
+                    modal.classList.add('show');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                };
+                window.closeWechatReward = function () {
+                    var modal = getModal();
+                    if (!modal) return;
+                    modal.classList.remove('show');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                };
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') window.closeWechatReward();
+                });
+            })();
+        </script>
 
     </div>
  <div class="post-entry__tags"></div>
